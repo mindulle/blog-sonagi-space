@@ -1,0 +1,163 @@
+---
+title: 'TypeScript로 타입 안전한 블로그 만들기'
+description: 'TypeScript의 강력한 타입 시스템을 활용하여 견고한 블로그 애플리케이션을 구축하는 방법을 배워봅니다.'
+date: '2025-10-22'
+category: 'development'
+tags: ['typescript', 'type-safety', 'best-practices']
+coverImage: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=1200&h=630&fit=crop'
+author: 'Sonagi Developer'
+---
+
+# TypeScript로 타입 안전한 블로그 만들기
+
+TypeScript는 JavaScript에 타입 시스템을 추가하여 개발 경험과 코드 품질을 크게 향상시킵니다. 블로그 프로젝트에 TypeScript를 적용하는 방법을 알아봅니다.
+
+## 왜 TypeScript인가?
+
+### 1. 타입 안정성
+
+컴파일 타임에 에러를 잡아냅니다:
+
+```typescript
+// ❌ JavaScript
+function getPost(id) {
+  return posts[id]; // id가 string일 수도, number일 수도...
+}
+
+// ✅ TypeScript
+function getPost(id: string): Post {
+  return posts[id]; // id는 항상 string!
+}
+```
+
+### 2. 자동 완성
+
+IDE가 제공하는 강력한 자동 완성 기능을 활용할 수 있습니다.
+
+### 3. 리팩토링 안전성
+
+타입 정의가 되어 있으면 리팩토링이 훨씬 안전합니다.
+
+## 블로그 타입 정의하기
+
+### Post 타입
+
+```typescript
+export type Category = 
+  | 'development'
+  | 'design'
+  | 'essay'
+  | 'project';
+
+export type Post = {
+  slug: string;
+  title: string;
+  description: string;
+  date: string;
+  category: Category;
+  tags: string[];
+  coverImage?: string;
+  readingTime: number;
+};
+```
+
+### 컴포넌트 Props 타입
+
+```typescript
+interface PostCardProps {
+  post: Post;
+  variant?: 'default' | 'compact' | 'featured';
+  showExcerpt?: boolean;
+  className?: string;
+}
+
+export function PostCard({
+  post,
+  variant = 'default',
+  showExcerpt = true,
+  className,
+}: PostCardProps) {
+  // 타입 안전하게 구현
+}
+```
+
+## 고급 타입 활용
+
+### Utility Types
+
+```typescript
+// Pick: 특정 속성만 선택
+type PostPreview = Pick<Post, 'slug' | 'title' | 'description'>;
+
+// Omit: 특정 속성 제외
+type PostWithoutContent = Omit<Post, 'content'>;
+
+// Partial: 모든 속성을 optional로
+type PartialPost = Partial<Post>;
+
+// Required: 모든 속성을 required로
+type RequiredPost = Required<Post>;
+```
+
+### Generic 타입
+
+```typescript
+type ApiResponse<T> = {
+  data: T;
+  error: string | null;
+  isLoading: boolean;
+};
+
+// 사용
+const postResponse: ApiResponse<Post> = {
+  data: post,
+  error: null,
+  isLoading: false,
+};
+```
+
+## 타입 가드
+
+```typescript
+function isPost(data: unknown): data is Post {
+  return (
+    typeof data === 'object' &&
+    data !== null &&
+    'slug' in data &&
+    'title' in data &&
+    'date' in data
+  );
+}
+
+// 사용
+if (isPost(data)) {
+  // data는 Post 타입으로 좁혀짐
+  console.log(data.title);
+}
+```
+
+## Best Practices
+
+1. **any 사용 금지**: 타입을 모르겠으면 `unknown` 사용
+2. **명시적 타입 정의**: 함수 반환 타입 명시
+3. **Strict Mode**: `tsconfig.json`에서 strict 활성화
+4. **타입 재사용**: 중복 타입 정의 피하기
+
+## Strict Mode 설정
+
+```json
+{
+  "compilerOptions": {
+    "strict": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
+  }
+}
+```
+
+## 마무리
+
+TypeScript를 활용하면 런타임 에러를 줄이고 개발 생산성을 높일 수 있습니다. 처음에는 타입 정의가 번거로울 수 있지만, 프로젝트가 커질수록 그 가치를 실감하게 됩니다!

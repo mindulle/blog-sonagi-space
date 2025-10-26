@@ -1,0 +1,222 @@
+---
+title: "디자인 시스템 구축 베스트 프랙티스"
+date: "2024-10-20"
+description: "확장 가능하고 유지보수하기 쉬운 디자인 시스템을 구축하기 위한 실전 가이드"
+category: "design"
+tags: ["design-system", "ui", "components", "scalability"]
+author: "Developer"
+featured: true
+---
+
+# 디자인 시스템 구축 베스트 프랙티스
+
+디자인 시스템은 단순히 UI 컴포넌트의 모음이 아닙니다. 디자인 원칙, 패턴, 그리고 가이드라인이 하나로 통합된 생태계입니다.
+
+## 1. 디자인 토큰으로 시작하기
+
+### 색상 토큰 정의
+
+디자인 토큰은 디자인 시스템의 기초입니다:
+
+```css
+:root {
+  /* Primary colors */
+  --color-primary-50: #E8F4F8;
+  --color-primary-500: #3DA8CC;
+  --color-primary-900: #19599C;
+  
+  /* Semantic colors */
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+}
+```
+
+### Spacing 시스템
+
+일관된 간격 시스템을 정의하세요:
+
+```css
+:root {
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+}
+```
+
+## 2. 컴포넌트 설계 원칙
+
+### 단일 책임 원칙
+
+각 컴포넌트는 하나의 명확한 목적을 가져야 합니다:
+
+```typescript
+// Good: 단일 책임
+function Button({ children, onClick, variant }) {
+  return (
+    <button onClick={onClick} className={variant}>
+      {children}
+    </button>
+  );
+}
+
+// Bad: 너무 많은 책임
+function SuperComponent({ data, onSubmit, onCancel, layout }) {
+  // 너무 많은 기능이 한 컴포넌트에...
+}
+```
+
+### Composition over Configuration
+
+복잡한 props 대신 컴포지션을 활용하세요:
+
+```typescript
+// Good: 컴포지션
+<Card>
+  <Card.Header>
+    <Card.Title>제목</Card.Title>
+  </Card.Header>
+  <Card.Body>내용</Card.Body>
+</Card>
+
+// Bad: 너무 많은 props
+<Card 
+  title="제목" 
+  body="내용" 
+  showFooter={true}
+  footerAlign="right"
+/>
+```
+
+## 3. 접근성 필수 체크리스트
+
+### 키보드 네비게이션
+
+모든 인터랙티브 요소는 키보드로 접근 가능해야 합니다:
+
+```typescript
+function Modal({ isOpen, onClose, children }) {
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    
+    if (isOpen) {
+      document.addEventListener('keydown', handleEscape);
+    }
+    
+    return () => document.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
+  
+  return (
+    <div role="dialog" aria-modal="true">
+      {children}
+    </div>
+  );
+}
+```
+
+### ARIA 레이블
+
+적절한 ARIA 속성을 사용하세요:
+
+```typescript
+<button
+  aria-label="닫기"
+  aria-pressed={isActive}
+  onClick={handleClick}
+>
+  <CloseIcon />
+</button>
+```
+
+## 4. 문서화 전략
+
+### Storybook 활용
+
+각 컴포넌트의 다양한 상태를 문서화하세요:
+
+```typescript
+export default {
+  title: 'Components/Button',
+  component: Button,
+};
+
+export const Primary = () => <Button variant="primary">Primary</Button>;
+export const Secondary = () => <Button variant="secondary">Secondary</Button>;
+export const Disabled = () => <Button disabled>Disabled</Button>;
+```
+
+### Props 문서화
+
+TypeScript로 props를 명확히 정의하세요:
+
+```typescript
+interface ButtonProps {
+  /** 버튼 텍스트 */
+  children: React.ReactNode;
+  /** 버튼 스타일 변형 */
+  variant?: 'primary' | 'secondary' | 'ghost';
+  /** 버튼 크기 */
+  size?: 'small' | 'medium' | 'large';
+  /** 비활성화 상태 */
+  disabled?: boolean;
+  /** 클릭 이벤트 핸들러 */
+  onClick?: () => void;
+}
+```
+
+## 5. 테스트 전략
+
+### 시각적 회귀 테스트
+
+Chromatic이나 Percy를 사용해 시각적 변경사항을 추적하세요.
+
+### 접근성 테스트
+
+jest-axe로 접근성 이슈를 자동으로 감지하세요:
+
+```typescript
+import { axe } from 'jest-axe';
+
+test('Button should not have accessibility violations', async () => {
+  const { container } = render(<Button>Click me</Button>);
+  const results = await axe(container);
+  expect(results).toHaveNoViolations();
+});
+```
+
+## 6. 버전 관리 및 배포
+
+### Semantic Versioning
+
+버전 관리를 명확히 하세요:
+
+- **Major**: 호환성이 깨지는 변경
+- **Minor**: 하위 호환되는 기능 추가
+- **Patch**: 버그 수정
+
+### Changeset 활용
+
+변경사항을 문서화하고 자동으로 버전을 관리하세요:
+
+```bash
+npx changeset add
+npx changeset version
+npx changeset publish
+```
+
+## 마무리
+
+디자인 시스템은 지속적으로 진화하는 살아있는 문서입니다. 팀과 함께 성장하고, 피드백을 받아들이며, 꾸준히 개선해나가세요.
+
+성공적인 디자인 시스템의 핵심은:
+1. 명확한 원칙
+2. 일관된 패턴
+3. 훌륭한 문서화
+4. 접근성 우선
+5. 지속적인 개선
+
+이러한 원칙들을 따르면, 팀 전체가 사랑하는 디자인 시스템을 만들 수 있습니다! 🎨

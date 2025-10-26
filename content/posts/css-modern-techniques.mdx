@@ -1,0 +1,274 @@
+---
+title: "2024년 CSS 최신 기법 가이드"
+date: "2024-10-15"
+description: "Container Queries, CSS Grid 2.0, 그리고 최신 CSS 기능들로 더 나은 레이아웃 만들기"
+category: "design"
+tags: ["css", "frontend", "layout", "modern-css"]
+author: "Developer"
+---
+
+# 2024년 CSS 최신 기법 가이드
+
+CSS는 매년 놀라운 속도로 진화하고 있습니다. 2024년 현재, 개발자들이 알아야 할 최신 CSS 기법들을 소개합니다.
+
+## 1. Container Queries
+
+미디어 쿼리의 진화형, 컨테이너 쿼리를 활용하면 컴포넌트 기반 반응형 디자인이 가능합니다.
+
+### 기본 사용법
+
+```css
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+@container card (min-width: 400px) {
+  .card {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+  }
+}
+
+@container card (max-width: 399px) {
+  .card {
+    display: flex;
+    flex-direction: column;
+  }
+}
+```
+
+### 실전 예제
+
+```css
+.sidebar {
+  container-type: inline-size;
+}
+
+/* 사이드바가 넓으면 두 컬럼 */
+@container (min-width: 800px) {
+  .widget-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 사이드바가 좁으면 한 컬럼 */
+@container (max-width: 799px) {
+  .widget-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+## 2. CSS Grid 고급 기법
+
+### Subgrid
+
+부모 그리드의 트랙을 자식이 상속받을 수 있습니다:
+
+```css
+.parent {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.child {
+  display: grid;
+  grid-template-columns: subgrid;
+  grid-column: span 3;
+}
+```
+
+### Grid Template Areas
+
+명시적인 레이아웃 정의:
+
+```css
+.layout {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "sidebar main aside"
+    "footer footer footer";
+  grid-template-columns: 200px 1fr 200px;
+  grid-template-rows: auto 1fr auto;
+  gap: 1rem;
+  min-height: 100vh;
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.main { grid-area: main; }
+.aside { grid-area: aside; }
+.footer { grid-area: footer; }
+```
+
+## 3. CSS 커스텀 속성의 활용
+
+### 다크 모드 구현
+
+```css
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #1a1a1a;
+  --accent: #3DA8CC;
+}
+
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --text-primary: #ffffff;
+  --accent: #5BC0DE;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+.button {
+  background: var(--accent);
+}
+```
+
+### 동적 스페이싱
+
+```css
+:root {
+  --space-unit: 8px;
+  --space-xs: calc(var(--space-unit) * 0.5);
+  --space-sm: var(--space-unit);
+  --space-md: calc(var(--space-unit) * 2);
+  --space-lg: calc(var(--space-unit) * 3);
+  --space-xl: calc(var(--space-unit) * 4);
+}
+
+.card {
+  padding: var(--space-md);
+  gap: var(--space-sm);
+}
+```
+
+## 4. 모던 선택자
+
+### :has() - 부모 선택자
+
+```css
+/* 이미지가 있는 카드 스타일링 */
+.card:has(img) {
+  grid-template-rows: 200px 1fr;
+}
+
+/* 체크박스가 체크된 경우 부모 스타일 변경 */
+.form-group:has(input:checked) {
+  background: var(--success-bg);
+}
+```
+
+### :is()와 :where()
+
+```css
+/* :is() - 명시도가 유지됨 */
+:is(h1, h2, h3) {
+  margin-top: 0;
+}
+
+/* :where() - 명시도가 0 */
+:where(.card, .panel) {
+  border: 1px solid var(--border-color);
+}
+```
+
+## 5. 애니메이션 최적화
+
+### View Transitions API
+
+페이지 전환 애니메이션을 쉽게 구현:
+
+```css
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.3s ease-out;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.3s ease-in;
+}
+```
+
+### Scroll-Driven Animations
+
+스크롤에 반응하는 애니메이션:
+
+```css
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: fade-in-up linear;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+```
+
+## 6. 실용적인 유틸리티
+
+### Aspect Ratio
+
+```css
+.video-container {
+  aspect-ratio: 16 / 9;
+}
+
+.square {
+  aspect-ratio: 1;
+}
+```
+
+### Clamp()로 반응형 타이포그래피
+
+```css
+h1 {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+p {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+}
+```
+
+### Logical Properties
+
+다국어 지원을 위한 논리적 속성:
+
+```css
+.card {
+  /* margin-left 대신 */
+  margin-inline-start: 1rem;
+  
+  /* padding-top 대신 */
+  padding-block-start: 2rem;
+}
+```
+
+## 마무리
+
+최신 CSS 기능들은 더 적은 코드로 더 강력한 레이아웃을 만들 수 있게 해줍니다. 
+
+브라우저 지원을 확인하고, 점진적 향상(Progressive Enhancement) 원칙에 따라 이러한 기능들을 프로젝트에 도입해보세요!
+
+참고 자료:
+- [Can I Use](https://caniuse.com/)
+- [MDN Web Docs](https://developer.mozilla.org/)
+- [CSS-Tricks](https://css-tricks.com/)

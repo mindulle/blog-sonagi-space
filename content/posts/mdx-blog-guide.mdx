@@ -1,0 +1,345 @@
+---
+title: 'MDX로 블로그 콘텐츠 관리하기'
+description: 'MDX를 활용하여 마크다운에 React 컴포넌트를 결합한 인터랙티브한 블로그를 만드는 방법을 알아봅니다.'
+date: '2025-10-22'
+category: 'development'
+tags: ['mdx', 'markdown', 'react', 'blog']
+coverImage: 'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=1200&h=630&fit=crop'
+author: 'Sonagi Developer'
+featured: true
+---
+
+# MDX로 블로그 콘텐츠 관리하기
+
+MDX는 마크다운에 JSX를 결합한 강력한 포맷입니다. 일반 마크다운의 간결함과 React 컴포넌트의 강력함을 모두 활용할 수 있습니다.
+
+## MDX란?
+
+**MDX = Markdown + JSX**
+
+일반 마크다운 문법에 React 컴포넌트를 직접 사용할 수 있습니다!
+
+```mdx
+# 제목
+
+일반 마크다운 텍스트입니다.
+
+<CustomButton onClick={() => alert('클릭!')}>
+  버튼 클릭
+</CustomButton>
+
+계속 마크다운...
+```
+
+## MDX의 장점
+
+### 1. 동적이고 인터랙티브한 콘텐츠
+
+정적인 마크다운을 넘어 실제로 동작하는 요소를 추가할 수 있습니다:
+
+- 📊 실시간 차트와 그래프
+- 🎮 인터랙티브 데모
+- 📱 반응형 컴포넌트
+- 🎨 커스텀 디자인
+
+### 2. 컴포넌트 재사용
+
+한 번 만든 컴포넌트를 모든 포스트에서 일관되게 사용:
+
+```typescript
+// components/Callout.tsx
+export function Callout({ type, children }) {
+  return (
+    <div className={`callout ${type}`}>
+      {children}
+    </div>
+  );
+}
+```
+
+### 3. 타입 안정성
+
+TypeScript와 함께 사용하면 컴파일 타임에 에러를 잡을 수 있습니다:
+
+```typescript
+interface CalloutProps {
+  type: 'info' | 'warning' | 'error';
+  children: React.ReactNode;
+}
+```
+
+## Next.js에서 MDX 설정하기
+
+### 1. 패키지 설치
+
+```bash
+npm install @next/mdx @mdx-js/react
+npm install gray-matter remark-gfm rehype-highlight
+```
+
+### 2. Next.js 설정
+
+```typescript
+// next.config.ts
+import createMDX from '@next/mdx';
+
+const withMDX = createMDX({
+  options: {
+    remarkPlugins: [remarkGfm],
+    rehypePlugins: [rehypeHighlight],
+  },
+});
+
+export default withMDX({
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+});
+```
+
+### 3. Frontmatter 구조
+
+```yaml
+---
+title: '포스트 제목'
+description: '포스트 설명'
+date: '2025-10-22'
+category: 'development'
+tags: ['mdx', 'react']
+coverImage: '/cover.jpg'
+author: 'Your Name'
+---
+```
+
+## MDX 파싱 로직
+
+### 파일 읽기
+
+```typescript
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+export async function getPostBySlug(slug: string) {
+  const fullPath = path.join(postsDirectory, `${slug}.mdx`);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
+  
+  return {
+    slug,
+    frontmatter: data,
+    content,
+  };
+}
+```
+
+### 모든 포스트 가져오기
+
+```typescript
+export async function getAllPosts() {
+  const fileNames = fs.readdirSync(postsDirectory);
+  
+  return fileNames
+    .filter((fileName) => fileName.endsWith('.mdx'))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.mdx$/, '');
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data } = matter(fileContents);
+      
+      return {
+        slug,
+        ...data,
+      };
+    })
+    .sort((a, b) => (a.date < b.date ? 1 : -1));
+}
+```
+
+## 코드 하이라이팅
+
+MDX에서 코드 블록은 자동으로 하이라이팅됩니다:
+
+```javascript
+// 피보나치 수열
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(10)); // 55
+```
+
+```python
+# Python 예제
+def fibonacci(n):
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(10))  # 55
+```
+
+## 커스텀 컴포넌트 예제
+
+### Alert 컴포넌트
+
+```tsx
+export function Alert({ type, children }) {
+  const styles = {
+    info: 'bg-blue-50 border-blue-200 text-blue-800',
+    warning: 'bg-yellow-50 border-yellow-200 text-yellow-800',
+    error: 'bg-red-50 border-red-200 text-red-800',
+  };
+  
+  return (
+    <div className={`p-4 border-l-4 ${styles[type]}`}>
+      {children}
+    </div>
+  );
+}
+```
+
+### 사용 예시
+
+MDX 파일에서 이렇게 사용:
+
+```mdx
+<Alert type="warning">
+  ⚠️ 주의: 이 작업은 되돌릴 수 없습니다!
+</Alert>
+
+<Alert type="info">
+  💡 팁: Cmd+K를 눌러 검색을 열 수 있습니다.
+</Alert>
+```
+
+## 이미지 최적화
+
+Next.js Image 컴포넌트를 MDX에서 직접 사용:
+
+```mdx
+import Image from 'next/image';
+
+<Image
+  src="/blog/hero.jpg"
+  alt="블로그 히어로 이미지"
+  width={1200}
+  height={630}
+  priority
+/>
+```
+
+## 성능 최적화
+
+### 1. Static Generation
+
+```typescript
+// app/blog/[slug]/page.tsx
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+```
+
+### 2. Incremental Static Regeneration
+
+```typescript
+export const revalidate = 3600; // 1시간마다 재생성
+```
+
+### 3. 코드 스플리팅
+
+무거운 컴포넌트는 동적으로 import:
+
+```typescript
+import dynamic from 'next/dynamic';
+
+const HeavyChart = dynamic(() => import('./HeavyChart'), {
+  loading: () => <p>Loading chart...</p>,
+  ssr: false,
+});
+```
+
+## 베스트 프랙티스
+
+### 1. Frontmatter 일관성
+
+모든 포스트에서 동일한 필드 사용:
+
+```typescript
+type PostFrontmatter = {
+  title: string;
+  description: string;
+  date: string;
+  category: string;
+  tags: string[];
+  coverImage?: string;
+  author?: string;
+};
+```
+
+### 2. 컴포넌트 문서화
+
+각 커스텀 컴포넌트에 JSDoc 주석:
+
+```typescript
+/**
+ * Alert 컴포넌트
+ * 
+ * @param type - 알림 타입 (info, warning, error)
+ * @param children - 알림 내용
+ */
+export function Alert({ type, children }: AlertProps) {
+  // ...
+}
+```
+
+### 3. 접근성 고려
+
+```tsx
+<button
+  onClick={handleClick}
+  aria-label="메뉴 열기"
+>
+  <MenuIcon />
+</button>
+```
+
+## 고급 기능
+
+### 목차 자동 생성
+
+```typescript
+export function extractHeadings(content: string) {
+  const headingRegex = /^(#{1,6})\s+(.+)$/gm;
+  const headings = [];
+  let match;
+  
+  while ((match = headingRegex.exec(content)) !== null) {
+    headings.push({
+      level: match[1].length,
+      text: match[2],
+      id: slugify(match[2]),
+    });
+  }
+  
+  return headings;
+}
+```
+
+### 읽기 시간 계산
+
+```typescript
+export function calculateReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const words = content.trim().split(/\s+/).length;
+  return Math.ceil(words / wordsPerMinute);
+}
+```
+
+## 마무리
+
+MDX는 블로그 콘텐츠를 한 단계 업그레이드할 수 있는 강력한 도구입니다. 마크다운의 간결함과 React의 강력함을 모두 누리세요!
+
+**다음 포스트 예고:** 소나기 디자인 시스템으로 아름다운 블로그 만들기

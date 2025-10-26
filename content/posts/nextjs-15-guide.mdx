@@ -1,0 +1,196 @@
+---
+title: 'Next.js 15로 시작하는 모던 웹 개발'
+description: 'Next.js 15의 새로운 기능들과 App Router를 활용한 블로그 구축 방법을 알아봅니다.'
+date: '2025-10-24'
+category: 'development'
+tags: ['nextjs', 'react', 'typescript', 'app-router']
+coverImage: 'https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=1200&h=630&fit=crop'
+author: 'Sonagi Developer'
+featured: true
+---
+
+# Next.js 15로 시작하는 모던 웹 개발
+
+Next.js 15가 출시되면서 웹 개발의 새로운 장이 열렸습니다. 이번 포스트에서는 Next.js 15의 핵심 기능들과 App Router를 활용한 블로그 구축 방법을 살펴보겠습니다.
+
+## Next.js 15의 주요 변화
+
+### 1. 향상된 App Router
+
+App Router는 이제 더욱 안정적이고 강력해졌습니다. Server Components를 기본으로 하여 더 나은 성능을 제공합니다.
+
+```typescript
+// app/page.tsx
+export default async function Page() {
+  const data = await fetchData(); // 서버에서 실행
+  return <div>{data}</div>;
+}
+```
+
+### 2. 개선된 이미지 최적화
+
+Next.js Image 컴포넌트가 더욱 최적화되어 웹 성능이 크게 향상되었습니다.
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src="/hero.jpg"
+  alt="Hero Image"
+  width={1200}
+  height={630}
+  priority
+/>
+```
+
+### 3. Turbopack의 안정화
+
+개발 서버 시작 속도가 크게 개선되었습니다.
+
+## Server Component vs Client Component
+
+Next.js 15에서 가장 중요한 개념은 Server Component와 Client Component의 구분입니다.
+
+### Server Component (기본)
+
+```typescript
+// app/blog/page.tsx - Server Component
+import { getAllPosts } from '@/lib/mdx';
+
+export default async function BlogPage() {
+  const posts = await getAllPosts(); // 서버에서 실행
+  return <PostList posts={posts} />;
+}
+```
+
+**장점:**
+- 서버에서 데이터 페칭
+- 번들 크기 감소
+- SEO 친화적
+- 초기 로딩 속도 향상
+
+### Client Component
+
+```typescript
+// components/SearchBar.tsx - Client Component
+'use client';
+
+import { useState } from 'react';
+
+export function SearchBar() {
+  const [query, setQuery] = useState('');
+  return <input value={query} onChange={(e) => setQuery(e.target.value)} />;
+}
+```
+
+**언제 사용:**
+- 상태 관리 (useState, useReducer)
+- 이벤트 핸들러
+- 브라우저 API 사용
+- Custom Hooks 사용
+
+## 실전 예제: 블로그 구축
+
+### 1. 프로젝트 구조
+
+```
+app/
+├── blog/
+│   ├── page.tsx          # 블로그 목록
+│   └── [slug]/
+│       └── page.tsx      # 블로그 상세
+├── layout.tsx            # Root Layout
+└── page.tsx              # 홈페이지
+
+content/
+└── posts/
+    ├── post-1.mdx
+    └── post-2.mdx
+
+lib/
+└── mdx.ts               # MDX 파싱 로직
+```
+
+### 2. MDX 파싱
+
+```typescript
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+
+export async function getAllPosts() {
+  const postsDirectory = path.join(process.cwd(), 'content/posts');
+  const fileNames = fs.readdirSync(postsDirectory);
+  
+  return fileNames
+    .filter((fileName) => fileName.endsWith('.mdx'))
+    .map((fileName) => {
+      const slug = fileName.replace(/\.mdx$/, '');
+      const fullPath = path.join(postsDirectory, fileName);
+      const fileContents = fs.readFileSync(fullPath, 'utf8');
+      const { data } = matter(fileContents);
+      
+      return {
+        slug,
+        ...data,
+      };
+    });
+}
+```
+
+### 3. 동적 라우팅
+
+```typescript
+// app/blog/[slug]/page.tsx
+export async function generateStaticParams() {
+  const posts = await getAllPosts();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export default async function PostPage({ params }) {
+  const post = await getPostBySlug(params.slug);
+  return <article>{/* 포스트 렌더링 */}</article>;
+}
+```
+
+## 성능 최적화 팁
+
+### 1. 이미지 최적화
+
+```tsx
+import Image from 'next/image';
+
+<Image
+  src={post.coverImage}
+  alt={post.title}
+  width={1200}
+  height={630}
+  placeholder="blur"
+  blurDataURL={post.blurDataURL}
+/>
+```
+
+### 2. 폰트 최적화
+
+```typescript
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+});
+```
+
+### 3. Static Generation
+
+```typescript
+export const revalidate = 3600; // ISR: 1시간마다 재생성
+```
+
+## 마무리
+
+Next.js 15는 웹 개발의 미래입니다. Server Components, 향상된 성능, 개선된 DX까지, 이제 Next.js로 더 나은 웹을 만들어보세요!
+
+**다음 포스트 예고:** MDX를 활용한 인터랙티브 블로그 콘텐츠 만들기

@@ -1,0 +1,367 @@
+---
+title: "React 성능 최적화 완벽 가이드"
+date: "2024-10-05"
+description: "실전에서 바로 적용 가능한 React 성능 최적화 기법과 패턴"
+category: "development"
+tags: ["react", "performance", "optimization", "frontend"]
+author: "Developer"
+featured: true
+---
+
+# React 성능 최적화 완벽 가이드
+
+React 앱이 느려지는 이유와 해결 방법을 알아봅시다.
+
+## 1. 불필요한 리렌더링 방지
+
+### React.memo 활용
+
+컴포넌트가 같은 props로 불필요하게 리렌더링되는 것을 방지:
+
+```typescript
+// Before - 부모가 리렌더링되면 항상 리렌더링
+function ExpensiveComponent({ value }) {
+  console.log('Rendered!');
+  return <div>{value}</div>;
+}
+
+// After - props가 변경될 때만 리렌더링
+const ExpensiveComponent = React.memo(({ value }) => {
+  console.log('Rendered!');
+  return <div>{value}</div>;
+});
+```
+
+### useMemo로 비싼 계산 메모이제이션
+
+```typescript
+function DataTable({ data, filters }) {
+  // 매번 재계산 ❌
+  const filteredData = data.filter(item => 
+    filters.every(f => f(item))
+  );
+  
+  // 의존성이 변경될 때만 재계산 ✅
+  const filteredData = useMemo(() => 
+    data.filter(item => filters.every(f => f(item))),
+    [data, filters]
+  );
+  
+  return <Table data={filteredData} />;
+}
+```
+
+### useCallback으로 함수 메모이제이션
+
+```typescript
+function SearchForm() {
+  const [query, setQuery] = useState('');
+  
+  // 매번 새로운 함수 생성 ❌
+  const handleSearch = (value) => {
+    setQuery(value);
+  };
+  
+  // 함수 메모이제이션 ✅
+  const handleSearch = useCallback((value) => {
+    setQuery(value);
+  }, []);
+  
+  return <SearchInput onSearch={handleSearch} />;
+}
+```
+
+## 2. 리스트 렌더링 최적화
+
+### key 제대로 사용하기
+
+```typescript
+// 나쁨 - index를 key로 사용 ❌
+{items.map((item, index) => (
+  <Item key={index} data={item} />
+))}
+
+// 좋음 - 고유한 ID 사용 ✅
+{items.map((item) => (
+  <Item key={item.id} data={item} />
+))}
+```
+
+### 가상 스크롤링
+
+수천 개의 아이템을 렌더링할 때는 가상 스크롤링 사용:
+
+```typescript
+import { FixedSizeList } from 'react-window';
+
+function VirtualList({ items }) {
+  const Row = ({ index, style }) => (
+    <div style={style}>
+      {items[index].name}
+    </div>
+  );
+  
+  return (
+    <FixedSizeList
+      height={600}
+      itemCount={items.length}
+      itemSize={50}
+      width="100%"
+    >
+      {Row}
+    </FixedSizeList>
+  );
+}
+```
+
+## 3. 코드 스플리팅
+
+### 동적 import로 번들 크기 줄이기
+
+```typescript
+// Before - 모든 컴포넌트를 한 번에 로드
+import HeavyComponent from './HeavyComponent';
+
+// After - 필요할 때만 로드
+const HeavyComponent = lazy(() => import('./HeavyComponent'));
+
+function App() {
+  return (
+    <Suspense fallback={<Loader />}>
+      <HeavyComponent />
+    </Suspense>
+  );
+}
+```
+
+### 라우트 기반 코드 스플리팅
+
+```typescript
+const Home = lazy(() => import('./pages/Home'));
+const About = lazy(() => import('./pages/About'));
+const Dashboard = lazy(() => import('./pages/Dashboard'));
+
+function App() {
+  return (
+    <Router>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </Suspense>
+    </Router>
+  );
+}
+```
+
+## 4. 이미지 최적화
+
+### Next.js Image 컴포넌트 활용
+
+```typescript
+import Image from 'next/image';
+
+function ProductCard({ product }) {
+  return (
+    <div>
+      <Image
+        src={product.image}
+        alt={product.name}
+        width={400}
+        height={300}
+        placeholder="blur"
+        loading="lazy"
+        sizes="(max-width: 768px) 100vw, 400px"
+      />
+    </div>
+  );
+}
+```
+
+## 5. 상태 관리 최적화
+
+### Context API 분리
+
+```typescript
+// 나쁨 - 하나의 거대한 Context ❌
+const AppContext = createContext({
+  user, setUser,
+  theme, setTheme,
+  notifications, setNotifications,
+  // ... 더 많은 상태
+});
+
+// 좋음 - 관심사별로 분리 ✅
+const UserContext = createContext({ user, setUser });
+const ThemeContext = createContext({ theme, setTheme });
+const NotificationsContext = createContext({ 
+  notifications, 
+  setNotifications 
+});
+```
+
+### 상태 업데이트 최적화
+
+```typescript
+// 나쁨 - 여러 번 상태 업데이트 ❌
+function handleSubmit(formData) {
+  setLoading(true);
+  setError(null);
+  setSuccess(false);
+}
+
+// 좋음 - 한 번에 상태 업데이트 ✅
+function handleSubmit(formData) {
+  setFormState({
+    loading: true,
+    error: null,
+    success: false
+  });
+}
+```
+
+## 6. 디바운싱과 쓰로틀링
+
+### 검색 입력 디바운싱
+
+```typescript
+import { useDebouncedCallback } from 'use-debounce';
+
+function SearchInput() {
+  const [query, setQuery] = useState('');
+  
+  const handleSearch = useDebouncedCallback(
+    async (value) => {
+      const results = await searchAPI(value);
+      setResults(results);
+    },
+    500 // 500ms 대기
+  );
+  
+  return (
+    <input
+      value={query}
+      onChange={(e) => {
+        setQuery(e.target.value);
+        handleSearch(e.target.value);
+      }}
+    />
+  );
+}
+```
+
+### 스크롤 이벤트 쓰로틀링
+
+```typescript
+import { useThrottledCallback } from 'use-debounce';
+
+function InfiniteScroll() {
+  const handleScroll = useThrottledCallback(
+    () => {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        loadMore();
+      }
+    },
+    200 // 200ms마다 최대 1회 실행
+  );
+  
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+  
+  return <div>{/* content */}</div>;
+}
+```
+
+## 7. Web Vitals 모니터링
+
+### Core Web Vitals 측정
+
+```typescript
+import { useReportWebVitals } from 'next/web-vitals';
+
+export function reportWebVitals(metric) {
+  // LCP, FID, CLS 등 측정
+  console.log(metric);
+  
+  // Analytics로 전송
+  if (metric.label === 'web-vital') {
+    gtag('event', metric.name, {
+      value: Math.round(metric.value),
+      event_label: metric.id,
+    });
+  }
+}
+```
+
+## 8. 개발자 도구 활용
+
+### React DevTools Profiler
+
+1. React DevTools 설치
+2. Profiler 탭 열기
+3. 녹화 시작
+4. 상호작용 수행
+5. 녹화 중지
+6. 렌더링 시간 분석
+
+### 성능 병목 지점 찾기
+
+```typescript
+// Performance API 활용
+console.time('expensive-operation');
+expensiveOperation();
+console.timeEnd('expensive-operation');
+
+// 또는 Performance 측정
+performance.mark('start-operation');
+expensiveOperation();
+performance.mark('end-operation');
+performance.measure(
+  'operation-duration',
+  'start-operation',
+  'end-operation'
+);
+```
+
+## 실전 체크리스트
+
+### 렌더링 최적화
+- [ ] React.memo 적용
+- [ ] useMemo로 비싼 계산 메모이제이션
+- [ ] useCallback으로 함수 메모이제이션
+- [ ] 리스트에 올바른 key 사용
+
+### 번들 최적화
+- [ ] 코드 스플리팅 적용
+- [ ] 동적 import 사용
+- [ ] Tree shaking 확인
+- [ ] 번들 사이즈 분석
+
+### 네트워크 최적화
+- [ ] 이미지 최적화
+- [ ] lazy loading 적용
+- [ ] CDN 사용
+- [ ] 캐싱 전략 수립
+
+### 상태 관리
+- [ ] Context 분리
+- [ ] 불필요한 전역 상태 제거
+- [ ] 상태 업데이트 최적화
+
+## 마무리
+
+성능 최적화는 **측정**에서 시작됩니다.
+
+1. **측정**: 문제 파악
+2. **분석**: 원인 찾기
+3. **최적화**: 해결책 적용
+4. **검증**: 개선 확인
+
+"조기 최적화는 모든 악의 근원"이라는 말을 기억하세요. 
+실제 성능 문제가 있을 때 최적화하는 것이 중요합니다.
+
+하지만 위의 베스트 프랙티스들은 처음부터 적용해도 좋습니다! 🚀

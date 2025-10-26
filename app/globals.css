@@ -1,0 +1,365 @@
+@import "tailwindcss";
+
+/* 소나기 디자인 시스템 색상 정의 */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  
+  /* Primary (청량한 블루) */
+  --color-primary-50: #E8F4F8;
+  --color-primary-100: #C5E4EF;
+  --color-primary-200: #9ED3E5;
+  --color-primary-300: #77C2DB;
+  --color-primary-400: #5AB5D4;
+  --color-primary-500: #3DA8CC;
+  --color-primary-600: #379AC3;
+  --color-primary-700: #2F89B8;
+  --color-primary-800: #2778AE;
+  --color-primary-900: #19599C;
+  
+  /* Neutral (그레이스케일) */
+  --color-neutral-50: #F9FAFB;
+  --color-neutral-100: #F3F4F6;
+  --color-neutral-200: #E5E7EB;
+  --color-neutral-300: #D1D5DB;
+  --color-neutral-400: #9CA3AF;
+  --color-neutral-500: #6B7280;
+  --color-neutral-600: #4B5563;
+  --color-neutral-700: #374151;
+  --color-neutral-800: #1F2937;
+  --color-neutral-900: #111827;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Primary Colors */
+  --color-primary-50: var(--color-primary-50);
+  --color-primary-100: var(--color-primary-100);
+  --color-primary-200: var(--color-primary-200);
+  --color-primary-300: var(--color-primary-300);
+  --color-primary-400: var(--color-primary-400);
+  --color-primary-500: var(--color-primary-500);
+  --color-primary-600: var(--color-primary-600);
+  --color-primary-700: var(--color-primary-700);
+  --color-primary-800: var(--color-primary-800);
+  --color-primary-900: var(--color-primary-900);
+  
+  /* Neutral Colors */
+  --color-neutral-50: var(--color-neutral-50);
+  --color-neutral-100: var(--color-neutral-100);
+  --color-neutral-200: var(--color-neutral-200);
+  --color-neutral-300: var(--color-neutral-300);
+  --color-neutral-400: var(--color-neutral-400);
+  --color-neutral-500: var(--color-neutral-500);
+  --color-neutral-600: var(--color-neutral-600);
+  --color-neutral-700: var(--color-neutral-700);
+  --color-neutral-800: var(--color-neutral-800);
+  --color-neutral-900: var(--color-neutral-900);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* 다크 모드 토글을 위한 클래스 */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* Prose (MDX 콘텐츠) 스타일링 */
+.prose {
+  max-width: 65ch;
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: var(--color-neutral-800);
+}
+
+.prose > * + * {
+  margin-top: 1.25em;
+}
+
+.prose p {
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose a {
+  color: var(--color-primary-600);
+  text-decoration: underline;
+  text-decoration-color: var(--color-primary-200);
+  text-underline-offset: 2px;
+  transition: all 0.2s;
+  font-weight: 500;
+}
+
+.prose a:hover {
+  color: var(--color-primary-700);
+  text-decoration-color: var(--color-primary-400);
+}
+
+.prose strong {
+  font-weight: 600;
+  color: var(--color-neutral-900);
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose code {
+  background: var(--color-neutral-100);
+  color: var(--color-primary-700);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+  font-weight: 500;
+  font-family: var(--font-mono);
+}
+
+.prose pre {
+  background: var(--color-neutral-900);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  line-height: 1.7;
+}
+
+.prose pre code {
+  background: transparent;
+  padding: 0;
+  color: var(--color-neutral-100);
+  font-size: 0.875em;
+  font-weight: 400;
+}
+
+.prose blockquote {
+  border-left: 4px solid var(--color-primary-500);
+  padding-left: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-style: italic;
+  color: var(--color-neutral-600);
+  background: var(--color-neutral-50);
+  margin: 2em 0;
+  border-radius: 0.25rem;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+  margin-top: 1.25em;
+  margin-bottom: 1.25em;
+}
+
+.prose ul {
+  list-style-type: disc;
+}
+
+.prose ol {
+  list-style-type: decimal;
+}
+
+.prose li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+}
+
+.prose li > p {
+  margin-top: 0.75em;
+  margin-bottom: 0.75em;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  width: 100%;
+  height: auto;
+}
+
+.prose figure {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose figcaption {
+  text-align: center;
+  font-size: 0.875em;
+  color: var(--color-neutral-600);
+  margin-top: 0.75em;
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin-top: 2em;
+  margin-bottom: 1em;
+  color: var(--color-neutral-900);
+  scroll-margin-top: 5rem;
+}
+
+.prose h1 {
+  font-size: 2.25em;
+  margin-top: 0;
+  letter-spacing: -0.025em;
+}
+
+.prose h2 {
+  font-size: 1.875em;
+  letter-spacing: -0.025em;
+}
+
+.prose h3 {
+  font-size: 1.5em;
+}
+
+.prose h4 {
+  font-size: 1.25em;
+}
+
+.prose h5 {
+  font-size: 1.125em;
+}
+
+.prose h6 {
+  font-size: 1em;
+}
+
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--color-neutral-200);
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.prose thead {
+  border-bottom: 2px solid var(--color-neutral-300);
+}
+
+.prose th {
+  padding: 0.75rem;
+  text-align: left;
+  font-weight: 600;
+  color: var(--color-neutral-900);
+}
+
+.prose td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+/* 다크 모드 Prose 스타일 */
+.dark .prose {
+  color: var(--color-neutral-200);
+}
+
+.dark .prose a {
+  color: var(--color-primary-400);
+  text-decoration-color: var(--color-primary-800);
+}
+
+.dark .prose a:hover {
+  color: var(--color-primary-300);
+  text-decoration-color: var(--color-primary-600);
+}
+
+.dark .prose strong {
+  color: var(--color-neutral-100);
+}
+
+.dark .prose code {
+  background: var(--color-neutral-800);
+  color: var(--color-primary-400);
+}
+
+.dark .prose pre {
+  background: var(--color-neutral-900);
+}
+
+.dark .prose blockquote {
+  border-left-color: var(--color-primary-500);
+  color: var(--color-neutral-400);
+  background: var(--color-neutral-900);
+}
+
+.dark .prose h1,
+.dark .prose h2,
+.dark .prose h3,
+.dark .prose h4,
+.dark .prose h5,
+.dark .prose h6 {
+  color: var(--color-neutral-100);
+}
+
+.dark .prose hr {
+  border-top-color: var(--color-neutral-800);
+}
+
+.dark .prose th {
+  color: var(--color-neutral-100);
+}
+
+.dark .prose thead {
+  border-bottom-color: var(--color-neutral-700);
+}
+
+.dark .prose td {
+  border-bottom-color: var(--color-neutral-800);
+}
+
+.dark .prose figcaption {
+  color: var(--color-neutral-400);
+}
+
+/* 코드 하이라이팅 (highlight.js) */
+.hljs {
+  background: var(--color-neutral-900) !important;
+  color: var(--color-neutral-100);
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+/* Line clamp 유틸리티 */
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
