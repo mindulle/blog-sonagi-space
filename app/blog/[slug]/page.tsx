@@ -1,30 +1,27 @@
 import { notFound } from 'next/navigation';
-import { getAllPosts, getPostBySlug, getRelatedPosts } from '@/lib/mdx';
-import { Container } from '@/components/ui/Container';
+import type { Metadata } from 'next/data';
+import { getAllPosts, getPostBySlug } from '@/lib/mdx';
+import { extractHeadings } from '@/lib/headings';
 import { PostHeader } from '@/components/blog/PostHeader';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
-import { Badge } from '@/components/ui/Badge';
-import { MDXRemote } from 'next-mdx-remote/rsc';
-import type { Metadata } from 'next';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
+import { TableOfContents } from '@/components/blog/TableOfContents';
+import { ReadingProgress } from '@/components/blog/ReadingProgress';
+import { Container } from '@/components/ui/Container';
 
-// Static Params 생성
+type Props = {
+  params: { slug: string };
+};
+
 export async function generateStaticParams() {
-  const posts = await getAllPosts();
+  const posts = getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
 }
 
-// Metadata 생성
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const post = await getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     return {
@@ -32,98 +29,83 @@ export async function generateMetadata({
     };
   }
 
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const postUrl = `${siteUrl}/blog/${post.slug}`;
-
   return {
     title: post.title,
     description: post.description,
-    authors: [{ name: post.author || 'Anonymous' }],
+    authors: post.author ? [{ name: post.author }] : undefined,
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author || 'Anonymous'],
-      images: post.coverImage ? [{ url: post.coverImage }] : [],
-      url: postUrl,
+      images: post.coverImage
+        ? [
+            {
+              url: post.coverImage,
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : undefined,
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: post.coverImage ? [post.coverImage] : [],
+      images: post.coverImage ? [post.coverImage] : undefined,
     },
   };
 }
 
-export default async function PostPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const post = await getPostBySlug(params.slug);
+export default function BlogPostPage({ params }: Props) {
+  const post = getPostBySlug(params.slug);
 
   if (!post) {
     notFound();
   }
 
-  // 관련 포스트 가져오기
-  const relatedPosts = await getRelatedPosts(params.slug, 3);
-
-  // 포스트 URL (공유 기능용)
+  const allPosts = getAllPosts();
+  const headings = extractHeadings(post.content);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const postUrl = `${siteUrl}/blog/${post.slug}`;
 
   return (
-    <article className="py-12">
-      <Container maxWidth="lg">
-        {/* 포스트 헤더 */}
-        <PostHeader post={post} showCoverImage={true} />
+    <>
+      <ReadingProgress />
+      
+      <article className="py-12">
+        <Container>
+          <div className="max-w-4xl mx-auto">
+            <PostHeader post={post} />
 
-        {/* 구분선 */}
-        <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
-
-        {/* 포스트 내용 */}
-        <div className="prose prose-lg prose-neutral mx-auto dark:prose-invert">
-          <MDXRemote
-            source={post.content}
-            options={{
-              mdxOptions: {
-                remarkPlugins: [remarkGfm],
-                rehypePlugins: [rehypeHighlight],
-              },
-            }}
-          />
-        </div>
-
-        {/* 하단 메타 섹션 */}
-        <div className="mt-12 space-y-6 border-t border-neutral-200 pt-8 dark:border-neutral-800">
-          {/* 태그 */}
-          {post.tags && post.tags.length > 0 && (
-            <div>
-              <h3 className="mb-3 text-sm font-semibold text-neutral-900 dark:text-neutral-100">
-                태그
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {post.tags.map((tag) => (
-                  <Badge key={tag} variant="default">
-                    #{tag}
-                  </Badge>
-                ))}
+            <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
+              {/* Main Content */}
+              <div className="prose prose-neutral dark:prose-invert max-w-none">
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
               </div>
+
+              {/* Sidebar - Table of Contents */}
+              <aside className="hidden lg:block">
+                <TableOfContents headings={headings} />
+              </aside>
             </div>
-          )}
 
-          {/* 공유 버튼 */}
-          <div>
-            <ShareButtons title={post.title} url={postUrl} />
+            {/* Share Buttons */}
+            <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
+                Share this post
+              </h3>
+              <ShareButtons title={post.title} url={postUrl} />
+            </div>
+
+            {/* Related Posts */}
+            <div className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+              <RelatedPosts currentPost={post} allPosts={allPosts} />
+            </div>
           </div>
-        </div>
-
-        {/* 관련 포스트 */}
-        <RelatedPosts posts={relatedPosts} />
-      </Container>
-    </article>
+        </Container>
+      </article>
+    </>
   );
 }

@@ -6,4 +6,10 @@ export { CategoryFilter } from './CategoryFilter';
 export { Pagination } from './Pagination';
 export { ShareButtons } from './ShareButtons';
 export { RelatedPosts } from './RelatedPosts';
-export { BlogListClient } from './BlogListClient';
+export { TableOfContents } from './TableOfContents';
+export { SearchBar } from './SearchBar';
+export { SearchResults } from './SearchResults';
+export { ReadingProgress } from './ReadingProgress';
+export { CodeBlock } from './CodeBlock';
+
+export type { Heading } from './TableOfContents';
