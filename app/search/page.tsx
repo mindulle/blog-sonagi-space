@@ -7,11 +7,11 @@ import { SearchResults } from '@/components/blog/SearchResults';
 import { Container } from '@/components/ui/Container';
 
 type SearchPageProps = {
-  searchParams: { q?: string };
+  searchParams: Promise<{ q?: string }>;
 };
 
-export function generateMetadata({ searchParams }: SearchPageProps): Metadata {
-  const query = searchParams.q || '';
+export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
+  const { q: query = '' } = await searchParams;
   
   return {
     title: query ? `Search results for "${query}"` : 'Search',
@@ -28,8 +28,8 @@ function SearchContent({ query }: { query: string }) {
   return <SearchResults results={results} query={query} />;
 }
 
-export default function SearchPage({ searchParams }: SearchPageProps) {
-  const query = searchParams.q || '';
+export default async function SearchPage({ searchParams }: SearchPageProps) {
+  const { q: query = '' } = await searchParams;
 
   return (
     <Container className="py-12">
