@@ -4,7 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
-import type { Post } from '@/types/blog';
+import type { Post, Category } from '@/types/blog';
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
 
@@ -125,10 +125,10 @@ export function getPostsByCategory(category: string): Post[] {
 /**
  * Get all unique categories
  */
-export function getAllCategories(): string[] {
+export function getAllCategories(): Category[] {
   const allPosts = getAllPosts();
   const categories = allPosts.map((post) => post.category);
-  return Array.from(new Set(categories));
+  return Array.from(new Set(categories)) as Category[];
 }
 
 /**

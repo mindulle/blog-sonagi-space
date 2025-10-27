@@ -1,3 +1,5 @@
+// components/ui/Card.tsx
+
 import { HTMLAttributes, forwardRef } from 'react';
 import { cn } from '@/lib/utils';
 
@@ -20,7 +22,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
  * 
  * 콘텐츠를 담는 카드 컨테이너
  */
-export const Card = forwardRef<HTMLDivElement, CardProps>(
+const CardRoot = forwardRef<HTMLDivElement, CardProps>(
   ({ children, className, variant = 'elevated', hoverable = false, ...props }, ref) => {
     const baseStyles = 'rounded-lg transition-all';
     
@@ -49,7 +51,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(
   }
 );
 
-Card.displayName = 'Card';
+CardRoot.displayName = 'Card';
 
 // Card 서브 컴포넌트들
 export interface CardHeaderProps extends HTMLAttributes<HTMLDivElement> {}
@@ -104,7 +106,9 @@ export const CardFooter = forwardRef<HTMLDivElement, CardFooterProps>(
 
 CardFooter.displayName = 'CardFooter';
 
-// Card에 서브 컴포넌트 연결
-Card.Header = CardHeader;
-Card.Body = CardBody;
-Card.Footer = CardFooter;
+// Object.assign으로 서브 컴포넌트 연결
+export const Card = Object.assign(CardRoot, {
+  Header: CardHeader,
+  Body: CardBody,
+  Footer: CardFooter,
+});
