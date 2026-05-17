@@ -53,6 +53,14 @@ export function Footer() {
                   About
                 </Link>
               </li>
+              <li>
+                <Link 
+                  href="/privacy"
+                  className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
             </ul>
           </div>
 

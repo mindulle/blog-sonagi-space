@@ -18,8 +18,8 @@ export const metadata: Metadata = {
     default: "소나기 블로그",
     template: "%s | 소나기 블로그",
   },
-  description: "Next.js와 소나기 디자인 시스템으로 만든 개인 블로그",
-  keywords: ["블로그", "Next.js", "소나기", "개발", "디자인"],
+  description: "소나기 블로그는 최신 웹 개발 기술, UI/UX 디자인, 그리고 소나기 디자인 시스템을 활용한 프로젝트 사례를 공유하는 기술 블로그 및 포트폴리오 사이트입니다.",
+  keywords: ["블로그", "Next.js", "소나기", "개발", "디자인", "프론트엔드", "포트폴리오"],
   authors: [{ name: "Sonagi Developer" }],
   openGraph: {
     type: "website",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://blog.sonagi.space",
     siteName: "소나기 블로그",
     title: "소나기 블로그",
-    description: "Next.js와 소나기 디자인 시스템으로 만든 개인 블로그",
+    description: "웹 개발과 디자인 시스템, 그리고 기술적인 통찰력을 공유하는 소나기 블로그입니다.",
   },
 };
 

@@ -14,12 +14,21 @@ export default function AboutPage() {
           </p>
           
           <p className="text-neutral-600 dark:text-neutral-400">
-            이 블로그는 Next.js 15와 소나기 디자인 시스템으로 구축되었습니다.
-            개발, 디자인, 그리고 일상의 이야기를 공유하는 공간입니다.
+            소나기 블로그는 <strong>소나기(Sonagi) 프로젝트</strong>의 일환으로 운영되는 기술 블로그입니다. 
+            Next.js 15와 자체 개발한 소나기 디자인 시스템을 기반으로 구축되었으며, 
+            프론트엔드 개발 기술, UI/UX 디자인 원칙, 그리고 효율적인 디자인 시스템 구축에 대한 통찰력을 공유합니다.
           </p>
 
           <h2 className="text-2xl font-bold mt-8 mb-4 text-neutral-900 dark:text-neutral-100">
-            관심사
+            미션
+          </h2>
+          
+          <p className="text-neutral-600 dark:text-neutral-400">
+            복잡한 웹 기술을 명확하고 아름다운 디자인 시스템으로 풀어내어, 개발자와 사용자 모두에게 즐거운 웹 경험을 제공하는 것을 목표로 합니다.
+          </p>
+
+          <h2 className="text-2xl font-bold mt-8 mb-4 text-neutral-900 dark:text-neutral-100">
+            주요 주제
           </h2>
           
           <ul className="list-disc pl-6 space-y-2 text-neutral-600 dark:text-neutral-400">
