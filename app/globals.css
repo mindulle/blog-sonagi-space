@@ -76,6 +76,17 @@
   /* Border */
   --border-thin: 1px;
   --border-base: 2px;
+  /* Syntax Highlighting (Light) */
+  --color-syntax-bg: #faf9f7; /* bg-base */
+  --color-syntax-text: #24292f;
+  --color-syntax-comment: #6e7781;
+  --color-syntax-keyword: #cf222e;
+  --color-syntax-string: #0a3069;
+  --color-syntax-function: #8250df;
+  --color-syntax-number: #0550ae;
+  --color-syntax-operator: #24292f;
+  --color-syntax-class: #953800;
+
   /* Radius */
   --radius-sm: 4px;
   --radius-base: 6px;
@@ -132,6 +143,17 @@
   --color-cat-essay-text: #86efac; /* green-300 */
   --color-cat-project-bg: #7c2d12; /* orange-900 계열 */
   --color-cat-project-text: #fdba74; /* orange-300 */
+
+  /* Syntax Highlighting (Dark) */
+  --color-syntax-bg: #0d1117;
+  --color-syntax-text: #c9d1d9;
+  --color-syntax-comment: #8b949e;
+  --color-syntax-keyword: #ff7b72;
+  --color-syntax-string: #a5d6ff;
+  --color-syntax-function: #d2a8ff;
+  --color-syntax-number: #79c0ff;
+  --color-syntax-operator: #c9d1d9;
+  --color-syntax-class: #ffa657;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -352,11 +374,54 @@ a:hover {
    코드 하이라이팅 (highlight.js)
 ───────────────────────────────────────────────────────── */
 .hljs {
-  background: var(--color-bg-surface) !important;
-  color: var(--color-text-primary);
+  background: var(--color-syntax-bg) !important;
+  color: var(--color-syntax-text);
   padding: 1.5rem;
   border-radius: var(--radius-md);
   overflow-x: auto;
+}
+.hljs-comment,
+.hljs-quote {
+  color: var(--color-syntax-comment);
+  font-style: italic;
+}
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: var(--color-syntax-keyword);
+  font-weight: 500;
+}
+.hljs-string,
+.hljs-attribute,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: var(--color-syntax-string);
+}
+.hljs-title,
+.hljs-section,
+.hljs-name {
+  color: var(--color-syntax-function);
+  font-weight: 500;
+}
+.hljs-number,
+.hljs-literal,
+.hljs-type,
+.hljs-built_in,
+.hljs-template-variable {
+  color: var(--color-syntax-number);
+}
+.hljs-class .hljs-title,
+.hljs-title.class_ {
+  color: var(--color-syntax-class);
+}
+.hljs-operator,
+.hljs-punctuation {
+  color: var(--color-syntax-operator);
+}
+.hljs-meta,
+.hljs-deletion {
+  color: var(--color-syntax-keyword);
 }
 
 /* ─────────────────────────────────────────────────────────
