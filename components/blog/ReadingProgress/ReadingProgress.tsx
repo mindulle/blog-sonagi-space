@@ -18,10 +18,8 @@ export function ReadingProgress({ className }: ReadingProgressProps) {
       setProgress(Math.min(Math.max(scrollPercent, 0), 100));
     };
 
-    // Initial update
     updateProgress();
 
-    // Update on scroll
     window.addEventListener('scroll', updateProgress, { passive: true });
     window.addEventListener('resize', updateProgress);
 
@@ -33,11 +31,8 @@ export function ReadingProgress({ className }: ReadingProgressProps) {
 
   return (
     <div
-      className={cn(
-        'fixed top-0 left-0 right-0 h-1 z-50',
-        'bg-neutral-100 dark:bg-neutral-900',
-        className
-      )}
+      className={cn('fixed top-0 left-0 right-0 h-1 z-50', className)}
+      style={{ backgroundColor: 'var(--color-bg-overlay)' }}
       role="progressbar"
       aria-label="Reading progress"
       aria-valuenow={progress}
@@ -45,8 +40,12 @@ export function ReadingProgress({ className }: ReadingProgressProps) {
       aria-valuemax={100}
     >
       <div
-        className="h-full bg-gradient-to-r from-primary-500 to-primary-600 transition-all duration-150 ease-out"
-        style={{ width: `${progress}%` }}
+        className="h-full transition-all duration-150 ease-out"
+        style={{
+          width: `${progress}%`,
+          background:
+            'linear-gradient(to right, var(--color-brand-primary), var(--color-brand-primary-hover))',
+        }}
       />
     </div>
   );

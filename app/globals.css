@@ -1,96 +1,185 @@
 @import "tailwindcss";
 
-/* 소나기 디자인 시스템 색상 정의 */
+/**
+ * Sonagi Design System — globals.css
+ * 
+ * 규칙:
+ * 1. 색상은 반드시 CSS 변수(--color-*)로만 참조. Tailwind 색상 클래스(bg-blue-500 등) 사용 금지.
+ * 2. 레이아웃(flex, grid, gap, p, m 등) Tailwind 유틸리티는 허용.
+ * 3. 다크모드는 .dark 클래스 기반 (html 요소에 적용).
+ */
+
+/* ─────────────────────────────────────────────────────────
+   라이트모드 토큰 (기본)
+───────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  
-  /* Primary (청량한 블루) */
-  --color-primary-50: #E8F4F8;
-  --color-primary-100: #C5E4EF;
-  --color-primary-200: #9ED3E5;
-  --color-primary-300: #77C2DB;
-  --color-primary-400: #5AB5D4;
-  --color-primary-500: #3DA8CC;
-  --color-primary-600: #379AC3;
-  --color-primary-700: #2F89B8;
-  --color-primary-800: #2778AE;
-  --color-primary-900: #19599C;
-  
-  /* Neutral (그레이스케일) */
-  --color-neutral-50: #F9FAFB;
-  --color-neutral-100: #F3F4F6;
-  --color-neutral-200: #E5E7EB;
-  --color-neutral-300: #D1D5DB;
-  --color-neutral-400: #9CA3AF;
-  --color-neutral-500: #6B7280;
-  --color-neutral-600: #4B5563;
-  --color-neutral-700: #374151;
-  --color-neutral-800: #1F2937;
-  --color-neutral-900: #111827;
+  /* Brand */
+  --color-brand-primary:       #1275b5;
+  --color-brand-primary-dark:  #083A64;
+  --color-brand-primary-hover: #0d5a94;
+  --color-brand-logo:          #00ffcc;
+
+  /* Background (웜 화이트) */
+  --color-bg-base:     #faf9f7;
+  --color-bg-surface:  #fff8f2;
+  --color-bg-elevated: #ffffff;
+  --color-bg-overlay:  #f0ede8;
+
+  /* Text */
+  --color-text-primary:   #0d1117;
+  --color-text-secondary: #30363d;
+  --color-text-muted:     #8b949e;
+  --color-text-disabled:  #c9d1d9;
+  --color-text-inverse:   #faf9f7;
+
+  /* Border */
+  --color-border-default: #e6eaef;
+  --color-border-subtle:  #f0ede8;
+  --color-border-strong:  #1275b5;
+
+  /* State */
+  --color-state-success: #2ea043;
+  --color-state-warning: #d29922;
+  --color-state-error:   #f85149;
+  --color-state-info:    #1275b5;
+
+  /* Shadow */
+  --shadow-sm:    0 1px 3px rgba(8, 58, 100, 0.10);
+  --shadow-md:    0 4px 12px rgba(8, 58, 100, 0.12);
+  --shadow-lg:    0 8px 24px rgba(8, 58, 100, 0.15);
+  --shadow-focus: 0 0 0 3px rgba(18, 117, 181, 0.30);
+
+  /* Category (라이트모드) */
+  --color-cat-dev-bg:     #dbeafe;  /* blue-100 */
+  --color-cat-dev-text:   #1d4ed8;  /* blue-700 */
+  --color-cat-design-bg:  #ede9fe;  /* purple-100 */
+  --color-cat-design-text:#7c3aed;  /* purple-700 */
+  --color-cat-essay-bg:   #dcfce7;  /* green-100 */
+  --color-cat-essay-text: #15803d;  /* green-700 */
+  --color-cat-project-bg: #ffedd5;  /* orange-100 */
+  --color-cat-project-text:#c2410c; /* orange-700 */
+
+  /* Typography */
+  --font-sans:  'Pretendard', 'Inter', system-ui, sans-serif;
+  --font-serif: 'Noto Serif KR', 'Merriweather', Georgia, serif;
+  --font-mono:  'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --font-size-xs:   12px;
+  --font-size-sm:   14px;
+  --font-size-base: 16px;
+  --font-size-lg:   18px;
+  --font-size-xl:   20px;
+  --font-size-2xl:  24px;
+  --font-size-3xl:  30px;
+  --font-size-4xl:  36px;
+
+  /* Border */
+  --border-thin: 1px;
+  --border-base: 2px;
+
+  /* Radius */
+  --radius-sm:   4px;
+  --radius-base: 6px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-full: 9999px;
+
+  /* Transition */
+  --duration-fast: 100ms;
+  --duration-base: 150ms;
+  --duration-slow: 250ms;
+  --ease-default:  cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
-  /* Primary Colors */
-  --color-primary-50: var(--color-primary-50);
-  --color-primary-100: var(--color-primary-100);
-  --color-primary-200: var(--color-primary-200);
-  --color-primary-300: var(--color-primary-300);
-  --color-primary-400: var(--color-primary-400);
-  --color-primary-500: var(--color-primary-500);
-  --color-primary-600: var(--color-primary-600);
-  --color-primary-700: var(--color-primary-700);
-  --color-primary-800: var(--color-primary-800);
-  --color-primary-900: var(--color-primary-900);
-  
-  /* Neutral Colors */
-  --color-neutral-50: var(--color-neutral-50);
-  --color-neutral-100: var(--color-neutral-100);
-  --color-neutral-200: var(--color-neutral-200);
-  --color-neutral-300: var(--color-neutral-300);
-  --color-neutral-400: var(--color-neutral-400);
-  --color-neutral-500: var(--color-neutral-500);
-  --color-neutral-600: var(--color-neutral-600);
-  --color-neutral-700: var(--color-neutral-700);
-  --color-neutral-800: var(--color-neutral-800);
-  --color-neutral-900: var(--color-neutral-900);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
-}
-
-/* 다크 모드 토글을 위한 클래스 */
+/* ─────────────────────────────────────────────────────────
+   다크모드 토큰
+───────────────────────────────────────────────────────── */
 .dark {
-  --background: #0a0a0a;
-  --foreground: #ededed;
+  --color-brand-primary:       #1991B9;
+  --color-brand-primary-dark:  #083A64;
+  --color-brand-primary-hover: #3aadd1;
+
+  --color-bg-base:     #010609;
+  --color-bg-surface:  #0d1117;
+  --color-bg-elevated: #161b22;
+  --color-bg-overlay:  #1c2128;
+
+  --color-text-primary:   #f0f6fc;
+  --color-text-secondary: #c9d1d9;
+  --color-text-muted:     #8b949e;
+  --color-text-disabled:  #484f58;
+  --color-text-inverse:   #010609;
+
+  --color-border-default: #30363d;
+  --color-border-subtle:  #1c2128;
+  --color-border-strong:  #1991B9;
+
+  --color-state-success: #2ea043;
+  --color-state-warning: #d29922;
+  --color-state-error:   #f85149;
+  --color-state-info:    #1991B9;
+
+  --shadow-sm:    0 1px 3px rgba(1, 6, 9, 0.4);
+  --shadow-md:    0 4px 12px rgba(1, 6, 9, 0.5);
+  --shadow-lg:    0 8px 24px rgba(1, 6, 9, 0.6);
+  --shadow-focus: 0 0 0 3px rgba(25, 145, 185, 0.4);
+
+  /* Category (다크모드) */
+  --color-cat-dev-bg:     #1e3a5f;  /* blue-900 계열 */
+  --color-cat-dev-text:   #93c5fd;  /* blue-300 */
+  --color-cat-design-bg:  #3b1f6b;  /* purple-900 계열 */
+  --color-cat-design-text:#c4b5fd;  /* purple-300 */
+  --color-cat-essay-bg:   #14532d;  /* green-900 계열 */
+  --color-cat-essay-text: #86efac;  /* green-300 */
+  --color-cat-project-bg: #7c2d12;  /* orange-900 계열 */
+  --color-cat-project-text:#fdba74; /* orange-300 */
 }
 
-/* Prose (MDX 콘텐츠) 스타일링 */
+/* ─────────────────────────────────────────────────────────
+   Tailwind 테마 연결 (레이아웃 유틸리티용)
+───────────────────────────────────────────────────────── */
+@theme inline {
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Base
+───────────────────────────────────────────────────────── */
+body {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--color-brand-primary);
+  text-decoration: none;
+  transition: color var(--duration-base) var(--ease-default);
+}
+
+a:hover {
+  color: var(--color-brand-primary-hover);
+}
+
+/* ─────────────────────────────────────────────────────────
+   Prose (MDX 콘텐츠)
+───────────────────────────────────────────────────────── */
 .prose {
   max-width: 65ch;
-  font-size: 1.125rem;
+  font-size: var(--font-size-lg);
   line-height: 1.75;
-  color: var(--color-neutral-800);
+  color: var(--color-text-primary);
 }
 
-.prose > * + * {
-  margin-top: 1.25em;
-}
+.prose > * + * { margin-top: 1.25em; }
 
 .prose p {
   margin-top: 1.25em;
@@ -98,41 +187,39 @@ body {
 }
 
 .prose a {
-  color: var(--color-primary-600);
+  color: var(--color-brand-primary);
   text-decoration: underline;
-  text-decoration-color: var(--color-primary-200);
+  text-decoration-color: var(--color-border-default);
   text-underline-offset: 2px;
-  transition: all 0.2s;
   font-weight: 500;
 }
 
 .prose a:hover {
-  color: var(--color-primary-700);
-  text-decoration-color: var(--color-primary-400);
+  color: var(--color-brand-primary-hover);
+  text-decoration-color: var(--color-brand-primary);
 }
 
 .prose strong {
   font-weight: 600;
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
 }
 
-.prose em {
-  font-style: italic;
-}
+.prose em { font-style: italic; }
 
 .prose code {
-  background: var(--color-neutral-100);
-  color: var(--color-primary-700);
+  background: var(--color-bg-overlay);
+  color: var(--color-brand-primary);
   padding: 0.2em 0.4em;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
   font-size: 0.875em;
   font-weight: 500;
   font-family: var(--font-mono);
 }
 
 .prose pre {
-  background: var(--color-neutral-900);
-  border-radius: 0.5rem;
+  background: var(--color-bg-surface);
+  border: var(--border-thin) solid var(--color-border-default);
+  border-radius: var(--radius-md);
   padding: 1.5rem;
   overflow-x: auto;
   margin-top: 2em;
@@ -143,21 +230,19 @@ body {
 .prose pre code {
   background: transparent;
   padding: 0;
-  color: var(--color-neutral-100);
+  color: var(--color-text-primary);
   font-size: 0.875em;
   font-weight: 400;
 }
 
 .prose blockquote {
-  border-left: 4px solid var(--color-primary-500);
-  padding-left: 1.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  border-left: var(--border-base) solid var(--color-brand-primary);
+  padding: 0.5rem 1.5rem;
   font-style: italic;
-  color: var(--color-neutral-600);
-  background: var(--color-neutral-50);
+  color: var(--color-text-secondary);
+  background: var(--color-bg-overlay);
   margin: 2em 0;
-  border-radius: 0.25rem;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 .prose ul,
@@ -167,13 +252,8 @@ body {
   margin-bottom: 1.25em;
 }
 
-.prose ul {
-  list-style-type: disc;
-}
-
-.prose ol {
-  list-style-type: decimal;
-}
+.prose ul { list-style-type: disc; }
+.prose ol { list-style-type: decimal; }
 
 .prose li {
   margin-top: 0.5em;
@@ -181,28 +261,18 @@ body {
   padding-left: 0.5em;
 }
 
-.prose li > p {
-  margin-top: 0.75em;
-  margin-bottom: 0.75em;
-}
-
 .prose img {
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   margin-top: 2em;
   margin-bottom: 2em;
   width: 100%;
   height: auto;
 }
 
-.prose figure {
-  margin-top: 2em;
-  margin-bottom: 2em;
-}
-
 .prose figcaption {
   text-align: center;
   font-size: 0.875em;
-  color: var(--color-neutral-600);
+  color: var(--color-text-muted);
   margin-top: 0.75em;
 }
 
@@ -216,140 +286,60 @@ body {
   line-height: 1.25;
   margin-top: 2em;
   margin-bottom: 1em;
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
   scroll-margin-top: 5rem;
 }
 
-.prose h1 {
-  font-size: 2.25em;
-  margin-top: 0;
-  letter-spacing: -0.025em;
-}
-
-.prose h2 {
-  font-size: 1.875em;
-  letter-spacing: -0.025em;
-}
-
-.prose h3 {
-  font-size: 1.5em;
-}
-
-.prose h4 {
-  font-size: 1.25em;
-}
-
-.prose h5 {
-  font-size: 1.125em;
-}
-
-.prose h6 {
-  font-size: 1em;
-}
+.prose h1 { font-size: 2.25em; margin-top: 0; letter-spacing: -0.025em; }
+.prose h2 { font-size: 1.875em; letter-spacing: -0.025em; }
+.prose h3 { font-size: 1.5em; }
+.prose h4 { font-size: 1.25em; }
+.prose h5 { font-size: 1.125em; }
+.prose h6 { font-size: 1em; }
 
 .prose hr {
   border: none;
-  border-top: 1px solid var(--color-neutral-200);
-  margin-top: 3em;
-  margin-bottom: 3em;
+  border-top: var(--border-thin) solid var(--color-border-default);
+  margin: 3em 0;
 }
 
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin: 2em 0;
 }
 
 .prose thead {
-  border-bottom: 2px solid var(--color-neutral-300);
+  border-bottom: var(--border-base) solid var(--color-border-default);
 }
 
 .prose th {
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: var(--color-neutral-900);
+  color: var(--color-text-primary);
 }
 
 .prose td {
   padding: 0.75rem;
-  border-bottom: 1px solid var(--color-neutral-200);
+  border-bottom: var(--border-thin) solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
 }
 
-/* 다크 모드 Prose 스타일 */
-.dark .prose {
-  color: var(--color-neutral-200);
-}
-
-.dark .prose a {
-  color: var(--color-primary-400);
-  text-decoration-color: var(--color-primary-800);
-}
-
-.dark .prose a:hover {
-  color: var(--color-primary-300);
-  text-decoration-color: var(--color-primary-600);
-}
-
-.dark .prose strong {
-  color: var(--color-neutral-100);
-}
-
-.dark .prose code {
-  background: var(--color-neutral-800);
-  color: var(--color-primary-400);
-}
-
-.dark .prose pre {
-  background: var(--color-neutral-900);
-}
-
-.dark .prose blockquote {
-  border-left-color: var(--color-primary-500);
-  color: var(--color-neutral-400);
-  background: var(--color-neutral-900);
-}
-
-.dark .prose h1,
-.dark .prose h2,
-.dark .prose h3,
-.dark .prose h4,
-.dark .prose h5,
-.dark .prose h6 {
-  color: var(--color-neutral-100);
-}
-
-.dark .prose hr {
-  border-top-color: var(--color-neutral-800);
-}
-
-.dark .prose th {
-  color: var(--color-neutral-100);
-}
-
-.dark .prose thead {
-  border-bottom-color: var(--color-neutral-700);
-}
-
-.dark .prose td {
-  border-bottom-color: var(--color-neutral-800);
-}
-
-.dark .prose figcaption {
-  color: var(--color-neutral-400);
-}
-
-/* 코드 하이라이팅 (highlight.js) */
+/* ─────────────────────────────────────────────────────────
+   코드 하이라이팅 (highlight.js)
+───────────────────────────────────────────────────────── */
 .hljs {
-  background: var(--color-neutral-900) !important;
-  color: var(--color-neutral-100);
+  background: var(--color-bg-surface) !important;
+  color: var(--color-text-primary);
   padding: 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   overflow-x: auto;
 }
 
-/* Line clamp 유틸리티 */
+/* ─────────────────────────────────────────────────────────
+   유틸리티
+───────────────────────────────────────────────────────── */
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;

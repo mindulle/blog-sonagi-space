@@ -26,76 +26,68 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
           }
         });
       },
-      {
-        rootMargin: '0% 0% -80% 0%',
-        threshold: 0.5,
-      }
+      { rootMargin: '0% 0% -80% 0%', threshold: 0.5 }
     );
 
-    const headingElements = headings.map(({ id }) => 
-      document.getElementById(id)
-    ).filter((el): el is HTMLElement => el !== null);
+    const headingElements = headings
+      .map(({ id }) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
 
-    headingElements.forEach((element) => observer.observe(element));
-
-    return () => {
-      headingElements.forEach((element) => observer.unobserve(element));
-    };
+    headingElements.forEach((el) => observer.observe(el));
+    return () => headingElements.forEach((el) => observer.unobserve(el));
   }, [headings]);
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
     const element = document.getElementById(id);
     if (element) {
-      const offset = 80; // Header height
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth',
-      });
+      const offsetPosition =
+        element.getBoundingClientRect().top + window.pageYOffset - 80;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
   };
 
-  if (headings.length === 0) {
-    return null;
-  }
+  if (headings.length === 0) return null;
 
   return (
     <nav
-      className={cn(
-        'sticky top-24 hidden lg:block',
-        'max-h-[calc(100vh-8rem)] overflow-y-auto',
-        className
-      )}
+      className={cn('sticky top-24 hidden lg:block max-h-[calc(100vh-8rem)] overflow-y-auto', className)}
       aria-label="Table of contents"
     >
       <div className="space-y-2">
-        <h3 className="font-semibold text-sm mb-4 text-neutral-900 dark:text-neutral-100">
+        <h3
+          className="font-semibold text-sm mb-4"
+          style={{ color: 'var(--color-text-primary)' }}
+        >
           Table of Contents
         </h3>
-        <ul className="space-y-2 text-sm">
-          {headings.map((heading) => (
-            <li
-              key={heading.id}
-              style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
-            >
-              <a
-                href={`#${heading.id}`}
-                onClick={(e) => handleClick(e, heading.id)}
-                className={cn(
-                  'block py-1 transition-colors hover:text-primary-600 dark:hover:text-primary-400',
-                  'border-l-2',
-                  activeId === heading.id
-                    ? 'text-primary-600 dark:text-primary-400 font-medium border-primary-600 dark:border-primary-400 pl-3'
-                    : 'text-neutral-600 dark:text-neutral-400 border-transparent pl-3'
-                )}
+        <ul className="space-y-1 text-sm">
+          {headings.map((heading) => {
+            const isActive = activeId === heading.id;
+            return (
+              <li
+                key={heading.id}
+                style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
               >
-                {heading.text}
-              </a>
-            </li>
-          ))}
+                <a
+                  href={`#${heading.id}`}
+                  onClick={(e) => handleClick(e, heading.id)}
+                  className="block py-1 pl-3 border-l-2 transition-colors"
+                  style={{
+                    color: isActive
+                      ? 'var(--color-brand-primary)'
+                      : 'var(--color-text-muted)',
+                    borderLeftColor: isActive
+                      ? 'var(--color-brand-primary)'
+                      : 'transparent',
+                    fontWeight: isActive ? 600 : 400,
+                  }}
+                >
+                  {heading.text}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </nav>

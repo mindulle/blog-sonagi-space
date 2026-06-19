@@ -23,14 +23,12 @@ export function Pagination({
   // 페이지 번호 배열 생성
   const getPageNumbers = () => {
     const pages: (number | string)[] = [];
-    
+
     if (totalPages <= maxVisiblePages) {
-      // 전체 페이지가 표시 가능한 경우
       for (let i = 1; i <= totalPages; i++) {
         pages.push(i);
       }
     } else {
-      // 페이지가 많은 경우
       const halfVisible = Math.floor(maxVisiblePages / 2);
       let start = currentPage - halfVisible;
       let end = currentPage + halfVisible;
@@ -45,18 +43,15 @@ export function Pagination({
         start = totalPages - maxVisiblePages + 1;
       }
 
-      // 첫 페이지
       if (start > 1) {
         pages.push(1);
         if (start > 2) pages.push('...');
       }
 
-      // 중간 페이지들
       for (let i = start; i <= end; i++) {
         pages.push(i);
       }
 
-      // 마지막 페이지
       if (end < totalPages) {
         if (end < totalPages - 1) pages.push('...');
         pages.push(totalPages);
@@ -68,6 +63,9 @@ export function Pagination({
 
   const pageNumbers = getPageNumbers();
 
+  const navBtnBase =
+    'flex h-10 w-10 items-center justify-center rounded-lg border transition-colors';
+
   return (
     <nav
       className={cn('flex items-center justify-center gap-2', className)}
@@ -77,12 +75,19 @@ export function Pagination({
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={cn(
-          'flex h-10 w-10 items-center justify-center rounded-lg border transition-colors',
+        className={navBtnBase}
+        style={
           currentPage === 1
-            ? 'cursor-not-allowed border-neutral-200 text-neutral-400 dark:border-neutral-700 dark:text-neutral-600'
-            : 'border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800'
-        )}
+            ? {
+                cursor: 'not-allowed',
+                borderColor: 'var(--color-border-subtle)',
+                color: 'var(--color-text-disabled)',
+              }
+            : {
+                borderColor: 'var(--color-border-default)',
+                color: 'var(--color-text-secondary)',
+              }
+        }
         aria-label="이전 페이지"
       >
         <ChevronLeft size={20} />
@@ -94,7 +99,8 @@ export function Pagination({
           return (
             <span
               key={`ellipsis-${index}`}
-              className="flex h-10 w-10 items-center justify-center text-neutral-500"
+              className="flex h-10 w-10 items-center justify-center"
+              style={{ color: 'var(--color-text-muted)' }}
             >
               ...
             </span>
@@ -108,12 +114,19 @@ export function Pagination({
           <button
             key={pageNumber}
             onClick={() => onPageChange(pageNumber)}
-            className={cn(
-              'flex h-10 w-10 items-center justify-center rounded-lg border text-sm font-medium transition-colors',
+            className={cn(navBtnBase, 'text-sm font-medium')}
+            style={
               isActive
-                ? 'border-primary-600 bg-primary-600 text-white dark:border-primary-500 dark:bg-primary-500'
-                : 'border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800'
-            )}
+                ? {
+                    borderColor: 'var(--color-brand-primary)',
+                    backgroundColor: 'var(--color-brand-primary)',
+                    color: 'var(--color-text-inverse)',
+                  }
+                : {
+                    borderColor: 'var(--color-border-default)',
+                    color: 'var(--color-text-secondary)',
+                  }
+            }
             aria-label={`페이지 ${pageNumber}`}
             aria-current={isActive ? 'page' : undefined}
           >
@@ -126,12 +139,19 @@ export function Pagination({
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={cn(
-          'flex h-10 w-10 items-center justify-center rounded-lg border transition-colors',
+        className={navBtnBase}
+        style={
           currentPage === totalPages
-            ? 'cursor-not-allowed border-neutral-200 text-neutral-400 dark:border-neutral-700 dark:text-neutral-600'
-            : 'border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800'
-        )}
+            ? {
+                cursor: 'not-allowed',
+                borderColor: 'var(--color-border-subtle)',
+                color: 'var(--color-text-disabled)',
+              }
+            : {
+                borderColor: 'var(--color-border-default)',
+                color: 'var(--color-text-secondary)',
+              }
+        }
         aria-label="다음 페이지"
       >
         <ChevronRight size={20} />

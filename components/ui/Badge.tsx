@@ -1,14 +1,63 @@
 import { cn } from '@/lib/utils';
 
-type BadgeVariant = 'default' | 'primary' | 'secondary' | 'outline';
-type BadgeSize = 'small' | 'medium' | 'large';
+export type BadgeVariant = 'default' | 'primary' | 'success' | 'warning' | 'error' | 'outline';
+export type BadgeSize = 'small' | 'medium' | 'large';
 
-interface BadgeProps {
+export interface BadgeProps {
   children: React.ReactNode;
   variant?: BadgeVariant;
   size?: BadgeSize;
   className?: string;
 }
+
+const styles = {
+  base: [
+    'inline-flex items-center justify-center',
+    'rounded-[var(--radius-full)]',
+    'font-medium uppercase tracking-[0.05em]',
+    'transition-colors',
+  ].join(' '),
+
+  variant: {
+    default: [
+      'bg-[var(--color-bg-overlay)]',
+      'text-[var(--color-text-secondary)]',
+      'border border-[var(--color-border-default)]',
+    ].join(' '),
+
+    primary: [
+      'bg-[var(--color-brand-primary)]',
+      'text-[var(--color-text-inverse)]',
+    ].join(' '),
+
+    success: [
+      'bg-[var(--color-state-success)]',
+      'text-[var(--color-text-inverse)]',
+    ].join(' '),
+
+    warning: [
+      'bg-[var(--color-state-warning)]',
+      'text-[var(--color-text-inverse)]',
+    ].join(' '),
+
+    error: [
+      'bg-[var(--color-state-error)]',
+      'text-[var(--color-text-inverse)]',
+    ].join(' '),
+
+    outline: [
+      'bg-transparent',
+      'text-[var(--color-text-primary)]',
+      'border border-[var(--color-text-primary)]',
+    ].join(' '),
+  },
+
+  size: {
+    small:  'px-2 py-0.5 text-xs',
+    medium: 'px-3 py-1 text-xs',
+    large:  'px-4 py-1.5 text-sm',
+  },
+} as const;
 
 export function Badge({
   children,
@@ -19,25 +68,9 @@ export function Badge({
   return (
     <span
       className={cn(
-        // Base styles
-        'inline-flex items-center justify-center rounded-full font-medium transition-colors',
-        // Variant styles
-        {
-          'bg-neutral-100 text-neutral-700 dark:bg-neutral-800 dark:text-neutral-300':
-            variant === 'default',
-          'bg-primary-100 text-primary-700 dark:bg-primary-900 dark:text-primary-300':
-            variant === 'primary',
-          'bg-neutral-200 text-neutral-800 dark:bg-neutral-700 dark:text-neutral-200':
-            variant === 'secondary',
-          'border border-neutral-300 text-neutral-700 dark:border-neutral-600 dark:text-neutral-300':
-            variant === 'outline',
-        },
-        // Size styles
-        {
-          'px-2 py-0.5 text-xs': size === 'small',
-          'px-3 py-1 text-sm': size === 'medium',
-          'px-4 py-1.5 text-base': size === 'large',
-        },
+        styles.base,
+        styles.variant[variant],
+        styles.size[size],
         className
       )}
     >

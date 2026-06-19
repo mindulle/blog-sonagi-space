@@ -24,13 +24,11 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Cmd+K (Mac) or Ctrl+K (Windows/Linux)
       if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
         e.preventDefault();
         inputRef.current?.focus();
       }
 
-      // Escape
       if (e.key === 'Escape') {
         if (query) {
           setQuery('');
@@ -67,7 +65,8 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
     >
       <div className="relative">
         <Search
-          className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400"
+          className="absolute left-3 top-1/2 -translate-y-1/2"
+          style={{ color: 'var(--color-text-muted)' }}
           size={20}
         />
         <input
@@ -78,28 +77,44 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
           placeholder="Search posts... (⌘K)"
           className={cn(
             'w-full pl-10 pr-10 py-2.5 rounded-lg',
-            'border border-neutral-200 dark:border-neutral-700',
-            'bg-white dark:bg-neutral-800',
-            'text-neutral-900 dark:text-neutral-100',
-            'placeholder:text-neutral-400',
-            'focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent',
+            'focus:outline-none focus:ring-2 focus:ring-offset-0',
             'transition-colors'
           )}
+          style={{
+            border: '1px solid var(--color-border-default)',
+            backgroundColor: 'var(--color-bg-elevated)',
+            color: 'var(--color-text-primary)',
+          }}
           aria-label="Search posts"
         />
         {query && (
           <button
             type="button"
             onClick={handleClear}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-neutral-400 hover:text-neutral-600 dark:hover:text-neutral-300 transition-colors"
+            className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
+            style={{ color: 'var(--color-text-muted)' }}
             aria-label="Clear search"
           >
             <X size={20} />
           </button>
         )}
       </div>
-      <p className="mt-2 text-xs text-neutral-500 dark:text-neutral-400">
-        Press <kbd className="px-1.5 py-0.5 rounded bg-neutral-100 dark:bg-neutral-700 border border-neutral-200 dark:border-neutral-600">⌘K</kbd> to focus
+      <p
+        className="mt-2 text-xs"
+        style={{ color: 'var(--color-text-muted)' }}
+      >
+        Press{' '}
+        <kbd
+          className="px-1.5 py-0.5 rounded"
+          style={{
+            backgroundColor: 'var(--color-bg-overlay)',
+            border: '1px solid var(--color-border-default)',
+            color: 'var(--color-text-secondary)',
+          }}
+        >
+          ⌘K
+        </kbd>{' '}
+        to focus
       </p>
     </form>
   );

@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Twitter, Facebook, Link2, Check } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 import { cn } from '@/lib/utils';
 
 interface ShareButtonsProps {
@@ -38,16 +37,26 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
     window.open(facebookUrl, '_blank', 'width=550,height=420');
   };
 
+  const iconBtnBase =
+    'flex h-9 w-9 items-center justify-center rounded-lg border transition-colors';
+
   return (
     <div className={cn('flex items-center gap-2', className)}>
-      <span className="text-sm font-medium text-neutral-600 dark:text-neutral-400">
+      <span
+        className="text-sm font-medium"
+        style={{ color: 'var(--color-text-secondary)' }}
+      >
         공유하기
       </span>
 
       {/* Twitter */}
       <button
         onClick={handleShareTwitter}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-300 text-neutral-700 transition-colors hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800"
+        className={iconBtnBase}
+        style={{
+          borderColor: 'var(--color-border-default)',
+          color: 'var(--color-text-secondary)',
+        }}
         aria-label="Twitter에 공유"
       >
         <Twitter size={18} />
@@ -56,7 +65,11 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
       {/* Facebook */}
       <button
         onClick={handleShareFacebook}
-        className="flex h-9 w-9 items-center justify-center rounded-lg border border-neutral-300 text-neutral-700 transition-colors hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800"
+        className={iconBtnBase}
+        style={{
+          borderColor: 'var(--color-border-default)',
+          color: 'var(--color-text-secondary)',
+        }}
         aria-label="Facebook에 공유"
       >
         <Facebook size={18} />
@@ -65,12 +78,19 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
       {/* 링크 복사 */}
       <button
         onClick={handleCopyLink}
-        className={cn(
-          'flex h-9 w-9 items-center justify-center rounded-lg border transition-colors',
+        className={iconBtnBase}
+        style={
           copied
-            ? 'border-primary-600 bg-primary-600 text-white'
-            : 'border-neutral-300 text-neutral-700 hover:bg-neutral-100 dark:border-neutral-600 dark:text-neutral-300 dark:hover:bg-neutral-800'
-        )}
+            ? {
+                borderColor: 'var(--color-brand-primary)',
+                backgroundColor: 'var(--color-brand-primary)',
+                color: 'var(--color-text-inverse)',
+              }
+            : {
+                borderColor: 'var(--color-border-default)',
+                color: 'var(--color-text-secondary)',
+              }
+        }
         aria-label="링크 복사"
       >
         {copied ? <Check size={18} /> : <Link2 size={18} />}
