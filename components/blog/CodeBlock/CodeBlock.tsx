@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/Button';
 
 type CodeBlockProps = {
   children: string;
@@ -26,18 +27,29 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
   return (
     <div className="relative group">
       {language && (
-        <div className="flex items-center justify-between px-4 py-2 bg-neutral-800 dark:bg-neutral-900 border-b border-neutral-700 rounded-t-lg">
-          <span className="text-xs font-mono text-neutral-400 uppercase">
+        <div
+          className="flex items-center justify-between px-4 py-2 border-b rounded-t-lg"
+          style={{
+            backgroundColor: 'var(--color-bg-overlay)',
+            borderColor: 'var(--color-border-default)',
+          }}
+        >
+          <span
+            className="text-xs font-mono uppercase"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
             {language}
           </span>
-          <button
+          <Button
+            variant="ghost"
+            size="small"
             onClick={handleCopy}
-            className={cn(
-              'flex items-center gap-1.5 px-2 py-1 rounded text-xs transition-colors',
-              copied
-                ? 'text-green-400 bg-green-400/10'
-                : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-700'
-            )}
+            className="flex items-center gap-1.5"
+            style={{
+              color: copied
+                ? 'var(--color-state-success)'
+                : 'var(--color-text-secondary)',
+            }}
             aria-label={copied ? 'Copied' : 'Copy code'}
           >
             {copied ? (
@@ -51,22 +63,28 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
                 Copy
               </>
             )}
-          </button>
+          </Button>
         </div>
       )}
       {!language && (
-        <button
+        <Button
+          variant="ghost"
+          size="small"
           onClick={handleCopy}
           className={cn(
-            'absolute top-2 right-2 p-2 rounded transition-all opacity-0 group-hover:opacity-100',
-            copied
-              ? 'text-green-400 bg-green-400/10'
-              : 'text-neutral-400 hover:text-neutral-200 bg-neutral-800/80 hover:bg-neutral-700'
+            'absolute top-2 right-2 transition-all opacity-0 group-hover:opacity-100',
+            copied && 'opacity-100'
           )}
+          style={{
+            backgroundColor: 'var(--color-bg-overlay)',
+            color: copied
+              ? 'var(--color-state-success)'
+              : 'var(--color-text-secondary)',
+          }}
           aria-label={copied ? 'Copied' : 'Copy code'}
         >
           {copied ? <Check size={16} /> : <Copy size={16} />}
-        </button>
+        </Button>
       )}
       <pre
         className={cn(
