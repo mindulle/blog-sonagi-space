@@ -22,8 +22,7 @@ export function Footer() {
               href="/"
               className="flex items-center space-x-2 font-bold text-lg transition-colors text-[var(--color-text-primary)] hover:text-[var(--color-brand-primary)]"
             >
-              <Logo size={24} />
-              <span>소나기 블로그</span>
+              <Logo height={24} />
             </Link>
             <p className="text-sm text-[var(--color-text-secondary)]">
               Next.js와 소나기 디자인 시스템으로 만든 개인 블로그입니다.

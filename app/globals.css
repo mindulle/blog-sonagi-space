@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /**
  * Sonagi Design System — globals.css
@@ -14,125 +14,124 @@
 ───────────────────────────────────────────────────────── */
 :root {
   /* Brand */
-  --color-brand-primary:       #1275b5;
-  --color-brand-primary-dark:  #083A64;
+  --color-brand-primary: #1275b5;
+  --color-brand-primary-dark: #083a64;
   --color-brand-primary-hover: #0d5a94;
-  --color-brand-logo:          #00ffcc;
+  --color-brand-logo: #00ffcc;
 
   /* Background (웜 화이트) */
-  --color-bg-base:     #faf9f7;
-  --color-bg-surface:  #fff8f2;
+  --color-bg-base: #faf9f7;
+  --color-bg-surface: #fff8f2;
   --color-bg-elevated: #ffffff;
-  --color-bg-overlay:  #f0ede8;
+  --color-bg-overlay: #f0ede8;
 
   /* Text */
-  --color-text-primary:   #0d1117;
+  --color-text-primary: #0d1117;
   --color-text-secondary: #30363d;
-  --color-text-muted:     #8b949e;
-  --color-text-disabled:  #c9d1d9;
-  --color-text-inverse:   #faf9f7;
+  --color-text-muted: #8b949e;
+  --color-text-disabled: #c9d1d9;
+  --color-text-inverse: #faf9f7;
 
   /* Border */
   --color-border-default: #e6eaef;
-  --color-border-subtle:  #f0ede8;
-  --color-border-strong:  #1275b5;
+  --color-border-subtle: #f0ede8;
+  --color-border-strong: #1275b5;
 
   /* State */
   --color-state-success: #2ea043;
   --color-state-warning: #d29922;
-  --color-state-error:   #f85149;
-  --color-state-info:    #1275b5;
+  --color-state-error: #f85149;
+  --color-state-info: #1275b5;
 
   /* Shadow */
-  --shadow-sm:    0 1px 3px rgba(8, 58, 100, 0.10);
-  --shadow-md:    0 4px 12px rgba(8, 58, 100, 0.12);
-  --shadow-lg:    0 8px 24px rgba(8, 58, 100, 0.15);
-  --shadow-focus: 0 0 0 3px rgba(18, 117, 181, 0.30);
+  --shadow-sm: 0 1px 3px rgba(8, 58, 100, 0.1);
+  --shadow-md: 0 4px 12px rgba(8, 58, 100, 0.12);
+  --shadow-lg: 0 8px 24px rgba(8, 58, 100, 0.15);
+  --shadow-focus: 0 0 0 3px rgba(18, 117, 181, 0.3);
 
   /* Category (라이트모드) */
-  --color-cat-dev-bg:     #dbeafe;  /* blue-100 */
-  --color-cat-dev-text:   #1d4ed8;  /* blue-700 */
-  --color-cat-design-bg:  #ede9fe;  /* purple-100 */
-  --color-cat-design-text:#7c3aed;  /* purple-700 */
-  --color-cat-essay-bg:   #dcfce7;  /* green-100 */
-  --color-cat-essay-text: #15803d;  /* green-700 */
-  --color-cat-project-bg: #ffedd5;  /* orange-100 */
-  --color-cat-project-text:#c2410c; /* orange-700 */
+  --color-cat-dev-bg: #dbeafe; /* blue-100 */
+  --color-cat-dev-text: #1d4ed8; /* blue-700 */
+  --color-cat-design-bg: #ede9fe; /* purple-100 */
+  --color-cat-design-text: #7c3aed; /* purple-700 */
+  --color-cat-essay-bg: #dcfce7; /* green-100 */
+  --color-cat-essay-text: #15803d; /* green-700 */
+  --color-cat-project-bg: #ffedd5; /* orange-100 */
+  --color-cat-project-text: #c2410c; /* orange-700 */
 
   /* Typography */
-  --font-sans:  'Pretendard', 'Inter', system-ui, sans-serif;
+  --font-sans: 'Pretendard', 'Inter', system-ui, sans-serif;
   --font-serif: 'Noto Serif KR', 'Merriweather', Georgia, serif;
-  --font-mono:  'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
 
-  --font-size-xs:   12px;
-  --font-size-sm:   14px;
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
   --font-size-base: 16px;
-  --font-size-lg:   18px;
-  --font-size-xl:   20px;
-  --font-size-2xl:  24px;
-  --font-size-3xl:  30px;
-  --font-size-4xl:  36px;
+  --font-size-lg: 18px;
+  --font-size-xl: 20px;
+  --font-size-2xl: 24px;
+  --font-size-3xl: 30px;
+  --font-size-4xl: 36px;
 
   /* Border */
   --border-thin: 1px;
   --border-base: 2px;
-
   /* Radius */
-  --radius-sm:   4px;
+  --radius-sm: 4px;
   --radius-base: 6px;
-  --radius-md:   8px;
-  --radius-lg:   12px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-full: 9999px;
 
   /* Transition */
   --duration-fast: 100ms;
   --duration-base: 150ms;
   --duration-slow: 250ms;
-  --ease-default:  cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ─────────────────────────────────────────────────────────
    다크모드 토큰
 ───────────────────────────────────────────────────────── */
 .dark {
-  --color-brand-primary:       #1991B9;
-  --color-brand-primary-dark:  #083A64;
+  --color-brand-primary: #1991b9;
+  --color-brand-primary-dark: #083a64;
   --color-brand-primary-hover: #3aadd1;
 
-  --color-bg-base:     #010609;
-  --color-bg-surface:  #0d1117;
+  --color-bg-base: #010609;
+  --color-bg-surface: #0d1117;
   --color-bg-elevated: #161b22;
-  --color-bg-overlay:  #1c2128;
+  --color-bg-overlay: #1c2128;
 
-  --color-text-primary:   #f0f6fc;
+  --color-text-primary: #f0f6fc;
   --color-text-secondary: #c9d1d9;
-  --color-text-muted:     #8b949e;
-  --color-text-disabled:  #484f58;
-  --color-text-inverse:   #010609;
+  --color-text-muted: #8b949e;
+  --color-text-disabled: #484f58;
+  --color-text-inverse: #010609;
 
   --color-border-default: #30363d;
-  --color-border-subtle:  #1c2128;
-  --color-border-strong:  #1991B9;
+  --color-border-subtle: #1c2128;
+  --color-border-strong: #1991b9;
 
   --color-state-success: #2ea043;
   --color-state-warning: #d29922;
-  --color-state-error:   #f85149;
-  --color-state-info:    #1991B9;
+  --color-state-error: #f85149;
+  --color-state-info: #1991b9;
 
-  --shadow-sm:    0 1px 3px rgba(1, 6, 9, 0.4);
-  --shadow-md:    0 4px 12px rgba(1, 6, 9, 0.5);
-  --shadow-lg:    0 8px 24px rgba(1, 6, 9, 0.6);
+  --shadow-sm: 0 1px 3px rgba(1, 6, 9, 0.4);
+  --shadow-md: 0 4px 12px rgba(1, 6, 9, 0.5);
+  --shadow-lg: 0 8px 24px rgba(1, 6, 9, 0.6);
   --shadow-focus: 0 0 0 3px rgba(25, 145, 185, 0.4);
 
   /* Category (다크모드) */
-  --color-cat-dev-bg:     #1e3a5f;  /* blue-900 계열 */
-  --color-cat-dev-text:   #93c5fd;  /* blue-300 */
-  --color-cat-design-bg:  #3b1f6b;  /* purple-900 계열 */
-  --color-cat-design-text:#c4b5fd;  /* purple-300 */
-  --color-cat-essay-bg:   #14532d;  /* green-900 계열 */
-  --color-cat-essay-text: #86efac;  /* green-300 */
-  --color-cat-project-bg: #7c2d12;  /* orange-900 계열 */
-  --color-cat-project-text:#fdba74; /* orange-300 */
+  --color-cat-dev-bg: #1e3a5f; /* blue-900 계열 */
+  --color-cat-dev-text: #93c5fd; /* blue-300 */
+  --color-cat-design-bg: #3b1f6b; /* purple-900 계열 */
+  --color-cat-design-text: #c4b5fd; /* purple-300 */
+  --color-cat-essay-bg: #14532d; /* green-900 계열 */
+  --color-cat-essay-text: #86efac; /* green-300 */
+  --color-cat-project-bg: #7c2d12; /* orange-900 계열 */
+  --color-cat-project-text: #fdba74; /* orange-300 */
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -179,7 +178,9 @@ a:hover {
   color: var(--color-text-primary);
 }
 
-.prose > * + * { margin-top: 1.25em; }
+.prose > * + * {
+  margin-top: 1.25em;
+}
 
 .prose p {
   margin-top: 1.25em;
@@ -204,7 +205,9 @@ a:hover {
   color: var(--color-text-primary);
 }
 
-.prose em { font-style: italic; }
+.prose em {
+  font-style: italic;
+}
 
 .prose code {
   background: var(--color-bg-overlay);
@@ -252,8 +255,12 @@ a:hover {
   margin-bottom: 1.25em;
 }
 
-.prose ul { list-style-type: disc; }
-.prose ol { list-style-type: decimal; }
+.prose ul {
+  list-style-type: disc;
+}
+.prose ol {
+  list-style-type: decimal;
+}
 
 .prose li {
   margin-top: 0.5em;
@@ -290,12 +297,27 @@ a:hover {
   scroll-margin-top: 5rem;
 }
 
-.prose h1 { font-size: 2.25em; margin-top: 0; letter-spacing: -0.025em; }
-.prose h2 { font-size: 1.875em; letter-spacing: -0.025em; }
-.prose h3 { font-size: 1.5em; }
-.prose h4 { font-size: 1.25em; }
-.prose h5 { font-size: 1.125em; }
-.prose h6 { font-size: 1em; }
+.prose h1 {
+  font-size: 2.25em;
+  margin-top: 0;
+  letter-spacing: -0.025em;
+}
+.prose h2 {
+  font-size: 1.875em;
+  letter-spacing: -0.025em;
+}
+.prose h3 {
+  font-size: 1.5em;
+}
+.prose h4 {
+  font-size: 1.25em;
+}
+.prose h5 {
+  font-size: 1.125em;
+}
+.prose h6 {
+  font-size: 1em;
+}
 
 .prose hr {
   border: none;

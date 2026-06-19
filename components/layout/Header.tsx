@@ -33,14 +33,9 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center transition-opacity hover:opacity-80"
+            className="flex items-center transition-opacity hover:opacity-80 text-[var(--color-text-primary)]"
           >
-            <img
-              src="/brand/sonagi-wordmark-en.svg"
-              alt="Sonagi"
-              className="h-7 w-auto object-contain dark:invert"
-              style={{ filter: 'var(--logo-filter, none)' }}
-            />
+            <Logo height={28} />
           </Link>
 
           {/* Navigation */}
