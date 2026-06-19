@@ -6,11 +6,12 @@ export interface LogoProps extends HTMLAttributes<SVGElement> {
 }
 
 export function Logo({ height = 28, className, style, ...props }: LogoProps) {
-  // viewBox 비율 800:280 = 20:7
+  // 실제 글자와 도트가 차지하는 영역: X(170~620), Y(70~185)
+  // 도화지를 텍스트 크기에 딱 맞게 크롭합니다 (여백 제거)
   return (
     <svg
       height={height}
-      viewBox="0 0 800 280"
+      viewBox="170 70 450 115"
       xmlns="http://www.w3.org/2000/svg"
       className={cn('transition-opacity', className)}
       style={{ ...style }}
