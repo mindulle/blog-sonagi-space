@@ -1,0 +1,20 @@
+---
+title: Scheduling
+tags: [concept, kubernetes]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/kubernetes/content/scheduling@xZDXM_8qb4VL15tNGG0ws.md
+---
+
+# Scheduling
+
+Scheduling in Kubernetes refers to the process of assigning workloads to specific nodes in a cluster. The Kubernetes scheduler makes scheduling decisions based on factors such as resource availability, node suitability, and workload priorities. It balances workloads across the cluster to ensure effi
+cient resource utilization and avoid overloading nodes. Scheduling takes into account factors such as geographic location, hardware requirements, and application-specific needs.
+
+Visit the following resources to learn more:
+
+- [@official@Kubernetes Scheduler](https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/)
+- [@official@Scheduling Framework](https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/)
+
+## 관련 로드맵
+- [[Kubernetes|kubernetes]]

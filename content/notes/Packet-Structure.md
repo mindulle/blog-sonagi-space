@@ -1,0 +1,16 @@
+---
+title: Packet Structure
+tags: [concept, server-side-game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/server-side-game-developer/content/packet-structure@CCxVnrGDKa1EROXgF_OAm.md
+---
+
+# Packet Structure
+
+UDP or User Datagram Protocol is designed to send messages known as datagrams over the network. The packet structure of UDP is relatively simple compared to other protocol types. Each UDP header consists of 4 fields, each of 2 bytes. These 4 fields are namely: Source Port, Destination Port, Length, 
+and Checksum. The `Source Port` is for tracking responses and `Destination Port` is for delivering the datagram on the receiving end. The `Length` specifies the entire datagram size including the head
+er and data while the `Checksum` is used to verify the integrity of the data and header.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

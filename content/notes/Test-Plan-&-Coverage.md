@@ -1,0 +1,23 @@
+---
+title: Test Plan & Coverage
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/test-plan--coverage@uczkyc30K_qqcarZCGTdF.md
+---
+
+# Test Plan & Coverage
+
+A Test Plan in iOS development is a comprehensive document that outlines the strategy, scope, resources, and schedule for testing activities. It defines the objectives, test criteria, deliverables, and the roles and responsibilities of the team members involved. Test Plans ensure systematic testing 
+and help in tracking progress, identifying risks, and managing test activities efficiently.
+
+Coverage refers to the measure of how much of the codebase is exercised by the tests. Xcode provides code coverage tools that highlight the portions of code executed during tests, offering insights into untested parts. Higher code coverage typically indicates more comprehensive testing, but it’s ess
+ential to focus on meaningful coverage that validates critical functionality rather than aiming for 100% coverage without ensuring test quality. Balancing extensive unit tests, integration tests, and 
+UI tests helps achieve effective coverage and robust application quality.
+
+Learn more from the following resources:
+
+
+
+## 관련 로드맵
+- [[ios|ios]]

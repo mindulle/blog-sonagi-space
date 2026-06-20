@@ -1,0 +1,23 @@
+---
+title: Bus
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/bus@0DWh4WmLK_ENDuqQmQcu4.md
+---
+
+# Bus
+
+In the context of cybersecurity, a bus refers to a communication system that transfers data between components inside a computer or between computers. It's a critical part of computer architecture that can be vulnerable to various security threats. Attackers may attempt to exploit bus systems to int
+ercept sensitive data, inject malicious code, or perform side-channel attacks. These vulnerabilities can exist at different levels, from the system bus connecting major computer components to expansio
+n buses for peripheral devices. Securing bus communications involves implementing encryption, access controls, and monitoring for unusual activity. As buses play a crucial role in data transfer, protecting them is essential for maintaining the overall security and integrity of computer systems and n
+etworks.
+
+Visit the following resources to learn more:
+
+- [@article@Bus in Computing](https://en.wikipedia.org/wiki/Bus_(computing))
+- [@article@What is a Bus?](https://www.lenovo.com/gb/en/glossary/bus/?srsltid=AfmBOoocoXVvqdupLu13XAm0FZMOHjRtjnnCCFxa59tEa-bQwhiVhac2)
+- [@video@Computer Buses](https://www.youtube.com/watch?v=aBCaCrC3z0k)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

@@ -1,0 +1,17 @@
+---
+title: Backlinking
+tags: [concept, technical-writer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/technical-writer/content/backlinking@UphVii3y4T_PkRMqFJ4r_.md
+---
+
+# Backlinking
+
+Backlinking, often referred as "inbound links" or "incoming links", is a method used in search engine optimization (SEO) where other websites link to your content. Backlinks are significant indicators of content's relevance, quality, and credibility to search engines. Achieving backlinks can be a re
+sult of great content naturally earning shares, or a strategic move of reaching out to relevant websites, guest posting, or engaging in content promotion. The more high-quality backlinks your website 
+obtains, the more likely it is to rank well in search engine results. However, it's also crucial to consider where your backlinks originate from, as links from spam or low-quality websites can potentially harm your ranking. In addition, Google values various backlink parameters like anchor text dist
+ribution, dofollow and nofollow ratio, and link acquisition rate while evaluating a website.
+
+## 관련 로드맵
+- [[technical-writer|technical-writer]]

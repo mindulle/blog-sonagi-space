@@ -1,0 +1,18 @@
+---
+title: Precision
+tags: [concept, machine-learning]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/machine-learning/content/precision@mja35tndhAT5z_ysv-hDe.md
+---
+
+# Precision
+
+Precision measures how accurate a model's positive predictions are. It tells you, out of all the instances the model predicted as positive, what proportion were actually positive. In simpler terms, it answers the question: "When the model says something is true, how often is it actually true?". The formula for precision is: Precision = True Positives / (True Positives + False Positives).
+
+Visit the following resources to learn more:
+
+- [@article@Precision | scikit-learn](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)
+
+## 관련 로드맵
+- [[machine-learning|machine-learning]]

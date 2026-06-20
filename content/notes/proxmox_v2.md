@@ -1,0 +1,20 @@
+---
+title: proxmox
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/proxmox@jqX1A5hFF3Qznqup4lfiF.md
+---
+
+# proxmox
+
+**Proxmox** is an open-source virtualization management platform that integrates both **Proxmox Virtual Environment (Proxmox VE)** and **Proxmox Mail Gateway**. Proxmox VE combines virtualization technologies, including KVM for virtual machines and LXC for lightweight containers, into a unified web-based interface for managing and deploying virtualized environments. It offers features such as high availability, storage management, and backup solutions. Proxmox Mail Gateway provides email security and anti-spam solutions, protecting email systems from threats. Proxmox is valued for its flexibility, cost-effectiveness, and comprehensive management capabilities.
+
+Visit the following resources to learn more:
+
+- [@official@Proxmox](https://www.proxmox.com/en/)
+- [@article@Proxmox Virtual Environment](https://en.wikipedia.org/wiki/Proxmox_Virtual_Environment)
+- [@video@What is Proxmox virtualization?](https://www.youtube.com/watch?v=GMAvmHEWAMU)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

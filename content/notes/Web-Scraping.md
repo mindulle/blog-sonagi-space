@@ -1,0 +1,21 @@
+---
+title: Web Scraping
+tags: [concept, data-analyst]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/data-analyst/content/web-scraping@qQ64ZhSlbbWu9pP8KTE67.md
+---
+
+# Web Scraping
+
+Web scraping plays a significant role in collecting unique datasets for data analysis. In the realm of a data analyst's tasks, web scraping refers to the method of extracting information from websites and converting it into a structured usable format like a CSV, Excel spreadsheet, or even into datab
+ases. This technique allows data analysts to gather large sets of data from the internet, which otherwise could be time-consuming if done manually. The capability of web scraping and parsing data effe
+ctively can give data analysts a competitive edge in their data analysis process, from unlocking in-depth, insightful information to making data-driven decisions.
+
+Visit the following resources to learn more:
+
+- [@article@What is Web Scraping & What is it used for?](https://www.parsehub.com/blog/what-is-web-scraping/)
+- [@video@What is Web Scraping?](https://www.youtube.com/watch?v=dlj_QL-ENJM)
+
+## 관련 로드맵
+- [[data-analyst|data-analyst]]

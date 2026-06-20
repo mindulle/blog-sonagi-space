@@ -1,0 +1,16 @@
+---
+title: User Research
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/user-research@8LAy6uBfrdtrjF8ygAGoo.md
+---
+
+# User Research
+
+User research is a critical aspect of a Product Manager's role. It is through understanding the needs, behaviors, and pain points of a user that a Product Manager can create, refine, and market products successfully. User research is not a one-time event but a continuous process that helps Product M
+anagers stay abreast of their target market's evolving demands and expectations. Methods used include interviews, surveys, usability testing, and observation, among others. By staying connected to the
+ users' perspectives, a Product Manager can ensure a more user-centric product development process resulting in a product that genuinely meets and exceed user expectations.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

@@ -1,0 +1,26 @@
+---
+title: include_once
+tags: [concept, php]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/php/content/include_once@SwtLDgyPmDry20qS4FBfH.md
+---
+
+# include_once
+
+The `include_once` statement is a part of PHP's file-handling toolkit, allowing developers to include a PHP file within another PHP file, but only for a one-time execution. This way, you can ensure that functions or objects defined in the included file are not duplicated leading to errors. It helps 
+keep your code DRY (Don't Repeat Yourself) and clean. Here is a small example:
+
+    include_once 'database.php';
+    
+    $db = new Database();
+    
+
+In this simple code snippet, we include the `database.php` file once, giving us access to the `Database` class.
+
+Visit the following resources to learn more:
+
+- [@official@include_once](https://www.php.net/manual/en/function.include-once.php)
+
+## 관련 로드맵
+- [[PHP|php]]

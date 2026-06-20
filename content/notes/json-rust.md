@@ -1,0 +1,21 @@
+---
+title: json-rust
+tags: [concept, rust]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/rust/content/json-rust@ZXMKY0f7mqqlsvyH9u-LM.md
+---
+
+# json-rust
+
+JSON handling in Rust primarily uses `serde` and `serde_json` libraries for high-performance serialization/deserialization. These provide seamless conversion between Rust data structures and JSON, with parsing from strings/files, serialization to JSON, and direct manipulation of JSON values.
+
+Visit the following resources to learn more:
+
+- [@official@Serde](https://serde.rs/)
+- [@opensource@serde-rs/serde: Serialization framework for Rust](https://github.com/serde-rs/serde)
+- [@article@Docs.rs: JSON](https://docs.rs/json/latest/json/)
+- [@feed@Explore top posts about Rust](https://app.daily.dev/tags/rust?ref=roadmapsh)
+
+## 관련 로드맵
+- [[Rust|rust]]

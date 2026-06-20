@@ -1,0 +1,21 @@
+---
+title: Scatter Plot
+tags: [concept, data-analyst]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/data-analyst/content/scatter-plot@A5YQv7D4qRcskdZ64XldH.md
+---
+
+# Scatter Plot
+
+A scatter plot, a crucial aspect of data visualization, is a mathematical diagram using Cartesian coordinates to represent values from two different variables. As a data analyst, understanding and interpreting scatter plots can be instrumental in identifying correlations and trends within a dataset,
+ drawing meaningful insights, and showcasing these findings in a clear, visual manner. In addition, scatter plots are paramount in predictive analytics as they reveal patterns which can be used to pre
+dict future occurrences.
+
+Visit the following resources to learn more:
+
+- [@article@Mastering Scatter Plots](https://www.atlassian.com/data/charts/what-is-a-scatter-plot)
+- [@video@Scatter Graphs: What are they and how to plot them](https://www.youtube.com/watch?v=Vyg9qmBsgAc)
+
+## 관련 로드맵
+- [[data-analyst|data-analyst]]

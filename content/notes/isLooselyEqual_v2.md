@@ -1,0 +1,20 @@
+---
+title: isLooselyEqual
+tags: [concept, javascript]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/javascript/content/islooselyequal@PLallt_T33W6bUEn0Hc3W.md
+---
+
+# isLooselyEqual
+
+[isLooselyEqual](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality) checks whether its two operands are equal, returning a `Boolean` result. It attempts to convert and compare operands that are of different types.
+
+Visit the following resources to learn more:
+
+- [@article@Loosely Equality (==) Operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Equality)
+- [@article@Comparison - javascript.info](https://javascript.info/comparison)
+
+
+## 관련 로드맵
+- [[JavaScript|javascript]]

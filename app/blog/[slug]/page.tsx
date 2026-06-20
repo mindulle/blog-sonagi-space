@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { getAllPosts, getPostBySlug } from '@/lib/mdx';
 import { extractHeadings } from '@/lib/headings';
 import { PostHeader } from '@/components/blog/PostHeader';
+import { PostContent } from '@/components/blog/PostContent';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { TableOfContents } from '@/components/blog/TableOfContents';
@@ -84,7 +85,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
               {/* Main Content */}
               <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+                <PostContent html={post.content} />
               </div>
 
               {/* Sidebar - Table of Contents */}
@@ -94,15 +95,15 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Share Buttons */}
-            <div className="mt-12 pt-8 border-t border-neutral-200 dark:border-neutral-800">
-              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
+            <div className="mt-12 pt-8 border-t" style={{ borderColor: 'var(--color-border-default)' }}>
+              <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>
                 Share this post
               </h3>
               <ShareButtons title={post.title} url={postUrl} />
             </div>
 
             {/* Related Posts */}
-            <div className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+            <div className="mt-16 pt-8 border-t" style={{ borderColor: 'var(--color-border-default)' }}>
               <RelatedPosts currentPost={post} allPosts={allPosts} />
             </div>
           </div>

@@ -1,0 +1,21 @@
+---
+title: REST Principles
+tags: [concept, api-design]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/api-design/content/rest-principles@9WI_z34jIFXwoUQuChyRU.md
+---
+
+# REST Principles in API Design
+
+REST (Representational State Transfer) is an important architectural style used in API design. It defines a set of rules and conventions through which systems communicate over a network. Key characteristics of REST include statelessness, client-server communication, cacheability, and a uniform inter
+face. Understanding and applying these principles properly can help in designing robust, scalable, and high-performance APIs. REST principles revolve around resources and their manipulation to achieve
+ desired outcomes. By following these principles, developers can ensure that their API design is in line with web standards, thus improving interoperability across different systems.
+
+Visit the following resources to learn more:
+
+- [@article@REST API Principles | A Comprehensive Overview](https://blog.dreamfactory.com/rest-apis-an-overview-of-basic-principles)
+- [@article@REST principles](https://ninenines.eu/docs/en/cowboy/2.12/guide/rest_principles/)
+
+## 관련 로드맵
+- [[api-design|api-design]]

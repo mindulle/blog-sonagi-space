@@ -1,0 +1,16 @@
+---
+title: Identifying Market Needs
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/identifying-market-needs@LkDLk6DsEvbFXZPGOhD0C.md
+---
+
+# Identifying Market Needs under Market Analysis
+
+Identifying market needs is a fundamental task for a Product Manager during the process of market analysis. A market need is what motivates a consumer to buy a product or service. The market analysis mandates the Product Manager to study the market, understand the customers' behavior patterns and pr
+eferences, and keep an eye on current market trends. This data-driven outlook helps the Product Manager decipher the gaps in the market, what pain-points the potential customers have that are unresolv
+ed, and hence, find opportunities to create new products or enhance existing ones. Glazing through customer feedback, surveys, and competitor analysis are some of the methods that help identify these needs and provide the launchpad for successful product planning and development.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

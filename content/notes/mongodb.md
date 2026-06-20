@@ -1,0 +1,155 @@
+---
+title: Mongodb
+tags: [roadmap, mongodb]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/mongodb
+---
+
+# Mongodb
+
+## 요약
+mongodb에 관한 로드맵 지식입니다. 각 세부 개념은 개별 문서로 관리됩니다.
+
+## 주요 개념 (Atomic Notes)
+- [[MongoDB|mongodb]]
+- Find the interactive version of this roadmap and more roadmaps at
+- [[MongoDB Basics|MongoDB Basics]]
+- [[SQL vs NoSQL|SQL vs NoSQL]]
+- [[What is MongoDB|What is MongoDB]]
+- For ecosystem and more, check these other tracks involving GraphQL
+- [[frontend|Frontend Roadmap]]
+- [[backend|Backend Roadmap]]
+- [[When to use MongoDB|When to use MongoDB]]
+- [[What is MongoDB Atlas|What is MongoDB Atlas]]
+- [[MongoDB Terminology|MongoDB Terminology]]
+- [[Data Model & Data Types|Data Model & Data Types]]
+- [[BSON vs JSON|BSON vs JSON]]
+- [[Embedded Objects & Arrays|Embedded Objects & Arrays]]
+- [[double|Double]]
+- [[string|String]]
+- [[Array|Array]]
+- [[Object|Object]]
+- [[Binary Data|Binary Data]]
+- [[undefined|Undefined]]
+- [[Object ID|Object ID]]
+- [[boolean|Boolean]]
+- [[Date|Date]]
+- [[null|NULL]]
+- [[Regular Expression|Regular Expression]]
+- [[JavaScript|javascript]]
+- [[Symbol|Symbol]]
+- [[Int32Int|Int32Int]]
+- [[Int64  Long|Int64  Long]]
+- [[timestamp|Timestamp]]
+- [[Decimal128|Decimal128]]
+- [[Min Key|Min Key]]
+- [[Max Key|Max Key]]
+- [[Collections & Methods|Collections & Methods]]
+- [[Counting Documents|Counting Documents]]
+- [[insert() and relevant|insert() and relevant]]
+- [[find() and relevant|find() and relevant]]
+- [[update() and relevant|update() and relevant]]
+- [[delete() and relevant|delete() and relevant]]
+- [[bulkWrite() and relevant|bulkWrite() and relevant]]
+- [[validate()|validate()]]
+- [[Useful concepts]]
+- [[Read  Write Concerns|Read  Write Concerns]]
+- [[Cursors|Cursors]]
+- [[Retryable Reads  Writes|Retryable Reads  Writes]]
+- [[Query Operators|Query Operators]]
+- [[$project|$project]]
+- [[$include|$include]]
+- [[$exclude|$exclude]]
+- [[$slice|$slice]]
+- [[Projection Operators]]
+- [[$eq|$eq]]
+- [[Comparison Operators|Comparison Operators]]
+- [[$gt|$gt]]
+- [[$lt|$lt]]
+- [[$lte|$lte]]
+- [[$gte|$gte]]
+- [[$ne|$ne]]
+- [[$in|$in]]
+- [[Array Operators]]
+- [[$nin|$nin]]
+- [[$all|$all]]
+- [[$elemMatch|$elemMatch]]
+- [[$size|$size]]
+- [[Element Operators]]
+- [[$exists|$exists]]
+- [[$type|$type]]
+- [[$regex|$regex]]
+- [[Logical Operators|Logical Operators]]
+- [[$and|$and]]
+- [[$or|$or]]
+- [[$not|$not]]
+- [[$nor|$nor]]
+- [[Performance Optimization|Performance Optimization]]
+- [[Creating Indexes|Creating Indexes]]
+- [[Single Field|Single Field]]
+- [[Compound|Compound]]
+- [[Text|Text]]
+- [[Expiring|Expiring]]
+- [[Geospatial Indexes|Geospatial Indexes]]
+- [[Atlas Search Indexes|Atlas Search Indexes]]
+- [[Query Optimization|Query Optimization]]
+- [[Aggregation|Aggregation]]
+- [[Common Operators]]
+- [[$match|$match]]
+- [[$group|$group]]
+- [[$sort|$sort]]
+- [[$project|$project]]
+- [[$skip|$skip]]
+- [[$limit|$limit]]
+- [[$unwind|$unwind]]
+- [[$lookup|$lookup]]
+- [[$sum|$sum]]
+- [[Pipelines, Stages and Operators|Pipelines, Stages and Operators]]
+- [[Transactions|Transactions]]
+- [[Developer Tools|Developer Tools]]
+- [[Language Drivers|Language Drivers]]
+- [[MongoDB Connectors]]
+- [[Kafka|Kafka]]
+- [[Spark|Spark]]
+- [[Elastic Search|Elastic Search]]
+- [[Backup & Recovery]]
+- [[mongodump|mongodump]]
+- [[mongorestore|mongorestore]]
+- [[Scaling MongoDB|Scaling MongoDB]]
+- [[Replicasets|Replicasets]]
+- [[Sharded Clusters|Sharded Clusters]]
+- [[Tuning Configuration|Tuning Configuration]]
+- [[Indexing|Indexing]]
+- [[Query Optimization|Query Optimization]]
+- [[MongoDB Security|MongoDB Security]]
+- [[Role-based Access Control|Role-based Access Control]]
+- [[X.509 Certificate Auth|X.509 Certificate Auth]]
+- [[Kerberos Authentication|Kerberos Authentication]]
+- [[LDAP Proxy Auth|LDAP Proxy Auth]]
+- [[MongoDB Audit|MongoDB Audit]]
+- [[Encryption|Encryption]]
+- [[Encryption at Rest|Encryption at Rest]]
+- [[Queryable Encryption|Queryable Encryption]]
+- [[Client-Side Field Level|Client-Side Field Level]]
+- [[TLS  SSL Encryption|TLS  SSL Encryption]]
+
+## 관련 로드맵
+- [[AI Agents|AI Agents]]
+- [[ai-engineer|ai-engineer]]
+- [[Python|python]]
+- [[JavaScript|javascript]]
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/_concepts/MongoDB.md)
+
+# MongoDB
+
+MongoDB is a source-available NoSQL database program that uses a document-oriented database model. This model supports a variety of data types and enables you to store them in one place. MongoDB uses JSON-like documents coupled with optional schemas. What distinctly characterizes MongoDB is its scal
+ability and flexibility that allow schemas to evolve with business needs. It can run over multiple servers, the data is duplicated to facilitate keeping the system up and the data available. Also, Mon
+goDB supports rich queries through its powerful querying and aggregation tools. These capabilities encourage fast development and iterations. However, bear in mind that like any database, MongoDB is not a one-size-fit-all solution and understanding its best use cases is crucial for maximizing its be
+nefits.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

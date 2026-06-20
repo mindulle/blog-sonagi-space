@@ -1,0 +1,22 @@
+---
+title: Spring Data JPA
+tags: [concept, java]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/java/content/spring-data-jpa@WzWOxBUKKg6LeuBmVesc2.md
+---
+
+# Spring data jpa
+
+Spring Data JPA aims to significantly improve the implementation of data access layers by reducing the effort to the amount that's actually needed. As a developer you write your repository interfaces, including custom finder methods, and Spring will provide the implementation automatically.
+
+Visit the following resources to learn more:
+
+- [@official@Spring Data JPA](https://spring.io/projects/spring-data-jpa)
+- [@article@Introduction to Spring Data JPA](https://www.baeldung.com/the-persistence-layer-with-spring-data-jpa)
+- [@video@Spring Data JPA Tutorial](https://youtu.be/XszpXoII9Sg)
+- [@video@Spring Boot Tutorial - Spring Data JPA](https://youtu.be/8SGI_XS5OPw)
+- [@feed@Explore top posts about Spring Framework](https://app.daily.dev/tags/spring?ref=roadmapsh)
+
+## 관련 로드맵
+- [[Java|java]]

@@ -1,0 +1,16 @@
+---
+title: Makefile
+tags: [concept, cpp]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cpp/content/makefile@t6rZLH7l8JQm99ax_fEJ9.md
+---
+
+# Makefile
+
+A Makefile is a configuration file used by the `make` utility to automate the process of compiling and linking code in a project. It defines a set of rules and dependencies that specify how to build the final executable or library from source code. It consists of variables, rules with targets, prere
+quisites, recipes, and phony targets, which do not represent actual files, but execute related actions. Makefiles streamline the build process, reducing errors and ensuring consistency by specifying d
+ependencies between source files and the commands to generate output files, such as object files and executables.
+
+## 관련 로드맵
+- [[cpp|cpp]]

@@ -1,0 +1,14 @@
+---
+title: Closures
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/closures@M9UlalPL47GoqhcyGsAPV.md
+---
+
+# Closures
+
+Callback closures in Swift are a powerful and flexible way to handle asynchronous operations and event-driven programming. These closures are functions passed as arguments to other functions, which can be executed once a specific task or operation is completed. They allow for non-blocking execution of code, enabling the program to continue running while waiting for long-running tasks to finish. Callback closures are particularly useful in scenarios like network requests, file I/O operations, or user interface events. Swift's syntax for closures makes them concise and easy to use, with features like trailing closure syntax and capture lists for managing memory. While callback closures offer great flexibility, they can lead to nested code structures in complex scenarios, which has led to the development of more advanced patterns like promises and async/await to manage asynchronous code more elegantly.
+
+## 관련 로드맵
+- [[ios|ios]]

@@ -1,0 +1,15 @@
+---
+title: Blogging Platforms
+tags: [concept, technical-writer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/technical-writer/content/blogging-platforms@sdoFe4A3y_-Zp3mlrJ5r8.md
+---
+
+# Blogging Platforms
+
+"Blogging Platforms" refers to software services that allow users to create, post, and manage blogs online. Some well-known examples of blogging platforms include WordPress, Blogger, Tumblr, and Medium. These platforms often feature user-friendly interfaces and offer various customization tools to suit your blogging needs. WordPress, for instance, offers significant flexibility and a wide range of themes and plugins, while Blogger is known for its reliable Google integration. Tumblr's social sharing functionality makes it a prominent choice among creative bloggers, and Medium is noted for its emphasis on high-quality content and its user-friendly editor. Dev.to, Hashnode and Hackernoon are free, beginner-friendly blogging platforms that cater to developers, and allow them to share ideas with each other. Each platform offers different strengths depending on your particular needs and specialization as a technical writer. 
+
+
+## 관련 로드맵
+- [[technical-writer|technical-writer]]

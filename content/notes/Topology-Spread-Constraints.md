@@ -1,0 +1,21 @@
+---
+title: Topology Spread Constraints
+tags: [concept, kubernetes]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/kubernetes/content/topology-spread-constraints@CL0hKTcml40InmyVUXpY2.md
+---
+
+# Topology Spread Constraints
+
+Topology spread constraints ensure even distribution of pods across a cluster's topology. Constraints define rules for the number of pods of a certain type that can run on a given level, such as nodes, zones, or racks. These constraints can be customized to fit specific needs, such as ensuring that 
+critical workloads are spread across multiple zones. They help prevent single points of failure and improve application resilience by preventing resource overloading and promoting balanced distributio
+n of workloads. Constraints can be added using the Kubernetes API or command line interface.
+
+Visit the following resources to learn more:
+
+- [@official@Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)
+- [@video@Kubernetes | Topology Spread Constraints](https://www.youtube.com/watch?v=joRrWJ6bwvE)
+
+## 관련 로드맵
+- [[Kubernetes|kubernetes]]

@@ -1,0 +1,24 @@
+---
+title: Countermeasures
+tags: [concept, ai-red-teaming]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ai-red-teaming/content/countermeasures@G1u_Kq4NeUsGX2qnUTuJU.md
+---
+
+# Countermeasures
+
+AI Red Teamers must also understand and test defenses against prompt hacking. This includes evaluating the effectiveness of input sanitization, output filtering, instruction demarcation (e.g., XML tagging), contextual awareness checks, model fine-tuning for resistance, and applying the principle of 
+least privilege to LLM capabilities and tool access.
+
+Learn more from the following resources:
+
+- [@article@Prompt Hacking Defensive Measures](https://learnprompting.org/docs/prompt_hacking/defensive_measures/introduction)
+- [@article@Mitigating Prompt Injection Attacks (NCC Group Research)](https://research.nccgroup.com/2023/12/01/mitigating-prompt-injection-attacks/)
+- [@article@Prompt Injection & the Rise of Prompt Attacks](https://www.lakera.ai/blog/guide-to-prompt-injection)
+- [@article@Prompt Injection: Impact, How It Works & 4 Defense Measures](https://www.tigera.io/learn/guides/llm-security/prompt-injection/)
+- [@guide@OpenAI Best Practices for Prompt Security](https://platform.openai.com/docs/guides/prompt-engineering/strategy-write-clear-instructions)
+
+
+## 관련 로드맵
+- [[ai-red-teaming|ai-red-teaming]]

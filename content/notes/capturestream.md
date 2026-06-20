@@ -1,0 +1,50 @@
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+captureStream method
+====================
+
+::: {.section .multi-line-signature}
+[MediaStream](../mediastream-class) captureStream(
+
+1.  \[[num](../../dart-core/num-class)? frameRate\]
+
+)
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+MediaStream captureStream([num? frameRate]) native;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/CanvasElement/captureStream.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/mediaelement/capturestream.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+captureStream method
+====================
+
+::: {.section .multi-line-signature}
+[MediaStream](../mediastream-class) captureStream()
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+MediaStream captureStream() native;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/MediaElement/captureStream.html>
+:::

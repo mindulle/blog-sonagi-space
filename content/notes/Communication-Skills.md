@@ -1,0 +1,16 @@
+---
+title: Communication Skills
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/communication-skills@5-4MXlRjH-4PlF2giZpVL.md
+---
+
+# Communication Skills
+
+Communication Skills are crucial for a product manager as they act as the bridge between different stakeholders such as development, design, marketing, and executives. Effective communication enables a product manager to share their visions, align the team towards common goals, and articulate stakeh
+older needs clearly. These skills help to prevent misunderstandings and conflicts, ensuring the successful implementation of product strategies. Without efficient communication skills, a product manag
+er will struggle to convey their ideas, which can ultimately lead to ineffective strategies and unsuccessful products.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

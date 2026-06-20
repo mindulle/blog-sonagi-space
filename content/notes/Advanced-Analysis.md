@@ -1,0 +1,16 @@
+---
+title: Advanced Analysis
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/advanced-analysis@9y_I41kJhkmyBJjiTw8Xd.md
+---
+
+# Advanced Analysis
+
+The field of Advanced Analysis plays a pivotal role in the domain of Product Management. As the driving force behind decision-making, it incorporates sophisticated methods and tools to draw meaning from data, enabling Product Managers to extract actionable insights. This subject involves application
+s such as Predictive Modeling, Statistical Analysis, and Machine Learning algorithms to yield a deep understanding of user behavior, market trends, product performance and forecast potential outcomes.
+ With the power of advanced analysis, Product Managers can create data-driven strategies, optimize the user experience, and accelerate overall product growth.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

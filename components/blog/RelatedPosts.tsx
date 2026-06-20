@@ -48,7 +48,7 @@ export function RelatedPosts({ currentPost, allPosts, maxCount = 3 }: RelatedPos
 
   return (
     <section>
-      <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-6">
+      <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--color-text-primary)' }}>
         Related Posts
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,13 +69,13 @@ export function RelatedPosts({ currentPost, allPosts, maxCount = 3 }: RelatedPos
                 <div className="flex items-center gap-2 mb-2">
                   <CategoryBadge category={post.category} />
                 </div>
-                <h3 className="font-semibold text-neutral-900 dark:text-neutral-100 mb-2 line-clamp-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                <h3 className="font-semibold mb-2 line-clamp-2 group-hover:text-[var(--color-brand-primary)] transition-colors" style={{ color: 'var(--color-text-primary)' }}>
                   {post.title}
                 </h3>
-                <p className="text-sm text-neutral-600 dark:text-neutral-400 mb-3 line-clamp-2">
+                <p className="text-sm mb-3 line-clamp-2" style={{ color: 'var(--color-text-secondary)' }}>
                   {post.description}
                 </p>
-                <div className="flex items-center gap-3 text-xs text-neutral-500 dark:text-neutral-500">
+                <div className="flex items-center gap-3 text-xs" style={{ color: 'var(--color-text-muted)' }}>
                   <time
                     dateTime={post.date}
                     className="flex items-center gap-1"

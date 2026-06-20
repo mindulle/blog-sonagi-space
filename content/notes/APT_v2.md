@@ -1,0 +1,19 @@
+---
+title: APT
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/apt@l0BvDtwWoRSEjm6O0WDPy.md
+---
+
+# APT
+
+Advanced Persistent Threats, or APTs, are a class of cyber threats characterized by their persistence over a long period, extensive resources, and a high level of sophistication. Often associated with nation-state actors, organized cybercrime groups, and well-funded hackers, APTs are primarily focused on targeting high-value assets, such as critical infrastructure, financial systems, and government agencies.
+
+Visit the following resources to learn more:
+
+- [@article@Advanced Persistent Threat (APT)](https://www.crowdstrike.com/cybersecurity-101/advanced-persistent-threat-apt/)
+- [@video@What is an Advanced Persistent Threat?](https://www.youtube.com/watch?v=sGthMsDlqew)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

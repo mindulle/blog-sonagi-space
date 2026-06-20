@@ -1,0 +1,14 @@
+---
+title: Feature Toggles
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/feature-toggles@7BCnM9A9PwYqsLmcNVfvt.md
+---
+
+# Feature Toggles
+
+Feature toggles, also known as feature flags, are a powerful technique giving product managers an advanced control over the features of the product which are visible to specific users. It allows teams to modify a software system's behavior without necessarily changing the code. Feature toggles provide the flexibility of enabling or disabling certain parts of the application, facilitating testing, continuous deployment and facilitating roll-out or roll-back of features. As a product manager, understanding the use of feature toggles is crucial in efficiently managing the release process and reducing risks associated with deploying new features.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

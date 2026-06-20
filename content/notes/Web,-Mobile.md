@@ -1,0 +1,20 @@
+---
+title: Web, Mobile
+tags: [concept, software-architect]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/software-architect/content/web-mobile@j9Y2YbBKi3clO_sZ2L_hQ.md
+---
+
+# Web and Mobile
+
+Web apps and mobile apps are two distinct types of software applications designed to run on different platforms. Web apps are accessed through web browsers and run on various devices using internet connectivity. They are platform-independent, making them easy to update and maintain, but often requir
+e an active internet connection. Mobile apps, on the other hand, are specifically developed for mobile operating systems like Android and iOS, providing enhanced performance, offline functionality, an
+d seamless access to device features such as GPS, cameras, and sensors. While web apps prioritize accessibility and cost-effectiveness, mobile apps focus on delivering a tailored and optimized user experience.
+
+Visit the following resources to learn more:
+
+- [@article@Web vs Mobile](https://buildfire.com/difference-between-web-app-and-mobile-app/)
+
+## 관련 로드맵
+- [[software-architect|software-architect]]

@@ -1,0 +1,21 @@
+---
+title: IntelliJ Idea
+tags: [concept, flutter]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/flutter/content/intellij-idea@lkABkFigkVzl1x4_8xEZz.md
+---
+
+# IntelliJ IDEA
+
+IntelliJ IDEA is a powerful Integrated Development Environment (IDE) created by JetBrains. Essentially, it's a software application that provides comprehensive facilities to computer programmers for software development.
+
+Visit the following resources to learn more:
+
+- [@official@IntelliJ IDEA](https://www.jetbrains.com/idea/)
+- [@article@IntelliJ IDEA for Flutter](https://docs.flutter.dev/development/tools/android-studio)
+- [@article@Get started with IntelliJ](https://dart.dev/tools/jetbrains-plugin)
+- [@feed@Explore top posts about DevTools](https://app.daily.dev/tags/devtools?ref=roadmapsh)
+
+## 관련 로드맵
+- [[Flutter|flutter]]

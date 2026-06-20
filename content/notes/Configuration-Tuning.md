@@ -1,0 +1,26 @@
+---
+title: Configuration Tuning
+tags: [concept, php]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/php/content/configuration-tuning@VpwwF8j5ZtXVSbzNfE7Sx.md
+---
+
+# Configuration Tuning
+
+For performance optimization in PHP, configuration tuning is a crucial step. You can manipulate several settings in your php.ini file to enhance your PHP application's performance. For instance, `memory_limit` is a key parameter that specifies the maximum amount of memory a script can consume. Optim
+izing this setting will prevent the PHP scripts from eating up all server resources. Similarly, adjusting the `max_execution_time` limits the time a script runs. Just ensure careful configuration sinc
+e restrictive settings could lead to issues. Here's a simple example of how you might modify these parameters:
+
+    // Updating memory_limit
+    ini_set('memory_limit','256M');
+    
+    // Updating max_execution_time
+    ini_set('max_execution_time', '300');
+
+Visit the following resources to learn more:
+
+- [@official@Configuration Tuning](https://www.php.net/manual/en/ini.core.php)
+
+## 관련 로드맵
+- [[PHP|php]]

@@ -1,0 +1,18 @@
+---
+title: Concurrency and Multithreading
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/concurrency-and-multithreading@fbloF-u4XwdHLmBS9flZm.md
+---
+
+# Concurrency and Multithreading
+
+Concurrency and multithreading in iOS development enable applications to perform multiple operations simultaneously, improving responsiveness and performance. iOS provides several mechanisms for managing concurrent tasks, including Grand Central Dispatch (GCD) and Operation queues. GCD offers a low-
+level API for dispatching tasks to concurrent queues, while Operation queues provide a higher-level, object-oriented approach. Swift's modern concurrency features, including async/await and actors, of
+fer a more intuitive way to write asynchronous code, reducing complexity and potential threading issues. These tools allow developers to offload time-consuming tasks from the main thread, ensuring a smooth user interface. Proper use of concurrency involves careful management of shared resources to a
+void race conditions and deadlocks. Understanding thread safety, queue priorities, and synchronization techniques is crucial for developing efficient and responsive iOS applications that can effective
+ly utilize modern multi-core devices.
+
+## 관련 로드맵
+- [[ios|ios]]

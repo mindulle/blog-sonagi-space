@@ -1,0 +1,20 @@
+---
+title: SignalR Core
+tags: [concept, aspnet-core]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/aspnet-core/content/signalr-core@8dvd4M0TKNyQR8dEolGNT.md
+---
+
+# SignalR Core
+
+SignalR is a real-time communication library for .NET that allows for the creation of real-time web applications. SignalR Core is the latest version of SignalR, which has been rebuilt from the ground up to be cross-platform and lightweight. It allows for bidirectional communication between a client 
+(such as a web page) and a server, enabling real-time updates, notifications, and other interactions. SignalR Core can be used in a variety of scenarios such as chat applications, gaming, and real-tim
+e dashboards. It supports multiple transports like WebSockets, Server-Sent Events and Long polling. It also supports for authentication and authorization.
+
+Visit the following resources to learn more:
+
+- [@article@Overview of ASP.NET Core SignalR](https://learn.microsoft.com/en-us/aspnet/core/signalr/introduction?view=aspnetcore-8.0)
+
+## 관련 로드맵
+- [[aspnet-core|aspnet-core]]

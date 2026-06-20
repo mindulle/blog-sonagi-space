@@ -1,0 +1,16 @@
+---
+title: Notion
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/notion@dk1YzX84UUe_es1x-dfp2.md
+---
+
+# Notion as Roadmapping Tool
+
+As a Product Manager, Notion is an indispensable tool in your arsenal for creating roadmaps. This powerful platform is a combination of note-taking, database, project management, and much more. With Notion, you can track the progress of various product initiatives, communicate status updates to stak
+eholders, and clearly lay out the strategic path ahead. With its flexible, customizable interface and integrations with other useful tools, it is perfectly suited towards collating and synthesizing la
+rge amounts of information, which is central to effective product management. The visual nature of Notion's interface makes it particularly well suited for creating compelling, easy-to-understand roadmaps.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

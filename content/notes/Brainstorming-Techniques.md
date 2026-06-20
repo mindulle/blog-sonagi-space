@@ -1,0 +1,16 @@
+---
+title: Brainstorming Techniques
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/brainstorming-techniques@69IgqluiW9cVfezSIKInD.md
+---
+
+# Brainstorming Techniques for Product Identification
+
+When it comes to the role of a Product Manager, brainstorming techniques are paramount, especially during the stage of Product Identification. This initial stage involves the generation and rallying of innovative ideas that could potentially translate into a viable product. The Product Manager is re
+quired to leverage different techniques, like mind maps, SWOT analysis, SCAMPER, or Six Thinking Hats, to effectively encourage creativity, drive cross-functional collaboration, and foster a breeding 
+ground for market-leading product concepts. Effective brainstorming sessions can reveal unique market opportunities, create an alignment of vision among teams, and contribute to the overall product strategy.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

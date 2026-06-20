@@ -1,0 +1,14 @@
+---
+title: Debugging Symbols
+tags: [concept, cpp]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cpp/content/debugging-symbols@sR_FxGZHoMCV9Iv7z2_SX.md
+---
+
+# Debugging Symbols
+
+Debugging symbols are essential for effective debugging in C++. They provide debuggers with information about the program's structure, source code relationships, and variable representations, allowing developers to step through code, inspect variables, and understand the program's behavior. These symbols can be embedded directly within the compiled binary (internal) or stored in separate files (external), such as `.pdb` on Windows or `.dSYM` on macOS. Tools like `g++` offer flags like `-g` (for internal symbols) and `-gsplit-dwarf` (for external symbols) to generate these symbols during compilation, while the `strip` command can be used to remove internal symbols from production binaries.
+
+## 관련 로드맵
+- [[cpp|cpp]]

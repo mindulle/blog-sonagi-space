@@ -1,0 +1,20 @@
+---
+title: OOP Basics
+tags: [concept, datastructures-and-algorithms]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/datastructures-and-algorithms/content/oop-basics@QFR1FMOf2OV3n3jcDnOCP.md
+---
+
+# OOP Basics
+
+Object-oriented programming (OOP) is a programming paradigm that uses "objects" to design applications and software. In OOP, each object is an instance of a class. A class defines the properties (often known as attributes or fields) and methods (actions) that are common to all objects of a certain k
+ind. A key principle of OOP is the ability to hide certain parts of the objects’ data from the outside, a concept known as encapsulation. Other key principles are inheritance, a way to form new classe
+s using classes that have already been defined, and polymorphism, the concept of designing objects to share behaviors and being able to override shared behaviors with specifics.
+
+Visit the following resources to learn more:
+
+- [@video@Object-Oriented Programming (Simplified)](https://youtu.be/pTB0EiLXUC8?si=I8rV2K5fhpoqmixX)
+
+## 관련 로드맵
+- [[datastructures-and-algorithms|datastructures-and-algorithms]]

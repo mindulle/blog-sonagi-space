@@ -1,0 +1,16 @@
+---
+title: Market Analysis
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/market-analysis@Eusp5p6gNIxtU_yVvOkmu.md
+---
+
+# Market Analysis
+
+As a central aspect of a Product Manager's role, market analysis encompasses the examination of the market within which the product will operate. It includes a detailed understanding of potential consumers, competitors, and market conditions. Market analysis helps Product Managers to develop strateg
+ic plans, set objectives, and make informed decisions about product development, positioning, and growth strategies. This extensive research forms the groundwork for understanding market trends, indus
+try patterns, customer behavior and the competitive landscape.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

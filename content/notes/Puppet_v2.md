@@ -1,0 +1,19 @@
+---
+title: Puppet
+tags: [concept, devops]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/devops/content/puppet@yP1y8U3eblpzbaLiCGliU.md
+---
+
+# Puppet
+
+Puppet is a configuration management tool that lets you define the desired state of your infrastructure using its own declarative language. It uses a client-server model where a Puppet agent runs on each managed node and periodically checks in with the Puppet master to apply any defined configurations.
+
+Visit the following resources to learn more:
+
+- [@official@Puppet Website](https://puppet.com/)
+- [@course@Puppet Full Course | Learn Puppet Training](https://www.youtube.com/watch?v=Ns_tRKD20c4)
+
+## 관련 로드맵
+- [[devops|devops]]

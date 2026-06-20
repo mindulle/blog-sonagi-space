@@ -1,0 +1,21 @@
+---
+title: GetX
+tags: [concept, flutter]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/flutter/content/getx@nK_ZKTfNc8P-RJoz5jY32.md
+---
+
+# GetX
+
+GetX is a lightweight and powerful solution for state management and navigation in Flutter. It provides a clean and simple API for managing app state and navigating between screens. GetX makes it easy to create scalable and maintainable apps, as it offers a central place to manage the app's state, r
+educing the amount of boilerplate code needed. It also provides out-of-the-box support for routing, making it easy to navigate between screens, and it supports hot reloading, which allows developers t
+o see changes in real-time.
+
+Visit the following resources to learn more:
+
+- [@official@GetX in Flutter](https://docs.flutter.dev/development/data-and-backend/state-mgmt/options#getx)
+- [@video@Complete GetX State Management | Flutter](https://www.youtube.com/watch?v=CNpXbeI_slw)
+
+## 관련 로드맵
+- [[Flutter|flutter]]

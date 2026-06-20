@@ -34,7 +34,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <Container className="py-12">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold text-neutral-900 dark:text-neutral-100 mb-8">
+        <h1 className="text-4xl font-bold mb-8" style={{ color: 'var(--color-text-primary)' }}>
           Search
         </h1>
 
@@ -47,11 +47,12 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                 {[...Array(3)].map((_, i) => (
                   <div
                     key={i}
-                    className="p-6 border border-neutral-200 dark:border-neutral-700 rounded-lg animate-pulse"
+                    className="p-6 border rounded-lg animate-pulse"
+                    style={{ borderColor: 'var(--color-border-default)' }}
                   >
-                    <div className="h-6 bg-neutral-200 dark:bg-neutral-700 rounded w-3/4 mb-3"></div>
-                    <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-full mb-2"></div>
-                    <div className="h-4 bg-neutral-200 dark:bg-neutral-700 rounded w-2/3"></div>
+                    <div className="h-6 rounded w-3/4 mb-3" style={{ backgroundColor: 'var(--color-border-default)' }}></div>
+                    <div className="h-4 rounded w-full mb-2" style={{ backgroundColor: 'var(--color-border-default)' }}></div>
+                    <div className="h-4 rounded w-2/3" style={{ backgroundColor: 'var(--color-border-default)' }}></div>
                   </div>
                 ))}
               </div>
@@ -63,7 +64,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {!query && (
           <div className="text-center py-12">
-            <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
               Enter a search query to find posts
             </p>
           </div>

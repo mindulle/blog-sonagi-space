@@ -1,0 +1,20 @@
+---
+title: IQR
+tags: [concept, bi-analyst]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/bi-analyst/content/iqr@LEHK7ohKIzKhlGebd0k_j.md
+---
+
+# Interquartile Range (IQR)
+
+The Interquartile Range (IQR) is a measure of statistical dispersion, representing the spread of the middle 50% of a dataset. It's calculated as the difference between the third quartile (Q3) and the first quartile (Q1). The IQR is resistant to outliers, making it a robust measure of variability whe
+n extreme values are present.
+
+Visit the following resources to learn more:
+
+- [@article@Interquartile range](https://en.wikipedia.org/wiki/Interquartile_range)
+- [@article@How to Find Interquartile Range (IQR)](https://www.scribbr.com/statistics/interquartile-range/)
+
+## 관련 로드맵
+- [[bi-analyst|bi-analyst]]

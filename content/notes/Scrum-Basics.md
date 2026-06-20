@@ -1,0 +1,21 @@
+---
+title: Scrum Basics
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/scrum-basics@WNCVmFrpHW7rMaIzlLaXl.md
+---
+
+# Scrum Basics
+
+The role of a Product Manager greatly correlates to the understanding and implementation of Scrum basics. Scrum is an agile framework that works towards delivering valuable products iteratively and incrementally. Scrum Basics cover a myriad range of concepts including, but not limited to, Scrum role
+s (Product Owner, Scrum Master, and the Development Team), Scrum artifacts (Product Backlog, Sprint Backlog, and Product Increment) and Scrum ceremonies (Sprint Planning, Daily Standup, Retrospective,
+ etc.). An effective Product Manager is expected to thoroughly comprehend these components to smoothly manage projects, optimize product value and efficiently deal with complex situations, ensuring product success.
+
+Visit the following resources to learn more:
+
+- [@article@The Official Scrum Guide](https://scrumguides.org/scrum-guide.html)
+
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

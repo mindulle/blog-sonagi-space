@@ -1,0 +1,18 @@
+---
+title: What are Subscriptions
+tags: [concept, graphql]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/graphql/content/what-are-subscriptions@RlBc-hWEUOPaEQLTgJa-K.md
+---
+
+# What are Subscriptions
+
+Subscriptions in GraphQL enable real-time updates by allowing clients to subscribe to specific events or data changes on the server. They're structured like queries with a "subscription" field at the top level and push updates to clients as soon as events occur.
+
+Visit the following resources to learn more:
+
+- [@article@How GraphQL Subscriptions Work?](https://the-guild.dev/blog/subscriptions-and-live-queries-real-time-with-graphql)
+
+## 관련 로드맵
+- [[GraphQL|graphql]]

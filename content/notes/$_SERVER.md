@@ -1,0 +1,24 @@
+---
+title: $_SERVER
+tags: [concept, php]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/php/content/_server@7Ja2at_N9tRTlvSGahrqn.md
+---
+
+# $_SERVER
+
+The `$_SERVER` is a superglobal in PHP, holding information about headers, paths, and script locations. $\_SERVER is an associative array containing server variables created by the web server. This can include specific environmental configurations, the server signature, your PHP script's paths and d
+etails, client data, and the active request/response sequence. Among its many uses, `$_SERVER['REMOTE_ADDR']` can help get the visitor's IP while `$_SERVER['HTTP_USER_AGENT']` offers information about
+ their browser. Don't forget to sanitize the content before use to prevent security exploits.
+
+Here's an easy code sample that prints the client's IP:
+
+    echo 'Your IP is: ' . $_SERVER['REMOTE_ADDR'];
+
+Visit the following resources to learn more:
+
+- [@official@$_SERVER](https://www.php.net/reserved.variables.server)
+
+## 관련 로드맵
+- [[PHP|php]]

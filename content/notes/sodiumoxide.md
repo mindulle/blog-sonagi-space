@@ -1,0 +1,20 @@
+---
+title: sodiumoxide
+tags: [concept, rust]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/rust/content/sodiumoxide@hzzRFb5cyXkgUdLZxaozB.md
+---
+
+# sodiumoxide
+
+`sodiumoxide` is a Rust binding to libsodium cryptography library, designed for easy use and misuse prevention. Provides safe, high-level, idiomatic Rust wrappers for cryptographic primitives with automatic error handling. Follows NaCl design principles for simplicity while offering libsodium perfor
+mance benefits.
+
+Visit the following resources to learn more:
+
+- [@article@Rust Password Hashing with Argon2id and the Sodiumoxide](https://blue42.net/code/rust/examples/sodiumoxide-password-hashing/post/)
+- [@article@sodiumoxide/sodiumoxide](https://deepwiki.com/sodiumoxide/sodiumoxide)
+
+## 관련 로드맵
+- [[Rust|rust]]

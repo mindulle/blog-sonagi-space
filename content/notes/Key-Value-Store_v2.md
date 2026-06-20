@@ -1,0 +1,21 @@
+---
+title: Key-Value Store
+tags: [concept, system-design]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/system-design/content/key-value-store@KFtdmmce4bRkDyvFXZzLN.md
+---
+
+# Key Value Store
+
+A key-value store generally allows for `O(1)` reads and writes and is often backed by memory or SSD. Data stores can maintain keys in lexicographic order, allowing efficient retrieval of key ranges. Key-value stores can allow for storing of metadata with a value.
+
+Key-value stores provide high performance and are often used for simple data models or for rapidly-changing data, such as an in-memory cache layer. Since they offer only a limited set of operations, complexity is shifted to the application layer if additional operations are needed.
+
+Visit the following resources to learn more:
+
+- [@article@Key–value database](https://en.wikipedia.org/wiki/Key%E2%80%93value_database)
+- [@article@What are the disadvantages of using a key/value table?](https://stackoverflow.com/questions/4056093/what-are-the-disadvantages-of-using-a-key-value-table-over-nullable-columns-or)
+
+## 관련 로드맵
+- [[System Design|system-design]]

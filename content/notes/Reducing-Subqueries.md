@@ -1,0 +1,18 @@
+---
+title: Reducing Subqueries
+tags: [concept, sql]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/sql/content/reducing-subqueries@UVTgbZrqpbYl1bQvQejcF.md
+---
+
+# Reducing Subqueries
+
+Reducing subqueries is a common SQL optimization technique, especially when dealing with complex logic or large datasets. Correlated subqueries, which are evaluated once for each row in the outer query, can degrade the performance. Subqueries can often be replaced with JOIN operations. In cases wher
+e subqueries are reused, consider replacing them with Common Table Expressions (CTEs), which offer modularity and avoid repeated executions of the same logic. Limiting the result set returned by subqu
+eries and storing the results of expensive subqueries in temporary tables for reuse can also improve performance.
+
+Learn more from the following resources:
+
+## 관련 로드맵
+- [[sql|sql]]

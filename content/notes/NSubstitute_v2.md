@@ -1,0 +1,19 @@
+---
+title: NSubstitute
+tags: [concept, aspnet-core]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/aspnet-core/content/nsubstitute@iZCxinqlVefBk5-ICqt4v.md
+---
+
+# NSubstitute
+
+NSubstitute is a popular open-source .NET library that allows developers to create mock objects for use in unit testing, it is a powerful and flexible substitute for traditional mocking frameworks such as Moq and Rhino Mocks. In the context of [ASP.NET](http://ASP.NET), NSubstitute can be used to create mock objects for testing web applications built using the [ASP.NET](http://ASP.NET) framework, it provides a simple and intuitive syntax for creating mock objects, setting up mock behavior, and making assertions on calls made to the mock objects. NSubstitute supports a wide range of testing frameworks and test runners, including MSTest, NUnit, and xUnit and it also supports various platforms including .NET Framework, .NET Core, Xamarin and Unity.
+
+Visit the following resources to learn more:
+
+- [@opensource@Overview of NSubstitute](https://github.com/nsubstitute/NSubstitute)
+- [@article@Getting started NSubstitute](https://nsubstitute.github.io/help/getting-started/)
+
+## 관련 로드맵
+- [[aspnet-core|aspnet-core]]

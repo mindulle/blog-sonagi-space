@@ -1,0 +1,20 @@
+---
+title: Best Practices
+tags: [concept, api-design]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/api-design/content/best-practices@q1yaf-RbHIQsOqfzjn4k4.md
+---
+
+# Best Practices in API Design
+
+API design has rapidly emerged as a vital component of software development. When designing an API, it is crucial to follow best practices to ensure optimization, scalability, and efficiency. The best practices in API design revolve around principles such as simplicity, consistency, security, and proper documentation, among others. These practices not only smooth the development process but also make the API more user-friendly, stable, and easily maintainable. Thus, following the best practices in API design is not an option but rather a must for developers and organizations looking to create APIs that last longer and perform better.
+
+Visit the following resources to learn more:
+
+- [@roadmap@API Security Best Practices](https://roadmap.sh/api-security-best-practices)
+- [@article@Best Practices for REST API Design](https://stackoverflow.blog/2020/03/02/best-practices-for-rest-api-design/)
+- [@article@Best Practices in API Design](https://swagger.io/resources/articles/best-practices-in-api-design/)
+
+## 관련 로드맵
+- [[api-design|api-design]]

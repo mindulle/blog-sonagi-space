@@ -1,0 +1,20 @@
+---
+title: ACL
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/acl@35oCRzhzpVfitQPL4K9KC.md
+---
+
+# Access Control Lists (ACLs)
+
+An Access Control List (ACL) is a set of permissions attached to an object (like a file, folder, or network resource) that specifies which users or groups have access to the object and what level of access they are granted (e.g., read, write, execute). Essentially, it's a table that tells a system w
+ho is allowed to do what.
+
+Visit the following resources to learn more:
+
+- [@article@Access Control List: Definition, Types & Usages](https://www.okta.com/uk/identity-101/access-control-list/)
+- [@video@Access Control Lists](https://www.youtube.com/watch?v=IwLyr0mKK1w)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

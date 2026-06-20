@@ -1,0 +1,50 @@
+[dart:core](../../dart-core/dart-core-library){._links-link}
+
+isOdd property
+==============
+
+::: {#getter .section .multi-line-signature}
+[bool](../bool-class) isOdd
+:::
+
+Returns true if and only if this integer is odd.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+bool get isOdd;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-core/int/isOdd.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-core/bigint/isodd.md)
+[dart:core](../../dart-core/dart-core-library){._links-link}
+
+isOdd property
+==============
+
+::: {#getter .section .multi-line-signature}
+[bool](../bool-class) isOdd
+:::
+
+Whether this big integer is odd.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+bool get isOdd;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-core/BigInt/isOdd.html>
+:::

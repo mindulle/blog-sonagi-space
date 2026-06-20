@@ -1,0 +1,23 @@
+---
+title: Affine Transformation
+tags: [concept, game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/game-developer/content/affine-transformation@SkCreb6g4i-OFtJWhRYqO.md
+---
+
+# Affine Transformation
+
+An **affine transformation**, in the context of game mathematics, is a function between affine spaces which preserves points, straight lines and planes. Also, sets of parallel lines remain parallel after an affine transformation. In video games, it's typically used for manipulating an object's posit
+ion in 3D space. This operation allows game developers to perform multiple transformations such as translation (moving an object from one place to another), scaling (changing the size of an object), a
+nd rotation (spinning the object around a point). An important feature of affine transformation is that it preserves points uniqueness; if two points are distinct to start with, they remain distinct after transformation. It's important to note that these transformations are applied relative to an ob
+ject's own coordinate system, not the world coordinate system.
+
+Visit the following resources to learn more:
+
+- [@article@Affine Transformation](https://www.gamedevs.org/uploads/affine-transformations.pdf)
+- [@article@Understanding Affine Transformations](https://code.tutsplus.com/understanding-affine-transformations-with-matrix-mathematics--active-10884t)
+
+
+## 관련 로드맵
+- [[game-developer|game-developer]]

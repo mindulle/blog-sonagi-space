@@ -1,0 +1,20 @@
+---
+title: Installing the Control Plane
+tags: [concept, kubernetes]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/kubernetes/content/installing-the-control-plane@M-iTb_7EWZIJ3JpdViICx.md
+---
+
+# Control Plane Installation
+
+The control plane's components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied). Control plane components can be run on any machine in the cl
+uster. However, for simplicity, set up scripts typically start all control plane components on the same machine, and do not run user containers on this machine.
+
+Visit the following resources to learn more:
+
+- [@official@Initializing your control-plane node - Documentation](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/#initializing-your-control-plane-node)
+- [@video@Tutorial - Install Control Plane Components](https://www.youtube.com/watch?v=IUwuyZ5ReF0)
+
+## 관련 로드맵
+- [[Kubernetes|kubernetes]]

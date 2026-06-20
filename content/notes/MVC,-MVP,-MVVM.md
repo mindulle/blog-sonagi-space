@@ -1,0 +1,26 @@
+---
+title: MVC, MVP, MVVM
+tags: [concept, software-architect]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/software-architect/content/mvc-mvp-mvvm@jj5otph6mEYiR-oU5WVtT.md
+---
+
+# MVC MVP MVVM
+
+Model-view-controller, or MVC, is a pattern used to separate user-interface, data and application logic. It does this by separating an application into three parts: Model, View, and Controller. The model holds the data, the view encompasses the user-interface, and the controller acts as a mediator b
+etween the two.
+
+Model-view-presenter, or MVP, was designed to ease automated unit testing and improve the separation of concerns in presentation logic. MVP is a variant of the MVC pattern, though differs in that it divides the application into the user-interface (view), data (model) and presentation logic (presente
+r). While the model and the view represent stay the same as in the model-view-controller pattern, the presenter differs from the controller in that it manipulates the model and updates the view.
+
+Another variant of the MVC is the model-view-viewmodel pattern. The Model-view-viewmodel, or MVVM, separates the application into three core components: Model, View, and View Model. While the view and model represent all that they did in their parent pattern, the view model acts as a link between th
+e model and view, retrieves data from the model and exposes it to the view through two-way data binding and can manipulate the model's data.
+
+Visit the following resources to learn more:
+
+- [@article@MVC, MVP and MVVM Design Pattern](https://medium.com/@ankit.sinhal/mvc-mvp-and-mvvm-design-pattern-6e169567bbad)
+- [@feed@Explore top posts about General Programming](https://app.daily.dev/tags/general-programming?ref=roadmapsh)
+
+## 관련 로드맵
+- [[software-architect|software-architect]]

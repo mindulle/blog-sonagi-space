@@ -1,0 +1,25 @@
+---
+title: Azure Pipelines
+tags: [concept, aspnet-core]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/aspnet-core/content/azure-pipelines@_-GQNpsb7KZw76hNNOq3h.md
+---
+
+# Azure Pipelines
+
+Azure Pipelines is a continuous integration and continuous delivery (CI/CD) platform that allows developers to automate the process of building, testing, and deploying code. It is a part of the Azure DevOps suite of tools and can be used to automate the software development process for various langu
+ages and platforms, including [ASP.NET](http://ASP.NET).
+
+In [ASP.NET](http://ASP.NET), Azure Pipelines can be used to automate various tasks related to the development, testing, and deployment of [ASP.NET](http://ASP.NET) applications. For example, you can use Azure Pipelines to automatically build, test, and deploy an [ASP.NET](http://ASP.NET) applicatio
+n to a hosting provider, such as Azure or AWS, every time you push code to your source control repository.
+
+Visit the following resources to learn more:
+
+- [@article@Deploy ASP.NET Apps with Azure Pipelines](https://learn.microsoft.com/en-us/training/modules/deploy-aspnet-apps-azure-app-service-pipelines/)
+- [@article@Build ASP.NET apps with .NET Framework](https://learn.microsoft.com/en-us/azure/devops/pipelines/apps/aspnet/build-aspnet-4?view=azure-devops)
+- [@article@How to Build, test & deploy .NET Apps](https://learn.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core?view=azure-devops&tabs=dotnetfive)
+- [@feed@Explore top posts about Azure](https://app.daily.dev/tags/azure?ref=roadmapsh)
+
+## 관련 로드맵
+- [[aspnet-core|aspnet-core]]

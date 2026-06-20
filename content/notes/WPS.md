@@ -1,0 +1,21 @@
+---
+title: WPS
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/wps@HSCGbM2-aTnJWUX6jGaDP.md
+---
+
+# WPS
+
+Wi-Fi Protected Setup (WPS) is a network security standard designed to make it easier to connect devices to a secure wireless network. It allows users to add devices to a Wi-Fi network using a simple setup process, typically involving pressing a WPS button on the router and the device or entering a 
+PIN. While WPS simplifies the connection process, it has known security vulnerabilities, which can potentially be exploited to gain unauthorized access to the network.
+
+Visit the following resources to learn more:
+
+- [@article@WPS – What is it, and how does it work?](https://passwork.pro/blog/what-is-wps/)
+- [@article@Wi-Fi Protected Setup](https://en.wikipedia.org/wiki/Wi-Fi_Protected_Setup)
+- [@video@What is WPS in WiFi](https://www.youtube.com/watch?v=pO1r4PWf2yg)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

@@ -1,0 +1,22 @@
+---
+title: Regression Analysis
+tags: [concept, bi-analyst]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/bi-analyst/content/regression-analysis@m9ejACzRBJza0v-fpdfkn.md
+---
+
+# Regression Analysis
+
+Regression analysis is a form of predictive modelling technique which investigates the relationship between dependent and independent variables. It is used for forecast, time series modelling and finding the causal effect relationship between variables. In essence, Regression techniques are used by 
+BI analysts to predict a continuous outcome variable (dependent variable) based on one or more predictor variables (independent variables). The main goal is to understand how the typical value of the 
+dependent variable changes when any one of the independent variables is varied, while the other independent variables are held fixed.
+
+Visit the following resources to learn more:
+
+- [@course@Intro to Inferential Statistics](https://www.udacity.com/course/intro-to-inferential-statistics--ud201)
+- [@article@Regression: Definition, Analysis, Calculation, and Example](https://www.investopedia.com/terms/r/regression.asp)
+- [@article@A Refresher on Regression Analysis - Harvard](https://hbr.org/2015/11/a-refresher-on-regression-analysis)
+
+## 관련 로드맵
+- [[bi-analyst|bi-analyst]]

@@ -1,0 +1,22 @@
+---
+title: CLI Utilities
+tags: [concept, rust]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/rust/content/cli-utilities@2Zyyf9q_CxmOW-z2pipL8.md
+---
+
+# CLI Utilities
+
+CLI utilities are command-line tools that allow users to interact with their system through text commands. Rust is excellent for building fast, reliable CLI tools due to its memory safety and performance. Popular crates like clap and structopt help parse command-line arguments, handle input validati
+on, and generate help messages, making CLI development efficient.
+
+Visit the following resources to learn more:
+
+- [@official@structopt](https://docs.rs/structopt/latest/structopt/)
+- [@official@clap](https://docs.rs/clap/latest/clap/)
+- [@official@Command-line Apps](https://www.rust-lang.org/what/cli/)
+- [@article@Rust CLI Utilities - GitHub](https://github.com/baldwin-sudo/rusty-utils)
+
+## 관련 로드맵
+- [[Rust|rust]]

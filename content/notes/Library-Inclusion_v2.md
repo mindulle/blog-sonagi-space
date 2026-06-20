@@ -1,0 +1,14 @@
+---
+title: Library Inclusion
+tags: [concept, cpp]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cpp/content/library-inclusion@5mNqH_AEiLxUmgurNW1Fq.md
+---
+
+# Library Inclusion
+
+In C++, library inclusion is the process of making external code available to your program. This is achieved primarily through the `#include` preprocessor directive, which allows you to incorporate header files containing declarations of functions, classes, and other entities. Header files from the standard library are included using angle brackets (`<iostream>`), while user-defined or third-party headers are included using double quotes (`"myheader.h"`). While less common, source files can also be included, though this practice is generally discouraged due to potential issues with multiple definitions and longer compile times.
+
+## 관련 로드맵
+- [[cpp|cpp]]

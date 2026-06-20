@@ -1,0 +1,21 @@
+---
+title: Composition
+tags: [concept, react]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/react/content/composition@4T59gdcwdXqj9kCuK7cfp.md
+---
+
+# Composition vs Inheritance
+
+React has a powerful composition model, and it is recommended to use composition instead of inheritance to reuse code between components.
+
+Visit the following resources to learn more:
+
+- [@official@Passing JSX as children](https://react.dev/learn/passing-props-to-a-component#passing-jsx-as-children)
+- [@article@Composition vs Inheritance](https://reactjs.org/docs/composition-vs-inheritance.html)
+- [@article@How to perform component composition in React](https://www.robinwieruch.de/react-component-composition/)
+- [@article@Achieving Reusability With React Composition](https://formidable.com/blog/2021/react-composition/)
+
+## 관련 로드맵
+- [[react|react]]

@@ -1,0 +1,20 @@
+---
+title: HTTP Methods
+tags: [concept, php]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/php/content/http-methods@tn_iIfaJZVtPK6vFds7FH.md
+---
+
+# HTTP Methods
+
+PHP allows for handling HTTP methods, which are a way of defining the action to be performed on the resource identified by a given URL. In PHP, the $\_SERVER superglobal array can be used to identify the HTTP method of a specific request, typically a GET, POST, PUT, DELETE or HEAD. For example, to i
+dentify if a request is a POST request, you can use `if ($_SERVER['REQUEST_METHOD'] == 'POST') { // your code here }`. More advanced handling can be done by utilizing built-in PHP libraries or third-p
+arty packages.
+
+Visit the following resources to learn more:
+
+- [@official@HTTP Methods](https://www.php.net/manual/en/reserved.variables.server.php)
+
+## 관련 로드맵
+- [[PHP|php]]

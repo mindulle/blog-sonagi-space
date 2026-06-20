@@ -1,0 +1,24 @@
+---
+title: Programming Paradigms
+tags: [concept, software-design-architecture]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/software-design-architecture/content/programming-paradigms@RgYq3YOJhPGSf5in1Rcdp.md
+---
+
+# Programming Paradigms
+
+A programming paradigm is a fundamental style or approach to solving problems using a programming language. Different programming paradigms provide different ways of organizing and structuring code, and have different strengths and weaknesses. Some of the most common programming paradigms include:
+
+*   Imperative programming
+*   Functional programming
+*   Object-oriented programming
+*   Logic programming
+*   Declarative programming
+
+Visit the following resources to learn more:
+
+- [@article@Overview of Programming paradigm](https://en.wikipedia.org/wiki/Programming_paradigm)
+
+## 관련 로드맵
+- [[software-design-architecture|software-design-architecture]]

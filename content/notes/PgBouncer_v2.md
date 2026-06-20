@@ -1,0 +1,17 @@
+---
+title: PgBouncer
+tags: [concept, postgresql-dba]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/postgresql-dba/content/pgbouncer@aKQI7aX4bT_39bZgjmfoW.md
+---
+
+# PgBouncer
+
+PgBouncer is a lightweight connection pooler for PostgreSQL, designed to reduce the overhead associated with establishing new database connections. It sits between the client and the PostgreSQL server, maintaining a pool of active connections that clients can reuse, thus improving performance and resource utilization. PgBouncer supports multiple pooling modes, including session pooling, transaction pooling, and statement pooling, catering to different use cases and workloads. It is highly configurable, allowing for fine-tuning of connection limits, authentication methods, and other parameters to optimize database access and performance.
+
+- [@official@PgBouncer Website](https://www.pgbouncer.org/)
+- [@opensource@pgbouncer/pgbouncer](https://github.com/pgbouncer/pgbouncer)
+
+## 관련 로드맵
+- [[postgresql-dba|postgresql-dba]]

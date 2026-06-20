@@ -1,0 +1,19 @@
+---
+title: Operator Overloading
+tags: [concept, cpp]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cpp/content/operator-overloading@llCBeut_uc9IAe2oi4KZ9.md
+---
+
+# Operator Overloading in C++
+
+Operator overloading in C++ is a feature that allows you to redefine the way operators work for user-defined types (such as classes and structs). It lets you specify how operators like +, -, \*, ==, etc., behave when applied to objects of your class. Visit the following resources to learn more:
+
+Visit the following resources to learn more:
+
+- [@official@Operator Overloading - Microsoft Learn](https://learn.microsoft.com/en-us/cpp/cpp/operator-overloading)
+- [@article@operator overloading - cppreference.com](https://en.cppreference.com/w/cpp/language/operators)
+
+## 관련 로드맵
+- [[cpp|cpp]]

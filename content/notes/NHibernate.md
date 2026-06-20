@@ -1,0 +1,25 @@
+---
+title: NHibernate
+tags: [concept, aspnet-core]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/aspnet-core/content/nhibernate@z24IJndpQYTl1PhiUI2mx.md
+---
+
+# NHibernate
+
+NHibernate is an open-source Object-Relational Mapping (ORM) framework for .NET. It is a powerful and flexible framework that can greatly simplify working with relational data in .NET. NHibernate is similar to other ORM frameworks such as Entity Framework and RepoDb in that it provides a higher-leve
+l abstraction on top of the underlying data access technology ([ADO.NET](http://ADO.NET) in this case) and allows developers to work with data using domain-specific objects, eliminating the need to wr
+ite raw SQL statements.
+
+NHibernate uses the concept of "mapping files" which are XML files that define how the classes in the application map to the tables and columns in the database. These mapping files are used to create a conceptual model of the data in the form of classes, and then NHibernate uses this model to genera
+te the SQL statements necessary to interact with the database.
+
+Visit the following resources to learn more:
+
+- [@official@Get Started with NHibernate](https://nhibernate.info/)
+- [@article@What is Nhibernate?](https://www.partech.nl/en/publications/2021/08/what-is-nhibernate-and-how-is-it-different-from-entity-framework)
+- [@article@NHibernate - ORM](https://www.tutorialspoint.com/nhibernate/nhibernate_orm.htm)
+
+## 관련 로드맵
+- [[aspnet-core|aspnet-core]]

@@ -1,0 +1,20 @@
+---
+title: Dependencies
+tags: [concept, angular]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/angular/content/dependencies@5b590c7s-2XJ0rgdCYxLa.md
+---
+
+# Dependencies
+
+A provider is an instruction to the Dependency Injection system on how to obtain a value for a dependency. Most of the time, these dependencies are services that you create and provide.
+
+Visit the following resources to learn more:
+
+- [@official@Providing Dependencies in Modules](https://angular.dev/guide/ngmodules/providers)
+- [@article@Providers in Angular](https://www.scaler.com/topics/angular/providers-in-angular/)
+- [@article@Working with providers in Angular](https://sergeygultyayev.medium.com/working-with-providers-in-angular-eeb493151446)
+
+## 관련 로드맵
+- [[Angular|angular]]

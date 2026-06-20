@@ -1,0 +1,14 @@
+---
+title: Concurrency (Java)
+tags: [concept, server-side-game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/server-side-game-developer/content/concurrency-java@RT9XvlxvIM_hHTtNmbva3.md
+---
+
+# Concurrency (Java)
+
+Concurrency is a property of systems that allows multiple tasks to run in an overlapped or simultaneous manner. This is widely used in server side game development where it is common to have multiple players interfacing with the system at the same time. It is essential to keep the system responsive and efficient under high load. Concurrency is often achieved through multithreading or asynchronous programming. Multithreading involves multiple threads of execution within a single program, with each thread running on a separate processor core. Asynchronous programming, on the other hand, achieves concurrency by allowing tasks to progress without waiting for other tasks to complete. This can be particularly useful in situations where tasks involve I/O operations or network requests, which can take a significant amount of time to complete, and would otherwise block the execution of other tasks.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

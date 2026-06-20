@@ -1,0 +1,164 @@
+[dart:svg](../../dart-svg/dart-svg-library){._links-link}
+
+onSeeking property
+==================
+
+::: {#getter .section .multi-line-signature}
+[ElementStream](../../dart-html/elementstream-class)\<[Event](../../dart-html/event-class)\>
+onSeeking
+
+::: {.features}
+override
+:::
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+ElementStream<Event> get onSeeking => seekingEvent.forElement(this);
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-svg/SvgElement/onSeeking.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/element/onseeking.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+onSeeking property
+==================
+
+::: {#getter .section .multi-line-signature}
+[ElementStream](../elementstream-class)\<[Event](../event-class)\>
+onSeeking
+
+::: {.features}
+override
+:::
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+ElementStream<Event> get onSeeking => seekingEvent.forElement(this);
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/Element/onSeeking.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/window/onseeking.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+onSeeking property
+==================
+
+::: {#getter .section .multi-line-signature}
+[Stream](../../dart-async/stream-class)\<[Event](../event-class)\>
+onSeeking
+
+::: {.features}
+override
+:::
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+Stream<Event> get onSeeking => Element.seekingEvent.forTarget(this);
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/Window/onSeeking.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/globaleventhandlers/onseeking.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+onSeeking property
+==================
+
+::: {#getter .section .multi-line-signature}
+[Stream](../../dart-async/stream-class)\<[Event](../event-class)\>
+onSeeking
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+Stream<Event> get onSeeking => seekingEvent.forTarget(this);
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/GlobalEventHandlers/onSeeking.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/document/onseeking.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+onSeeking property
+==================
+
+::: {#getter .section .multi-line-signature}
+[Stream](../../dart-async/stream-class)\<[Event](../event-class)\>
+onSeeking
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+Stream<Event> get onSeeking => Element.seekingEvent.forTarget(this);
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/Document/onSeeking.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/elementlist/onseeking.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+onSeeking property
+==================
+
+::: {#getter .section .multi-line-signature}
+[ElementStream](../elementstream-class)\<[Event](../event-class)\>
+onSeeking
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+ElementStream<Event> get onSeeking;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/ElementList/onSeeking.html>
+:::

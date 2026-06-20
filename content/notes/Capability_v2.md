@@ -1,0 +1,14 @@
+---
+title: Capability
+tags: [concept, server-side-game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/server-side-game-developer/content/capability@5kF1fqr-mn5-15e3aMa9k.md
+---
+
+# Capability
+
+In server-side game development, `capability` basically refers to the potential of the server in terms of supporting the game mechanics, the players, the network traffic, and other elements that allow the game to function effectively. Hosting servers condition the player's game interface and user experience, incorporating the aspects of speed, smooth game flow, glitch prevention, and high-performance gameplay. Certain servers have higher capabilities, supporting complex games with vast virtual environments, numerous players, and extensive data traffic. Their capacity extends to facilitating updates and patches immediately. On the other hand, servers with lower capabilities might only cater to simpler games. Ultimately, the `capability` of an IP server is a key factor in developing and maintaining a successful online, multiplayer, or large-scale game.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

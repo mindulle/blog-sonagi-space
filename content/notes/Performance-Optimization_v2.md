@@ -1,0 +1,22 @@
+---
+title: Performance Optimization
+tags: [concept, mongodb]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/mongodb/content/performance-optimization@A9W2LsivDc0ialLp83fYP.md
+---
+
+# Performance Optimization
+
+Performance optimization in MongoDB involves proper indexing strategies, query optimization, schema design, and hardware configuration. Key techniques include creating appropriate indexes, using explain plans, optimizing aggregation pipelines, proper sharding strategies, and connection pooling. Regular monitoring of query performance, index usage, and database metrics helps identify bottlenecks and improve overall system efficiency.
+
+Visit the following resources to learn more:
+
+- [@official@Comprehensive Guide to Optimising MongoDB Performance](https://www.mongodb.com/developer/products/mongodb/guide-to-optimizing-mongodb-performance/)
+- [@article@How To Optimize MongoDB Performance & Security](https://medium.com/@noel.benji/how-to-optimize-mongodb-performance-security-6fd3ba1304c1)
+- [@course@MongoDB Monitoring Tooling Skill Badge](https://learn.mongodb.com/courses/monitoring-tooling)
+- [@course@Performance Tools and Techniques Skill Badge](https://learn.mongodb.com/courses/performance-tools-and-techniques)
+
+
+## 관련 로드맵
+- [[MongoDB|mongodb]]

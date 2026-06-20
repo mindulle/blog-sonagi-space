@@ -57,7 +57,7 @@ export function BlogListClient({
       </div>
 
       {/* 결과 개수 */}
-      <div className="text-center text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="text-center text-sm" style={{ color: 'var(--color-text-secondary)' }}>
         {selectedCategory ? (
           <p>
             <span className="font-medium">{filteredPosts.length}개</span>의{' '}
@@ -88,7 +88,7 @@ export function BlogListClient({
         </>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+          <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
             포스트가 없습니다.
           </p>
         </div>

@@ -1,0 +1,19 @@
+---
+title: Cluster Autoscaling
+tags: [concept, kubernetes]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/kubernetes/content/cluster-autoscaling@RC5MoYtG2rom-d4FW5qD2.md
+---
+
+# Autoscaling
+
+Autoscaling in Kubernetes involves adjusting the resources allocated to a deployment or set of pods based on demand. It includes Horizontal Pod Autoscaling (HPA) and Vertical Pod Autoscaling (VPA), which increase or decrease replicas or adjust resource requests and limits, respectively. Autoscaling can be used with Cluster Autoscaling to efficiently allocate resources and ensure application responsiveness. It's useful for handling variable workloads or sudden spikes in traffic.
+
+Visit the following resources to learn more:
+
+- [@official@Autoscaling in Kubernetes](https://kubernetes.io/blog/2016/07/autoscaling-in-kubernetes/)
+- [@video@Kubernetes cluster autoscaling for beginners](https://www.youtube.com/watch?v=jM36M39MA3I)
+
+## 관련 로드맵
+- [[Kubernetes|kubernetes]]

@@ -1,0 +1,18 @@
+---
+title: SUBSCRIBE
+tags: [concept, redis]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/redis/content/subscribe@55BCntuWlaQiLPqNtb-2i.md
+---
+
+# SUBSCRIBE
+
+The SUBSCRIBE command subscribes the client to the channels specified, once subscribed the client enters a state where it is not supposed to issue any other commands, except from those in the SUBSCRIBE subset i.e. SSUBSCRIBE, PSUBSCRIBE etc.
+
+Learn more from the following resources:
+
+- [@official@SUBSCRIBE](https://redis.io/docs/latest/commands/subscribe/)
+
+## 관련 로드맵
+- [[Redis|redis]]

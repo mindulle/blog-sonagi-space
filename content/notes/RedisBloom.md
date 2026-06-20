@@ -1,0 +1,22 @@
+---
+title: RedisBloom
+tags: [concept, redis]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/redis/content/redisbloom@GwVL5CvbnHsiWb1hVh7lK.md
+---
+
+# RedisBloom
+
+RedisBloom is a Redis module that extends the capabilities of Redis by introducing probabilistic data structures, allowing for efficient membership testing and counting while minimizing memory usage. It provides tools such as Bloom Filters, Cuckoo Filters, Count-Min Sketches, and HyperLogLogs, enabl
+ing developers to manage large datasets with high performance and low memory overhead. With Bloom Filters, for instance, users can quickly determine if an element is possibly in a set or definitely no
+t, making it useful for applications like web caching, spam filtering, and network security. Cuckoo Filters offer similar functionality but allow for the deletion of items. Count-Min Sketches enable approximate counting of elements in a dataset, while HyperLogLogs provide efficient cardinality estim
+ation. RedisBloom is particularly beneficial for use cases involving big data analytics, real-time monitoring, and applications requiring high throughput with limited memory resources.
+
+Learn more from the following resources:
+
+- [@official@RedisBloom](https://redis.io/probabilistic/)
+- [@opensource@RedisBloom/RedisBloom - GitHub](https://github.com/RedisBloom/RedisBloom)
+
+## 관련 로드맵
+- [[Redis|redis]]

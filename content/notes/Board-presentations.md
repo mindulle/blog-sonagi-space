@@ -1,0 +1,20 @@
+---
+title: Board presentations
+tags: [concept, engineering-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/engineering-manager/content/board-presentations@5MM1ccB1pmQcd3Uyjmbr7.md
+---
+
+# Board presentations
+
+Engineering Managers handle board presentations as a means to communicate company's technical strategies and progress. Main responsibility includes providing a comprehensive yet easy-to-understand technical synopsis to the board members who might not be tech-savvy. It involves striking a balance bet
+ween technical specifics and high-level overviews.
+
+A common challenge is simplifying the technical language without losing substance. Using clear visualization tools and analogies can help in making complex concepts more digestible. Not being able to communicate effectively may lead to misunderstandings or underestimation of the team's efforts and m
+ilestones.
+
+Success requires not just technical skills but also a mastery of effective communication. Being ready to answer challenging questions and providing follow-up documents for further reading shows preparedness and understanding of the topics at hand.
+
+## 관련 로드맵
+- [[engineering-manager|engineering-manager]]

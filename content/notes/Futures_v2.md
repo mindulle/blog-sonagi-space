@@ -1,0 +1,24 @@
+---
+title: Futures
+tags: [concept, flutter]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/flutter/content/futures@I1cqvOsVD7-86VPnrdTAv.md
+---
+
+# Futures
+
+Futures in Flutter are a way of representing a potential value that will be available at some point in the future. Some key points about Futures in Flutter:
+
+*   Futures are used for asynchronous programming in Flutter
+*   Futures return a single value (or an error) and are often used with `async` and `await`.
+*   The `then` method can be used to attach a callback to a Future that will be executed once the Future's value is available
+*   Futures can be combined with other Futures using `Future.wait` or `Future.whenComplete` methods
+*   Futures are often used with network requests, file I/O operations, and other long-running tasks in Flutter.
+
+Visit the following resources to learn more:
+
+- [@official@Futures and Error handling](https://dart.dev/guides/libraries/futures-error-handling)
+
+## 관련 로드맵
+- [[Flutter|flutter]]

@@ -1,0 +1,19 @@
+---
+title: Performing Similarity Search
+tags: [concept, ai-engineer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ai-engineer/content/performing-similarity-search@ZcbRPtgaptqKqWBgRrEBU.md
+---
+
+# Performing Similarity Search
+
+In a similarity search, the process begins by converting the user’s query (such as a piece of text or an image) into an embedding—a vector representation that captures the query’s semantic meaning. This embedding is generated using a pre-trained model, such as BERT for text or a neural network for i
+mages. Once the query is converted into a vector, it is compared to the embeddings stored in the vector database.
+
+Visit the following resources to learn more:
+
+- [@article@What is Similarity Search & How Does it work?](https://www.truefoundry.com/blog/similarity-search)
+
+## 관련 로드맵
+- [[ai-engineer|ai-engineer]]

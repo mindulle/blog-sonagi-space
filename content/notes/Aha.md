@@ -1,0 +1,15 @@
+---
+title: Aha
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/aha@dr5BLjsZXk50R7vp3cMsu.md
+---
+
+# Aha as a Roadmapping Tool
+
+Aha, as a roadmapping tool, is an indispensable toolset in the arsenal of a Product Manager. It's a comprehensive product management suite that focuses on strategy and roadmapping. Its ability to build visual roadmaps, prioritize features, capture ideas, and define requirements makes it one of the m
+ost widely used product management tools. As a product manager, mastering Aha can enable you to envision and articulate strategic product plans while staying aligned with your company's goals.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

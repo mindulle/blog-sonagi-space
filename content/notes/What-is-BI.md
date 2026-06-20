@@ -1,0 +1,21 @@
+---
+title: What is BI?
+tags: [concept, bi-analyst]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/bi-analyst/content/what-is-bi@jVXwlHRGgVpcoWCYzSB5W.md
+---
+
+# Business Intelligence (BI)
+
+Business Intelligence (BI) involves using data to understand past and present business performance and to predict future trends. It encompasses the processes and technologies used to collect, analyze, and visualize data, ultimately helping organizations make better, data-driven decisions. This inclu
+des reporting, online analytical processing (OLAP), data mining, process mining, complex event processing, business performance management, benchmarking, and predictive analytics.
+
+Visit the following resources to learn more:
+
+- [@course@Business Intelligence Fundamentals](https://www.simplilearn.com/free-business-intelligence-course-online-skillup)
+- [@article@What Is Business Intelligence - Microsoft](https://www.microsoft.com/en-us/power-platform/products/power-bi/topics/business-intelligence/what-is-business-intelligence)
+- [@article@What Is Business Intelligence (BI)? - IBM](https://www.ibm.com/think/topics/business-intelligence)
+
+## 관련 로드맵
+- [[bi-analyst|bi-analyst]]

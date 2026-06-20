@@ -1,0 +1,161 @@
+---
+title: Sql
+tags: [roadmap, sql]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/sql
+---
+
+# Sql
+
+## 요약
+sql에 관한 로드맵 지식입니다. 각 세부 개념은 개별 문서로 관리됩니다.
+
+## 주요 개념 (Atomic Notes)
+- [[backend|backend]]
+- [[MongoDB|mongodb]]
+- [[What are Relational Databases|What are Relational Databases]]
+- [[RDBMS Benefits and Limitations|RDBMS Benefits and Limitations]]
+- [[sql|sql]]
+- [[Learn the Basics|Learn the Basics]]
+- [[PostgreSQL|PostgreSQL]]
+- [[SQL vs NoSQL Databases|SQL vs NoSQL Databases]]
+- [[Basic SQL Syntax|Basic SQL Syntax]]
+- [[SQL Keywords|SQL Keywords]]
+- [[Data Types|Data Types]]
+- [[Operators|Operators]]
+- [[Select|Select]]
+- [[insert|INSERT]]
+- [[update|UPDATE]]
+- [[DELETE|DELETE]]
+- [[Statement|Statements]]
+- [[Data Definition Language (DDL)|Data Definition Language (DDL)]]
+- [[Truncate Table|Truncate Table]]
+- [[Alter Table|Alter Table]]
+- [[Create Table|Create Table]]
+- [[Drop Table|Drop Table]]
+- [[Data Manipulation Language (DML)|Data Manipulation Language (DML)]]
+- [[Select|Select]]
+- [[FROM|FROM]]
+- [[where|WHERE]]
+- [[ORDER BY|ORDER BY]]
+- [[GROUP BY|GROUP BY]]
+- [[HAVING|HAVING]]
+- [[JOINs|JOINs]]
+- [[insert|INSERT]]
+- [[update|UPDATE]]
+- [[DELETE|DELETE]]
+- [[Aggregate Queries|Aggregate Queries]]
+- [[SUM|SUM]]
+- [[count|count]]
+- [[AVG|AVG]]
+- [[min|MIN]]
+- [[max|MAX]]
+- [[GROUP BY|GROUP BY]]
+- [[HAVING|HAVING]]
+- [[Data Constraints|Data Constraints]]
+- [[Primary Key|Primary Key]]
+- [[Foreign Key|Foreign Key]]
+- [[unique|Unique]]
+- [[NOT NULL|NOT NULL]]
+- [[check|CHECK]]
+- [[JOIN Queries|JOIN Queries]]
+- [[INNER JOIN|INNER JOIN]]
+- [[LEFT JOIN|LEFT JOIN]]
+- [[RIGHT JOIN|RIGHT JOIN]]
+- [[FULL OUTER JOIN|FULL OUTER JOIN]]
+- [[Self Join|Self Join]]
+- [[Cross Join|Cross Join]]
+- [[Subqueries|Subqueries]]
+- [[Scalar|Scalar]]
+- [[column|Column]]
+- [[Row|Row]]
+- [[Table|Table]]
+- [[Different Types]]
+- [[Nested Subqueries|Nested Subqueries]]
+- [[Correlated Subqueries|Correlated Subqueries]]
+- [[Advanced Functions|Advanced Functions]]
+- [[FLOOR|FLOOR]]
+- [[abs|ABS]]
+- [[mod|MOD]]
+- [[round|ROUND]]
+- [[CEILING|CEILING]]
+- [[Numeric Functions]]
+- [[CONCAT|CONCAT]]
+- [[LENGTH|LENGTH]]
+- [[SUBSTRING|SUBSTRING]]
+- [[REPLACE|REPLACE]]
+- [[upper|UPPER]]
+- [[lower|LOWER]]
+- [[String Functions]]
+- [[CASE|CASE]]
+- [[NULLIF|NULLIF]]
+- [[COALESCE|COALESCE]]
+- [[Conditional]]
+- [[Date|Date]]
+- [[time|TIME]]
+- [[timestamp|Timestamp]]
+- [[DATEPART|DATEPART]]
+- [[DATEADD|DATEADD]]
+- [[Date and Time|Date and Time]]
+- [[Views|Views]]
+- [[Creating Views|Creating Views]]
+- [[Modifying Views|Modifying Views]]
+- [[Dropping Views|Dropping Views]]
+- [[Indexes|Indexes]]
+- [[Managing Indexes|Managing Indexes]]
+- [[Query Optimization|Query Optimization]]
+- [[Transactions|Transactions]]
+- [[begin|BEGIN]]
+- [[commit|COMMIT]]
+- [[ROLLBACK|ROLLBACK]]
+- [[SAVEPOINT|SAVEPOINT]]
+- [[ACID|ACID]]
+- [[Transaction Isolation Levels|Transaction Isolation Levels]]
+- [[Data Integrity & Security|Data Integrity & Security]]
+- [[Data Integrity Constraints|Data Integrity Constraints]]
+- [[GRANT and Revoke|GRANT and Revoke]]
+- [[DB Security Best Practices|DB Security Best Practices]]
+- [[Stored Procedures & Functions|Stored Procedures & Functions]]
+- [[Performance Optimization|Performance Optimization]]
+- [[Using Indexes|Using Indexes]]
+- [[Optimizing Joins|Optimizing Joins]]
+- [[Reducing Subqueries|Reducing Subqueries]]
+- [[Selective Projection|Selective Projection]]
+- [[Query Optimization Techniques]]
+- [[Query Analysis Techniques|Query Analysis Techniques]]
+- [[Advanced SQL|Advanced SQL]]
+- [[Recursive Queries|Recursive Queries]]
+- [[Pivot  Unpivot Operations|Pivot  Unpivot Operations]]
+- [[Window Functions|Window Functions]]
+- [[Common Table Expressions|Common Table Expressions]]
+- [[Dynamic SQL|Dynamic SQL]]
+- [[Row_number|Row_number]]
+- [[rank|rank]]
+- [[dense_rank|dense_rank]]
+- [[lead|lead]]
+- [[lag|lag]]
+- We just launched our premium SQL course, check it out below
+- [[NEW / Premium SQL Course]]
+
+## 관련 로드맵
+- [[AI Agents|AI Agents]]
+- [[ai-engineer|ai-engineer]]
+- [[Python|python]]
+- [[JavaScript|javascript]]
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/_concepts/SQL.md)
+
+# SQL for Exploratory Data Analysis
+
+SQL is a powerful tool for exploring data because it lets you quickly look at large datasets. You can use SQL to filter data based on specific conditions, calculate summary statistics like averages and counts, and group data to see patterns. Its simple syntax makes it easy to write queries to unders
+tand the characteristics of your data, identify potential issues, and prepare it for further analysis.
+
+Visit the following resources to learn more:
+
+- [@video@51:14 YouTube · Data with Baraa SQL Exploratory Data Analysis (EDA) Project](https://www.youtube.com/watch?v=6cJ5Ji8zSDg)
+
+## 관련 로드맵
+- [[bi-analyst|bi-analyst]]

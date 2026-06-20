@@ -1,0 +1,17 @@
+---
+title: Product Identification
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/product-identification@fmpJB_14CYn7PVuoGZdoz.md
+---
+
+# Product Identification
+
+Product Identification plays a critical role in the diverse spectrum of responsibilities held by a Product Manager. It typically involves identifying and detailing the core features, value proposition, and user demographics of a product. This is an essential preliminary step in product development t
+hat not only assists in recognising the unique selling points but also helps in positioning the product appropriately in the competitive market. The rationale, advantages and potential of a product ar
+e all captured during the product identification process, making it a key strategic roadmap element for a Product Manager. Knowledge of product identification can empower Product Managers to make informed decisions that align with user needs and business goals.
+
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

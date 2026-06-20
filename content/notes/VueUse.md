@@ -1,0 +1,19 @@
+---
+title: VueUse
+tags: [concept, vue]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/vue/content/vueuse@Z9szBPFXfqK_KsvzkR-rf.md
+---
+
+# VueUse
+
+VueUse is a collection of utility functions based on Composition API. It has over 200+ functions, is tree-shakable, has first-class TypeScript support, and has a small bundle size. VueUse is a great choice for adding common utilities to your Vue 3 projects.
+
+Visit the following resources to learn more:
+
+- [@official@VueUse](https://vueuse.org/)
+
+
+## 관련 로드맵
+- [[vue|vue]]

@@ -1,0 +1,21 @@
+---
+title: Persistence Options
+tags: [concept, redis]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/redis/content/persistence-options@bQaek7f3dAaZfSUhwovm1.md
+---
+
+# Persistence Options
+
+Redis provides two main persistence options: **RDB (Redis Database Backup)** and **AOF (Append-Only File)**. RDB creates point-in-time snapshots of the dataset at specified intervals, offering efficient storage with minimal performance impact, making it suitable for periodic backups but with potenti
+al data loss between snapshots. AOF logs every write operation to disk, providing higher data durability by allowing finer-grained recovery, though it can be more resource-intensive. Redis also suppor
+ts a **hybrid persistence** mode that combines both RDB and AOF for faster restarts and stronger durability. Additionally, a **No Persistence** option is available for scenarios where data retention is unnecessary, prioritizing speed and memory efficiency.
+
+Learn more from the following resources:
+
+- [@official@Data Persistence](https://redis.io/docs/latest/operate/rc/databases/configuration/data-persistence/)
+- [@official@Redis Persistence](https://redis.io/docs/latest/operate/oss_and_stack/management/persistence/)
+
+## 관련 로드맵
+- [[Redis|redis]]

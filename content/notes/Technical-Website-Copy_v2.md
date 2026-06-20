@@ -1,0 +1,14 @@
+---
+title: Technical Website Copy
+tags: [concept, technical-writer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/technical-writer/content/technical-website-copy@tAFenZA0MFhMPE5cevNuD.md
+---
+
+# Technical Website Copy
+
+"Web copy" refers to all the text content that appears on a website. This includes everything from the headlines, subheadlines, body content, call-to-action statements, product descriptions to all the metadata like the title tags and meta descriptions. The primary purpose of web copy is to communicate the site's purpose or value proposition to its visitors and motivate them to take a certain action—be it make a purchase, subscribe to a newsletter, etc. It's a critical component in search engine optimization (SEO) as search engines rank websites based on the quality and relevance of the website's copy to user searches. Markdown, a lightweight markup language, can be used to write web copy; it allows writers to format text (like headers, lists, and links) in plain text which will then be converted into HTML for web display.
+
+## 관련 로드맵
+- [[technical-writer|technical-writer]]

@@ -26,7 +26,7 @@ export function PostList({
   if (posts.length === 0) {
     return (
       <div className="py-16 text-center">
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+        <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
           {emptyMessage}
         </p>
       </div>

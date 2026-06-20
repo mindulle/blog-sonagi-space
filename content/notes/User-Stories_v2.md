@@ -1,0 +1,14 @@
+---
+title: User Stories
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/user-stories@kN-UfAbQ8j7g0jDdqWK55.md
+---
+
+# User Stories in Product Requirements
+
+For a product manager, understanding user stories is an essential part of defining product requirements. A user story is a tool used in Agile development that captures a description of a product feature from an end-user perspective. User Stories helps the product manager not only in understanding and noting down the user's perspective but also in communicating this perspective to the design and development teams efficiently. User stories depict the type of user, what they want, and why, giving the team a clear focus of what needs to be accomplished. Therefore, as a product manager, utilizing user stories can lead to products that meet user expectations and demands effectively.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

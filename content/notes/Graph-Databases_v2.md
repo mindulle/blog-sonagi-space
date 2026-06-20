@@ -1,0 +1,22 @@
+---
+title: Graph Databases
+tags: [concept, system-design]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/system-design/content/graph-databases@6RLgnL8qLBzYkllHeaI-Z.md
+---
+
+# Graph Databases
+
+In a graph database, each node is a record and each arc is a relationship between two nodes. Graph databases are optimized to represent complex relationships with many foreign keys or many-to-many relationships.
+
+Graphs databases offer high performance for data models with complex relationships, such as a social network. They are relatively new and are not yet widely-used; it might be more difficult to find development tools and resources. Many graphs can only be accessed with REST APIs.
+
+Visit the following resources to learn more:
+
+- [@article@Graph database](https://en.wikipedia.org/wiki/Graph_database)
+- [@video@Introduction to NoSQL](https://www.youtube.com/watch?v=qI_g07C_Q5I)
+- [@feed@Explore top posts about Backend Development](https://app.daily.dev/tags/backend?ref=roadmapsh)
+
+## 관련 로드맵
+- [[System Design|system-design]]

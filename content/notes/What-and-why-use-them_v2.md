@@ -1,0 +1,14 @@
+---
+title: What and why use them?
+tags: [concept, data-engineer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/data-engineer/content/what-and-why-use-them@1qju7UlcMo2Ebp4a3BGxH.md
+---
+
+# What and why use them?
+
+In data engineering, messaging systems act as central brokers for data communication, allowing different applications and services to send and receive data in a decoupled, scalable, and fault-tolerant way. They are crucial for handling high-volume, real-time data streams, building resilient data pipelines, and enabling event-driven architectures by acting as buffers and communication channels between data producers and consumers. Key benefits include decoupling systems for agility, ensuring data reliability through queuing and retries, and horizontal scalability to manage growing data loads, while common examples include Apache Kafka and message queues like RabbitMQ and AWS SQS.
+
+## 관련 로드맵
+- [[data-engineer|data-engineer]]

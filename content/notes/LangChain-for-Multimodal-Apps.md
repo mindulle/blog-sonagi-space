@@ -1,0 +1,20 @@
+---
+title: LangChain for Multimodal Apps
+tags: [concept, ai-engineer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ai-engineer/content/langchain-for-multimodal-apps@j9zD3pHysB1CBhLfLjhpD.md
+---
+
+# LangChain for Multimodal Apps
+
+LangChain is a framework designed to build applications that integrate multiple AI models, especially those focusing on language understanding, generation, and multimodal capabilities. For multimodal apps, LangChain facilitates seamless interaction between text, image, and even audio models, enablin
+g developers to create complex workflows that can process and analyze different types of data.
+
+Visit the following resources to learn more:
+
+- [@official@LangChain](https://www.langchain.com/)
+- [@video@Build a Multimodal GenAI App with LangChain and Gemini LLMs](https://www.youtube.com/watch?v=bToMzuiOMhg)
+
+## 관련 로드맵
+- [[ai-engineer|ai-engineer]]

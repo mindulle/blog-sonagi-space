@@ -1,0 +1,283 @@
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../eventstreamprovider-class)\<[ProgressEvent](../progressevent-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of
+[HttpRequestEventTarget](../httprequesteventtarget-class).
+
+See [EventStreamProvider](../eventstreamprovider-class) for usage
+information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<ProgressEvent> abortEvent =
+    const EventStreamProvider<ProgressEvent>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/HttpRequestEventTarget/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-indexed_db/transaction/abortevent-constant.md)
+[dart:indexed\_db](../../dart-indexed_db/dart-indexed_db-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../../dart-html/eventstreamprovider-class)\<[Event](../../dart-html/event-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of [Transaction](../transaction-class).
+
+See [EventStreamProvider](../../dart-html/eventstreamprovider-class) for
+usage information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<Event> abortEvent =
+    const EventStreamProvider<Event>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-indexed_db/Transaction/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-indexed_db/database/abortevent-constant.md)
+[dart:indexed\_db](../../dart-indexed_db/dart-indexed_db-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../../dart-html/eventstreamprovider-class)\<[Event](../../dart-html/event-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of [Database](../database-class).
+
+See [EventStreamProvider](../../dart-html/eventstreamprovider-class) for
+usage information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<Event> abortEvent =
+    const EventStreamProvider<Event>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-indexed_db/Database/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-svg/svgelement/abortevent-constant.md)
+[dart:svg](../../dart-svg/dart-svg-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../../dart-html/eventstreamprovider-class)\<[Event](../../dart-html/event-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of
+[Element](../../dart-html/element-class).
+
+See [EventStreamProvider](../../dart-html/eventstreamprovider-class) for
+usage information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<Event> abortEvent =
+    const EventStreamProvider<Event>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-svg/SvgElement/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/filereader/abortevent-constant.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../eventstreamprovider-class)\<[ProgressEvent](../progressevent-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of [FileReader](../filereader-class).
+
+See [EventStreamProvider](../eventstreamprovider-class) for usage
+information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<ProgressEvent> abortEvent =
+    const EventStreamProvider<ProgressEvent>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/FileReader/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/filewriter/abortevent-constant.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../eventstreamprovider-class)\<[ProgressEvent](../progressevent-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of [FileWriter](../filewriter-class).
+
+See [EventStreamProvider](../eventstreamprovider-class) for usage
+information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<ProgressEvent> abortEvent =
+    const EventStreamProvider<ProgressEvent>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/FileWriter/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/element/abortevent-constant.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../eventstreamprovider-class)\<[Event](../event-class)\>
+const abortEvent
+:::
+
+Static factory designed to expose `abort` events to event handlers that
+are not necessarily instances of [Element](../element-class).
+
+See [EventStreamProvider](../eventstreamprovider-class) for usage
+information.
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<Event> abortEvent =
+    const EventStreamProvider<Event>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/Element/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/globaleventhandlers/abortevent-constant.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../eventstreamprovider-class)\<[Event](../event-class)\>
+const abortEvent
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<Event> abortEvent =
+    const EventStreamProvider<Event>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/GlobalEventHandlers/abortEvent-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-html/sourcebuffer/abortevent-constant.md)
+[dart:html](../../dart-html/dart-html-library){._links-link}
+
+abortEvent constant
+===================
+
+::: {.section .multi-line-signature}
+[EventStreamProvider](../eventstreamprovider-class)\<[Event](../event-class)\>
+const abortEvent
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const EventStreamProvider<Event> abortEvent =
+    const EventStreamProvider<Event>('abort');
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-html/SourceBuffer/abortEvent-constant.html>
+:::

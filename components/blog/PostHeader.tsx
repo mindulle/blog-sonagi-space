@@ -35,12 +35,12 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
       </h1>
 
       {/* 설명 */}
-      <p className="mb-6 text-xl text-neutral-600 dark:text-neutral-400">
+      <p className="mb-6 text-xl" style={{ color: 'var(--color-text-secondary)' }}>
         {post.description}
       </p>
 
       {/* 메타 정보 */}
-      <div className="flex flex-wrap items-center gap-4 text-sm text-neutral-600 dark:text-neutral-400">
+      <div className="flex flex-wrap items-center gap-4 text-sm" style={{ color: 'var(--color-text-secondary)' }}>
         {/* 날짜 */}
         <div className="flex items-center gap-1.5">
           <Calendar size={16} />
@@ -53,7 +53,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
           </time>
         </div>
 
-        <span className="text-neutral-300 dark:text-neutral-700">·</span>
+        <span style={{ color: 'var(--color-text-muted)' }}>·</span>
 
         {/* 읽기 시간 */}
         <div className="flex items-center gap-1.5">
@@ -64,7 +64,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
         {/* 작성자 */}
         {post.author && (
           <>
-            <span className="text-neutral-300 dark:text-neutral-700">·</span>
+            <span style={{ color: 'var(--color-text-muted)' }}>·</span>
             <div className="flex items-center gap-1.5">
               <User size={16} />
               <span>{post.author}</span>

@@ -1,0 +1,20 @@
+---
+title: Hashset
+tags: [concept, rust]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/rust/content/hashset@b1iYy4Hvkj47Q13V2HE4i.md
+---
+
+# Hashset
+
+`HashSet<T>` is a collection of unique elements using hash-based storage for fast lookups, insertions, and deletions. No duplicates are allowed and elements are unordered. Provides methods like `insert()`, `contains()`, and `remove()`. Example: `let mut set = HashSet::new(); set.insert("value");`
+
+Visit the following resources to learn more:
+
+- [@official@HashSet in std::collections](https://doc.rust-lang.org/std/collections/struct.HashSet.html)
+- [@official@Hashset](https://doc.rust-lang.org/rust-by-example/std/hash/hashset.html)
+- [@video@Rust HashSet Collection Type](https://www.youtube.com/watch?v=KYw3Lnf0nSY&t=1440s)
+
+## 관련 로드맵
+- [[Rust|rust]]

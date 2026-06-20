@@ -1,0 +1,18 @@
+---
+title: Environment Variables
+tags: [concept, terraform]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/terraform/content/environment-variables@fm8oUyNvfdGWTgLsYANUr.md
+---
+
+# Environment Variables
+
+Environment variables can be used to customize various aspects of Terraform. You can set these variables to change the default behaviour of terraform such as increase verbosity, update log file path, set workspace, etc. Environment variables are optional and terraform does not need them by default. 
+
+Learn more from the following resources:
+
+- [@official@Environment Variables](https://developer.hashicorp.com/terraform/cli/config/environment-variables)
+
+## 관련 로드맵
+- [[Terraform|terraform]]

@@ -1,0 +1,22 @@
+---
+title: Event Driven Architecture
+tags: [concept, api-design]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/api-design/content/event-driven-architecture@oMfOBkVsgiLvFLicOUdx6.md
+---
+
+# Event Driven Architecture in API Design
+
+Event-driven architecture (EDA) is a software design concept that revolves around the production, interpretation, and consumption of events. With regards to API design, EDA grants systems the flexibility to decentralize analytics, microservices, and operations, thus promoting real-time information s
+haring and reaction. Event-driven APIs prioritize asynchronous communication, allowing applications to stay responsive even when tackling heavy data loads. For an effective API, adhering to EDA provid
+es data reliability, maturity with a scalable structure, and efficient real-time data processing capabilities.
+
+Visit the following resources to learn more:
+
+- [@article@Event Driven Architecture Style](https://learn.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven)
+- [@article@Event-driven Architecture](https://aws.amazon.com/event-driven-architecture/)
+- [@video@Event-Driven Architecture: Explained in 7 Minutes!](https://www.youtube.com/watch?v=gOuAqRaDdHA)
+
+## 관련 로드맵
+- [[api-design|api-design]]

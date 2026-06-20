@@ -1,0 +1,22 @@
+---
+title: Determinants, inverse of Matrix
+tags: [concept, machine-learning]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/machine-learning/content/determinants-inverse-of-matrix@XmnWnPE1sVXheuc-M_Ew7.md
+---
+
+# Determinants and Inverse of a Matrix
+
+A determinant is a scalar value that can be computed from the elements of a square matrix and encodes certain properties of the linear transformation described by the matrix. The inverse of a matrix, denoted as A⁻¹, is another matrix that, when multiplied by the original matrix A, results in the ide
+ntity matrix. The inverse exists only for square matrices with a non-zero determinant, making the matrix invertible.
+
+Visit the following resources to learn more:
+
+- [@article@Determinant of a Matrix](https://www.mathsisfun.com/algebra/matrix-determinant.html)
+- [@article@Inverse of a Matrix](https://www.mathsisfun.com/algebra/matrix-inverse.html)
+- [@video@Determinant of a Matrix](https://www.youtube.com/watch?v=CcbyMH3Noow)
+- [@video@Inverse Matrices and Their Properties](https://www.youtube.com/watch?v=kWorj5BBy9k)
+
+## 관련 로드맵
+- [[machine-learning|Machine Learning]]

@@ -1,0 +1,21 @@
+---
+title: Shouldly
+tags: [concept, aspnet-core]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/aspnet-core/content/shouldly@zhn-VLGPfV6FZT2OMl6zf.md
+---
+
+# Shouldly
+
+Shouldly is a .NET library that provides a set of extension methods for writing expressive and readable assertions in unit tests, it's designed to be an alternative to traditional assertion libraries. In the context of [ASP.NET](http://ASP.NET), Shouldly can be used in conjunction with test framewor
+ks such as MSTest, xUnit, and NUnit to write more expressive and readable unit tests for the application. It provides advanced features such as support for collection-specific assertions, support for 
+asynchronous code, and support for custom types, also includes options to customize the error message.
+
+Visit the following resources to learn more:
+
+- [@article@How to Use Shouldly to Improve Unit Tests in .NET?](https://code-maze.com/improve-unit-tests-shouldly-dotnet/)
+- [@article@Improve Test Asserts with Shouldly](https://visualstudiomagazine.com/articles/2015/08/01/improve-test-asserts-with-shouldly.aspx?admgarea=ALM)
+
+## 관련 로드맵
+- [[aspnet-core|aspnet-core]]

@@ -1,0 +1,16 @@
+---
+title: APIs & SDKs
+tags: [concept, devrel]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/devrel/content/apis--sdks@sUEZHmKxtjO9gXKJoOdbF.md
+---
+
+# APIs & SDKs
+
+APIs (Application Programming Interfaces) and SDKs (Software Development Kits) are essential tools in developer relations as they provide the building blocks for developers to integrate and extend functionality within their own applications. An API allows developers to interact with a service or pla
+tform through a defined set of rules and endpoints, enabling data exchange and functionality use without needing to understand the underlying code. SDKs go a step further by offering a collection of p
+re-built libraries, tools, and documentation that simplify the process of developing with an API, reducing the time and effort needed to create robust integrations. Together, APIs and SDKs empower developers to quickly build and innovate, driving adoption and engagement with a platform.
+
+## 관련 로드맵
+- [[devrel|devrel]]

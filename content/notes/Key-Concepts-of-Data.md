@@ -1,0 +1,16 @@
+---
+title: Key Concepts of Data
+tags: [concept, data-analyst]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/data-analyst/content/key-concepts-of-data@R12sArWVpbIs_PHxBqVaR.md
+---
+
+# Introduction to Key Concepts for Data Analysts
+
+In the realm of data analysis, understanding some key concepts is essential. Data analysis is the process of inspecting, cleansing, transforming, and modeling data to discover useful information and support decision-making. In the broadest sense, data can be classified into various types like nomina
+l, ordinal, interval and ratio, each with a specific role and analysis technique. Higher-dimensional data types like time-series, panel data, and multi-dimensional arrays are also critical. On the oth
+er hand, data quality and data management are key concepts to ensure clean and reliable datasets. With an understanding of these fundamental concepts, a data analyst can transform raw data into meaningful insights.
+
+## 관련 로드맵
+- [[data-analyst|data-analyst]]

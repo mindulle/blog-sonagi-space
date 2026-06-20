@@ -1,0 +1,16 @@
+---
+title: Algorithmic Complexity
+tags: [concept, datastructures-and-algorithms]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/datastructures-and-algorithms/content/algorithmic-complexity@VotdHk0_bI3CeoIf-KoKu.md
+---
+
+# Algorithmic Complexity
+
+"Algorithmic Complexity" refers to the computing resources needed by an algorithm to solve a problem. These computing resources can be the time taken for program execution (time complexity), or the space used in memory during its execution (space complexity). The aim is to minimize these resources, 
+so an algorithm that takes less time and space is considered more efficient. Complexity is usually expressed using Big O notation, which describes the upper bound of time or space needs, and explains 
+how they grow in relation to the input size. It's important to analyze and understand the algorithmic complexity to choose or design the most efficient algorithm for a specific use-case.
+
+## 관련 로드맵
+- [[datastructures-and-algorithms|datastructures-and-algorithms]]

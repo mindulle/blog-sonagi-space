@@ -1,0 +1,21 @@
+---
+title: Mappers
+tags: [concept, software-design-architecture]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/software-design-architecture/content/mappers@ndUTgl2YBzOdu1MQKJocu.md
+---
+
+# Mappers
+
+Mappers are a pattern used in enterprise application development to provide a consistent and abstracted way to map between different data models. They act as an abstraction layer between the application and the data storage, providing a consistent and simple API for data transformation.
+
+A mapper is a component that can be used to convert data from one format or model to another. For example, a mapper can be used to convert data from a database model to a domain model, or from a domain model to a data transfer object (DTO).
+
+Visit the following resources to learn more:
+
+- [@article@Overview of Data Mapper Pattern](https://en.wikipedia.org/wiki/Data_mapper_pattern)
+- [@video@Tutorial - Mappers](https://www.youtube.com/watch?v=7noMLStHcTE)
+
+## 관련 로드맵
+- [[software-design-architecture|software-design-architecture]]

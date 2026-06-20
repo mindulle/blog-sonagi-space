@@ -1,0 +1,19 @@
+---
+title: Mapped Types
+tags: [concept, typescript]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/typescript/content/mapped-types@VQ-V9qIdKgnpSJg2UnpuB.md
+---
+
+# Mapped Types
+
+Mapped types in TypeScript allow you to create new types based on existing ones by transforming each property. They iterate over the keys of an existing type and apply a transformation to each key and/or value, effectively mapping the original type to a new type structure. This provides a concise an
+d powerful way to generate types that are variations of other types, promoting code reuse and reducing redundancy.
+
+Visit the following resources to learn more:
+
+- [@official@Mapped Types](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#handbook-content)
+
+## 관련 로드맵
+- [[TypeScript|typescript]]

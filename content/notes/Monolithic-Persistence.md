@@ -1,0 +1,19 @@
+---
+title: Monolithic Persistence
+tags: [concept, system-design]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/system-design/content/monolithic-persistence@p1QhCptnwzTGUXVMnz_Oz.md
+---
+
+# Monolithic Persistence
+
+Monolithic Persistence refers to the use of a single, monolithic database to store all of the data for an application or system. This approach can be used for simple, small-scale systems but as the system grows and evolves it can become a bottleneck, resulting in poor scalability, limited flexibilit
+y, and increased complexity. To address these limitations, a number of approaches can be taken such as Microservices, Sharding, and NoSQL databases.
+
+Visit the following resources to learn more:
+
+- [@article@Monolithic Persistence antipattern](https://learn.microsoft.com/en-us/azure/architecture/antipatterns/monolithic-persistence/)
+
+## 관련 로드맵
+- [[System Design|System Design]]

@@ -1,0 +1,24 @@
+---
+title: DirectX Ray Tracing
+tags: [concept, game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/game-developer/content/directx-ray-tracing@qoIkw9o8iMx7MzUyVYoR2.md
+---
+
+# DirectX Ray Tracing
+
+DirectX Ray Tracing (DXR) is an advanced Windows API introduced with DirectX 12. It delivers real-time, cinema-quality rendering to contend development in gaming and professional visualization. It provides highly efficient and straightforward access to RT Core hardware. DXR adds four new concepts to
+ DirectX 12: The acceleration structure, The Ray tracing pipeline state object, Shader tables, and the Command list method (DispatchRays). It represents a significant step forward by Microsoft in embr
+acing Ray Tracing as a new standard in real-time rendering pipelines. For developers, DirectX Ray tracing is straightforward to integrate into existing engines given its easy compatibility with existing DirectX 12 programming models. However, to truly maximize DXR's potential, a deep understanding o
+f both graphics workloads and tracing algorithms is necessary.
+
+Visit the following resources to learn more:
+
+- [@article@Announcing Microsoft DirectX Ray Tracing](https://devblogs.microsoft.com/directx/announcing-microsoft-directx-raytracing/)
+- [@official@DirectX Ray Tracing](https://developer.nvidia.com/blog/introduction-nvidia-rtx-directx-ray-tracing/)
+- [@official@DX12 Ray Tracing](https://developer.nvidia.com/blog/dx12-raytracing-tutorials/)
+
+
+## 관련 로드맵
+- [[game-developer|game-developer]]

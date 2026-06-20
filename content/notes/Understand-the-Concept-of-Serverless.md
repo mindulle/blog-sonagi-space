@@ -1,0 +1,20 @@
+---
+title: Understand the Concept of Serverless
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/understand-the-concept-of-serverless@-83ltMEl3le3yD68OFnTM.md
+---
+
+# Serverless Computing
+
+Serverless computing is a cloud execution model where the cloud provider dynamically manages the allocation of machine resources. Instead of provisioning and managing servers, developers write and deploy code that is executed in response to specific events, like HTTP requests or database updates. Th
+e cloud provider then automatically scales the resources needed to run the code, and users are charged only for the actual compute time consumed.
+
+Visit the following resources to learn more:
+
+- [@article@What is Serverless Computing?](https://www.cloudflare.com/en-gb/learning/serverless/what-is-serverless/)
+- [@video@What is serverless?](https://www.youtube.com/watch?v=vxJobGtqKVM)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

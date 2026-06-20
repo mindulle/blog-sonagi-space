@@ -1,0 +1,14 @@
+---
+title: IPv6
+tags: [concept, server-side-game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/server-side-game-developer/content/ipv6@TqBlAMfhARhlJed6xD7eg.md
+---
+
+# IPv6
+
+IPv6, which stands for Internet Protocol version 6, is the most recent version of the Internet Protocol (IP), formulated to rectify the impending issue of IPv4 address exhaustion. Unlike IPv4, which uses 32-bit address, IPv6 employs a 128-bit address, enabling a massive number of unique IP addresses to exist. This augments the capacity of the internet to accommodate an array of networks and devices, serving as a sustainable solution for an ever-expanding digital world. IPv6 also provides enhanced functionalities including simplified header format, improved support for extensions and options, built-in security using IPsec, and better support for QoS (Quality of Service). In server side game development, IPv6 ensures smooth and lag-free game experiences to players by enabling direct peer-to-peer connections.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

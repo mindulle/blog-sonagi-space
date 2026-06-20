@@ -1,0 +1,16 @@
+---
+title: GCP
+tags: [concept, server-side-game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/server-side-game-developer/content/gcp@wD6dUrS-tP2gpCHPghFp5.md
+---
+
+# Google Cloud Platform
+
+**Google Cloud Platform (GCP)** is a suite of public cloud computing services offered by Google. It provides a range of services including compute, storage, networking, Big Data, machine learning, and the internet of things (IoT), plus cloud management, security, and developer tools. The core cloud 
+computing products in GCP consist of Google Compute Engine, Google App Engine, Google Container Engine, Google Cloud Storage, and Google Cloud SQL. Google also offers cloud services for source code ma
+nagement, load balancing, security and privacy, and more. The architecture of GCP is built on the same infrastructure that Google uses for its global products such as YouTube, Google Search, and Google Maps.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

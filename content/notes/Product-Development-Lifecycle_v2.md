@@ -1,0 +1,18 @@
+---
+title: Product Development Lifecycle
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/product-development-lifecycle@kB8e26BUm8BpTY1_O3N3_.md
+---
+
+# Product Development Lifecycle
+
+The Product Development Lifecycle is a crucial aspect for Product Managers to understand. It represents the systematic and methodical journey a product takes from conceptual idea to market distribution. This lifecycle consists of several distinct stages such as ideation, design, development, testing, and launch. Developing a thorough comprehension of this process enables Product Managers to effectively manage, predict and strategize around the potential challenges and opportunities each stage presents. This understanding is vital for successful product launches, maximizing product potential, and ensuring alignment with market demands and customer expectations.
+
+Learn more from the following resources:
+
+- [@article@Product Development Lifecycle - MailChimp](https://mailchimp.com/resources/product-life-cycle/)
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

@@ -1,0 +1,46 @@
+[dart:typed\_data](../../dart-typed_data/dart-typed_data-library){._links-link}
+
+zwyx constant
+=============
+
+::: {.section .multi-line-signature}
+[int](../../dart-core/int-class) const zwyx
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const int zwyx = 0x1E;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-typed_data/Float32x4/zwyx-constant.html>
+:::
+
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/References/dart2/dart-typed_data/int32x4/zwyx-constant.md)
+[dart:typed\_data](../../dart-typed_data/dart-typed_data-library){._links-link}
+
+zwyx constant
+=============
+
+::: {.section .multi-line-signature}
+[int](../../dart-core/int-class) const zwyx
+:::
+
+Implementation {#source}
+--------------
+
+``` {.language-dart data-language="dart"}
+static const int zwyx = 0x1E;
+```
+
+::: {._attribution}
+© 2012 the Dart project authors\
+Licensed under the BSD 3-Clause \"New\" or \"Revised\" License.\
+<https://api.dart.dev/stable/2.18.5/dart-typed_data/Int32x4/zwyx-constant.html>
+:::

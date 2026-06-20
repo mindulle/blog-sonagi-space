@@ -1,0 +1,20 @@
+---
+title: Self-Attention
+tags: [concept, machine-learning]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/machine-learning/content/self-attention@oTKC1o1OOnPiTh60a8yVc.md
+---
+
+# Self-Attention
+
+Self-attention is a mechanism that allows a model to focus on different parts of the input sequence when processing it. Instead of treating each element in the sequence independently, self-attention calculates a weighted sum of all elements, where the weights are determined by the relationships betw
+een the elements themselves. This enables the model to capture dependencies and contextual information within the input sequence, regardless of their distance from each other.
+
+Visit the following resources to learn more:
+
+- [@article@What is self-attention?](https://www.ibm.com/think/topics/self-attention)
+- [@video@Why is Self Attention called "Self"? | Self Attention Vs Luong Attention in Depth Lecture](https://www.youtube.com/watch?v=o4ZVA0TuDRg)
+
+## 관련 로드맵
+- [[machine-learning|Machine Learning]]

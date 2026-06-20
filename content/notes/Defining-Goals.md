@@ -1,0 +1,16 @@
+---
+title: Defining Goals
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/defining-goals@n2AYdM2dlJfuZ97jXY49U.md
+---
+
+# Defining Goals
+
+As a Product Manager, defining goals is a critical aspect of your role. Having clear, well-defined goals crafting the strategic roadmap for your product. This involves identifying the desired outcomes or changes that need to be achieved within a specified timeline. These encompass various facets inc
+luding market share, revenue, user experience and product functionality among others. Setting these goals requires a combination of data-driven insights, understanding of market trends and user feedba
+ck. Ultimately, these goals will serve as the guiding points for the development teams and stakeholders, streamlining efforts towards the shared vision. Your ability to articulate these goals effectively, will directly influence the success of the product.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

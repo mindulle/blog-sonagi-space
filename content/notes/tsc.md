@@ -1,0 +1,19 @@
+---
+title: tsc
+tags: [concept, typescript]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/typescript/content/tsc@Iv_t13PSVzet5VPKFtAp1.md
+---
+
+# tsc
+
+`tsc` is the command-line compiler for TypeScript. It takes TypeScript code as input and transforms it into JavaScript code that can be executed by browsers or other JavaScript runtimes like Node.js. You use `tsc` to check for type errors, enforce coding standards, and ultimately prepare your TypeSc
+ript code for deployment.
+
+Visit the following resources to learn more:
+
+- [@official@tsc CLI Options](https://www.typescriptlang.org/docs/handbook/compiler-options.html#using-the-cli)
+
+## 관련 로드맵
+- [[TypeScript|typescript]]

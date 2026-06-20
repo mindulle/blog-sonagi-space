@@ -12,16 +12,16 @@ export default function PrivacyPage() {
   return (
     <Container className="py-20">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-4 text-neutral-900 dark:text-neutral-50">
+        <h1 className="text-4xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
           개인정보처리방침 (Privacy Policy)
         </h1>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-8">
+        <p className="text-sm mb-8" style={{ color: 'var(--color-text-muted)' }}>
           최종 수정일: {lastUpdated}
         </p>
         
-        <div className="prose dark:prose-invert max-w-none space-y-8 text-neutral-600 dark:text-neutral-400">
+        <div className="prose dark:prose-invert max-w-none space-y-8" style={{ color: 'var(--color-text-secondary)' }}>
           <section>
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               1. 수집하는 개인정보 항목
             </h2>
             <p>
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               2. 개인정보의 수집 및 이용 목적
             </h2>
             <p>
@@ -47,7 +47,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               3. 개인정보의 보유 및 이용 기간
             </h2>
             <p>
@@ -56,7 +56,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               4. 쿠키(Cookie)의 운용 및 거부
             </h2>
             <p>
@@ -68,7 +68,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               5. 제3자 서비스 및 API 이용
             </h2>
             <p>
@@ -77,14 +77,14 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-neutral-900 dark:text-neutral-100 mb-4">
+            <h2 className="text-2xl font-bold mb-4" style={{ color: 'var(--color-text-primary)' }}>
               6. 문의처
             </h2>
             <p>
               개인정보보호와 관련하여 궁금하신 사항은 아래의 연락처로 문의해 주시기 바랍니다.
             </p>
             <p className="mt-2">
-              이메일: <a href="mailto:hello@sonagi.space" className="text-primary-600 dark:text-primary-400 hover:underline">hello@sonagi.space</a>
+              이메일: <a href="mailto:hello@sonagi.space" className="hover:underline" style={{ color: 'var(--color-brand-primary)' }}>hello@sonagi.space</a>
             </p>
           </section>
         </div>

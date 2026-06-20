@@ -36,7 +36,7 @@ export function PostCard({
       hoverable
       className={cn(
         'group overflow-hidden',
-        variant === 'featured' && 'border-2 border-primary-500',
+        variant === 'featured' && 'border-2 border-[var(--color-brand-primary)]',
         className
       )}
     >
@@ -60,10 +60,13 @@ export function PostCard({
 
       <CardHeader className={isCompact ? 'p-4' : undefined}>
         {/* 메타 정보 */}
-        <div className={cn(
-          'mb-3 flex flex-wrap items-center gap-2 text-neutral-600 dark:text-neutral-400',
-          isCompact ? 'text-xs' : 'text-sm'
-        )}>
+        <div
+          className={cn(
+            'mb-3 flex flex-wrap items-center gap-2',
+            isCompact ? 'text-xs' : 'text-sm'
+          )}
+          style={{ color: 'var(--color-text-secondary)' }}
+        >
           <time dateTime={post.date} className="flex items-center gap-1">
             <Calendar size={isCompact ? 12 : 14} />
             {new Date(post.date).toLocaleDateString('ko-KR', {
@@ -83,7 +86,7 @@ export function PostCard({
         <Link href={`/blog/${post.slug}`}>
           <h3
             className={cn(
-              'font-bold transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400',
+              'font-bold transition-colors group-hover:text-[var(--color-brand-primary)]',
               variant === 'featured' && 'text-2xl',
               variant === 'default' && 'text-xl',
               variant === 'compact' && 'text-lg'
@@ -95,7 +98,7 @@ export function PostCard({
 
         {/* 설명 */}
         {showExcerpt && !isCompact && (
-          <p className="mt-2 text-neutral-600 line-clamp-2 dark:text-neutral-400">
+          <p className="mt-2 line-clamp-2" style={{ color: 'var(--color-text-secondary)' }}>
             {post.description}
           </p>
         )}
@@ -112,7 +115,8 @@ export function PostCard({
         {!isCompact && (
           <Link
             href={`/blog/${post.slug}`}
-            className="text-sm font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300"
+            className="text-sm font-medium hover:underline"
+            style={{ color: 'var(--color-brand-primary)' }}
           >
             Read more →
           </Link>

@@ -1,0 +1,23 @@
+---
+title: Razor Components
+tags: [concept, aspnet-core]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/aspnet-core/content/razor-components@vePinRjDfSGULKw0LE9K-.md
+---
+
+# Razor Components
+
+Razor Components is a feature of [ASP.NET](http://ASP.NET) Core that allows developers to build reusable, self-contained components that can be used across multiple pages or even multiple applications. Razor Components is built on top of the Razor view engine, which allows developers to define compo
+nents using a combination of Razor markup and C# code.
+
+Razor Components are useful for building complex, dynamic, and reusable UI elements, such as forms, tables, or dialogs, and can be used to build both small and large-scale web applications.
+
+Visit the following resources to learn more:
+
+- [@article@ASP.NET Core Razor components](https://learn.microsoft.com/en-us/aspnet/core/blazor/components/?view=aspnetcore-7.0)
+- [@article@Core Razor Componets in .NET](https://www.c-sharpcorner.com/blogs/asp-net-core-razor-componets)
+- [@video@What is Core razor components?](https://www.youtube.com/watch?v=KseDLejhYi0)
+
+## 관련 로드맵
+- [[aspnet-core|aspnet-core]]

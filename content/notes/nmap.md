@@ -1,0 +1,22 @@
+---
+title: nmap
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/nmap@xqwIEyGfdZFxk6QqbPswe.md
+---
+
+# NMAP
+
+**Nmap** (Network Mapper) is an open-source network scanning tool used to discover hosts and services on a network, identify open ports, and detect vulnerabilities. It provides detailed information about networked devices, including their IP addresses, operating systems, and running services. Nmap s
+upports various scanning techniques such as TCP SYN scan, UDP scan, and service version detection. It's widely used for network security assessments, vulnerability scanning, and network inventory mana
+gement, helping administrators and security professionals understand and secure their network environments.
+
+Visit the following resources to learn more:
+
+- [@official@NMAP Website](https://nmap.org/)
+- [@article@NMAP Cheat Sheet](https://www.tutorialspoint.com/nmap-cheat-sheet)
+- [@video@Nmap Tutorial to find Network Vulnerabilities](https://www.youtube.com/watch?v=4t4kBkMsDbQ)
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

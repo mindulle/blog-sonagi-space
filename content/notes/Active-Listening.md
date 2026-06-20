@@ -1,0 +1,21 @@
+---
+title: Active Listening
+tags: [concept, devrel]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/devrel/content/active-listening@UdUDngq425NYSvIuOd7St.md
+---
+
+# Active Listening
+
+Active listening in developer relations is about genuinely engaging with the developer community to understand their needs, challenges, and feedback. It involves more than just hearing what is said; it requires attention to verbal cues, context, and non-verbal signals, as well as asking clarifying q
+uestions and reflecting on what has been shared. By actively listening, developer advocates can build trust, foster open communication, and gain insights that help shape better products, documentation
+, and community experiences, ultimately creating a more supportive and responsive environment for developers.
+
+Learn more from the following resources:
+
+- [@article@What is active listening?](https://hbr.org/2024/01/what-is-active-listening)
+- [@article@7 Active Listening Techniques For Better Communication](https://www.verywellmind.com/what-is-active-listening-3024343)
+
+## 관련 로드맵
+- [[devrel|devrel]]

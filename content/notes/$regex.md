@@ -1,0 +1,20 @@
+---
+title: $regex
+tags: [concept, mongodb]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/mongodb/content/regex@PmfjHFz-DW69pNh_t13Nm.md
+---
+
+# $regex
+
+The `$regex` operator in MongoDB provides regular expression pattern matching for string fields. It supports Perl-compatible regular expressions (PCRE) with options for case sensitivity, multiline matching, and extended syntax. `$regex` enables sophisticated text searching, pattern validation, and c
+omplex string filtering, though it may impact performance on large datasets without proper indexing.
+
+Visit the following resources to learn more:
+
+- [@official@\$regex](https://www.mongodb.com/docs/manual/reference/operator/query/regex/)
+- [@article@Mastering Regex in MongoDB: A Beginner's Guide](https://medium.com/@jaydeepdnai.imscit20/mastering-regex-in-mongodb-a-beginners-guide-886bcb404725)
+
+## 관련 로드맵
+- [[MongoDB|mongodb]]

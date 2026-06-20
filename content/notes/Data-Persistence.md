@@ -1,0 +1,22 @@
+---
+title: Data Persistence
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/data-persistence@6gfqFy3H6SLt06oJ1kt5A.md
+---
+
+# Data Persistence
+
+Data persistence in iOS applications involves storing and retrieving data beyond the app's current runtime, ensuring information remains available across app launches and device restarts. Swift and iOS offer several mechanisms for data persistence, each suited to different needs and data complexitie
+s. Core Data provides a robust framework for managing and persisting large, structured datasets, offering features like data modeling, querying, and synchronization. For simpler data storage, UserDefa
+ults is ideal for storing small amounts of key-value data. File system storage allows direct saving and loading of data to and from files in the app's sandbox. Keychain Services offer secure storage for sensitive information like passwords and tokens. SQLite databases can be used for more complex re
+lational data storage needs. Additionally, CloudKit enables data synchronization across devices via iCloud. Choosing the appropriate persistence method depends on factors such as data structure, size,
+ security requirements, and the need for synchronization across devices or with remote servers.
+
+Learn more from the following resources:
+
+- [@official@Apple Dev Training - Persisting Data](https://developer.apple.com/tutorials/app-dev-training/persisting-data)
+
+## 관련 로드맵
+- [[ios|ios]]

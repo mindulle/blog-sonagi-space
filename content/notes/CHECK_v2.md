@@ -1,0 +1,18 @@
+---
+title: CHECK
+tags: [concept, sql]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/sql/content/check@Q0h9Wfnl_W9ThOkv7Q17A.md
+---
+
+# CHECK
+
+A `CHECK` constraint in SQL is used to enforce data integrity by specifying a condition that must be true for each row in a table. It allows you to define custom rules or restrictions on the values that can be inserted or updated in one or more columns. `CHECK` constraints help maintain data quality by preventing invalid or inconsistent data from being added to the database, ensuring that only data meeting specified criteria is accepted.
+
+Visit the following resources to learn more:
+
+- [@video@CHECK Constraint](https://www.youtube.com/watch?v=EeG2boJCXbc)
+
+## 관련 로드맵
+- [[sql|sql]]

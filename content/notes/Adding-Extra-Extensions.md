@@ -1,0 +1,21 @@
+---
+title: Adding Extra Extensions
+tags: [concept, postgresql-dba]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/postgresql-dba/content/adding-extra-extensions@VAf9VzPx70hUf4H6i3Z2t.md
+---
+
+# Adding Extensions
+
+PostgreSQL provides various extensions to enhance its features and functionalities. Extensions are optional packages that can be loaded into your PostgreSQL database to provide additional functionality like new data types or functions. Using extensions can be a powerful way to add new features to yo
+ur PostgreSQL database and customize your database's functionality according to your needs.
+
+Learn more from the following resources:
+
+- [@official@PostgreSQL Extensions](https://www.postgresql.org/download/products/6-postgresql-extensions/)
+- [@official@Create Extension](https://www.postgresql.org/docs/current/sql-createextension.html)
+
+
+## 관련 로드맵
+- [[postgresql-dba|postgresql-dba]]

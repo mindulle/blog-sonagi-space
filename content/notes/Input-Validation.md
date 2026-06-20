@@ -1,0 +1,28 @@
+---
+title: Input Validation
+tags: [concept, php]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/php/content/input-validation@93oEIZttb85S23C1fLraP.md
+---
+
+# Input Validation
+
+Input validation is a vital aspect of PHP security. It involves checking whether the user-provided data is in the expected format or not before it's processed further. This helps prevent potential security risks such as SQL injections, cross-site scripting (XSS) etc. Let's take an example of a simpl
+e form input validation:
+
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      echo("Email is valid");
+    } else {
+      echo("Email is not valid");
+    }
+    
+
+This code uses PHP's built-in `filter_var()` function to ensure the data is a valid email address. If not, the form will not be submitted until valid data is entered.
+
+Visit the following resources to learn more:
+
+- [@official@Input Validation](https://www.php.net/manual/en/book.filter.php)
+
+## 관련 로드맵
+- [[PHP|php]]

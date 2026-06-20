@@ -1,0 +1,15 @@
+# Potential Issues
+
+Code reviews are a crucial part of ensuring the quality, maintainability, and efficiency of software. One particularly important aspect of a code review is identifying potential performance, security, and scalability concerns. This involves examining the submitted code for any areas where it may not
+ perform well, exhibit vulnerabilities, or have difficulty handling increased usage. As a code reviewer, it is your responsibility to discuss these concerns with the author and offer suggestions for i
+mprovement. This ensures the final product is not only functionally correct but also delivers a robust and stable experience for its users. In this section, we will provide some tips on how to effectively evaluate code for performance, security, and scalability during a review, and how to address an
+y issues that arise.
+
+---
+## 상세 내용 (Merged from 20_Wiki/Develop/_commons/fruit/Review/Best Practices/During Code Review (Reviewer)/potential-issues-reviewer.md)
+# Potential Issues
+
+Code reviews are a crucial part of ensuring the quality, maintainability, and efficiency of software. One particularly important aspect of a code review is identifying potential performance, security, and scalability concerns. This involves examining the submitted code for any areas where it may not
+ perform well, exhibit vulnerabilities, or have difficulty handling increased usage. As a code reviewer, it is your responsibility to discuss these concerns with the author and offer suggestions for i
+mprovement. This ensures the final product is not only functionally correct but also delivers a robust and stable experience for its users. In this section, we will provide some tips on how to effectively evaluate code for performance, security, and scalability during a review, and how to address an
+y issues that arise.

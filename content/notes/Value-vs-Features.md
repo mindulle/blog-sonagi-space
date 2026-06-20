@@ -1,0 +1,16 @@
+---
+title: Value vs Features
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/value-vs-features@0AQj2F1n8VKHBwuF4ywrp.md
+---
+
+# Value vs Features in Product Management
+
+In the realm of product management, a key decision-making factor is striking a balance between value and features. Product managers are often caught in the dilemma of whether to focus more on increasing the number of features, making the product functionally rich, or to focus on the core value that 
+a product would deliver to the user. While features may seem appealing and can act as selling points, it's the genuine value or solution to the customer's problem that tends to encourage satisfaction 
+and loyalty. To make this complex decision, Product Managers often use strategies such as customer feedback, market research, competitor analysis, and various prioritization frameworks.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

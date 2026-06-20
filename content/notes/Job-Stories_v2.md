@@ -1,0 +1,14 @@
+---
+title: Job Stories
+tags: [concept, product-manager]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/product-manager/content/job-stories@B9fgJmzVViaq7dvSuEglb.md
+---
+
+# Job Stories
+
+The concept of Job Stories is a tool integral to a Product Manager's dynamic role. Structured differently from traditional user stories, Job Stories shift the focus from personas to the situation, providing a fresh perspective for understanding user requirements. They provide an opportunity for product managers to emphasize the context and causality of user needs. This perspective plays a crucial role in creating successful products and ensuring they deliver value to the end-users. Teleriking why and when someone uses the product opens avenues for actionable insights leading to judicious decision-making in defining product requirements.
+
+## 관련 로드맵
+- [[product-manager|product-manager]]

@@ -1,0 +1,21 @@
+---
+title: Data Structures & Algorithms
+tags: [concept, python]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/python/content/data-structures--algorithms@VJSIbYJcy2MC6MOFBrqXi.md
+---
+
+# Data Structures and Algorithms
+
+A data structure is a named location that can be used to store and organize data. And, an algorithm is a collection of steps to solve a particular problem. Learning data structures and algorithms allow us to write efficient and optimized computer programs.
+
+Visit the following resources to learn more:
+
+- [@roadmap@Visit Dedicated DSA Roadmap](https://roadmap.sh/datastructures-and-algorithms)
+- [@article@Learn DS & Algorithms](https://www.programiz.com/dsa)
+- [@video@Data Structures Illustrated](https://www.youtube.com/playlist?list=PLkZYeFmDuaN2-KUIv-mvbjfKszIGJ4FaY)
+- [@video@DSA Python Playlist](https://www.youtube.com/playlist?list=PLKYEe2WisBTFEr6laH5bR2J19j7sl5O8R)
+
+## 관련 로드맵
+- [[Python|python]]

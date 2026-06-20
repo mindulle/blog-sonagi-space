@@ -1,0 +1,12 @@
+---
+title: Prop Drilling
+date: 2024-01-15
+category: dev
+tags: [react, internals, props, context, state-management]
+description: How React handles prop drilling and its downsides
+---
+
+# Prop Drilling
+
+Prop drilling is the process of passing data from a parent component to deeply nested child components through props. While React doesn't prohibit this, it can lead to code that is hard to maintain and understand. Excessive prop drilling can make it challenging to track data flow and can result in u
+nnecessary re-renders. To mitigate these issues, you can use Context API or state management libraries like Redux.

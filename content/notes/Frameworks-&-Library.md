@@ -1,0 +1,18 @@
+---
+title: Frameworks & Library
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/frameworks--library@pZVPsgvCpP3zUgBM4i0CF.md
+---
+
+# Frameworks & Library
+
+Frameworks and libraries in iOS development are collections of reusable code that provide specific functionality, enhancing development efficiency and maintaining code consistency. Frameworks are more structured than libraries, offering a hierarchical directory that bundles code, resources, and docu
+mentation. They can include dynamic or static libraries, header files, and additional resources like images or localization files. iOS provides numerous built-in frameworks like UIKit, Foundation, and
+ CoreData, which form the backbone of app development. Third-party frameworks expand functionality further, often distributed via dependency managers. Libraries, typically in the form of static or dynamic libraries, contain compiled code that can be linked into an app. They're generally simpler than
+ frameworks but less self-contained. The choice between using a framework or a library often depends on the complexity of the functionality needed and how it integrates with the existing project struc
+ture. Effective use of frameworks and libraries can significantly reduce development time and improve code quality in iOS applications.
+
+## 관련 로드맵
+- [[ios|ios]]

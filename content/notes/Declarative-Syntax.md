@@ -1,0 +1,22 @@
+---
+title: Declarative Syntax
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/declarative-syntax@QVg4_8EXeQBJbleryy8c1.md
+---
+
+# Declarative Syntax
+
+SwiftUI's declarative syntax allows developers to describe the desired UI state rather than the step-by-step process to achieve it. This approach uses Swift code to define what views should appear and how they should behave, with SwiftUI handling the underlying implementation details. Developers cre
+ate views by combining and modifying smaller view components, using modifiers to adjust appearance and behavior. State management is integrated into this syntax, with UI automatically updating when st
+ate changes.
+
+Learn more from the following resources:
+
+- [@article@Declarative and Imperative Programming using SwiftUI and UIKit](https://medium.com/@rmeji1/declarative-and-imperative-programming-using-swiftui-and-uikit-c91f1f104252)
+- [@article@Apple's SwiftUI Declarative Framework](https://www.linkedin.com/pulse/apples-swiftui-declarative-framework-vivek-singh/)
+- [@video@Imperative vs Declarative Programming](https://www.youtube.com/watch?v=yOBBkIJBEL8)
+
+## 관련 로드맵
+- [[ios|ios]]

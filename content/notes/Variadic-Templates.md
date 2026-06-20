@@ -1,0 +1,16 @@
+---
+title: Variadic Templates
+tags: [concept, cpp]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cpp/content/variadic-templates@w4EIf58KP-Pq-yc0HlGxc.md
+---
+
+# Variadic Templates
+
+Variadic templates, introduced in C++11, provide a way to create templates that can accept a variable number of arguments. Using the ellipsis (`...`) notation, you can define parameter packs that represent zero or more arguments of potentially different types. This allows for the creation of functio
+ns and classes that can operate on varying numbers of inputs, enhancing code flexibility and reusability, as demonstrated by use cases such as summing multiple arguments or creating tuple-like structu
+res.
+
+## 관련 로드맵
+- [[cpp|cpp]]

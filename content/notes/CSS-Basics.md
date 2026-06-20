@@ -1,0 +1,21 @@
+---
+title: CSS Basics
+tags: [concept, react-native]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/react-native/content/css-basics@SnF3xtzBh-x4Z_qUQUg7H.md
+---
+
+# CSS Basics
+
+CSS is a stylesheet language used for describing the look and formatting of a document written in HTML or XML. It is primarily used for styling web pages and user interfaces written in HTML and XHTML. React native uses CSS to style its components. You can learn some CSS basics to get started with Re
+act Native and learn more as you go.
+
+Visit the following resources to learn more:
+
+- [@official@CSS - W3.org](https://www.w3.org/Style/CSS/Overview.en.html)
+- [@official@CSS - MDN](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [@feed@Explore top posts about CSS](https://app.daily.dev/tags/css?ref=roadmapsh)
+
+## 관련 로드맵
+- [[React Native|react-native]]

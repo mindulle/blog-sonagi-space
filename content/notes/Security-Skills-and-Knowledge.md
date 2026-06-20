@@ -1,0 +1,18 @@
+---
+title: Security Skills and Knowledge
+tags: [concept, cyber-security]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/cyber-security/content/security-skills-and-knowledge@_hYN0gEi9BL24nptEtXWU.md
+---
+
+# Security Skills and Knowledge
+
+Cybersecurity professionals need a diverse skill set, beginning with **security fundamentals** like understanding CIA triad, risk management, and compliance standards. A firm grasp of **networking** concepts, including TCP/IP, firewalls, and intrusion detection systems, is essential. Expertise in **
+operating systems** (Windows, Linux, macOS) is crucial for identifying vulnerabilities and hardening systems. **Application security** knowledge helps in building secure software and mitigating common
+ vulnerabilities. **Web security** skills are needed to protect web applications from attacks like XSS and SQL injection. Security testing techniques like penetration testing and vulnerability scanning are vital for identifying weaknesses. **Incident response and forensic analysis** skills are neces
+sary for handling security breaches and investigating cybercrimes. **Cloud security** expertise is increasingly important for securing cloud-based infrastructure and applications. Finally, **soft skil
+ls** such as communication, problem-solving, and teamwork are critical for effective collaboration and incident management.
+
+## 관련 로드맵
+- [[cyber-security|cyber-security]]

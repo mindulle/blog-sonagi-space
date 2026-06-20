@@ -1,0 +1,21 @@
+---
+title: Content Performance
+tags: [concept, devrel]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/devrel/content/content-performance@yhDBZfUAjumFHpUZtmLg3.md
+---
+
+# Content Performance
+
+Content performance involves measuring, analyzing, and optimizing the impact of created content on the target audience. This multifaceted process encompasses tracking various metrics such as engagement rates, conversion rates, time spent on page, and social shares to gauge the effectiveness of conte
+nt in achieving its intended goals. By leveraging sophisticated analytics tools and techniques, DevRel professionals can gain valuable insights into audience behavior, preferences, and pain points, en
+abling them to refine their content strategy, improve user experience, and ultimately drive better outcomes for both developers and the organization.
+
+Learn more from the following resources:
+
+- [@article@Content Performance: 19 Metrics to Track Your Results](https://www.semrush.com/blog/content-performance/)
+- [@video@How to measure the ROI of your content efforts](https://www.youtube.com/watch?v=j1CNmi302Oc)
+
+## 관련 로드맵
+- [[devrel|devrel]]

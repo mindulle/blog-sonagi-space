@@ -1,0 +1,19 @@
+---
+title: SwiftLint
+tags: [concept, ios]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/ios/content/swiftlint@NnTC3R8goZQTXHmfHKHbM.md
+---
+
+# SwiftLint
+
+SwiftLint is an open-source tool developed by Realm, that facilitates maintaining standardized code development by enabling the definition and enforcement of project-specific conventions and guidelines. It ensures developers adhere to these standards, thereby promoting organized code practices.
+
+Learn more from the following resources:
+
+- [@official@SwiftLint Documentation](https://github.com/realm/SwiftLint)
+- [@video@Mastering SwiftLint for Code Readability](https://www.youtube.com/watch?v=4YQ6DJ-xovY)
+
+## 관련 로드맵
+- [[ios|ios]]

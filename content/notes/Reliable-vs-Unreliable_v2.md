@@ -1,0 +1,16 @@
+---
+title: Reliable vs Unreliable
+tags: [concept, server-side-game-developer]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/server-side-game-developer/content/reliable-vs-unreliable@MoyBGT9bscUe8vMN4J0bG.md
+---
+
+# Reliable vs Unreliable
+
+In the context of network communication, the terms "reliable" and "unreliable" refer to whether or not data sent across the network is guaranteed to reach its destination. Reliable protocols, such as TCP, ensure that data is delivered from sender to receiver without loss. They do this by establishing a connection, dividing data into packets, sending them one by one, and waiting for acknowledgment of receipt from the receiver. Each sent packet is numbered so if any packet doesn't reach the receiver, it will be identified by the missing sequence number and resent. In this way, reliable protocols ensure data integrity and order.
+
+On the other hand, unreliable protocols, such as UDP, do not guarantee delivery. They simply transmit data without any checks to ensure it has been received. If a packet is dropped for any reason, it is not resent. These protocols do not establish a connection nor check for successful data transfer. This leads to potential data loss, but it provides a faster and more efficient transmission process which can be desirable in certain situations.
+
+## 관련 로드맵
+- [[server-side-game-developer|server-side-game-developer]]

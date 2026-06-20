@@ -1,0 +1,21 @@
+---
+title: BDD
+tags: [concept, flutter]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/flutter/content/bdd@0fpwuPTW94iyNlsjXcPOO.md
+---
+
+# BDD
+
+Behavior-driven development (BDD) is a software development methodology that emphasizes collaboration between developers, testers, and stakeholders to define and verify the behavior of an application. BDD uses natural language to describe the expected behavior of the application and provides a share
+d understanding of the requirements for the development team.
+
+Visit the following resources to learn more:
+
+- [@article@Build Flutter with BDD](https://medium.com/tide-engineering-team/build-flutter-with-bdd-b4507170a2fe)
+- [@video@Tutorial - BDD in Flutter](https://www.youtube.com/watch?v=Kwvsc31FE_8)
+- [@feed@Explore top posts about Testing](https://app.daily.dev/tags/testing?ref=roadmapsh)
+
+## 관련 로드맵
+- [[Flutter|flutter]]

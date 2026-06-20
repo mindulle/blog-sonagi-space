@@ -1,0 +1,20 @@
+---
+title: COALESCE
+tags: [concept, sql]
+created: 2026-05-11
+updated: 2026-05-11
+source: 10_Sources/roadmaps/sql/content/coalesce@k7lZe4QRt9q4InUImFmvx.md
+---
+
+# COALESCE
+
+`COALESCE` is an SQL function that returns the first non-null value in a list of expressions. It's commonly used to handle null values or provide default values in queries. `COALESCE` evaluates its arguments in order and returns the first non-null result, making it useful for data cleaning, report g
+eneration, and simplifying complex conditional logic in SQL statements.
+
+Visit the following resources to learn more:
+
+- [@article@How to use the COALESCE function in SQL](https://learnsql.com/blog/coalesce-function-sql/)
+- [@article@COALESCE - PostgreSQL](https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-coalesce/)
+
+## 관련 로드맵
+- [[sql|sql]]
