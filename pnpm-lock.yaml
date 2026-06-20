@@ -15,8 +15,8 @@ importers:
         specifier: ^16.0.0
         version: 16.0.0(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))
       '@sonagi/tokens':
-        specifier: file:../sonagi-design-system/packages/tokens
-        version: file:../sonagi-design-system/packages/tokens
+        specifier: file:sonagi-tokens.tgz
+        version: file:sonagi-tokens.tgz
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -710,8 +710,9 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
-  '@sonagi/tokens@file:../sonagi-design-system/packages/tokens':
-    resolution: {directory: ../sonagi-design-system/packages/tokens, type: directory}
+  '@sonagi/tokens@file:sonagi-tokens.tgz':
+    resolution: {integrity: sha512-voCCfkaGNG1MjBLYubZWzmWrksVYTrvuLKxZR5vom1dzW5xAz3FHlcs+hvNR5DBtx989/r0TBv2bkUkMEXDf6g==, tarball: file:sonagi-tokens.tgz}
+    version: 3.1.0
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -3884,7 +3885,7 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
-  '@sonagi/tokens@file:../sonagi-design-system/packages/tokens': {}
+  '@sonagi/tokens@file:sonagi-tokens.tgz': {}
 
   '@standard-schema/spec@1.1.0': {}
 

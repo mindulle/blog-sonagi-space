@@ -14,7 +14,7 @@
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
     "@next/mdx": "^16.0.0",
-    "@sonagi/tokens": "file:../sonagi-design-system/packages/tokens",
+    "@sonagi/tokens": "file:sonagi-tokens.tgz",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.24",
     "fuse.js": "^7.1.0",
