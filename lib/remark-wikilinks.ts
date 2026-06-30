@@ -1,10 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { globSync } from 'glob';
-import matter from 'gray-matter';
 import { visit } from 'unist-util-visit';
 import type { Plugin } from 'unified';
 import type { Root, Text, Link, PhrasingContent } from 'mdast';
+import noteSummaries from '../public/note-summaries.json';
 
 // ── 노트 캐시 ──────────────────────────────────────────────────────────────────
 
@@ -16,35 +13,25 @@ interface NoteRef {
 const noteCache = new Map<string, NoteRef>();
 
 /**
- * 빌드 시작 시 1회 호출 — content/notes/ 전체를 스캔해서 slug → url 맵 구축
+ * 빌드 시작 시 1회 호출 — note-summaries.json을 읽어 slug → url 맵 구축
  */
-export function initNoteCache(contentDir: string): void {
-  noteCache.clear();
+export function initNoteCache(): void {
+  if (noteCache.size > 0) return; // 이미 초기화된 경우 무시
 
-  const files = globSync('**/*.md', { cwd: contentDir, absolute: true });
+  for (const [slug, data] of Object.entries(noteSummaries)) {
+    // URL-safe slug: 파일명 그대로 사용 (한글 파일명 지원)
+    const urlPath = slug;
 
-  for (const filePath of files) {
-    try {
-      const fileContent = fs.readFileSync(filePath, 'utf8');
-      const { data } = matter(fileContent);
-      const filename = path.basename(filePath, '.md');
+    // 정규화 키: 소문자, 하이픈/언더바/공백 → 통합
+    const normalizedKey = slug
+      .toLowerCase()
+      .replace(/[-_\s]/g, ' ')
+      .trim();
 
-      // URL-safe slug: 파일명 그대로 사용 (한글 파일명 지원)
-      const urlPath = filename;
-
-      // 정규화 키: 소문자, 하이픈/언더바/공백 → 통합
-      const normalizedKey = filename
-        .toLowerCase()
-        .replace(/[-_\s]/g, ' ')
-        .trim();
-
-      noteCache.set(normalizedKey, {
-        url: `/notes/${urlPath}`,
-        title: (data.title as string) || filename,
-      });
-    } catch {
-      // 파일 읽기 실패 시 무시
-    }
+    noteCache.set(normalizedKey, {
+      url: `/notes/${urlPath}`,
+      title: data.title || slug,
+    });
   }
 }
 
@@ -54,8 +41,8 @@ const WIKILINK_REGEX = /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g;
 
 interface WikiLink {
   raw: string;
-  target: string;   // 링크 대상 (노트 이름)
-  alias?: string;   // 표시 텍스트 (있을 경우)
+  target: string; // 링크 대상 (노트 이름)
+  alias?: string; // 표시 텍스트 (있을 경우)
   start: number;
   end: number;
 }

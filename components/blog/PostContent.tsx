@@ -17,7 +17,13 @@ interface TooltipState {
 }
 
 /** 포스트 본문을 렌더링하고, .wikilink 요소에 호버 프리뷰를 붙여주는 클라이언트 컴포넌트 */
-export function PostContent({ html, className }: { html: string; className?: string }) {
+export function PostContent({
+  html,
+  className,
+}: {
+  html: string;
+  className?: string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [tooltip, setTooltip] = useState<TooltipState>({
     visible: false,
@@ -45,11 +51,17 @@ export function PostContent({ html, className }: { html: string; className?: str
 
         if (!note) {
           try {
-            const res = await fetch(`/api/notes/${encodeURIComponent(slug)}`);
-            if (res.ok) {
-              note = (await res.json()) as NotePreview;
-              cache.current.set(slug, note);
+            if (!cache.current.has('_loaded')) {
+              const res = await fetch('/note-summaries.json');
+              if (res.ok) {
+                const summaries = await res.json();
+                for (const [key, val] of Object.entries(summaries)) {
+                  cache.current.set(key, val as NotePreview);
+                }
+                cache.current.set('_loaded', {} as NotePreview);
+              }
             }
+            note = cache.current.get(slug);
           } catch {
             return;
           }
@@ -66,7 +78,7 @@ export function PostContent({ html, className }: { html: string; className?: str
         });
       }, 300);
     },
-    [clearTimers],
+    [clearTimers]
   );
 
   const handleMouseLeave = useCallback(() => {
@@ -81,7 +93,9 @@ export function PostContent({ html, className }: { html: string; className?: str
     const container = containerRef.current;
     if (!container) return;
 
-    const links = Array.from(container.querySelectorAll<HTMLAnchorElement>('a.wikilink'));
+    const links = Array.from(
+      container.querySelectorAll<HTMLAnchorElement>('a.wikilink')
+    );
     const cleanups: Array<() => void> = [];
 
     for (const link of links) {
@@ -153,7 +167,14 @@ export function PostContent({ html, className }: { html: string; className?: str
             </p>
           )}
           {tooltip.note.tags.length > 0 && (
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px', marginTop: 'var(--space-3)' }}>
+            <div
+              style={{
+                display: 'flex',
+                flexWrap: 'wrap',
+                gap: '4px',
+                marginTop: 'var(--space-3)',
+              }}
+            >
               {tooltip.note.tags.map((tag) => (
                 <span
                   key={tag}

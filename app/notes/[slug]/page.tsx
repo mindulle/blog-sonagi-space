@@ -10,8 +10,8 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  // ISR (On-demand Rendering): 빌드 타임에는 빈 배열을 반환하여
-  // 2만 개의 노트를 한 번에 빌드하지 않고 사용자가 접속할 때 생성하도록 합니다.
+  // Return an empty array to build all pages on demand (ISR)
+  // This prevents Out of Memory (OOM) errors during build when there are thousands of notes.
   return [];
 }
 

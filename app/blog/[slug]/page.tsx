@@ -15,10 +15,9 @@ type Props = {
 };
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
+  // Return an empty array to build all pages on demand (ISR)
+  // This prevents Out of Memory (OOM) errors during build.
+  return [];
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -76,7 +75,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <>
       <ReadingProgress />
-      
+
       <article className="py-12">
         <Container>
           <div className="max-w-4xl mx-auto">
@@ -95,15 +94,24 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
 
             {/* Share Buttons */}
-            <div className="mt-12 pt-8 border-t" style={{ borderColor: 'var(--color-border-default)' }}>
-              <h3 className="text-lg font-semibold mb-4" style={{ color: 'var(--color-text-primary)' }}>
+            <div
+              className="mt-12 pt-8 border-t"
+              style={{ borderColor: 'var(--color-border-default)' }}
+            >
+              <h3
+                className="text-lg font-semibold mb-4"
+                style={{ color: 'var(--color-text-primary)' }}
+              >
                 Share this post
               </h3>
               <ShareButtons title={post.title} url={postUrl} />
             </div>
 
             {/* Related Posts */}
-            <div className="mt-16 pt-8 border-t" style={{ borderColor: 'var(--color-border-default)' }}>
+            <div
+              className="mt-16 pt-8 border-t"
+              style={{ borderColor: 'var(--color-border-default)' }}
+            >
               <RelatedPosts currentPost={post} allPosts={allPosts} />
             </div>
           </div>

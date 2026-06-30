@@ -5,11 +5,17 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
 import { initNoteCache, remarkWikilinks } from './remark-wikilinks';
+import noteSummaries from '../public/note-summaries.json';
 
 const notesDirectory = path.join(process.cwd(), 'content/notes');
 
 // 빌드 시작 시 1회 캐시 초기화
-initNoteCache(notesDirectory);
+initNoteCache();
+
+const markdownProcessor = remark()
+  .use(remarkGfm)
+  .use(remarkWikilinks)
+  .use(html, { sanitize: false });
 
 export interface Note {
   slug: string;
@@ -24,23 +30,17 @@ export interface NoteWithContent extends Note {
 }
 
 /**
- * 파일명에서 slug 생성 (확장자 제거)
- */
-function fileNameToSlug(fileName: string): string {
-  return fileName.replace(/\.md$/, '');
-}
-
-/**
  * 본문 첫 단락을 excerpt로 추출
  */
 function extractExcerpt(content: string, maxLength = 150): string {
-  const firstParagraph = content
-    .replace(/^---[\s\S]*?---\n/, '') // frontmatter 제거
-    .replace(/#+\s.*\n/g, '')          // 헤딩 제거
-    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, '$2') // 위키링크 → alias 또는 제거
-    .trim()
-    .split('\n')
-    .find((line) => line.trim().length > 0) ?? '';
+  const firstParagraph =
+    content
+      .replace(/^---[\s\S]*?---\n/, '') // frontmatter 제거
+      .replace(/#+\s.*\n/g, '') // 헤딩 제거
+      .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, '$2') // 위키링크 → alias 또는 제거
+      .trim()
+      .split('\n')
+      .find((line) => line.trim().length > 0) ?? '';
 
   return firstParagraph.length > maxLength
     ? firstParagraph.slice(0, maxLength) + '...'
@@ -51,25 +51,14 @@ function extractExcerpt(content: string, maxLength = 150): string {
  * 모든 노트 목록 반환
  */
 export function getAllNotes(): Note[] {
-  if (!fs.existsSync(notesDirectory)) return [];
-
-  return fs
-    .readdirSync(notesDirectory)
-    .filter((f) => f.endsWith('.md'))
-    .map((fileName) => {
-      const slug = fileNameToSlug(fileName);
-      const fullPath = path.join(notesDirectory, fileName);
-      const fileContents = fs.readFileSync(fullPath, 'utf8');
-      const { data, content } = matter(fileContents);
-
-      return {
-        slug,
-        title: (data.title as string) || slug,
-        tags: (data.tags as string[]) || [],
-        created: (data.created as string) || '',
-        excerpt: extractExcerpt(content),
-      };
-    })
+  return Object.values(noteSummaries)
+    .map((summary: Record<string, unknown>) => ({
+      slug: summary.slug as string,
+      title: summary.title as string,
+      tags: (summary.tags as string[]) || [],
+      created: (summary.created as string) || '',
+      excerpt: (summary.excerpt as string) || '',
+    }))
     .sort((a, b) => (a.created < b.created ? 1 : -1));
 }
 
@@ -82,11 +71,7 @@ export function getNoteBySlug(slug: string): NoteWithContent | null {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
-    const processedContent = remark()
-      .use(remarkGfm)
-      .use(remarkWikilinks)
-      .use(html, { sanitize: false })
-      .processSync(content);
+    const processedContent = markdownProcessor.processSync(content);
 
     return {
       slug,
@@ -105,9 +90,5 @@ export function getNoteBySlug(slug: string): NoteWithContent | null {
  * 모든 노트 slug 목록 (generateStaticParams용)
  */
 export function getAllNoteSlugs(): string[] {
-  if (!fs.existsSync(notesDirectory)) return [];
-  return fs
-    .readdirSync(notesDirectory)
-    .filter((f) => f.endsWith('.md'))
-    .map(fileNameToSlug);
+  return Object.keys(noteSummaries);
 }
