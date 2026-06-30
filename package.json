@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "prebuild": "node scripts/generate-backlinks.mjs",
+    "prebuild": "node scripts/generate-backlinks.mjs && node scripts/generate-summaries.mjs",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",

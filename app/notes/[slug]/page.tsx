@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getNoteBySlug } from '@/lib/notes';
 import { BacklinksSection } from '@/components/blog/BacklinksSection';
+import { LocalGraph } from '@/components/blog/LocalGraph';
 import backlinksData from '@/lib/generated/backlinks.json';
 
 interface Props {
@@ -9,8 +10,8 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  // ISR (On-demand Rendering): 빌드 타임에는 빈 배열을 반환하여
-  // 2만 개의 노트를 한 번에 빌드하지 않고 사용자가 접속할 때 생성하도록 합니다.
+  // Return an empty array to build all pages on demand (ISR)
+  // This prevents Out of Memory (OOM) errors during build when there are thousands of notes.
   return [];
 }
 
@@ -101,6 +102,9 @@ export default async function NotePage({ params }: Props) {
         className="prose"
         dangerouslySetInnerHTML={{ __html: note.content }}
       />
+
+      {/* 로컬 그래프 (디지털 가든) */}
+      <LocalGraph slug={slug} />
 
       {/* 백링크 */}
       <BacklinksSection backlinks={backlinks} />
