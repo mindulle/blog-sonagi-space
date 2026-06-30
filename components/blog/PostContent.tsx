@@ -34,6 +34,7 @@ export function PostContent({
   const hideTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const showTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const cache = useRef<Map<string, NotePreview>>(new Map());
+  const hoveredSlugRef = useRef<string | null>(null);
 
   const clearTimers = useCallback(() => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
@@ -43,6 +44,7 @@ export function PostContent({
   const handleMouseEnter = useCallback(
     async (e: MouseEvent, slug: string) => {
       clearTimers();
+      hoveredSlugRef.current = slug;
 
       const target = e.currentTarget as HTMLAnchorElement;
 
@@ -67,7 +69,8 @@ export function PostContent({
           }
         }
 
-        if (!note) return;
+        // 방어 로직: 데이터를 로딩하는 그 찰나에 유저가 마우스를 치웠거나 다른 링크로 갔다면 무시
+        if (!note || hoveredSlugRef.current !== slug) return;
 
         const rect = target.getBoundingClientRect();
         setTooltip({
@@ -83,6 +86,7 @@ export function PostContent({
 
   const handleMouseLeave = useCallback(() => {
     clearTimers();
+    hoveredSlugRef.current = null;
     hideTimer.current = setTimeout(() => {
       setTooltip((prev) => ({ ...prev, visible: false }));
     }, 200);
