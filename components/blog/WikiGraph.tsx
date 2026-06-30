@@ -3,7 +3,10 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
-import ForceGraph2D, { ForceGraphMethods } from 'react-force-graph-2d';
+import dynamic from 'next/dynamic';
+import type { ForceGraphMethods } from 'react-force-graph-2d';
+
+const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false });
 import { useRouter } from 'next/navigation';
 
 interface Node {
@@ -51,7 +54,7 @@ export function WikiGraph({ data }: { data: GraphData }) {
   }, []);
 
   const handleNodeClick = useCallback(
-    (node: Node) => {
+    (node: any) => {
       if (node.visibility === 'public') {
         router.push(`/notes/${node.id}`);
       }
