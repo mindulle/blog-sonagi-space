@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { getNoteBySlug } from '@/lib/notes';
 import { BacklinksSection } from '@/components/blog/BacklinksSection';
 import { LocalGraph } from '@/components/blog/LocalGraph';
+import { PostContent } from '@/components/blog/PostContent';
 import backlinksData from '@/lib/generated/backlinks.json';
 
 interface Props {
@@ -98,10 +99,7 @@ export default async function NotePage({ params }: Props) {
       </header>
 
       {/* 본문 */}
-      <div
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: note.content }}
-      />
+      <PostContent html={note.content} className="prose" />
 
       {/* 로컬 그래프 (디지털 가든) */}
       <LocalGraph slug={slug} />

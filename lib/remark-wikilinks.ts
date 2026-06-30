@@ -107,6 +107,10 @@ export const remarkWikilinks: Plugin<[], Root> = () => {
 
         const resolved = resolveWikiLink(wikilink.target);
         const displayText = wikilink.alias || wikilink.target;
+        // 실제 파일명 기반의 slug를 data-slug로 사용 (대소문자/띄어쓰기 문제 해결)
+        const actualSlug = resolved
+          ? resolved.url.replace('/notes/', '')
+          : wikilink.target;
 
         const linkNode: Link = {
           type: 'link',
@@ -115,7 +119,7 @@ export const remarkWikilinks: Plugin<[], Root> = () => {
           data: {
             hProperties: {
               className: resolved ? 'wikilink' : 'wikilink broken',
-              'data-slug': wikilink.target,
+              'data-slug': actualSlug,
             },
           },
           children: [{ type: 'text', value: displayText }],
