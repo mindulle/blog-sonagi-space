@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock } from 'lucide-react';
-import { Card, CardHeader, CardBody, CardFooter } from '@/components/ui/Card';
+import { Card, CardHeader, CardFooter } from '@/components/ui/Card';
 import { CategoryBadge } from './CategoryBadge';
 import type { Post } from '@/types/blog';
 import { cn } from '@/lib/utils';
@@ -18,7 +18,7 @@ export interface PostCardProps {
 
 /**
  * PostCard 컴포넌트
- * 
+ *
  * 블로그 포스트를 카드 형태로 표시
  */
 export function PostCard({
@@ -36,17 +36,20 @@ export function PostCard({
       hoverable
       className={cn(
         'group overflow-hidden',
-        variant === 'featured' && 'border-2 border-[var(--color-brand-primary)]',
+        variant === 'featured' &&
+          'border-2 border-[var(--color-brand-primary)]',
         className
       )}
     >
       {/* 커버 이미지 */}
       {showImage && post.coverImage && (
         <Link href={`/blog/${post.slug}`} className="block">
-          <div className={cn(
-            'relative w-full overflow-hidden',
-            isCompact ? 'aspect-[4/3]' : 'aspect-video'
-          )}>
+          <div
+            className={cn(
+              'relative w-full overflow-hidden',
+              isCompact ? 'aspect-[4/3]' : 'aspect-video'
+            )}
+          >
             <Image
               src={post.coverImage}
               alt={post.title}
@@ -98,18 +101,26 @@ export function PostCard({
 
         {/* 설명 */}
         {showExcerpt && !isCompact && (
-          <p className="mt-2 line-clamp-2" style={{ color: 'var(--color-text-secondary)' }}>
+          <p
+            className="mt-2 line-clamp-2"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             {post.description}
           </p>
         )}
       </CardHeader>
 
-      <CardFooter className={cn(
-        'flex items-center justify-between',
-        isCompact ? 'p-4 pt-0' : undefined
-      )}>
+      <CardFooter
+        className={cn(
+          'flex items-center justify-between',
+          isCompact ? 'p-4 pt-0' : undefined
+        )}
+      >
         {/* 카테고리 */}
-        <CategoryBadge category={post.category} href={`/blog/category/${post.category}`} />
+        <CategoryBadge
+          category={post.category}
+          href={`/blog/category/${post.category}`}
+        />
 
         {/* Read More 링크 */}
         {!isCompact && (

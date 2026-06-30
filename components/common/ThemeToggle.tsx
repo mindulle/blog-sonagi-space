@@ -10,17 +10,19 @@ export function ThemeToggle() {
 
   // 컴포넌트 마운트 후에만 테마 적용 (hydration 오류 방지)
   useEffect(() => {
+    // eslint-disable-next-line
     setMounted(true);
-    
+
     // 저장된 테마 또는 시스템 설정 가져오기
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches 
-      ? 'dark' 
+    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
+      .matches
+      ? 'dark'
       : 'light';
-    
+
     const initialTheme = savedTheme || systemTheme;
     setTheme(initialTheme);
-    
+
     // HTML 클래스 적용
     if (initialTheme === 'dark') {
       document.documentElement.classList.add('dark');
@@ -32,10 +34,10 @@ export function ThemeToggle() {
   const toggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(newTheme);
-    
+
     // localStorage에 저장
     localStorage.setItem('theme', newTheme);
-    
+
     // HTML 클래스 토글
     if (newTheme === 'dark') {
       document.documentElement.classList.add('dark');

@@ -22,9 +22,7 @@ const styles = {
       'border-2 border-[var(--color-border-default)]',
     ].join(' '),
 
-    filled: [
-      'bg-[var(--color-bg-overlay)]',
-    ].join(' '),
+    filled: ['bg-[var(--color-bg-overlay)]'].join(' '),
   },
 
   hoverable: [
@@ -36,7 +34,10 @@ const styles = {
 } as const;
 
 const CardRoot = forwardRef<HTMLDivElement, CardProps>(
-  ({ children, className, variant = 'elevated', hoverable = false, ...props }, ref) => {
+  (
+    { children, className, variant = 'elevated', hoverable = false, ...props },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -56,9 +57,9 @@ const CardRoot = forwardRef<HTMLDivElement, CardProps>(
 
 CardRoot.displayName = 'Card';
 
-export interface CardHeaderProps extends HTMLAttributes<HTMLDivElement> {}
-export interface CardBodyProps extends HTMLAttributes<HTMLDivElement> {}
-export interface CardFooterProps extends HTMLAttributes<HTMLDivElement> {}
+export type CardHeaderProps = HTMLAttributes<HTMLDivElement>;
+export type CardBodyProps = HTMLAttributes<HTMLDivElement>;
+export type CardFooterProps = HTMLAttributes<HTMLDivElement>;
 
 export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ children, className, ...props }, ref) => (
