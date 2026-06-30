@@ -6,7 +6,9 @@ import { useEffect, useRef, useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { ForceGraphMethods } from 'react-force-graph-2d';
 
-const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), { ssr: false });
+const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
+  ssr: false,
+});
 import { useRouter } from 'next/navigation';
 
 interface Node {
@@ -29,8 +31,13 @@ interface GraphData {
   links: Link[];
 }
 
-export function WikiGraph({ data, height = 0 }: { data: GraphData; height?: number }) {
-   
+export function WikiGraph({
+  data,
+  height = 0,
+}: {
+  data: GraphData;
+  height?: number;
+}) {
   const fgRef = useRef<any>(null);
   const router = useRouter();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
@@ -80,7 +87,7 @@ export function WikiGraph({ data, height = 0 }: { data: GraphData; height?: numb
         height={dimensions.height}
         graphData={data}
         nodeLabel="" // We implement custom hover
-        nodeRelSize={6}
+        nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
         nodeColor={(node: Node | any) => {
           if (node.visibility === 'public') return '#8b5cf6'; // Primary brand color
           if (node.visibility === 'private') return '#64748b'; // Slate for private
