@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import { Search } from 'lucide-react';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
 import { Button } from '@/components/ui/Button';
-import { cn } from '@/lib/utils';
 
 import { Logo } from '@/components/ui/Logo';
 

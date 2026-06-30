@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation';
-import { getNoteBySlug, getAllNoteSlugs } from '@/lib/notes';
+import Link from 'next/link';
+import { getNoteBySlug } from '@/lib/notes';
 import { BacklinksSection } from '@/components/blog/BacklinksSection';
 import backlinksData from '@/lib/generated/backlinks.json';
 
@@ -30,13 +31,24 @@ export default async function NotePage({ params }: Props) {
   if (!note) notFound();
 
   const backlinks =
-    (backlinksData as Record<string, Array<{ sourceSlug: string; sourceTitle: string; excerpt: string }>>)[slug] ?? [];
+    (
+      backlinksData as Record<
+        string,
+        Array<{ sourceSlug: string; sourceTitle: string; excerpt: string }>
+      >
+    )[slug] ?? [];
 
   return (
-    <main style={{ maxWidth: '720px', margin: '0 auto', padding: 'var(--space-8) var(--space-4)' }}>
+    <main
+      style={{
+        maxWidth: '720px',
+        margin: '0 auto',
+        padding: 'var(--space-8) var(--space-4)',
+      }}
+    >
       {/* 헤더 */}
       <header style={{ marginBottom: 'var(--space-8)' }}>
-        <a
+        <Link
           href="/notes"
           style={{
             display: 'inline-flex',
@@ -49,7 +61,7 @@ export default async function NotePage({ params }: Props) {
           }}
         >
           ← Notes
-        </a>
+        </Link>
 
         <h1
           style={{
@@ -63,7 +75,9 @@ export default async function NotePage({ params }: Props) {
         </h1>
 
         {note.tags.length > 0 && (
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}>
+          <div
+            style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}
+          >
             {note.tags.map((tag) => (
               <span
                 key={tag}
