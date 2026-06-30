@@ -29,8 +29,8 @@ interface GraphData {
   links: Link[];
 }
 
-export function WikiGraph({ data }: { data: GraphData }) {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function WikiGraph({ data, height = 0 }: { data: GraphData; height?: number }) {
+   
   const fgRef = useRef<any>(null);
   const router = useRouter();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
@@ -42,7 +42,7 @@ export function WikiGraph({ data }: { data: GraphData }) {
       if (container) {
         setDimensions({
           width: container.clientWidth,
-          height: window.innerHeight * 0.7, // 70vh
+          height: height || window.innerHeight * 0.7,
         });
       }
     };
@@ -51,7 +51,7 @@ export function WikiGraph({ data }: { data: GraphData }) {
     updateDimensions();
 
     return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+  }, [height]);
 
   const handleNodeClick = useCallback(
     (node: any) => {
