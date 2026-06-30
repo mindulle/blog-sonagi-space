@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getNoteBySlug } from '@/lib/notes';
 import { BacklinksSection } from '@/components/blog/BacklinksSection';
+import { LocalGraph } from '@/components/blog/LocalGraph';
 import backlinksData from '@/lib/generated/backlinks.json';
 
 interface Props {
@@ -101,6 +102,9 @@ export default async function NotePage({ params }: Props) {
         className="prose"
         dangerouslySetInnerHTML={{ __html: note.content }}
       />
+
+      {/* 로컬 그래프 (디지털 가든) */}
+      <LocalGraph slug={slug} />
 
       {/* 백링크 */}
       <BacklinksSection backlinks={backlinks} />
