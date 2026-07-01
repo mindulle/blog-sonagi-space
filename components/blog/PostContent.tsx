@@ -57,17 +57,22 @@ export function PostContent({
           try {
             if (!cache.current.has('_loaded')) {
               if (!fetchPromise.current) {
-                fetchPromise.current = fetch('/note-summaries.json').then(
-                  async (res) => {
+                fetchPromise.current = fetch('/note-summaries.json')
+                  .then(async (res) => {
                     if (res.ok) {
                       const summaries = await res.json();
                       for (const [key, val] of Object.entries(summaries)) {
                         cache.current.set(key, val as NotePreview);
                       }
                       cache.current.set('_loaded', {} as NotePreview);
+                    } else {
+                      fetchPromise.current = null;
                     }
-                  }
-                );
+                  })
+                  .catch((err) => {
+                    fetchPromise.current = null;
+                    throw err;
+                  });
               }
               await fetchPromise.current;
             }
