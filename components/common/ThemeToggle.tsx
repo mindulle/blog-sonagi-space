@@ -1,18 +1,18 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import { Moon, Sun, Monitor } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { Button } from '@/components/ui/Button';
 
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
 
-  useEffect(() => {
-    // eslint-disable-next-line
-    setMounted(true);
-  }, []);
+  const mounted = useSyncExternalStore(
+    () => () => {},
+    () => true,
+    () => false
+  );
 
   if (!mounted) {
     return (
@@ -45,7 +45,7 @@ export function ThemeToggle() {
       size="small"
       onClick={cycleTheme}
       aria-label="Toggle theme"
-      title={`Current theme: ${theme}`}
+      title={`Current theme: ${theme || 'system'}`}
       className="w-10 h-10 transition-transform hover:scale-110"
     >
       {getIcon()}
