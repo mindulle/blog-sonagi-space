@@ -9,7 +9,7 @@ export const metadata = {
   description: '연결된 지식들이 자라나는 디지털 정원입니다.',
 };
 
-export default function NotesPage() {
+export default async function NotesPage() {
   // OOM 방지 및 렌더링 최적화를 위해 최신 50개의 노트만 잘라서 가져옵니다.
   const notes = getAllNotes().slice(0, 50);
 
@@ -17,8 +17,12 @@ export default function NotesPage() {
   const graphDataPath = path.join(process.cwd(), 'public', 'wiki-graph.json');
   let graphData = { nodes: [], links: [] };
   try {
-    const fileContent = fs.readFileSync(graphDataPath, 'utf8');
-    graphData = JSON.parse(fileContent);
+    const fileContent = await fs.promises.readFile(graphDataPath, 'utf8');
+    const parsed = JSON.parse(fileContent);
+    graphData = {
+      nodes: Array.isArray(parsed?.nodes) ? parsed.nodes : [],
+      links: Array.isArray(parsed?.links) ? parsed.links : [],
+    };
   } catch (error) {
     console.error('Failed to load wiki-graph.json:', error);
   }
