@@ -7,7 +7,7 @@
  * 규칙:
  * 1. 색상은 반드시 CSS 변수(--color-*)로만 참조. Tailwind 색상 클래스(bg-blue-500 등) 사용 금지.
  * 2. 레이아웃(flex, grid, gap, p, m 등) Tailwind 유틸리티는 허용.
- * 3. 다크모드는 .dark 클래스 기반 (html 요소에 적용).
+ * 3. 다크모드는 [data-theme="dark"] 기반 (html 요소에 적용).
  */
 
 /* ─────────────────────────────────────────────────────────
@@ -36,7 +36,7 @@
   --color-syntax-class: #953800;
 }
 
-.dark {
+[data-theme='dark'] {
   /* Category (다크모드) */
   --color-cat-dev-bg: #1e3a5f;
   --color-cat-dev-text: #93c5fd;
