@@ -48,12 +48,13 @@ export function PostContent({
     async (e: MouseEvent | Event, slug: string, isMobileTap = false) => {
       clearTimers();
 
-      // 다른 링크로 마우스가 이동했다면 기존 툴팁 즉시 숨김 처리
-      if (hoveredSlugRef.current !== slug) {
-        setTooltip((prev) =>
-          prev.visible ? { ...prev, visible: false } : prev
-        );
-      }
+      // 다른 링크로 마우스가 이동했을 때만 기존 툴팁 숨김 (같은 링크 재진입 시 유지)
+      setTooltip((prev) => {
+        if (prev.visible && prev.note?.slug !== slug) {
+          return { ...prev, visible: false };
+        }
+        return prev;
+      });
 
       hoveredSlugRef.current = slug;
       const target = e.currentTarget as HTMLAnchorElement;
@@ -157,7 +158,12 @@ export function PostContent({
           '(hover: none) and (pointer: coarse)'
         ).matches;
         if (isTouchDevice) {
-          if (hoveredSlugRef.current !== slug) {
+          // DOM을 직접 조회하여 현재 이 링크의 팝오버가 떠 있는지 확인 (React 상태 클로저 문제 우회)
+          const tooltipEl = document.querySelector('[role="tooltip"]');
+          const isTooltipForThisLink =
+            tooltipEl && tooltipEl.querySelector(`a[href="/notes/${slug}"]`);
+
+          if (!isTooltipForThisLink) {
             // 첫 번째 터치: 링크 이동을 막고 팝오버를 즉시 띄움
             e.preventDefault();
             handleMouseEnter(e, slug, true);
