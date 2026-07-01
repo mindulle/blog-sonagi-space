@@ -10,7 +10,7 @@ export function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // eslint-disable-next-line
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setMounted(true);
   }, []);
 
@@ -45,7 +45,7 @@ export function ThemeToggle() {
       size="small"
       onClick={cycleTheme}
       aria-label="Toggle theme"
-      title={`Current theme: ${theme}`}
+      title={`Current theme: ${theme || 'system'}`}
       className="w-10 h-10 transition-transform hover:scale-110"
     >
       {getIcon()}
