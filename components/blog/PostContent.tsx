@@ -46,6 +46,14 @@ export function PostContent({
   const handleMouseEnter = useCallback(
     async (e: MouseEvent, slug: string) => {
       clearTimers();
+
+      // 다른 링크로 마우스가 이동했다면 기존 툴팁 즉시 숨김 처리
+      if (hoveredSlugRef.current !== slug) {
+        setTooltip((prev) =>
+          prev.visible ? { ...prev, visible: false } : prev
+        );
+      }
+
       hoveredSlugRef.current = slug;
 
       const target = e.currentTarget as HTMLAnchorElement;
