@@ -18,14 +18,14 @@ test.describe('Wiki Hover Popover (Desktop)', () => {
     await link.hover();
 
     // 4. 0.4초 딜레이를 기다립니다 (애니메이션 렌더링 0.2초 포함 넉넉히 1초 대기)
-    const tooltip = page.locator('div[role="tooltip"]');
+    const tooltip = page.locator('div[role="tooltip"]').first();
     await expect(tooltip).toBeVisible({ timeout: 1500 });
 
     // 내용 검증: 팝오버 내부에 링크 텍스트와 관련된 내용이 뜨는지
     await expect(tooltip).toContainText('문서 깊이 읽기');
 
-    // 5. 마우스를 링크 바깥으로 뺍니다
-    await page.mouse.move(0, 0);
+    // 5. 마우스를 링크 바깥으로 뺍니다 (안전하게 body 영역 호버)
+    await page.locator('body').hover();
 
     // 6. 0.2초 딜레이 후 팝오버가 사라지는지 검증
     await expect(tooltip).not.toBeVisible({ timeout: 1000 });
@@ -50,14 +50,14 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
     await link.click();
 
     // 2. 페이지 이동이 일어나지 않고 툴팁이 보여야 함
-    const tooltip = page.locator('div[role="tooltip"]');
+    const tooltip = page.locator('div[role="tooltip"]').first();
     await expect(tooltip).toBeVisible();
 
     // 현재 URL이 여전히 원래 페이지인지 확인
     expect(page.url()).toContain('/notes/wikilink-test');
 
-    // 3. 빈 공간을 터치하면 팝오버가 닫힘
-    await page.mouse.click(0, 0);
+    // 3. 빈 공간을 터치하면 팝오버가 닫힘 (안전하게 body 클릭)
+    await page.locator('body').click();
     await expect(tooltip).not.toBeVisible();
   });
 });
