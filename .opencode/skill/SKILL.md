@@ -1,24 +1,27 @@
-# Blog Sonagi Space Development Skill
+# Blog Sonagi Space - Agentic Workflow & Development Skill
 
-이 스킬은 `blog-sonagi-space` (Next.js 블로그) 프로젝트에서 작업하는 AI 에이전트를 위한 절대 지침입니다.
+이 스킬(SKILL)은 `blog-sonagi-space` 프로젝트에서 개발을 진행하는 모든 AI 에이전트가 반드시 준수해야 하는 행동 지침 및 배포 워크플로우를 정의합니다.
 
-## 🤖 1. Agentic Coding Principles (Karpathy Rules)
+## 1. Git & GitHub 워크플로우 (엄수)
 
-1. **Think Before Coding**: 혼자서 불확실한 가정을 하지 마십시오. 모호한 부분이 있다면 작업을 멈추고 사용자에게 명확한 방향을 질문하십시오.
-2. **Simplicity First**: 최소한의 코드만 작성하십시오. 미래를 대비한답시고 불필요한 유연성이나 과도한 추상화(Over-engineering)를 도입하지 마십시오.
-3. **Surgical Changes**: 요청받은 기능만 정밀하게 수정하십시오. 주변의 멀쩡한 코드나 주석을 '개선'하려는 시도(Orthogonal edits)를 엄격히 금지합니다.
-4. **Goal-Driven Execution**: 버그 수정이나 기능 추가 시, 반드시 검증 가능한 목표(예: "미리보기 컴포넌트 렌더링 확인")를 설정하고 이를 달성했는지 테스트하십시오.
+- **절대 `main` 브랜치에 직접 커밋하거나 푸시하지 마세요.**
+- 이슈나 요구사항을 할당받으면 반드시 새로운 브랜치를 생성하여 작업하세요.
+  - 예시: `feature/이름`, `fix/이름`, `chore/이름`
+- 코딩이 완료되면 변경사항을 커밋하고 Remote 저장소에 푸시한 뒤, 반드시 **Pull Request (PR)** 를 생성하여 유저(코드 리뷰어)에게 보고하세요.
 
-## 🎨 2. Architecture & Design System Rules
+## 2. 코드 컨벤션 및 품질 보증 (QA)
 
-1. **Next.js App Router**: 본 프로젝트는 Next.js App Router (`app/`) 구조를 따릅니다.
-2. **Sonagi Tokens Only**: 모든 스타일링은 `@sonagi/tokens` 패키지(또는 `sonagi-tokens.tgz`)의 CSS 변수(`var(--color-...)`)만을 사용해야 합니다.
-3. **Tailwind 금지**: `bg-blue-500` 등 하드코딩된 유틸리티 클래스 사용을 엄격히 금지합니다. 토큰 기반의 시맨틱 컬러(다크/라이트 자동 지원)를 사용하십시오.
-4. **Client/Server Component 분리**: 상호작용(Hover, Click)이 필요한 컴포넌트 최상단에는 반드시 `"use client";`를 선언하십시오.
+- 코드를 수정하거나 추가한 뒤에는 반드시 `package.json`에 정의된 린터(`lint`)와 포매터(Prettier)를 실행하여 문제를 사전에 해결하세요. (예: `npm run lint`)
+- 타입스크립트를 엄격하게 준수하며, 불가피한 경우가 아니면 `any` 타입을 지양하세요.
 
-## 📝 3. Markdown & Popover Integration (Wiki 연동)
+## 3. 아키텍처 및 디자인 시스템 규칙 (엄수)
 
-1. 블로그 콘텐츠는 `content/` 디렉토리 하위의 마크다운 파일로 관리됩니다.
-2. 위키에서 넘어온 데이터(`[[개념]]` 형식의 옵시디언 링크)를 처리할 때, 마크다운 파일 전체를 클라이언트에서 파싱하지 마십시오.
-3. **Hover Popover 구현 시**:
-   - `[[개념]]` 링크에 마우스를 올릴 때 띄워줄 요약본(Tooltip/Popover)은 가벼운 JSON 데이터(또는 API)를 비동기로 불러와 렌더링하는 것을 원칙으로 합니다.
+- **Next.js App Router**: 본 프로젝트는 Next.js App Router (`app/`) 구조를 따릅니다.
+- **Sonagi Tokens Only**: 모든 스타일링은 `@sonagi/tokens` 패키지(또는 `sonagi-tokens.tgz`)의 CSS 변수(`var(--color-...)`)만을 사용해야 합니다.
+- **Tailwind 금지**: `bg-blue-500` 등 하드코딩된 유틸리티 클래스 사용을 엄격히 금지합니다. 토큰 기반의 시맨틱 컬러(다크/라이트 자동 지원)를 사용하십시오.
+- **Client/Server Component 분리**: 상호작용(Hover, Click)이 필요한 컴포넌트 최상단에는 반드시 `"use client";`를 선언하십시오.
+
+## 4. 디지털 정원 (Digital Garden) 아키텍처 연동 원칙
+
+- 위키(`llm-wiki`) 관련 컴포넌트를 작업할 때는, 데이터가 존재하지 않거나 로딩에 실패할 경우를 대비하여 항상 **Fallback(방어 로직)**을 구현하세요.
+- `public/note-summaries.json` 및 `public/wiki-graph.json`은 빌드 타임 혹은 외부 시스템에서 주입되는 정적 데이터이므로, 클라이언트 렌더링(CSR) 시 타이밍 이슈나 데이터 부재를 고려하여 설계해야 합니다.
