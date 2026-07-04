@@ -58,8 +58,13 @@ export function PostContent({
   const cache = useRef<Map<string, NotePreview>>(new Map());
   const fetchPromise = useRef<Promise<void> | null>(null);
   const hoveredSlugRef = useRef<string | null>(null);
-  const isTouchDevice = useRef(false);
   const tooltipVisibleRef = useRef(false);
+
+  // 모바일(터치) 환경 판별
+  const checkIsTouchDevice = () => {
+    if (typeof window === 'undefined') return false;
+    return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  };
 
   const clearTimers = useCallback(() => {
     if (hideTimer.current) {
@@ -74,7 +79,7 @@ export function PostContent({
 
   const handleMouseEnter = useCallback(
     async (e: MouseEvent, slug: string) => {
-      if (isTouchDevice.current) return;
+      if (checkIsTouchDevice()) return;
 
       clearTimers();
 
@@ -151,7 +156,7 @@ export function PostContent({
 
   const handleMouseLeave = useCallback(
     (e?: MouseEvent) => {
-      if (isTouchDevice.current) return;
+      if (checkIsTouchDevice()) return;
 
       clearTimers();
       hoveredSlugRef.current = null;
@@ -168,7 +173,7 @@ export function PostContent({
   const handleClick = useCallback(
     async (e: MouseEvent, slug: string) => {
       // 터치 디바이스가 아니면 기본 이동 수행
-      if (!isTouchDevice.current) return;
+      if (!checkIsTouchDevice()) return;
 
       const target = e.currentTarget as HTMLAnchorElement;
 
@@ -279,21 +284,14 @@ export function PostContent({
       const onClick = (e: Event) =>
         handleClick(e as unknown as MouseEvent, slug);
 
-      // 모바일 지원을 위해 touchstart 감지하여 디바이스 판별
-      const onTouchStart = () => {
-        isTouchDevice.current = true;
-      };
-
       link.addEventListener('mouseenter', onEnter);
       link.addEventListener('mouseleave', onLeave);
       link.addEventListener('click', onClick);
-      link.addEventListener('touchstart', onTouchStart, { passive: true });
 
       cleanups.push(() => {
         link.removeEventListener('mouseenter', onEnter);
         link.removeEventListener('mouseleave', onLeave);
         link.removeEventListener('click', onClick);
-        link.removeEventListener('touchstart', onTouchStart);
       });
     }
 
@@ -322,7 +320,7 @@ export function PostContent({
                 transition={{ duration: 0.2, ease: 'easeOut' }}
                 onMouseEnter={clearTimers}
                 onMouseLeave={() => {
-                  if (!isTouchDevice.current) {
+                  if (!checkIsTouchDevice()) {
                     handleMouseLeave();
                   }
                 }}
