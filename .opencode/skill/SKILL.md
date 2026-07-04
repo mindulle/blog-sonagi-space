@@ -25,3 +25,14 @@
 
 - 위키(`llm-wiki`) 관련 컴포넌트를 작업할 때는, 데이터가 존재하지 않거나 로딩에 실패할 경우를 대비하여 항상 **Fallback(방어 로직)**을 구현하세요.
 - `public/note-summaries.json` 및 `public/wiki-graph.json`은 빌드 타임 혹은 외부 시스템에서 주입되는 정적 데이터이므로, 클라이언트 렌더링(CSR) 시 타이밍 이슈나 데이터 부재를 고려하여 설계해야 합니다.
+
+## 5. 위키 호버 팝오버(Hover Popover) 컴포넌트 개발 원칙
+
+- **하이브리드 UX 대응**: 데스크톱(마우스 호버 시 400ms 지연 후 툴팁 표시)과 모바일(첫 터치 시 팝업, 두 번째 터치 시 이동) 환경을 반드시 분리해서 설계해야 합니다.
+- **포털(Portal) 사용**: `framer-motion`과 React `createPortal`을 사용하여 툴팁이 부모 DOM의 `overflow: hidden` 등에 의해 잘리지 않고 `document.body` 최상단에 렌더링되도록 구현합니다.
+- **잔상 방지**: 툴팁이 열려있는 상태에서 다른 위키링크로 포인터가 이동할 경우, 기존 툴팁을 즉시 Unmount하여 UI 잔상이 남지 않도록 상태(`tooltip.visible`, `hoveredSlugRef`)를 관리합니다.
+
+## 6. 위키 ↔ Metabase 파이프라인 연동 원칙
+
+- 위키 메타데이터는 `llm-wiki` 저장소의 `00_System/scripts/sync_wiki_to_db.py` ETL 파이프라인을 통해 K3s 인프라 내부의 PostgreSQL(`wiki_data` DB)로 실시간 벌크 인서트(Bulk Insert) 됩니다.
+- 블로그 클라이언트 단에서 직접 DB에 연결하지 않으며, 만약 추가 통계나 위키 건강도 지표(Health Metrics)를 블로그에 임베딩해야 할 경우 Metabase의 JWT 서명된 Public Iframe 방식을 우선 고려합니다.
