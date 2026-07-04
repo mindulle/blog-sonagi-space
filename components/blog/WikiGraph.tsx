@@ -34,9 +34,11 @@ interface GraphData {
 export function WikiGraph({
   data,
   height = 0,
+  isLocal = false,
 }: {
   data: GraphData;
   height?: number;
+  isLocal?: boolean;
 }) {
   const fgRef = useRef<any>(null);
   const router = useRouter();
@@ -59,6 +61,14 @@ export function WikiGraph({
 
     return () => window.removeEventListener('resize', updateDimensions);
   }, [height]);
+
+  useEffect(() => {
+    // 물리 엔진(d3-force) 거리 및 반발력 튜닝
+    if (fgRef.current) {
+      fgRef.current.d3Force('charge')?.strength(isLocal ? -250 : -50);
+      fgRef.current.d3Force('link')?.distance(isLocal ? 60 : 30);
+    }
+  }, [isLocal, data]);
 
   const handleNodeClick = useCallback(
     (node: any) => {
@@ -95,8 +105,9 @@ export function WikiGraph({
         }}
         linkColor={() => 'var(--color-border)'}
         linkWidth={1}
-        linkDirectionalParticles={2}
+        linkDirectionalParticles={isLocal ? 2 : 0}
         linkDirectionalParticleSpeed={0.005}
+        cooldownTicks={isLocal ? Infinity : 100}
         onNodeHover={(node: Node | any | null) => setHoverNode(node || null)}
         onNodeClick={handleNodeClick}
         onEngineStop={() => fgRef.current?.zoomToFit(400, 50)}
