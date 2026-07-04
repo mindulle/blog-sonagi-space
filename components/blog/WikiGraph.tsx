@@ -71,17 +71,6 @@ export function WikiGraph({
     }
   }, [isLocal, data]);
 
-  useEffect(() => {
-    // 로컬 그래프의 경우 cooldownTicks=Infinity이므로 onEngineStop이 불리지 않음
-    // 따라서 일정 시간(초기 배치 후) 강제로 줌을 맞춰줌
-    if (isLocal && fgRef.current && data) {
-      const timer = setTimeout(() => {
-        fgRef.current?.zoomToFit(400, 50);
-      }, 500);
-      return () => clearTimeout(timer);
-    }
-  }, [isLocal, data]);
-
   const handleNodeClick = useCallback(
     (node: any) => {
       if (node.visibility === 'public') {
@@ -119,15 +108,10 @@ export function WikiGraph({
         linkWidth={1}
         linkDirectionalParticles={isLocal ? 2 : 0}
         linkDirectionalParticleSpeed={0.005}
-        cooldownTicks={isLocal ? Infinity : 100}
+        cooldownTicks={100}
         onNodeHover={(node: Node | any | null) => setHoverNode(node || null)}
         onNodeClick={handleNodeClick}
-        onEngineStop={() => {
-          // 로컬 그래프가 아닐 때만 쿨다운 종료 후 줌을 맞춤
-          if (!isLocal) {
-            fgRef.current?.zoomToFit(400, 50);
-          }
-        }}
+        onEngineStop={() => fgRef.current?.zoomToFit(400, 50)}
       />
 
       {/* Custom Hover Tooltip */}
