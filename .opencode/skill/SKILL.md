@@ -25,3 +25,26 @@
 
 - 위키(`llm-wiki`) 관련 컴포넌트를 작업할 때는, 데이터가 존재하지 않거나 로딩에 실패할 경우를 대비하여 항상 **Fallback(방어 로직)**을 구현하세요.
 - `public/note-summaries.json` 및 `public/wiki-graph.json`은 빌드 타임 혹은 외부 시스템에서 주입되는 정적 데이터이므로, 클라이언트 렌더링(CSR) 시 타이밍 이슈나 데이터 부재를 고려하여 설계해야 합니다.
+
+## 5. 위키 호버 팝오버(Hover Popover) 컴포넌트 개발 원칙
+
+- **하이브리드 UX 대응**: 이벤트 위임(Event Delegation)을 사용하여 터치 환경과 마우스 환경을 완벽히 분리하고, 터치 기기에서는 스마트 클릭(첫 터치 팝업, 두 번 터치 이동)을 보장합니다.
+- **포털(Portal) 사용**: `framer-motion`과 React `createPortal`을 사용하여 툴팁이 부모 DOM의 `overflow: hidden` 등에 의해 잘리지 않고 `document.body` 최상단에 렌더링되도록 구현합니다.
+- **잔상 및 버그 방지**: 마우스 호버 등 DOM 이벤트는 `dangerouslySetInnerHTML` 내부에 직접 리스너를 달지 말고, 렌더 트리 재구성 시 이벤트가 유실되지 않도록 최상단 컨테이너에서 이벤트 위임(mouseover, mouseout)으로 관리하세요.
+
+## 6. 위키 ↔ Metabase 파이프라인 연동 원칙
+
+- 위키 메타데이터는 `llm-wiki` 저장소의 `00_System/scripts/sync_wiki_to_db.py` ETL 파이프라인을 통해 K3s 인프라 내부의 PostgreSQL DB로 인서트 됩니다.
+- 블로그 클라이언트 단에서 직접 DB에 연결하지 않으며, 위키 건강도 지표(Health Metrics)를 블로그에 임베딩할 경우 Metabase의 JWT 서명된 Public Iframe 방식을 우선 고려합니다.
+
+## 7. 테스트(Testing) 도입 기준 및 가이드라인
+
+- **Unit Test (단위 테스트) - `Vitest`**
+  - **도입 시기**: 순수 함수, 유틸리티 로직, 상태를 가지지 않는 단순 UI 컴포넌트를 개발할 때.
+  - **규칙**: 예외 케이스(Edge case) 방어가 필요하다면, 파일명과 동일하게 `*.test.ts` 또는 `*.test.tsx`를 생성해 즉시 검증할 것.
+- **Integration Test (통합 테스트) - `Vitest` + `React Testing Library`**
+  - **도입 시기**: Context API, 커스텀 훅(Hook), 여러 컴포넌트 간의 상태(State) 공유가 발생하는 모듈을 작성할 때.
+  - **규칙**: 실제 브라우저 환경까진 필요 없지만, React 렌더 사이클 내에서 데이터가 올바르게 전달되는지 확인해야 할 때 작성할 것.
+- **E2E Test (종단간 테스트) - `Playwright`**
+  - **도입 시기**: 사용자 상호작용(UX)이 매우 복잡하거나, 모바일/데스크톱 등 기기 환경에 따라 DOM 이벤트 동작이 달라지는 하이브리드 기능을 개발할 때. (예: 호버 팝오버, 지식 그래프 상호작용 등)
+  - **규칙**: 기기별 동작(Desktop Chrome vs Mobile Safari) 검증이 필수적이거나 DOM 노드 조작 리스크가 있는 경우 `tests/e2e/` 하위에 Playwright 시나리오를 작성하여 실제 렌더링 결과를 검증할 것.
