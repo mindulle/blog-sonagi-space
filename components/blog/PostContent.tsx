@@ -62,18 +62,19 @@ export function PostContent({
   const tooltipVisibleRef = useRef(false);
 
   const clearTimers = useCallback(() => {
-    if (hideTimer.current) clearTimeout(hideTimer.current);
-    if (showTimer.current) clearTimeout(showTimer.current);
+    if (hideTimer.current) {
+      clearTimeout(hideTimer.current);
+      hideTimer.current = null;
+    }
+    if (showTimer.current) {
+      clearTimeout(showTimer.current);
+      showTimer.current = null;
+    }
   }, []);
 
-  const handlePointerEnter = useCallback(
-    async (e: PointerEvent, slug: string) => {
-      // 터치 디바이스에서는 별도의 클릭 이벤트로 제어하므로 pointerenter(마우스)는 무시할 수 있음
-      if (e.pointerType === 'touch') {
-        isTouchDevice.current = true;
-        return;
-      }
-      isTouchDevice.current = false;
+  const handleMouseEnter = useCallback(
+    async (e: MouseEvent, slug: string) => {
+      if (isTouchDevice.current) return;
 
       clearTimers();
 
@@ -148,9 +149,9 @@ export function PostContent({
     [clearTimers]
   );
 
-  const handlePointerLeave = useCallback(
-    (e?: PointerEvent) => {
-      if (e && e.pointerType === 'touch') return;
+  const handleMouseLeave = useCallback(
+    (e?: MouseEvent) => {
+      if (isTouchDevice.current) return;
 
       clearTimers();
       hoveredSlugRef.current = null;
@@ -272,9 +273,9 @@ export function PostContent({
       if (!slug) continue;
 
       const onEnter = (e: Event) =>
-        handlePointerEnter(e as unknown as PointerEvent, slug);
+        handleMouseEnter(e as unknown as MouseEvent, slug);
       const onLeave = (e: Event) =>
-        handlePointerLeave(e as unknown as PointerEvent);
+        handleMouseLeave(e as unknown as MouseEvent);
       const onClick = (e: Event) =>
         handleClick(e as unknown as MouseEvent, slug);
 
@@ -283,21 +284,21 @@ export function PostContent({
         isTouchDevice.current = true;
       };
 
-      link.addEventListener('pointerenter', onEnter);
-      link.addEventListener('pointerleave', onLeave);
+      link.addEventListener('mouseenter', onEnter);
+      link.addEventListener('mouseleave', onLeave);
       link.addEventListener('click', onClick);
       link.addEventListener('touchstart', onTouchStart, { passive: true });
 
       cleanups.push(() => {
-        link.removeEventListener('pointerenter', onEnter);
-        link.removeEventListener('pointerleave', onLeave);
+        link.removeEventListener('mouseenter', onEnter);
+        link.removeEventListener('mouseleave', onLeave);
         link.removeEventListener('click', onClick);
         link.removeEventListener('touchstart', onTouchStart);
       });
     }
 
     return () => cleanups.forEach((fn) => fn());
-  }, [html, handlePointerEnter, handlePointerLeave, handleClick]);
+  }, [html, handleMouseEnter, handleMouseLeave, handleClick]);
 
   return (
     <>
@@ -322,7 +323,7 @@ export function PostContent({
                 onMouseEnter={clearTimers}
                 onMouseLeave={() => {
                   if (!isTouchDevice.current) {
-                    handlePointerLeave();
+                    handleMouseLeave();
                   }
                 }}
                 style={{
