@@ -37,6 +37,10 @@
 }
 
 [data-theme='dark'] {
+  /* Brand Overrides (다크모드 명도 대비 개선 CEO-276) */
+  --color-brand-primary: #58a6ff;
+  --color-brand-primary-hover: #79c0ff;
+
   /* Category (다크모드) */
   --color-cat-dev-bg: #1e3a5f;
   --color-cat-dev-text: #93c5fd;
