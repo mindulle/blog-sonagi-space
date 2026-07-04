@@ -10,6 +10,7 @@ interface LocalGraphProps {
 
 export function LocalGraph({ slug }: LocalGraphProps) {
   const [data, setData] = useState<{ nodes: any[]; links: any[] } | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch('/wiki-graph.json')
@@ -34,25 +35,38 @@ export function LocalGraph({ slug }: LocalGraphProps) {
         );
 
         setData({ nodes: relevantNodes, links: relevantLinks });
+        setIsLoading(false);
       })
-      .catch((err) => console.error("Failed to load graph data:", err));
+      .catch((err) => {
+        console.error('Failed to load graph data:', err);
+        setIsLoading(false);
+      });
   }, [slug]);
 
-  if (!data || data.nodes.length === 0) return null;
-
-  // 연결된 노드가 본인뿐이면 그래프를 렌더링하지 않음
-  if (data.nodes.length === 1) return null;
+  if (!isLoading && (!data || data.nodes.length <= 1)) return null;
 
   return (
-    <div className="mt-12 mb-8">
+    <div className="mt-12 mb-8 relative">
       <h3 className="text-xl font-bold text-[var(--color-text-primary)] mb-4">
         Interactive Local Graph
       </h3>
       <div className="text-sm text-[var(--color-text-secondary)] mb-4">
-        이 지식과 연결된 인접 문서들의 생태계입니다. 마우스를 올려 요약을 확인하세요.
+        이 지식과 연결된 인접 문서들의 생태계입니다. 마우스를 올려 요약을
+        확인하세요.
       </div>
-      {/* 작은 사이즈의 로컬 그래프 렌더링 */}
-      <WikiGraph data={data} height={350} />
+
+      {isLoading ? (
+        <div
+          className="w-full flex items-center justify-center border-2 border-[var(--color-border-default)] rounded-[var(--radius-lg)] bg-[var(--color-bg-surface)] animate-pulse"
+          style={{ height: 350 }}
+        >
+          <span className="text-[var(--color-text-muted)] font-medium text-sm">
+            그래프 데이터를 불러오는 중...
+          </span>
+        </div>
+      ) : (
+        <WikiGraph data={data!} height={350} isLocal={true} />
+      )}
     </div>
   );
 }
