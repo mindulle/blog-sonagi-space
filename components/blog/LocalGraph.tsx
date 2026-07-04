@@ -8,14 +8,35 @@ interface LocalGraphProps {
   slug: string;
 }
 
+// 컴포넌트 외부(모듈 스코프)에 전역 캐시 선언하여 여러 번 로드 방지
+let cachedGraphPromise: Promise<{ nodes: any[]; links: any[] }> | null = null;
+
+function fetchWikiGraph() {
+  if (!cachedGraphPromise) {
+    cachedGraphPromise = fetch('/wiki-graph.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch graph');
+        return res.json();
+      })
+      .catch((err) => {
+        cachedGraphPromise = null; // 에러 발생 시 재시도 가능하도록 초기화
+        throw err;
+      });
+  }
+  return cachedGraphPromise;
+}
+
 export function LocalGraph({ slug }: LocalGraphProps) {
   const [data, setData] = useState<{ nodes: any[]; links: any[] } | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch('/wiki-graph.json')
-      .then((res) => res.json())
+    let isCurrent = true;
+
+    fetchWikiGraph()
       .then((fullData) => {
+        if (!isCurrent) return;
+
         // 1. 현재 노트와 직간접적으로 연결된 링크 찾기 (1-hop)
         const relevantLinks = fullData.links.filter(
           (link: any) => link.source === slug || link.target === slug
@@ -38,9 +59,14 @@ export function LocalGraph({ slug }: LocalGraphProps) {
         setIsLoading(false);
       })
       .catch((err) => {
+        if (!isCurrent) return;
         console.error('Failed to load graph data:', err);
         setIsLoading(false);
       });
+
+    return () => {
+      isCurrent = false;
+    };
   }, [slug]);
 
   if (!isLoading && (!data || data.nodes.length <= 1)) return null;

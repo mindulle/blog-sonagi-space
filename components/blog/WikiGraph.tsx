@@ -67,6 +67,18 @@ export function WikiGraph({
     if (fgRef.current) {
       fgRef.current.d3Force('charge')?.strength(isLocal ? -250 : -50);
       fgRef.current.d3Force('link')?.distance(isLocal ? 60 : 30);
+      fgRef.current.d3ReheatSimulation(); // 시뮬레이션 재활성화
+    }
+  }, [isLocal, data]);
+
+  useEffect(() => {
+    // 로컬 그래프의 경우 cooldownTicks=Infinity이므로 onEngineStop이 불리지 않음
+    // 따라서 일정 시간(초기 배치 후) 강제로 줌을 맞춰줌
+    if (isLocal && fgRef.current && data) {
+      const timer = setTimeout(() => {
+        fgRef.current?.zoomToFit(400, 50);
+      }, 500);
+      return () => clearTimeout(timer);
     }
   }, [isLocal, data]);
 
@@ -110,7 +122,12 @@ export function WikiGraph({
         cooldownTicks={isLocal ? Infinity : 100}
         onNodeHover={(node: Node | any | null) => setHoverNode(node || null)}
         onNodeClick={handleNodeClick}
-        onEngineStop={() => fgRef.current?.zoomToFit(400, 50)}
+        onEngineStop={() => {
+          // 로컬 그래프가 아닐 때만 쿨다운 종료 후 줌을 맞춤
+          if (!isLocal) {
+            fgRef.current?.zoomToFit(400, 50);
+          }
+        }}
       />
 
       {/* Custom Hover Tooltip */}
@@ -122,10 +139,10 @@ export function WikiGraph({
             top: '16px',
             left: '16px',
             maxWidth: '300px',
-            backgroundColor: 'var(--color-surface)',
-            border: '2px solid var(--color-border)',
+            backgroundColor: 'var(--color-bg-surface)',
+            border: '2px solid var(--color-border-default)',
             borderRadius: 'var(--radius-md)',
-            boxShadow: '4px 4px 0 var(--color-border)',
+            boxShadow: '4px 4px 0 var(--color-border-default)',
             padding: 'var(--space-4)',
             pointerEvents: 'none',
           }}
@@ -195,7 +212,7 @@ export function WikiGraph({
                 marginTop: '8px',
                 fontSize: 'var(--text-xs)',
                 fontWeight: 500,
-                color: 'var(--color-text-tertiary)',
+                color: 'var(--color-text-muted)',
               }}
             >
               {hoverNode.visibility === 'missing'
