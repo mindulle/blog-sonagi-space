@@ -271,24 +271,27 @@ export function PostContent({
       const slug = link.getAttribute('data-slug') ?? '';
       if (!slug) continue;
 
-      const onEnter = (e: PointerEvent) => handlePointerEnter(e, slug);
-      const onLeave = (e: PointerEvent) => handlePointerLeave(e);
-      const onClick = (e: MouseEvent) => handleClick(e, slug);
+      const onEnter = (e: Event) =>
+        handlePointerEnter(e as unknown as PointerEvent, slug);
+      const onLeave = (e: Event) =>
+        handlePointerLeave(e as unknown as PointerEvent);
+      const onClick = (e: Event) =>
+        handleClick(e as unknown as MouseEvent, slug);
 
       // 모바일 지원을 위해 touchstart 감지하여 디바이스 판별
       const onTouchStart = () => {
         isTouchDevice.current = true;
       };
 
-      link.addEventListener('pointerenter', onEnter as EventListener);
-      link.addEventListener('pointerleave', onLeave as EventListener);
-      link.addEventListener('click', onClick as EventListener);
+      link.addEventListener('pointerenter', onEnter);
+      link.addEventListener('pointerleave', onLeave);
+      link.addEventListener('click', onClick);
       link.addEventListener('touchstart', onTouchStart, { passive: true });
 
       cleanups.push(() => {
-        link.removeEventListener('pointerenter', onEnter as EventListener);
-        link.removeEventListener('pointerleave', onLeave as EventListener);
-        link.removeEventListener('click', onClick as EventListener);
+        link.removeEventListener('pointerenter', onEnter);
+        link.removeEventListener('pointerleave', onLeave);
+        link.removeEventListener('click', onClick);
         link.removeEventListener('touchstart', onTouchStart);
       });
     }
