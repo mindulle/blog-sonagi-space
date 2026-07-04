@@ -17,8 +17,13 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const decodedSlug = decodeURIComponent(slug);
-  const note = getNoteBySlug(slug);
+  let decodedSlug = slug;
+  try {
+    decodedSlug = decodeURIComponent(slug);
+  } catch {
+    // 무시 (디코딩 실패 시 원본 사용)
+  }
+  const note = getNoteBySlug(decodedSlug);
 
   if (!note) {
     return {
@@ -39,8 +44,14 @@ export async function generateMetadata({ params }: Props) {
 
 export default async function NotePage({ params }: Props) {
   const { slug } = await params;
-  const decodedSlug = decodeURIComponent(slug);
-  const note = getNoteBySlug(slug);
+  let decodedSlug = slug;
+  try {
+    decodedSlug = decodeURIComponent(slug);
+  } catch {
+    // 무시 (디코딩 실패 시 원본 사용)
+  }
+
+  const note = getNoteBySlug(decodedSlug);
 
   const backlinks =
     (
@@ -48,7 +59,7 @@ export default async function NotePage({ params }: Props) {
         string,
         Array<{ sourceSlug: string; sourceTitle: string; excerpt: string }>
       >
-    )[slug] ?? [];
+    )[decodedSlug] ?? [];
 
   // 방안 C: 미작성된 문서(Seed) 플레이스홀더 렌더링
   if (!note) {
@@ -134,7 +145,7 @@ export default async function NotePage({ params }: Props) {
         </div>
 
         {/* 로컬 그래프 (디지털 가든) */}
-        <LocalGraph slug={slug} />
+        <LocalGraph slug={decodedSlug} />
 
         {/* 백링크 */}
         <BacklinksSection backlinks={backlinks} />
@@ -205,7 +216,7 @@ export default async function NotePage({ params }: Props) {
       <PostContent html={note.content} className="prose" />
 
       {/* 로컬 그래프 (디지털 가든) */}
-      <LocalGraph slug={slug} />
+      <LocalGraph slug={decodedSlug} />
 
       {/* 백링크 */}
       <BacklinksSection backlinks={backlinks} />
