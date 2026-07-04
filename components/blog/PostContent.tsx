@@ -18,6 +18,26 @@ interface TooltipState {
   note: NotePreview | null;
 }
 
+// 화면 크기에 따른 툴팁 위치 조정 (순수 함수 분리)
+const adjustTooltipPosition = (x: number, y: number) => {
+  if (typeof window === 'undefined') return { x, y };
+  const tooltipWidth = 280;
+  const padding = 16;
+  let adjustedX = x;
+
+  // 오른쪽 화면 밖으로 넘어가는 경우
+  if (x + tooltipWidth > window.innerWidth - padding) {
+    adjustedX = window.innerWidth - tooltipWidth - padding;
+  }
+
+  // 왼쪽 화면 밖으로 넘어가는 경우
+  if (adjustedX < padding) {
+    adjustedX = padding;
+  }
+
+  return { x: adjustedX, y };
+};
+
 /** 포스트 본문을 렌더링하고, .wikilink 요소에 하이브리드 UX 호버 팝오버를 붙여주는 클라이언트 컴포넌트 */
 export function PostContent({
   html,
@@ -39,26 +59,7 @@ export function PostContent({
   const fetchPromise = useRef<Promise<void> | null>(null);
   const hoveredSlugRef = useRef<string | null>(null);
   const isTouchDevice = useRef(false);
-
-  // 화면 크기에 따른 툴팁 위치 조정
-  const adjustTooltipPosition = (x: number, y: number) => {
-    if (typeof window === 'undefined') return { x, y };
-    const tooltipWidth = 280;
-    const padding = 16;
-    let adjustedX = x;
-
-    // 오른쪽 화면 밖으로 넘어가는 경우
-    if (x + tooltipWidth > window.innerWidth - padding) {
-      adjustedX = window.innerWidth - tooltipWidth - padding;
-    }
-
-    // 왼쪽 화면 밖으로 넘어가는 경우
-    if (adjustedX < padding) {
-      adjustedX = padding;
-    }
-
-    return { x: adjustedX, y };
-  };
+  const tooltipVisibleRef = useRef(false);
 
   const clearTimers = useCallback(() => {
     if (hideTimer.current) clearTimeout(hideTimer.current);
@@ -148,8 +149,8 @@ export function PostContent({
   );
 
   const handlePointerLeave = useCallback(
-    (e: PointerEvent) => {
-      if (e.pointerType === 'touch') return;
+    (e?: PointerEvent) => {
+      if (e && e.pointerType === 'touch') return;
 
       clearTimers();
       hoveredSlugRef.current = null;
@@ -171,7 +172,7 @@ export function PostContent({
       const target = e.currentTarget as HTMLAnchorElement;
 
       // 이미 이 링크의 툴팁이 열려있다면 링크 이동을 허용
-      if (tooltip.visible && hoveredSlugRef.current === slug) {
+      if (tooltipVisibleRef.current && hoveredSlugRef.current === slug) {
         return;
       }
 
@@ -227,11 +228,12 @@ export function PostContent({
         note,
       });
     },
-    [clearTimers, tooltip.visible]
+    [clearTimers]
   );
 
   // 문서의 다른 곳을 터치/클릭하면 툴팁 닫기
   useEffect(() => {
+    tooltipVisibleRef.current = tooltip.visible;
     const handleDocumentClick = (e: MouseEvent | TouchEvent) => {
       if (tooltip.visible) {
         const target = e.target as HTMLElement;
@@ -316,7 +318,7 @@ export function PostContent({
                 onMouseEnter={clearTimers}
                 onMouseLeave={() => {
                   if (!isTouchDevice.current) {
-                    handlePointerLeave(new PointerEvent('pointerleave'));
+                    handlePointerLeave();
                   }
                 }}
                 style={{
