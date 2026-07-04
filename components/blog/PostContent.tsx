@@ -18,19 +18,16 @@ interface TooltipState {
   note: NotePreview | null;
 }
 
-// 화면 크기에 따른 툴팁 위치 조정 (순수 함수 분리)
 const adjustTooltipPosition = (x: number, y: number) => {
   if (typeof window === 'undefined') return { x, y };
   const tooltipWidth = 280;
   const padding = 16;
   let adjustedX = x;
 
-  // 오른쪽 화면 밖으로 넘어가는 경우
   if (x + tooltipWidth > window.innerWidth - padding) {
     adjustedX = window.innerWidth - tooltipWidth - padding;
   }
 
-  // 왼쪽 화면 밖으로 넘어가는 경우
   if (adjustedX < padding) {
     adjustedX = padding;
   }
@@ -38,7 +35,6 @@ const adjustTooltipPosition = (x: number, y: number) => {
   return { x: adjustedX, y };
 };
 
-/** 포스트 본문을 렌더링하고, .wikilink 요소에 하이브리드 UX 호버 팝오버를 붙여주는 클라이언트 컴포넌트 */
 export function PostContent({
   html,
   className,
@@ -60,7 +56,6 @@ export function PostContent({
   const hoveredSlugRef = useRef<string | null>(null);
   const tooltipVisibleRef = useRef(false);
 
-  // 모바일(터치) 환경 판별
   const checkIsTouchDevice = () => {
     if (typeof window === 'undefined') return false;
     return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
@@ -78,19 +73,17 @@ export function PostContent({
   }, []);
 
   const handleMouseEnter = useCallback(
-    async (e: MouseEvent, slug: string) => {
+    async (target: HTMLAnchorElement, slug: string) => {
       if (checkIsTouchDevice()) return;
 
       clearTimers();
 
-      // 잔상 방지: 이전 툴팁 즉시 닫기
       if (hoveredSlugRef.current !== null && hoveredSlugRef.current !== slug) {
         setTooltip((prev) => ({ ...prev, visible: false }));
       }
 
       hoveredSlugRef.current = slug;
 
-      // 다른 링크로 마우스가 이동했을 때만 기존 툴팁 숨김 (같은 링크 재진입 시 유지)
       setTooltip((prev) => {
         if (prev.visible && prev.note?.slug !== slug) {
           return { ...prev, visible: false };
@@ -98,9 +91,6 @@ export function PostContent({
         return prev;
       });
 
-      const target = e.currentTarget as HTMLAnchorElement;
-
-      // 400ms 지연 표시
       showTimer.current = setTimeout(async () => {
         let note = cache.current.get(slug);
 
@@ -134,7 +124,6 @@ export function PostContent({
           }
         }
 
-        // 방어 로직: 데이터를 로딩하는 그 찰나에 마우스를 치웠다면 무시
         if (!note || hoveredSlugRef.current !== slug) return;
 
         const rect = target.getBoundingClientRect();
@@ -154,35 +143,24 @@ export function PostContent({
     [clearTimers]
   );
 
-  const handleMouseLeave = useCallback(
-    (e?: MouseEvent) => {
-      if (checkIsTouchDevice()) return;
+  const handleMouseLeave = useCallback(() => {
+    if (checkIsTouchDevice()) return;
 
-      clearTimers();
-      hoveredSlugRef.current = null;
-      hideTimer.current = setTimeout(() => {
-        setTooltip((prev) =>
-          prev.visible ? { ...prev, visible: false } : prev
-        );
-      }, 200); // 마우스가 툴팁으로 넘어갈 수 있도록 200ms 여유
-    },
-    [clearTimers]
-  );
+    clearTimers();
+    hoveredSlugRef.current = null;
+    hideTimer.current = setTimeout(() => {
+      setTooltip((prev) => (prev.visible ? { ...prev, visible: false } : prev));
+    }, 200);
+  }, [clearTimers]);
 
-  // 모바일/터치 환경: 첫 터치 시 팝업, 두 번째 터치 시 이동 (스마트 클릭)
   const handleClick = useCallback(
-    async (e: MouseEvent, slug: string) => {
-      // 터치 디바이스가 아니면 기본 이동 수행
+    async (e: MouseEvent, target: HTMLAnchorElement, slug: string) => {
       if (!checkIsTouchDevice()) return;
 
-      const target = e.currentTarget as HTMLAnchorElement;
-
-      // 이미 이 링크의 툴팁이 열려있다면 링크 이동을 허용
       if (tooltipVisibleRef.current && hoveredSlugRef.current === slug) {
         return;
       }
 
-      // 툴팁이 안 열려있거나, 다른 툴팁이 열려있다면 링크 이동을 막고 해당 툴팁을 염
       e.preventDefault();
       clearTimers();
 
@@ -237,13 +215,11 @@ export function PostContent({
     [clearTimers]
   );
 
-  // 문서의 다른 곳을 터치/클릭하면 툴팁 닫기
   useEffect(() => {
     tooltipVisibleRef.current = tooltip.visible;
     const handleDocumentClick = (e: MouseEvent | TouchEvent) => {
       if (tooltip.visible) {
         const target = e.target as HTMLElement;
-        // 툴팁 내부나 위키링크 클릭이 아니면 닫음
         if (
           !target.closest('[role="tooltip"]') &&
           !target.closest('.wikilink')
@@ -254,7 +230,6 @@ export function PostContent({
       }
     };
 
-    // touchstart로 해야 터치 디바이스에서 더 빠르게 반응함
     document.addEventListener('touchstart', handleDocumentClick);
     document.addEventListener('click', handleDocumentClick);
     return () => {
@@ -263,40 +238,47 @@ export function PostContent({
     };
   }, [tooltip.visible]);
 
-  // wikilink 요소에 이벤트 연결
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const links = Array.from(
-      container.querySelectorAll<HTMLAnchorElement>('a.wikilink')
-    );
-    const cleanups: Array<() => void> = [];
+    // Event Delegation
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a.wikilink') as HTMLAnchorElement;
+      if (link) {
+        const slug = link.getAttribute('data-slug');
+        if (slug) handleMouseEnter(link, slug);
+      }
+    };
 
-    for (const link of links) {
-      const slug = link.getAttribute('data-slug') ?? '';
-      if (!slug) continue;
+    const handleMouseOut = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a.wikilink') as HTMLAnchorElement;
+      if (link) {
+        handleMouseLeave();
+      }
+    };
 
-      const onEnter = (e: Event) =>
-        handleMouseEnter(e as unknown as MouseEvent, slug);
-      const onLeave = (e: Event) =>
-        handleMouseLeave(e as unknown as MouseEvent);
-      const onClick = (e: Event) =>
-        handleClick(e as unknown as MouseEvent, slug);
+    const handleContainerClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const link = target.closest('a.wikilink') as HTMLAnchorElement;
+      if (link) {
+        const slug = link.getAttribute('data-slug');
+        if (slug) handleClick(e, link, slug);
+      }
+    };
 
-      link.addEventListener('mouseenter', onEnter);
-      link.addEventListener('mouseleave', onLeave);
-      link.addEventListener('click', onClick);
+    container.addEventListener('mouseover', handleMouseOver);
+    container.addEventListener('mouseout', handleMouseOut);
+    container.addEventListener('click', handleContainerClick);
 
-      cleanups.push(() => {
-        link.removeEventListener('mouseenter', onEnter);
-        link.removeEventListener('mouseleave', onLeave);
-        link.removeEventListener('click', onClick);
-      });
-    }
-
-    return () => cleanups.forEach((fn) => fn());
-  }, [html, handleMouseEnter, handleMouseLeave, handleClick]);
+    return () => {
+      container.removeEventListener('mouseover', handleMouseOver);
+      container.removeEventListener('mouseout', handleMouseOut);
+      container.removeEventListener('click', handleContainerClick);
+    };
+  }, [handleMouseEnter, handleMouseLeave, handleClick]);
 
   return (
     <>
@@ -306,7 +288,6 @@ export function PostContent({
         dangerouslySetInnerHTML={{ __html: html }}
       />
 
-      {/* 호버 프리뷰 툴팁 (Portal + Framer Motion) */}
       {typeof document !== 'undefined' &&
         createPortal(
           <AnimatePresence>
