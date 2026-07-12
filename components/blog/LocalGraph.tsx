@@ -26,7 +26,57 @@ function fetchWikiGraph() {
   return cachedGraphPromise;
 }
 
-const MAX_NEIGHBORS = 20;
+// 추출된 공통 프루닝 유틸리티
+export function pruneGraph(
+  fullData: { nodes: any[]; links: any[] },
+  slug: string,
+  maxNeighbors: number = 20
+) {
+  // 1. 현재 노트와 직간접적으로 연결된 링크 찾기 (1-hop)
+  const relevantLinks = fullData.links.filter(
+    (link: any) => link.source === slug || link.target === slug
+  );
+
+  let finalLinks = relevantLinks;
+  const relevantNodeIds = new Set<string>();
+  relevantNodeIds.add(slug);
+
+  // 노드 가지치기 (Pruning) - 연결이 너무 많은 슈퍼 허브 노드 방어
+  if (relevantLinks.length > maxNeighbors) {
+    finalLinks = relevantLinks.slice(0, maxNeighbors);
+
+    finalLinks.forEach((link: any) => {
+      relevantNodeIds.add(link.source);
+      relevantNodeIds.add(link.target);
+    });
+
+    // 가상 노드(Dummy Node) 생성하여 생략된 연결 수 표시
+    const dummyId = `dummy-more-${slug}`;
+    relevantNodeIds.add(dummyId);
+    finalLinks.push({ source: slug, target: dummyId });
+
+    const relevantNodes = fullData.nodes.filter((node: any) =>
+      relevantNodeIds.has(node.id)
+    );
+    relevantNodes.push({
+      id: dummyId,
+      title: `+ ${relevantLinks.length - maxNeighbors} links`,
+      group: 'dummy',
+      val: 1,
+    });
+
+    return { nodes: relevantNodes, links: finalLinks };
+  } else {
+    relevantLinks.forEach((link: any) => {
+      relevantNodeIds.add(link.source);
+      relevantNodeIds.add(link.target);
+    });
+    const relevantNodes = fullData.nodes.filter((node: any) =>
+      relevantNodeIds.has(node.id)
+    );
+    return { nodes: relevantNodes, links: finalLinks };
+  }
+}
 
 export function LocalGraph({ slug }: LocalGraphProps) {
   const [data, setData] = useState<{ nodes: any[]; links: any[] } | null>(null);
@@ -38,52 +88,8 @@ export function LocalGraph({ slug }: LocalGraphProps) {
     fetchWikiGraph()
       .then((fullData) => {
         if (!isCurrent) return;
-
-        // 1. 현재 노트와 직간접적으로 연결된 링크 찾기 (1-hop)
-        const relevantLinks = fullData.links.filter(
-          (link: any) => link.source === slug || link.target === slug
-        );
-
-        let finalLinks = relevantLinks;
-        const relevantNodeIds = new Set<string>();
-        relevantNodeIds.add(slug);
-
-        // 노드 가지치기 (Pruning) - 연결이 너무 많은 슈퍼 허브 노드 방어
-        if (relevantLinks.length > MAX_NEIGHBORS) {
-          finalLinks = relevantLinks.slice(0, MAX_NEIGHBORS);
-
-          finalLinks.forEach((link: any) => {
-            relevantNodeIds.add(link.source);
-            relevantNodeIds.add(link.target);
-          });
-
-          // 가상 노드(Dummy Node) 생성하여 생략된 연결 수 표시
-          const dummyId = `dummy-more-${slug}`;
-          relevantNodeIds.add(dummyId);
-          finalLinks.push({ source: slug, target: dummyId });
-
-          const relevantNodes = fullData.nodes.filter((node: any) =>
-            relevantNodeIds.has(node.id)
-          );
-          relevantNodes.push({
-            id: dummyId,
-            title: `+ ${relevantLinks.length - MAX_NEIGHBORS} links`,
-            group: 'dummy',
-            val: 1,
-          });
-
-          setData({ nodes: relevantNodes, links: finalLinks });
-        } else {
-          relevantLinks.forEach((link: any) => {
-            relevantNodeIds.add(link.source);
-            relevantNodeIds.add(link.target);
-          });
-          const relevantNodes = fullData.nodes.filter((node: any) =>
-            relevantNodeIds.has(node.id)
-          );
-          setData({ nodes: relevantNodes, links: finalLinks });
-        }
-
+        const prunedData = pruneGraph(fullData, slug);
+        setData(prunedData);
         setIsLoading(false);
       })
       .catch((err) => {
