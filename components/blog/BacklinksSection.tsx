@@ -16,21 +16,69 @@ interface BacklinksSectionProps {
 
 const INITIAL_LIMIT = 10;
 
+function BacklinkCard({ link }: { link: Backlink }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <a
+      href={`/notes/${link.sourceSlug}`}
+      style={{
+        display: 'block',
+        padding: 'var(--sng-spacing-4)',
+        border: `2px solid ${isHovered ? 'var(--sng-color-brand-primary)' : 'var(--sng-color-border-default)'}`,
+        borderRadius: 'var(--sng-radius-md)',
+        textDecoration: 'none',
+        transition: 'border-color 0.15s, transform 0.15s',
+        transform: isHovered ? 'translate(-2px, -2px)' : 'none',
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <span
+        style={{
+          display: 'block',
+          fontWeight: '600',
+          color: 'var(--sng-color-text-primary)',
+          marginBottom: 'var(--sng-spacing-2)',
+        }}
+      >
+        {link.sourceTitle || 'Untitled'}
+      </span>
+      <span
+        style={
+          {
+            display: '-webkit-box',
+            fontSize: 'var(--sng-font-size-sm)',
+            color: 'var(--sng-color-text-secondary)',
+            lineHeight: '1.5',
+            overflow: 'hidden',
+            WebkitLineClamp: 2,
+            WebkitBoxOrient: 'vertical',
+          } as React.CSSProperties
+        }
+      >
+        {link.excerpt || ''}
+      </span>
+    </a>
+  );
+}
+
 export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+  const [isInputFocused, setIsInputFocused] = useState(false);
 
   const filteredBacklinks = useMemo(() => {
-    if (!searchQuery.trim()) return backlinks;
+    if (!searchQuery.trim() || !backlinks) return backlinks || [];
     const lowerQuery = searchQuery.toLowerCase();
     return backlinks.filter(
       (link) =>
-        link.sourceTitle.toLowerCase().includes(lowerQuery) ||
-        link.excerpt.toLowerCase().includes(lowerQuery)
+        (link?.sourceTitle || '').toLowerCase().includes(lowerQuery) ||
+        (link?.excerpt || '').toLowerCase().includes(lowerQuery)
     );
   }, [backlinks, searchQuery]);
 
-  if (backlinks.length === 0) return null;
+  if (!backlinks || backlinks.length === 0) return null;
 
   const hasMore = filteredBacklinks.length > INITIAL_LIMIT;
   const visibleBacklinks = isExpanded
@@ -90,20 +138,14 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
               padding: '4px 12px',
               fontSize: 'var(--sng-font-size-sm)',
               borderRadius: 'var(--sng-radius-md)',
-              border: '1px solid var(--sng-color-border-default)',
+              border: `1px solid ${isInputFocused ? 'var(--sng-color-brand-primary)' : 'var(--sng-color-border-default)'}`,
               background: 'var(--sng-color-bg-surface)',
               color: 'var(--sng-color-text-primary)',
               outline: 'none',
               width: '200px',
             }}
-            onFocus={(e) =>
-              (e.currentTarget.style.borderColor =
-                'var(--sng-color-brand-primary)')
-            }
-            onBlur={(e) =>
-              (e.currentTarget.style.borderColor =
-                'var(--sng-color-border-default)')
-            }
+            onFocus={() => setIsInputFocused(true)}
+            onBlur={() => setIsInputFocused(false)}
           />
         )}
       </div>
@@ -130,55 +172,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
           }}
         >
           {visibleBacklinks.map((link) => (
-            <a
-              key={link.sourceSlug}
-              href={`/notes/${link.sourceSlug}`}
-              style={{
-                display: 'block',
-                padding: 'var(--sng-spacing-4)',
-                border: '2px solid var(--sng-color-border-default)',
-                borderRadius: 'var(--sng-radius-md)',
-                textDecoration: 'none',
-                transition: 'border-color 0.15s, transform 0.15s',
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  'var(--sng-color-brand-primary)';
-                (e.currentTarget as HTMLElement).style.transform =
-                  'translate(-2px, -2px)';
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.borderColor =
-                  'var(--sng-color-border-default)';
-                (e.currentTarget as HTMLElement).style.transform = 'none';
-              }}
-            >
-              <span
-                style={{
-                  display: 'block',
-                  fontWeight: '600',
-                  color: 'var(--sng-color-text-primary)',
-                  marginBottom: 'var(--sng-spacing-2)',
-                }}
-              >
-                {link.sourceTitle}
-              </span>
-              <span
-                style={
-                  {
-                    display: '-webkit-box',
-                    fontSize: 'var(--sng-font-size-sm)',
-                    color: 'var(--sng-color-text-secondary)',
-                    lineHeight: '1.5',
-                    overflow: 'hidden',
-                    WebkitLineClamp: 2,
-                    WebkitBoxOrient: 'vertical',
-                  } as React.CSSProperties
-                }
-              >
-                {link.excerpt}
-              </span>
-            </a>
+            <BacklinkCard key={link.sourceSlug} link={link} />
           ))}
         </div>
       )}

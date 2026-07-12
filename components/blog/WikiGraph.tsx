@@ -31,6 +31,15 @@ interface GraphData {
   links: Link[];
 }
 
+// Helper to read CSS variables at runtime for Canvas compatibility
+function getCssVar(name: string, fallback: string) {
+  if (typeof window === 'undefined') return fallback;
+  return (
+    getComputedStyle(document.documentElement).getPropertyValue(name).trim() ||
+    fallback
+  );
+}
+
 export function WikiGraph({
   data,
   height = 0,
@@ -108,14 +117,15 @@ export function WikiGraph({
         nodeLabel="" // We implement custom hover
         nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
         nodeColor={(node: Node | any) => {
-          if (node.group === 'dummy') return 'var(--sng-color-border-default)'; // 가상 노드는 회색
+          if (node.group === 'dummy')
+            return getCssVar('--sng-color-border-default', '#30363d');
           if (node.visibility === 'public')
-            return 'var(--sng-color-brand-primary)'; // Primary brand color
+            return getCssVar('--sng-color-brand-primary', '#58a6ff');
           if (node.visibility === 'private')
-            return 'var(--sng-color-text-muted)'; // Muted for private
+            return getCssVar('--sng-color-text-muted', '#8b949e');
           return 'rgba(148, 163, 184, 0.2)'; // Faded for missing/shadow
         }}
-        linkColor={() => 'var(--sng-color-border)'}
+        linkColor={() => getCssVar('--sng-color-border-default', '#30363d')}
         linkWidth={1}
         linkDirectionalParticles={isLocal ? 2 : 0}
         linkDirectionalParticleSpeed={0.005}
