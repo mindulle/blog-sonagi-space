@@ -31,6 +31,15 @@ interface GraphData {
   links: Link[];
 }
 
+// Helper to read CSS variables at runtime for Canvas compatibility
+function getCssVar(name: string, fallback: string) {
+  if (typeof window === 'undefined') return fallback;
+  return (
+    getComputedStyle(document.documentElement).getPropertyValue(name).trim() ||
+    fallback
+  );
+}
+
 export function WikiGraph({
   data,
   height = 0,
@@ -65,14 +74,22 @@ export function WikiGraph({
   useEffect(() => {
     // 물리 엔진(d3-force) 거리 및 반발력 튜닝
     if (fgRef.current) {
-      fgRef.current.d3Force('charge')?.strength(isLocal ? -250 : -50);
-      fgRef.current.d3Force('link')?.distance(isLocal ? 60 : 30);
+      // 노드 수가 많아지면 반발력을 동적으로 더 강하게 주어 뭉침 방지 (중력 제어)
+      const chargeStrength = isLocal
+        ? Math.min(-250, data.nodes.length * -15)
+        : -50;
+
+      fgRef.current.d3Force('charge')?.strength(chargeStrength);
+      fgRef.current.d3Force('link')?.distance(isLocal ? 80 : 30);
       fgRef.current.d3ReheatSimulation(); // 시뮬레이션 재활성화
     }
   }, [isLocal, data]);
 
   const handleNodeClick = useCallback(
     (node: any) => {
+      // 가상 노드(Dummy Node)는 클릭 무시
+      if (node.group === 'dummy') return;
+
       if (node.visibility === 'public') {
         router.push(`/notes/${node.id}`);
       }
@@ -100,11 +117,15 @@ export function WikiGraph({
         nodeLabel="" // We implement custom hover
         nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
         nodeColor={(node: Node | any) => {
-          if (node.visibility === 'public') return '#8b5cf6'; // Primary brand color
-          if (node.visibility === 'private') return '#64748b'; // Slate for private
+          if (node.group === 'dummy')
+            return getCssVar('--sng-color-border-default', '#30363d');
+          if (node.visibility === 'public')
+            return getCssVar('--sng-color-brand-primary', '#58a6ff');
+          if (node.visibility === 'private')
+            return getCssVar('--sng-color-text-muted', '#8b949e');
           return 'rgba(148, 163, 184, 0.2)'; // Faded for missing/shadow
         }}
-        linkColor={() => 'var(--sng-color-border)'}
+        linkColor={() => getCssVar('--sng-color-border-default', '#30363d')}
         linkWidth={1}
         linkDirectionalParticles={isLocal ? 2 : 0}
         linkDirectionalParticleSpeed={0.005}
