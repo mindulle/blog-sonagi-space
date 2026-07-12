@@ -11,7 +11,7 @@ import { Logo } from '@/components/ui/Logo';
 const navigation = [
   { name: 'Blog', href: '/blog' },
   { name: 'Garden', href: '/notes' },
-  { name: 'Design', href: '/design-system' },
+  { name: 'Design', href: 'https://design.sonagi.space' },
   { name: 'Projects', href: '/projects' },
   { name: 'About', href: '/about' },
 ];

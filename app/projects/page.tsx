@@ -19,7 +19,7 @@ export default function ProjectsPage() {
         'Primitive-Semantic 레이어를 갖춘 토큰 주도(Token-Driven) 디자인 시스템입니다. NPM 패키지로 배포되며 프레임워크에 종속되지 않습니다.',
       emoji: '🎨',
       tags: ['CSS Variables', 'NPM', 'Semantic Release', 'Design Tokens'],
-      link: '/design-system',
+      link: 'https://design.sonagi.space',
     },
     {
       title: 'Sonagi Garden (BI)',

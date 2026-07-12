@@ -31,7 +31,9 @@ export default function AboutPage() {
             Next.js와 MDX 기반으로 돌아가는 이 블로그는 지식의 전초기지 역할을
             하며, 모든 시각적 요소는 자체적으로 구축한{' '}
             <a
-              href="/design-system"
+              href="https://design.sonagi.space"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-semibold underline underline-offset-4 decoration-[var(--sng-color-brand-primary)]"
             >
               소나기 디자인 시스템
