@@ -96,11 +96,11 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Share Buttons */}
             <div
               className="mt-12 pt-8 border-t"
-              style={{ borderColor: 'var(--color-border-default)' }}
+              style={{ borderColor: 'var(--sng-color-border-default)' }}
             >
               <h3
                 className="text-lg font-semibold mb-4"
-                style={{ color: 'var(--color-text-primary)' }}
+                style={{ color: 'var(--sng-color-text-primary)' }}
               >
                 Share this post
               </h3>
@@ -110,7 +110,7 @@ export default async function BlogPostPage({ params }: Props) {
             {/* Related Posts */}
             <div
               className="mt-16 pt-8 border-t"
-              style={{ borderColor: 'var(--color-border-default)' }}
+              style={{ borderColor: 'var(--sng-color-border-default)' }}
             >
               <RelatedPosts currentPost={post} allPosts={allPosts} />
             </div>

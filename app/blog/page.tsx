@@ -20,7 +20,10 @@ export default async function BlogPage() {
           <h1 className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl">
             Blog
           </h1>
-          <p className="mx-auto max-w-2xl text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+          <p
+            className="mx-auto max-w-2xl text-lg"
+            style={{ color: 'var(--sng-color-text-secondary)' }}
+          >
             개발, 디자인, 그리고 생각들을 기록합니다.
           </p>
         </div>

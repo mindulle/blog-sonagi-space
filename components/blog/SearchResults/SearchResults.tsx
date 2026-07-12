@@ -24,9 +24,9 @@ export function SearchResults({
         {[...Array(3)].map((_, i) => (
           <Card key={i} variant="outlined" className="animate-pulse">
             <CardBody className="p-6">
-              <div className="h-6 rounded w-3/4 mb-3 bg-[var(--color-bg-overlay)]"></div>
-              <div className="h-4 rounded w-full mb-2 bg-[var(--color-bg-overlay)]"></div>
-              <div className="h-4 rounded w-2/3 bg-[var(--color-bg-overlay)]"></div>
+              <div className="h-6 rounded w-3/4 mb-3 bg-[var(--sng-color-bg-overlay)]"></div>
+              <div className="h-4 rounded w-full mb-2 bg-[var(--sng-color-bg-overlay)]"></div>
+              <div className="h-4 rounded w-2/3 bg-[var(--sng-color-bg-overlay)]"></div>
             </CardBody>
           </Card>
         ))}
@@ -37,10 +37,10 @@ export function SearchResults({
   if (results.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-lg mb-2 text-[var(--color-text-secondary)]">
+        <p className="text-lg mb-2 text-[var(--sng-color-text-secondary)]">
           No results found for &quot;{query}&quot;
         </p>
-        <p className="text-sm text-[var(--color-text-muted)]">
+        <p className="text-sm text-[var(--sng-color-text-muted)]">
           Try different keywords or browse all posts
         </p>
       </div>
@@ -49,9 +49,9 @@ export function SearchResults({
 
   return (
     <div className="space-y-6">
-      <p className="text-sm text-[var(--color-text-secondary)]">
+      <p className="text-sm text-[var(--sng-color-text-secondary)]">
         Found{' '}
-        <strong className="text-[var(--color-text-primary)]">
+        <strong className="text-[var(--sng-color-text-primary)]">
           {results.length}
         </strong>{' '}
         result{results.length !== 1 ? 's' : ''} for &quot;{query}&quot;
@@ -67,17 +67,17 @@ export function SearchResults({
             <Card variant="outlined" hoverable>
               <CardBody className="p-6">
                 <div className="flex items-start justify-between gap-4 mb-3">
-                  <h2 className="text-xl font-semibold transition-colors line-clamp-2 text-[var(--color-text-primary)] group-hover:text-[var(--color-brand-primary)]">
+                  <h2 className="text-xl font-semibold transition-colors line-clamp-2 text-[var(--sng-color-text-primary)] group-hover:text-[var(--sng-color-brand-primary)]">
                     {post.title}
                   </h2>
                   <CategoryBadge category={post.category} />
                 </div>
 
-                <p className="mb-4 line-clamp-2 text-[var(--color-text-secondary)]">
+                <p className="mb-4 line-clamp-2 text-[var(--sng-color-text-secondary)]">
                   {post.description}
                 </p>
 
-                <div className="flex items-center gap-4 text-sm text-[var(--color-text-muted)]">
+                <div className="flex items-center gap-4 text-sm text-[var(--sng-color-text-muted)]">
                   <time
                     dateTime={post.date}
                     className="flex items-center gap-1.5"

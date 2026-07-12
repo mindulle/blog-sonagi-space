@@ -51,13 +51,16 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
 
   return (
     <nav
-      className={cn('sticky top-24 hidden lg:block max-h-[calc(100vh-8rem)] overflow-y-auto', className)}
+      className={cn(
+        'sticky top-24 hidden lg:block max-h-[calc(100vh-8rem)] overflow-y-auto',
+        className
+      )}
       aria-label="Table of contents"
     >
       <div className="space-y-2">
         <h3
           className="font-semibold text-sm mb-4"
-          style={{ color: 'var(--color-text-primary)' }}
+          style={{ color: 'var(--sng-color-text-primary)' }}
         >
           Table of Contents
         </h3>
@@ -75,10 +78,10 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
                   className="block py-1 pl-3 border-l-2 transition-colors"
                   style={{
                     color: isActive
-                      ? 'var(--color-brand-primary)'
-                      : 'var(--color-text-muted)',
+                      ? 'var(--sng-color-brand-primary)'
+                      : 'var(--sng-color-text-muted)',
                     borderLeftColor: isActive
-                      ? 'var(--color-brand-primary)'
+                      ? 'var(--sng-color-brand-primary)'
                       : 'transparent',
                     fontWeight: isActive ? 600 : 400,
                   }}

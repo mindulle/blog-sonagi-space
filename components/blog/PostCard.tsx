@@ -37,7 +37,7 @@ export function PostCard({
       className={cn(
         'group overflow-hidden',
         variant === 'featured' &&
-          'border-2 border-[var(--color-brand-primary)]',
+          'border-2 border-[var(--sng-color-brand-primary)]',
         className
       )}
     >
@@ -68,7 +68,7 @@ export function PostCard({
             'mb-3 flex flex-wrap items-center gap-2',
             isCompact ? 'text-xs' : 'text-sm'
           )}
-          style={{ color: 'var(--color-text-secondary)' }}
+          style={{ color: 'var(--sng-color-text-secondary)' }}
         >
           <time dateTime={post.date} className="flex items-center gap-1">
             <Calendar size={isCompact ? 12 : 14} />
@@ -89,7 +89,7 @@ export function PostCard({
         <Link href={`/blog/${post.slug}`}>
           <h3
             className={cn(
-              'font-bold transition-colors group-hover:text-[var(--color-brand-primary)]',
+              'font-bold transition-colors group-hover:text-[var(--sng-color-brand-primary)]',
               variant === 'featured' && 'text-2xl',
               variant === 'default' && 'text-xl',
               variant === 'compact' && 'text-lg'
@@ -103,7 +103,7 @@ export function PostCard({
         {showExcerpt && !isCompact && (
           <p
             className="mt-2 line-clamp-2"
-            style={{ color: 'var(--color-text-secondary)' }}
+            style={{ color: 'var(--sng-color-text-secondary)' }}
           >
             {post.description}
           </p>
@@ -127,7 +127,7 @@ export function PostCard({
           <Link
             href={`/blog/${post.slug}`}
             className="text-sm font-medium hover:underline"
-            style={{ color: 'var(--color-brand-primary)' }}
+            style={{ color: 'var(--sng-color-brand-primary)' }}
           >
             Read more →
           </Link>

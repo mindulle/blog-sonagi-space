@@ -12,7 +12,7 @@ export interface PostListProps {
 
 /**
  * PostList 컴포넌트
- * 
+ *
  * 여러 포스트를 목록 또는 그리드로 표시
  */
 export function PostList({
@@ -26,7 +26,10 @@ export function PostList({
   if (posts.length === 0) {
     return (
       <div className="py-16 text-center">
-        <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+        <p
+          className="text-lg"
+          style={{ color: 'var(--sng-color-text-secondary)' }}
+        >
           {emptyMessage}
         </p>
       </div>
@@ -42,13 +45,7 @@ export function PostList({
     };
 
     return (
-      <div
-        className={cn(
-          'grid gap-6',
-          gridColsClasses[columns],
-          className
-        )}
-      >
+      <div className={cn('grid gap-6', gridColsClasses[columns], className)}>
         {posts.map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}

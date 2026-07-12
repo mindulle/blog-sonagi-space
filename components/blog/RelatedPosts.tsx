@@ -14,23 +14,26 @@ type RelatedPostsProps = {
 /**
  * Get related posts based on category and tags
  */
-function getRelatedPosts(currentPost: Post, allPosts: Post[], maxCount: number = 3): Post[] {
+function getRelatedPosts(
+  currentPost: Post,
+  allPosts: Post[],
+  maxCount: number = 3
+): Post[] {
   return allPosts
     .filter((post) => post.slug !== currentPost.slug) // Exclude current post
     .map((post) => {
       let score = 0;
-      
+
       // Same category: +3 points
       if (post.category === currentPost.category) {
         score += 3;
       }
-      
+
       // Shared tags: +1 point per tag
-      const sharedTags = post.tags?.filter((tag) =>
-        currentPost.tags?.includes(tag)
-      ) || [];
+      const sharedTags =
+        post.tags?.filter((tag) => currentPost.tags?.includes(tag)) || [];
       score += sharedTags.length;
-      
+
       return { post, score };
     })
     .filter(({ score }) => score > 0) // Only posts with some relation
@@ -39,7 +42,11 @@ function getRelatedPosts(currentPost: Post, allPosts: Post[], maxCount: number =
     .map(({ post }) => post);
 }
 
-export function RelatedPosts({ currentPost, allPosts, maxCount = 3 }: RelatedPostsProps) {
+export function RelatedPosts({
+  currentPost,
+  allPosts,
+  maxCount = 3,
+}: RelatedPostsProps) {
   const relatedPosts = getRelatedPosts(currentPost, allPosts, maxCount);
 
   if (relatedPosts.length === 0) {
@@ -48,7 +55,10 @@ export function RelatedPosts({ currentPost, allPosts, maxCount = 3 }: RelatedPos
 
   return (
     <section>
-      <h2 className="text-2xl font-bold mb-6" style={{ color: 'var(--color-text-primary)' }}>
+      <h2
+        className="text-2xl font-bold mb-6"
+        style={{ color: 'var(--sng-color-text-primary)' }}
+      >
         Related Posts
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -69,13 +79,22 @@ export function RelatedPosts({ currentPost, allPosts, maxCount = 3 }: RelatedPos
                 <div className="flex items-center gap-2 mb-2">
                   <CategoryBadge category={post.category} />
                 </div>
-                <h3 className="font-semibold mb-2 line-clamp-2 group-hover:text-[var(--color-brand-primary)] transition-colors" style={{ color: 'var(--color-text-primary)' }}>
+                <h3
+                  className="font-semibold mb-2 line-clamp-2 group-hover:text-[var(--sng-color-brand-primary)] transition-colors"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
                   {post.title}
                 </h3>
-                <p className="text-sm mb-3 line-clamp-2" style={{ color: 'var(--color-text-secondary)' }}>
+                <p
+                  className="text-sm mb-3 line-clamp-2"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
                   {post.description}
                 </p>
-                <div className="flex items-center gap-3 text-xs" style={{ color: 'var(--color-text-muted)' }}>
+                <div
+                  className="flex items-center gap-3 text-xs"
+                  style={{ color: 'var(--sng-color-text-muted)' }}
+                >
                   <time
                     dateTime={post.date}
                     className="flex items-center gap-1"

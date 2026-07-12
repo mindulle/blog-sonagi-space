@@ -80,12 +80,12 @@ export function Pagination({
           currentPage === 1
             ? {
                 cursor: 'not-allowed',
-                borderColor: 'var(--color-border-subtle)',
-                color: 'var(--color-text-disabled)',
+                borderColor: 'var(--sng-color-border-subtle)',
+                color: 'var(--sng-color-text-disabled)',
               }
             : {
-                borderColor: 'var(--color-border-default)',
-                color: 'var(--color-text-secondary)',
+                borderColor: 'var(--sng-color-border-default)',
+                color: 'var(--sng-color-text-secondary)',
               }
         }
         aria-label="이전 페이지"
@@ -100,7 +100,7 @@ export function Pagination({
             <span
               key={`ellipsis-${index}`}
               className="flex h-10 w-10 items-center justify-center"
-              style={{ color: 'var(--color-text-muted)' }}
+              style={{ color: 'var(--sng-color-text-muted)' }}
             >
               ...
             </span>
@@ -118,13 +118,13 @@ export function Pagination({
             style={
               isActive
                 ? {
-                    borderColor: 'var(--color-brand-primary)',
-                    backgroundColor: 'var(--color-brand-primary)',
-                    color: 'var(--color-text-inverse)',
+                    borderColor: 'var(--sng-color-brand-primary)',
+                    backgroundColor: 'var(--sng-color-brand-primary)',
+                    color: 'var(--sng-color-text-inverse)',
                   }
                 : {
-                    borderColor: 'var(--color-border-default)',
-                    color: 'var(--color-text-secondary)',
+                    borderColor: 'var(--sng-color-border-default)',
+                    color: 'var(--sng-color-text-secondary)',
                   }
             }
             aria-label={`페이지 ${pageNumber}`}
@@ -144,12 +144,12 @@ export function Pagination({
           currentPage === totalPages
             ? {
                 cursor: 'not-allowed',
-                borderColor: 'var(--color-border-subtle)',
-                color: 'var(--color-text-disabled)',
+                borderColor: 'var(--sng-color-border-subtle)',
+                color: 'var(--sng-color-text-disabled)',
               }
             : {
-                borderColor: 'var(--color-border-default)',
-                color: 'var(--color-text-secondary)',
+                borderColor: 'var(--sng-color-border-default)',
+                color: 'var(--sng-color-text-secondary)',
               }
         }
         aria-label="다음 페이지"

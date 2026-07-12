@@ -5,7 +5,7 @@
  * Sonagi Design System — globals.css
  * 
  * 규칙:
- * 1. 색상은 반드시 CSS 변수(--color-*)로만 참조. Tailwind 색상 클래스(bg-blue-500 등) 사용 금지.
+ * 1. 색상은 반드시 CSS 변수(--sng-color-*)로만 참조. Tailwind 색상 클래스(bg-blue-500 등) 사용 금지.
  * 2. 레이아웃(flex, grid, gap, p, m 등) Tailwind 유틸리티는 허용.
  * 3. 다크모드는 [data-theme="dark"] 기반 (html 요소에 적용).
  */
@@ -15,70 +15,70 @@
 ───────────────────────────────────────────────────────── */
 :root {
   /* Category (라이트모드) */
-  --color-cat-dev-bg: #dbeafe;
-  --color-cat-dev-text: #1d4ed8;
-  --color-cat-design-bg: #ede9fe;
-  --color-cat-design-text: #7c3aed;
-  --color-cat-essay-bg: #dcfce7;
-  --color-cat-essay-text: #15803d;
-  --color-cat-project-bg: #ffedd5;
-  --color-cat-project-text: #c2410c;
+  --sng-color-cat-dev-bg: #dbeafe;
+  --sng-color-cat-dev-text: #1d4ed8;
+  --sng-color-cat-design-bg: #ede9fe;
+  --sng-color-cat-design-text: #7c3aed;
+  --sng-color-cat-essay-bg: #dcfce7;
+  --sng-color-cat-essay-text: #15803d;
+  --sng-color-cat-project-bg: #ffedd5;
+  --sng-color-cat-project-text: #c2410c;
 
   /* Syntax Highlighting (Light) */
-  --color-syntax-bg: var(--color-bg-base);
-  --color-syntax-text: #24292f;
-  --color-syntax-comment: #6e7781;
-  --color-syntax-keyword: #cf222e;
-  --color-syntax-string: #0a3069;
-  --color-syntax-function: #8250df;
-  --color-syntax-number: #0550ae;
-  --color-syntax-operator: #24292f;
-  --color-syntax-class: #953800;
+  --sng-color-syntax-bg: var(--sng-color-bg-base);
+  --sng-color-syntax-text: #24292f;
+  --sng-color-syntax-comment: #6e7781;
+  --sng-color-syntax-keyword: #cf222e;
+  --sng-color-syntax-string: #0a3069;
+  --sng-color-syntax-function: #8250df;
+  --sng-color-syntax-number: #0550ae;
+  --sng-color-syntax-operator: #24292f;
+  --sng-color-syntax-class: #953800;
 }
 
 [data-theme='dark'] {
   /* Brand Overrides (다크모드 명도 대비 개선 CEO-276) */
-  --color-brand-primary: #58a6ff;
-  --color-brand-primary-hover: #79c0ff;
+  --sng-color-brand-primary: #58a6ff;
+  --sng-color-brand-primary-hover: #79c0ff;
 
   /* Category (다크모드) */
-  --color-cat-dev-bg: #1e3a5f;
-  --color-cat-dev-text: #93c5fd;
-  --color-cat-design-bg: #3b1f6b;
-  --color-cat-design-text: #c4b5fd;
-  --color-cat-essay-bg: #14532d;
-  --color-cat-essay-text: #86efac;
-  --color-cat-project-bg: #7c2d12;
-  --color-cat-project-text: #fdba74;
+  --sng-color-cat-dev-bg: #1e3a5f;
+  --sng-color-cat-dev-text: #93c5fd;
+  --sng-color-cat-design-bg: #3b1f6b;
+  --sng-color-cat-design-text: #c4b5fd;
+  --sng-color-cat-essay-bg: #14532d;
+  --sng-color-cat-essay-text: #86efac;
+  --sng-color-cat-project-bg: #7c2d12;
+  --sng-color-cat-project-text: #fdba74;
 
   /* Syntax Highlighting (Dark) */
-  --color-syntax-bg: var(--color-bg-surface);
-  --color-syntax-text: #c9d1d9;
-  --color-syntax-comment: #8b949e;
-  --color-syntax-keyword: #ff7b72;
-  --color-syntax-string: #a5d6ff;
-  --color-syntax-function: #d2a8ff;
-  --color-syntax-number: #79c0ff;
-  --color-syntax-operator: #c9d1d9;
-  --color-syntax-class: #ffa657;
+  --sng-color-syntax-bg: var(--sng-color-bg-surface);
+  --sng-color-syntax-text: #c9d1d9;
+  --sng-color-syntax-comment: #8b949e;
+  --sng-color-syntax-keyword: #ff7b72;
+  --sng-color-syntax-string: #a5d6ff;
+  --sng-color-syntax-function: #d2a8ff;
+  --sng-color-syntax-number: #79c0ff;
+  --sng-color-syntax-operator: #c9d1d9;
+  --sng-color-syntax-class: #ffa657;
 }
 
 /* ─────────────────────────────────────────────────────────
    Tailwind 테마 연결 (레이아웃 유틸리티용)
 ───────────────────────────────────────────────────────── */
 @theme inline {
-  --font-sans: var(--font-sans);
-  --font-mono: var(--font-mono);
+  --sng-font-sans: var(--sng-font-sans);
+  --sng-font-mono: var(--sng-font-mono);
 }
 
 /* ─────────────────────────────────────────────────────────
    Base
 ───────────────────────────────────────────────────────── */
 body {
-  background-color: var(--color-bg-base);
-  color: var(--color-text-primary);
-  font-family: var(--font-sans);
-  font-size: var(--font-size-base);
+  background-color: var(--sng-color-bg-base);
+  color: var(--sng-color-text-primary);
+  font-family: var(--sng-font-sans);
+  font-size: var(--sng-font-size-base);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -88,13 +88,13 @@ body {
 }
 
 a {
-  color: var(--color-brand-primary);
+  color: var(--sng-color-brand-primary);
   text-decoration: none;
-  transition: color var(--duration-base) var(--ease-default);
+  transition: color var(--sng-duration-base) var(--sng-ease-default);
 }
 
 a:hover {
-  color: var(--color-brand-primary-hover);
+  color: var(--sng-color-brand-primary-hover);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -102,9 +102,9 @@ a:hover {
 ───────────────────────────────────────────────────────── */
 .prose {
   max-width: 65ch;
-  font-size: var(--font-size-lg);
+  font-size: var(--sng-font-size-lg);
   line-height: 1.75;
-  color: var(--color-text-primary);
+  color: var(--sng-color-text-primary);
 }
 
 .prose > * + * {
@@ -117,21 +117,21 @@ a:hover {
 }
 
 .prose a {
-  color: var(--color-brand-primary);
+  color: var(--sng-color-brand-primary);
   text-decoration: underline;
-  text-decoration-color: var(--color-border-default);
+  text-decoration-color: var(--sng-color-border-default);
   text-underline-offset: 2px;
   font-weight: 500;
 }
 
 .prose a:hover {
-  color: var(--color-brand-primary-hover);
-  text-decoration-color: var(--color-brand-primary);
+  color: var(--sng-color-brand-primary-hover);
+  text-decoration-color: var(--sng-color-brand-primary);
 }
 
 .prose strong {
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: var(--sng-color-text-primary);
 }
 
 .prose em {
@@ -139,19 +139,19 @@ a:hover {
 }
 
 .prose code {
-  background: var(--color-bg-overlay);
-  color: var(--color-brand-primary);
+  background: var(--sng-color-bg-overlay);
+  color: var(--sng-color-brand-primary);
   padding: 0.2em 0.4em;
-  border-radius: var(--radius-sm);
+  border-radius: var(--sng-radius-sm);
   font-size: 0.875em;
   font-weight: 500;
-  font-family: var(--font-mono);
+  font-family: var(--sng-font-mono);
 }
 
 .prose pre {
-  background: var(--color-bg-surface);
-  border: var(--border-thin) solid var(--color-border-default);
-  border-radius: var(--radius-md);
+  background: var(--sng-color-bg-surface);
+  border: var(--sng-border-thin) solid var(--sng-color-border-default);
+  border-radius: var(--sng-radius-md);
   padding: 1.5rem;
   overflow-x: auto;
   margin-top: 2em;
@@ -162,19 +162,19 @@ a:hover {
 .prose pre code {
   background: transparent;
   padding: 0;
-  color: var(--color-text-primary);
+  color: var(--sng-color-text-primary);
   font-size: 0.875em;
   font-weight: 400;
 }
 
 .prose blockquote {
-  border-left: var(--border-base) solid var(--color-brand-primary);
+  border-left: var(--sng-border-base) solid var(--sng-color-brand-primary);
   padding: 0.5rem 1.5rem;
   font-style: italic;
-  color: var(--color-text-secondary);
-  background: var(--color-bg-overlay);
+  color: var(--sng-color-text-secondary);
+  background: var(--sng-color-bg-overlay);
   margin: 2em 0;
-  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  border-radius: 0 var(--sng-radius-sm) var(--sng-radius-sm) 0;
 }
 
 .prose ul,
@@ -198,7 +198,7 @@ a:hover {
 }
 
 .prose img {
-  border-radius: var(--radius-md);
+  border-radius: var(--sng-radius-md);
   margin-top: 2em;
   margin-bottom: 2em;
   width: 100%;
@@ -208,7 +208,7 @@ a:hover {
 .prose figcaption {
   text-align: center;
   font-size: 0.875em;
-  color: var(--color-text-muted);
+  color: var(--sng-color-text-muted);
   margin-top: 0.75em;
 }
 
@@ -222,7 +222,7 @@ a:hover {
   line-height: 1.25;
   margin-top: 2em;
   margin-bottom: 1em;
-  color: var(--color-text-primary);
+  color: var(--sng-color-text-primary);
   scroll-margin-top: 5rem;
 }
 
@@ -250,7 +250,7 @@ a:hover {
 
 .prose hr {
   border: none;
-  border-top: var(--border-thin) solid var(--color-border-default);
+  border-top: var(--sng-border-thin) solid var(--sng-color-border-default);
   margin: 3em 0;
 }
 
@@ -261,41 +261,41 @@ a:hover {
 }
 
 .prose thead {
-  border-bottom: var(--border-base) solid var(--color-border-default);
+  border-bottom: var(--sng-border-base) solid var(--sng-color-border-default);
 }
 
 .prose th {
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: var(--color-text-primary);
+  color: var(--sng-color-text-primary);
 }
 
 .prose td {
   padding: 0.75rem;
-  border-bottom: var(--border-thin) solid var(--color-border-subtle);
-  color: var(--color-text-secondary);
+  border-bottom: var(--sng-border-thin) solid var(--sng-color-border-subtle);
+  color: var(--sng-color-text-secondary);
 }
 
 /* ─────────────────────────────────────────────────────────
    코드 하이라이팅 (highlight.js)
 ───────────────────────────────────────────────────────── */
 .hljs {
-  background: var(--color-syntax-bg) !important;
-  color: var(--color-syntax-text);
+  background: var(--sng-color-syntax-bg) !important;
+  color: var(--sng-color-syntax-text);
   padding: 1.5rem;
-  border-radius: var(--radius-md);
+  border-radius: var(--sng-radius-md);
   overflow-x: auto;
 }
 .hljs-comment,
 .hljs-quote {
-  color: var(--color-syntax-comment);
+  color: var(--sng-color-syntax-comment);
   font-style: italic;
 }
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: var(--color-syntax-keyword);
+  color: var(--sng-color-syntax-keyword);
   font-weight: 500;
 }
 .hljs-string,
@@ -303,12 +303,12 @@ a:hover {
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-  color: var(--color-syntax-string);
+  color: var(--sng-color-syntax-string);
 }
 .hljs-title,
 .hljs-section,
 .hljs-name {
-  color: var(--color-syntax-function);
+  color: var(--sng-color-syntax-function);
   font-weight: 500;
 }
 .hljs-number,
@@ -316,19 +316,19 @@ a:hover {
 .hljs-type,
 .hljs-built_in,
 .hljs-template-variable {
-  color: var(--color-syntax-number);
+  color: var(--sng-color-syntax-number);
 }
 .hljs-class .hljs-title,
 .hljs-title.class_ {
-  color: var(--color-syntax-class);
+  color: var(--sng-color-syntax-class);
 }
 .hljs-operator,
 .hljs-punctuation {
-  color: var(--color-syntax-operator);
+  color: var(--sng-color-syntax-operator);
 }
 .hljs-meta,
 .hljs-deletion {
-  color: var(--color-syntax-keyword);
+  color: var(--sng-color-syntax-keyword);
 }
 
 /* ─────────────────────────────────────────────────────────

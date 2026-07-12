@@ -36,13 +36,13 @@ export default function ProjectsPage() {
       <div className="max-w-5xl mx-auto">
         <h1
           className="text-4xl font-bold mb-4"
-          style={{ color: 'var(--color-text-primary)' }}
+          style={{ color: 'var(--sng-color-text-primary)' }}
         >
           Projects
         </h1>
         <p
           className="text-lg mb-12"
-          style={{ color: 'var(--color-text-secondary)' }}
+          style={{ color: 'var(--sng-color-text-secondary)' }}
         >
           Sonagi 세계관에서 진행 중인 프로젝트들을 소개합니다.
         </p>
@@ -56,23 +56,23 @@ export default function ProjectsPage() {
             >
               <Card
                 className="h-full p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
-                style={{ borderColor: 'var(--color-border-default)' }}
+                style={{ borderColor: 'var(--sng-color-border-default)' }}
               >
                 <div
                   className="aspect-video rounded-lg mb-6 flex items-center justify-center text-5xl"
-                  style={{ backgroundColor: 'var(--color-bg-overlay)' }}
+                  style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
                 >
                   {project.emoji}
                 </div>
                 <h3
-                  className="text-xl font-semibold mb-3 transition-colors group-hover:text-[var(--color-brand-primary)]"
-                  style={{ color: 'var(--color-text-primary)' }}
+                  className="text-xl font-semibold mb-3 transition-colors group-hover:text-[var(--sng-color-brand-primary)]"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
                 >
                   {project.title}
                 </h3>
                 <p
                   className="mb-6 text-sm leading-relaxed"
-                  style={{ color: 'var(--color-text-secondary)' }}
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
                 >
                   {project.description}
                 </p>

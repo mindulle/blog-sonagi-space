@@ -10,9 +10,11 @@ type SearchPageProps = {
   searchParams: Promise<{ q?: string }>;
 };
 
-export async function generateMetadata({ searchParams }: SearchPageProps): Promise<Metadata> {
+export async function generateMetadata({
+  searchParams,
+}: SearchPageProps): Promise<Metadata> {
   const { q: query = '' } = await searchParams;
-  
+
   return {
     title: query ? `Search results for "${query}"` : 'Search',
     description: query
@@ -34,7 +36,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
   return (
     <Container className="py-12">
       <div className="max-w-3xl mx-auto">
-        <h1 className="text-4xl font-bold mb-8" style={{ color: 'var(--color-text-primary)' }}>
+        <h1
+          className="text-4xl font-bold mb-8"
+          style={{ color: 'var(--sng-color-text-primary)' }}
+        >
           Search
         </h1>
 
@@ -48,11 +53,26 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   <div
                     key={i}
                     className="p-6 border rounded-lg animate-pulse"
-                    style={{ borderColor: 'var(--color-border-default)' }}
+                    style={{ borderColor: 'var(--sng-color-border-default)' }}
                   >
-                    <div className="h-6 rounded w-3/4 mb-3" style={{ backgroundColor: 'var(--color-border-default)' }}></div>
-                    <div className="h-4 rounded w-full mb-2" style={{ backgroundColor: 'var(--color-border-default)' }}></div>
-                    <div className="h-4 rounded w-2/3" style={{ backgroundColor: 'var(--color-border-default)' }}></div>
+                    <div
+                      className="h-6 rounded w-3/4 mb-3"
+                      style={{
+                        backgroundColor: 'var(--sng-color-border-default)',
+                      }}
+                    ></div>
+                    <div
+                      className="h-4 rounded w-full mb-2"
+                      style={{
+                        backgroundColor: 'var(--sng-color-border-default)',
+                      }}
+                    ></div>
+                    <div
+                      className="h-4 rounded w-2/3"
+                      style={{
+                        backgroundColor: 'var(--sng-color-border-default)',
+                      }}
+                    ></div>
                   </div>
                 ))}
               </div>
@@ -64,7 +84,10 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
         {!query && (
           <div className="text-center py-12">
-            <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+            <p
+              className="text-lg"
+              style={{ color: 'var(--sng-color-text-secondary)' }}
+            >
               Enter a search query to find posts
             </p>
           </div>

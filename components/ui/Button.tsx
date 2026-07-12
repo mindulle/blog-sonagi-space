@@ -22,42 +22,42 @@ const styles = {
 
   variant: {
     primary: [
-      'text-[var(--color-text-inverse)]',
-      'bg-[var(--color-brand-primary)]',
-      'hover:bg-[var(--color-brand-primary-hover)]',
-      'focus-visible:ring-[var(--color-brand-primary)]',
+      'text-[var(--sng-color-text-inverse)]',
+      'bg-[var(--sng-color-brand-primary)]',
+      'hover:bg-[var(--sng-color-brand-primary-hover)]',
+      'focus-visible:ring-[var(--sng-color-brand-primary)]',
     ].join(' '),
 
     secondary: [
-      'text-[var(--color-text-primary)]',
-      'bg-[var(--color-bg-overlay)]',
-      'border border-[var(--color-border-default)]',
-      'hover:bg-[var(--color-bg-elevated)]',
-      'hover:border-[var(--color-border-strong)]',
-      'focus-visible:ring-[var(--color-brand-primary)]',
+      'text-[var(--sng-color-text-primary)]',
+      'bg-[var(--sng-color-bg-overlay)]',
+      'border border-[var(--sng-color-border-default)]',
+      'hover:bg-[var(--sng-color-bg-elevated)]',
+      'hover:border-[var(--sng-color-border-strong)]',
+      'focus-visible:ring-[var(--sng-color-brand-primary)]',
     ].join(' '),
 
     ghost: [
-      'text-[var(--color-text-secondary)]',
+      'text-[var(--sng-color-text-secondary)]',
       'bg-transparent',
-      'hover:bg-[var(--color-bg-overlay)]',
-      'hover:text-[var(--color-text-primary)]',
-      'focus-visible:ring-[var(--color-brand-primary)]',
+      'hover:bg-[var(--sng-color-bg-overlay)]',
+      'hover:text-[var(--sng-color-text-primary)]',
+      'focus-visible:ring-[var(--sng-color-brand-primary)]',
     ].join(' '),
 
     outline: [
-      'text-[var(--color-text-primary)]',
+      'text-[var(--sng-color-text-primary)]',
       'bg-transparent',
-      'border-2 border-[var(--color-text-primary)]',
-      'hover:bg-[var(--color-bg-overlay)]',
-      'focus-visible:ring-[var(--color-brand-primary)]',
+      'border-2 border-[var(--sng-color-text-primary)]',
+      'hover:bg-[var(--sng-color-bg-overlay)]',
+      'focus-visible:ring-[var(--sng-color-brand-primary)]',
     ].join(' '),
   },
 
   size: {
-    small:  'h-8 px-3 text-sm rounded-[var(--radius-sm)]',
-    medium: 'h-10 px-4 text-base rounded-[var(--radius-base)]',
-    large:  'h-12 px-6 text-lg rounded-[var(--radius-md)]',
+    small: 'h-8 px-3 text-sm rounded-[var(--sng-radius-sm)]',
+    medium: 'h-10 px-4 text-base rounded-[var(--sng-radius-base)]',
+    large: 'h-12 px-6 text-lg rounded-[var(--sng-radius-md)]',
   },
 } as const;
 
@@ -99,8 +99,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             >
               <circle
                 className="opacity-25"
-                cx="12" cy="12" r="10"
-                stroke="currentColor" strokeWidth="4"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
               />
               <path
                 className="opacity-75"

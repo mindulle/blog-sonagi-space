@@ -24,8 +24,9 @@ export function Header() {
       className="sticky top-0 z-50 w-full backdrop-blur-md"
       style={{
         backgroundColor:
-          'color-mix(in srgb, var(--color-bg-surface) 80%, transparent)',
-        borderBottom: 'var(--border-thin) solid var(--color-border-default)',
+          'color-mix(in srgb, var(--sng-color-bg-surface) 80%, transparent)',
+        borderBottom:
+          'var(--sng-border-thin) solid var(--sng-color-border-default)',
       }}
     >
       <div className="container mx-auto px-4">
@@ -33,7 +34,7 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center transition-opacity hover:opacity-80 text-[var(--color-text-primary)]"
+            className="flex items-center transition-opacity hover:opacity-80 text-[var(--sng-color-text-primary)]"
           >
             <Logo height={28} />
           </Link>
@@ -48,8 +49,8 @@ export function Header() {
                 style={{
                   color:
                     pathname === item.href
-                      ? 'var(--color-brand-primary)'
-                      : 'var(--color-text-secondary)',
+                      ? 'var(--sng-color-brand-primary)'
+                      : 'var(--sng-color-text-secondary)',
                 }}
               >
                 {item.name}
