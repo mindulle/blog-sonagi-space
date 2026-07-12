@@ -57,7 +57,7 @@ export function PostContent({
   const tooltipVisibleRef = useRef(false);
 
   const checkIsTouchDevice = () => {
-    if (typeof window === 'undefined') return false;
+    if (typeof window === 'undefined') return false; console.log("isTouch:", window.matchMedia('(hover: none) and (pointer: coarse)').matches);
     return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
   };
 
@@ -73,7 +73,7 @@ export function PostContent({
   }, []);
 
   const handleMouseEnter = useCallback(
-    async (target: HTMLAnchorElement, slug: string) => {
+    (e: MouseEvent, slug: string) => {
       if (checkIsTouchDevice()) return;
 
       clearTimers();
@@ -90,6 +90,8 @@ export function PostContent({
         }
         return prev;
       });
+
+      const target = e.currentTarget as HTMLAnchorElement;
 
       showTimer.current = setTimeout(async () => {
         let note = cache.current.get(slug);
@@ -143,19 +145,26 @@ export function PostContent({
     [clearTimers]
   );
 
-  const handleMouseLeave = useCallback(() => {
-    if (checkIsTouchDevice()) return;
+  const handleMouseLeave = useCallback(
+    (e?: MouseEvent) => {
+      if (checkIsTouchDevice()) return;
 
-    clearTimers();
-    hoveredSlugRef.current = null;
-    hideTimer.current = setTimeout(() => {
-      setTooltip((prev) => (prev.visible ? { ...prev, visible: false } : prev));
-    }, 200);
-  }, [clearTimers]);
+      clearTimers();
+      hoveredSlugRef.current = null;
+      hideTimer.current = setTimeout(() => {
+        setTooltip((prev) =>
+          prev.visible ? { ...prev, visible: false } : prev
+        );
+      }, 200);
+    },
+    [clearTimers]
+  );
 
   const handleClick = useCallback(
-    async (e: MouseEvent, target: HTMLAnchorElement, slug: string) => {
+    async (e: MouseEvent, slug: string) => {
       if (!checkIsTouchDevice()) return;
+
+      const target = e.currentTarget as HTMLAnchorElement;
 
       if (tooltipVisibleRef.current && hoveredSlugRef.current === slug) {
         return;
@@ -242,43 +251,35 @@ export function PostContent({
     const container = containerRef.current;
     if (!container) return;
 
-    // Event Delegation
-    const handleMouseOver = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest('a.wikilink') as HTMLAnchorElement;
-      if (link) {
-        const slug = link.getAttribute('data-slug');
-        if (slug) handleMouseEnter(link, slug);
-      }
-    };
+    const links = Array.from(
+      container.querySelectorAll<HTMLAnchorElement>('a.wikilink')
+    );
+    const cleanups: Array<() => void> = [];
 
-    const handleMouseOut = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest('a.wikilink') as HTMLAnchorElement;
-      if (link) {
-        handleMouseLeave();
-      }
-    };
+    for (const link of links) {
+      const slug = link.getAttribute('data-slug') ?? '';
+      if (!slug) continue;
 
-    const handleContainerClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const link = target.closest('a.wikilink') as HTMLAnchorElement;
-      if (link) {
-        const slug = link.getAttribute('data-slug');
-        if (slug) handleClick(e, link, slug);
-      }
-    };
+      const onEnter = (e: Event) =>
+        handleMouseEnter(e as unknown as MouseEvent, slug);
+      const onLeave = (e: Event) =>
+        handleMouseLeave(e as unknown as MouseEvent);
+      const onClick = (e: Event) =>
+        handleClick(e as unknown as MouseEvent, slug);
 
-    container.addEventListener('mouseover', handleMouseOver);
-    container.addEventListener('mouseout', handleMouseOut);
-    container.addEventListener('click', handleContainerClick);
+      link.addEventListener('mouseenter', onEnter);
+      link.addEventListener('mouseleave', onLeave);
+      link.addEventListener('click', onClick);
 
-    return () => {
-      container.removeEventListener('mouseover', handleMouseOver);
-      container.removeEventListener('mouseout', handleMouseOut);
-      container.removeEventListener('click', handleContainerClick);
-    };
-  }, [handleMouseEnter, handleMouseLeave, handleClick]);
+      cleanups.push(() => {
+        link.removeEventListener('mouseenter', onEnter);
+        link.removeEventListener('mouseleave', onLeave);
+        link.removeEventListener('click', onClick);
+      });
+    }
+
+    return () => cleanups.forEach((fn) => fn());
+  }, [html, handleMouseEnter, handleMouseLeave, handleClick]);
 
   return (
     <>
@@ -311,9 +312,9 @@ export function PostContent({
                   left: tooltip.x,
                   zIndex: 99999,
                   width: '280px',
-                  background: 'var(--sng-color-bg-surface)',
-                  border: '1px solid var(--sng-color-border-default)',
-                  borderRadius: 'var(--sng-radius-lg)',
+                  background: 'var(--color-bg-surface)',
+                  border: '1px solid var(--color-border-default)',
+                  borderRadius: 'var(--radius-lg)',
                   padding: 'var(--space-4)',
                   boxShadow:
                     '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
@@ -323,7 +324,7 @@ export function PostContent({
                 <p
                   style={{
                     fontWeight: '700',
-                    color: 'var(--sng-color-text-primary)',
+                    color: 'var(--color-text-primary)',
                     marginBottom: 'var(--space-2)',
                     fontSize: 'var(--text-sm)',
                     lineHeight: '1.4',
@@ -335,7 +336,7 @@ export function PostContent({
                   <p
                     style={{
                       fontSize: 'var(--text-xs)',
-                      color: 'var(--sng-color-text-secondary)',
+                      color: 'var(--color-text-secondary)',
                       lineHeight: '1.6',
                       display: '-webkit-box',
                       WebkitLineClamp: 3,
@@ -361,10 +362,10 @@ export function PostContent({
                         style={{
                           fontSize: '10px',
                           padding: '2px 8px',
-                          background: 'var(--sng-color-bg-subtle)',
-                          border: '1px solid var(--sng-color-border-default)',
+                          background: 'var(--color-bg-subtle)',
+                          border: '1px solid var(--color-border-default)',
                           borderRadius: '9999px',
-                          color: 'var(--sng-color-text-secondary)',
+                          color: 'var(--color-text-secondary)',
                           fontWeight: '500',
                         }}
                       >
@@ -375,7 +376,7 @@ export function PostContent({
                       <span
                         style={{
                           fontSize: '10px',
-                          color: 'var(--sng-color-text-muted)',
+                          color: 'var(--color-text-muted)',
                           padding: '2px 4px',
                         }}
                       >
@@ -387,7 +388,7 @@ export function PostContent({
                 <div
                   style={{
                     marginTop: 'var(--space-3)',
-                    borderTop: '1px solid var(--sng-color-border-default)',
+                    borderTop: '1px solid var(--color-border-default)',
                     paddingTop: 'var(--space-3)',
                   }}
                 >
@@ -397,18 +398,18 @@ export function PostContent({
                       display: 'inline-flex',
                       alignItems: 'center',
                       fontSize: 'var(--text-xs)',
-                      color: 'var(--sng-color-text-primary)',
+                      color: 'var(--color-text-primary)',
                       textDecoration: 'none',
                       fontWeight: '600',
                       transition: 'color 0.2s ease',
                     }}
                     onMouseEnter={(e) =>
                       (e.currentTarget.style.color =
-                        'var(--sng-color-brand-primary)')
+                        'var(--color-brand-primary)')
                     }
                     onMouseLeave={(e) =>
                       (e.currentTarget.style.color =
-                        'var(--sng-color-text-primary)')
+                        'var(--color-text-primary)')
                     }
                   >
                     문서 깊이 읽기 <span style={{ marginLeft: '4px' }}>→</span>

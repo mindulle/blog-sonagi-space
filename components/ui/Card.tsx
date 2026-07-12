@@ -9,27 +9,27 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const styles = {
-  base: 'rounded-[var(--radius-md)] transition-all duration-[var(--duration-base)]',
+  base: 'rounded-[var(--sng-radius-md)] transition-all duration-[var(--sng-duration-base)]',
 
   variant: {
     elevated: [
-      'bg-[var(--color-bg-surface)]',
-      'shadow-[var(--shadow-md)]',
+      'bg-[var(--sng-color-bg-surface)]',
+      'shadow-[var(--sng-shadow-md)]',
     ].join(' '),
 
     outlined: [
-      'bg-[var(--color-bg-surface)]',
-      'border-2 border-[var(--color-border-default)]',
+      'bg-[var(--sng-color-bg-surface)]',
+      'border-2 border-[var(--sng-color-border-default)]',
     ].join(' '),
 
-    filled: ['bg-[var(--color-bg-overlay)]'].join(' '),
+    filled: ['bg-[var(--sng-color-bg-overlay)]'].join(' '),
   },
 
   hoverable: [
     'cursor-pointer',
     'hover:-translate-y-1',
-    'hover:shadow-[var(--shadow-lg)]',
-    'hover:border-[var(--color-border-strong)]',
+    'hover:shadow-[var(--sng-shadow-lg)]',
+    'hover:border-[var(--sng-color-border-strong)]',
   ].join(' '),
 } as const;
 

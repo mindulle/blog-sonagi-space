@@ -1,0 +1,10 @@
+--- PostContent.tsx
++++ PostContent.tsx
+@@ -140,6 +140,7 @@
+ 
+   const handleMouseLeave = useCallback(
+     (e?: MouseEvent) => {
++      console.log('handleMouseLeave called. isTouch:', checkIsTouchDevice());
+       if (checkIsTouchDevice()) return;
+ 
+       clearTimers();

@@ -66,7 +66,7 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
       <div className="relative">
         <Search
           className="absolute left-3 top-1/2 -translate-y-1/2"
-          style={{ color: 'var(--color-text-muted)' }}
+          style={{ color: 'var(--sng-color-text-muted)' }}
           size={20}
         />
         <input
@@ -81,9 +81,9 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
             'transition-colors'
           )}
           style={{
-            border: '1px solid var(--color-border-default)',
-            backgroundColor: 'var(--color-bg-elevated)',
-            color: 'var(--color-text-primary)',
+            border: '1px solid var(--sng-color-border-default)',
+            backgroundColor: 'var(--sng-color-bg-elevated)',
+            color: 'var(--sng-color-text-primary)',
           }}
           aria-label="Search posts"
         />
@@ -92,7 +92,7 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
             type="button"
             onClick={handleClear}
             className="absolute right-3 top-1/2 -translate-y-1/2 transition-colors"
-            style={{ color: 'var(--color-text-muted)' }}
+            style={{ color: 'var(--sng-color-text-muted)' }}
             aria-label="Clear search"
           >
             <X size={20} />
@@ -101,15 +101,15 @@ export function SearchBar({ className, autoFocus, onClose }: SearchBarProps) {
       </div>
       <p
         className="mt-2 text-xs"
-        style={{ color: 'var(--color-text-muted)' }}
+        style={{ color: 'var(--sng-color-text-muted)' }}
       >
         Press{' '}
         <kbd
           className="px-1.5 py-0.5 rounded"
           style={{
-            backgroundColor: 'var(--color-bg-overlay)',
-            border: '1px solid var(--color-border-default)',
-            color: 'var(--color-text-secondary)',
+            backgroundColor: 'var(--sng-color-bg-overlay)',
+            border: '1px solid var(--sng-color-border-default)',
+            color: 'var(--sng-color-text-secondary)',
           }}
         >
           ⌘K

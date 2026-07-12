@@ -40,7 +40,7 @@ export default async function NotesPage() {
           style={{
             fontSize: 'clamp(2rem, 6vw, 3rem)',
             fontWeight: '700',
-            color: 'var(--color-text-primary)',
+            color: 'var(--sng-color-text-primary)',
             marginBottom: 'var(--space-3)',
           }}
         >
@@ -48,7 +48,7 @@ export default async function NotesPage() {
         </h1>
         <p
           style={{
-            color: 'var(--color-text-secondary)',
+            color: 'var(--sng-color-text-secondary)',
             fontSize: 'var(--text-lg)',
           }}
         >
@@ -63,10 +63,10 @@ export default async function NotesPage() {
           style={{
             width: '100%',
             height: '600px',
-            border: '1px solid var(--color-border-default)',
-            borderRadius: 'var(--radius-xl)',
+            border: '1px solid var(--sng-color-border-default)',
+            borderRadius: 'var(--sng-radius-xl)',
             overflow: 'hidden',
-            backgroundColor: 'var(--color-bg-subtle)',
+            backgroundColor: 'var(--sng-color-bg-subtle)',
           }}
         >
           {graphData.nodes.length > 0 && (
@@ -82,13 +82,13 @@ export default async function NotesPage() {
             fontSize: 'var(--text-2xl)',
             fontWeight: '600',
             marginBottom: 'var(--space-6)',
-            color: 'var(--color-text-primary)',
+            color: 'var(--sng-color-text-primary)',
           }}
         >
           최근 기록된 씨앗들
         </h2>
         {notes.length === 0 ? (
-          <p style={{ color: 'var(--color-text-secondary)' }}>
+          <p style={{ color: 'var(--sng-color-text-secondary)' }}>
             아직 노트가 없어요.
           </p>
         ) : (

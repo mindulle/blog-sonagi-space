@@ -62,15 +62,6 @@ export function WikiGraph({
     return () => window.removeEventListener('resize', updateDimensions);
   }, [height]);
 
-  useEffect(() => {
-    // 물리 엔진(d3-force) 거리 및 반발력 튜닝
-    if (fgRef.current) {
-      fgRef.current.d3Force('charge')?.strength(isLocal ? -250 : -50);
-      fgRef.current.d3Force('link')?.distance(isLocal ? 60 : 30);
-      fgRef.current.d3ReheatSimulation(); // 시뮬레이션 재활성화
-    }
-  }, [isLocal, data]);
-
   const handleNodeClick = useCallback(
     (node: any) => {
       if (node.visibility === 'public') {
@@ -86,10 +77,10 @@ export function WikiGraph({
       style={{
         position: 'relative',
         width: '100%',
-        borderRadius: 'var(--sng-radius-lg)',
+        borderRadius: 'var(--radius-lg)',
         overflow: 'hidden',
-        border: '2px solid var(--sng-color-border)',
-        backgroundColor: 'var(--sng-color-bg-surface)',
+        border: '2px solid var(--color-border)',
+        backgroundColor: 'var(--color-bg-surface)',
       }}
     >
       <ForceGraph2D
@@ -104,11 +95,11 @@ export function WikiGraph({
           if (node.visibility === 'private') return '#64748b'; // Slate for private
           return 'rgba(148, 163, 184, 0.2)'; // Faded for missing/shadow
         }}
-        linkColor={() => 'var(--sng-color-border)'}
+        linkColor={() => 'var(--color-border)'}
         linkWidth={1}
         linkDirectionalParticles={isLocal ? 2 : 0}
         linkDirectionalParticleSpeed={0.005}
-        cooldownTicks={100}
+        cooldownTicks={isLocal ? Infinity : 100}
         onNodeHover={(node: Node | any | null) => setHoverNode(node || null)}
         onNodeClick={handleNodeClick}
         onEngineStop={() => fgRef.current?.zoomToFit(400, 50)}
@@ -123,10 +114,10 @@ export function WikiGraph({
             top: '16px',
             left: '16px',
             maxWidth: '300px',
-            backgroundColor: 'var(--sng-color-bg-surface)',
-            border: '2px solid var(--sng-color-border-default)',
-            borderRadius: 'var(--sng-radius-md)',
-            boxShadow: '4px 4px 0 var(--sng-color-border-default)',
+            backgroundColor: 'var(--color-surface)',
+            border: '2px solid var(--color-border)',
+            borderRadius: 'var(--radius-md)',
+            boxShadow: '4px 4px 0 var(--color-border)',
             padding: 'var(--space-4)',
             pointerEvents: 'none',
           }}
@@ -156,7 +147,7 @@ export function WikiGraph({
               style={{
                 fontWeight: '700',
                 fontSize: 'var(--text-sm)',
-                color: 'var(--sng-color-text-primary)',
+                color: 'var(--color-text-primary)',
                 margin: 0,
               }}
             >
@@ -166,7 +157,7 @@ export function WikiGraph({
           <p
             style={{
               fontSize: 'var(--text-xs)',
-              color: 'var(--sng-color-text-secondary)',
+              color: 'var(--color-text-secondary)',
               lineHeight: 1.6,
               margin: 0,
               display: '-webkit-box',
@@ -184,7 +175,7 @@ export function WikiGraph({
                 marginTop: '8px',
                 fontSize: 'var(--text-xs)',
                 fontWeight: 600,
-                color: 'var(--sng-color-brand-primary)',
+                color: 'var(--color-brand-primary)',
               }}
             >
               클릭하여 읽기 →
@@ -196,7 +187,7 @@ export function WikiGraph({
                 marginTop: '8px',
                 fontSize: 'var(--text-xs)',
                 fontWeight: 500,
-                color: 'var(--sng-color-text-muted)',
+                color: 'var(--color-text-tertiary)',
               }}
             >
               {hoverNode.visibility === 'missing'

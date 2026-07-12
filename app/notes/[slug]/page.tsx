@@ -80,7 +80,7 @@ export default async function NotePage({ params }: Props) {
               alignItems: 'center',
               gap: 'var(--space-1)',
               fontSize: 'var(--text-sm)',
-              color: 'var(--color-text-secondary)',
+              color: 'var(--sng-color-text-secondary)',
               textDecoration: 'none',
               marginBottom: 'var(--space-4)',
             }}
@@ -91,7 +91,7 @@ export default async function NotePage({ params }: Props) {
             style={{
               fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
               fontWeight: '700',
-              color: 'var(--color-text-primary)',
+              color: 'var(--sng-color-text-primary)',
               marginBottom: 'var(--space-3)',
             }}
           >
@@ -102,9 +102,9 @@ export default async function NotePage({ params }: Props) {
               style={{
                 fontSize: 'var(--text-xs)',
                 padding: '2px 8px',
-                border: '1px solid var(--color-border-default)',
-                borderRadius: 'var(--radius-sm)',
-                color: 'var(--color-text-muted)',
+                border: '1px solid var(--sng-color-border-default)',
+                borderRadius: 'var(--sng-radius-sm)',
+                color: 'var(--sng-color-text-muted)',
               }}
             >
               🌱 Seed (작성 예정)
@@ -115,9 +115,9 @@ export default async function NotePage({ params }: Props) {
         {/* 씨앗 페이지 본문 안내 */}
         <div
           style={{
-            backgroundColor: 'var(--color-bg-subtle)',
-            border: '2px dashed var(--color-border-default)',
-            borderRadius: 'var(--radius-lg)',
+            backgroundColor: 'var(--sng-color-bg-subtle)',
+            border: '2px dashed var(--sng-color-border-default)',
+            borderRadius: 'var(--sng-radius-lg)',
             padding: 'var(--space-8) var(--space-4)',
             textAlign: 'center',
             marginBottom: 'var(--space-12)',
@@ -126,7 +126,7 @@ export default async function NotePage({ params }: Props) {
           <p
             style={{
               fontSize: 'var(--text-lg)',
-              color: 'var(--color-text-secondary)',
+              color: 'var(--sng-color-text-secondary)',
               margin: '0 0 var(--space-2) 0',
             }}
           >
@@ -135,7 +135,7 @@ export default async function NotePage({ params }: Props) {
           <p
             style={{
               fontSize: 'var(--text-sm)',
-              color: 'var(--color-text-muted)',
+              color: 'var(--sng-color-text-muted)',
               margin: 0,
             }}
           >
@@ -171,7 +171,7 @@ export default async function NotePage({ params }: Props) {
             alignItems: 'center',
             gap: 'var(--space-1)',
             fontSize: 'var(--text-sm)',
-            color: 'var(--color-text-secondary)',
+            color: 'var(--sng-color-text-secondary)',
             textDecoration: 'none',
             marginBottom: 'var(--space-4)',
           }}
@@ -183,7 +183,7 @@ export default async function NotePage({ params }: Props) {
           style={{
             fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
             fontWeight: '700',
-            color: 'var(--color-text-primary)',
+            color: 'var(--sng-color-text-primary)',
             marginBottom: 'var(--space-3)',
           }}
         >
@@ -200,9 +200,9 @@ export default async function NotePage({ params }: Props) {
                 style={{
                   fontSize: 'var(--text-xs)',
                   padding: '2px 8px',
-                  border: '1px solid var(--color-border-default)',
-                  borderRadius: 'var(--radius-sm)',
-                  color: 'var(--color-text-secondary)',
+                  border: '1px solid var(--sng-color-border-default)',
+                  borderRadius: 'var(--sng-radius-sm)',
+                  color: 'var(--sng-color-text-secondary)',
                 }}
               >
                 {tag}

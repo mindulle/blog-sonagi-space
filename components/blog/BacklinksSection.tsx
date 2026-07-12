@@ -30,7 +30,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
       style={{
         marginTop: 'var(--space-12)',
         paddingTop: 'var(--space-8)',
-        borderTop: '2px solid var(--color-border)',
+        borderTop: '2px solid var(--sng-color-border)',
       }}
     >
       <div
@@ -47,7 +47,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
             fontWeight: '600',
             textTransform: 'uppercase',
             letterSpacing: '0.05em',
-            color: 'var(--color-text-secondary)',
+            color: 'var(--sng-color-text-secondary)',
             margin: 0,
           }}
         >
@@ -57,8 +57,8 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
           style={{
             fontSize: 'var(--text-xs)',
             fontWeight: '600',
-            color: 'var(--color-text-muted)',
-            background: 'var(--color-bg-subtle)',
+            color: 'var(--sng-color-text-muted)',
+            background: 'var(--sng-color-bg-subtle)',
             padding: '2px 8px',
             borderRadius: '999px',
           }}
@@ -81,20 +81,20 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
             style={{
               display: 'block',
               padding: 'var(--space-4)',
-              border: '2px solid var(--color-border)',
-              borderRadius: 'var(--radius-md)',
+              border: '2px solid var(--sng-color-border)',
+              borderRadius: 'var(--sng-radius-md)',
               textDecoration: 'none',
               transition: 'border-color 0.15s, transform 0.15s',
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--color-brand-primary)';
+                'var(--sng-color-brand-primary)';
               (e.currentTarget as HTMLElement).style.transform =
                 'translate(-2px, -2px)';
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--color-border)';
+                'var(--sng-color-border)';
               (e.currentTarget as HTMLElement).style.transform = 'none';
             }}
           >
@@ -102,7 +102,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
               style={{
                 display: 'block',
                 fontWeight: '600',
-                color: 'var(--color-text-primary)',
+                color: 'var(--sng-color-text-primary)',
                 marginBottom: 'var(--space-2)',
               }}
             >
@@ -113,7 +113,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
                 {
                   display: '-webkit-box',
                   fontSize: 'var(--text-sm)',
-                  color: 'var(--color-text-secondary)',
+                  color: 'var(--sng-color-text-secondary)',
                   lineHeight: '1.5',
                   overflow: 'hidden',
                   WebkitLineClamp: 2,
@@ -133,26 +133,26 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
             onClick={() => setIsExpanded(true)}
             style={{
               background: 'transparent',
-              border: '2px solid var(--color-border)',
-              color: 'var(--color-text-secondary)',
+              border: '2px solid var(--sng-color-border)',
+              color: 'var(--sng-color-text-secondary)',
               fontWeight: '600',
               fontSize: 'var(--text-sm)',
               padding: 'var(--space-2) var(--space-6)',
-              borderRadius: 'var(--radius-full)',
+              borderRadius: 'var(--sng-radius-full)',
               cursor: 'pointer',
               transition: 'all 0.2s',
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--color-brand-primary)';
+                'var(--sng-color-brand-primary)';
               (e.currentTarget as HTMLElement).style.color =
-                'var(--color-brand-primary)';
+                'var(--sng-color-brand-primary)';
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--color-border)';
+                'var(--sng-color-border)';
               (e.currentTarget as HTMLElement).style.color =
-                'var(--color-text-secondary)';
+                'var(--sng-color-text-secondary)';
             }}
           >
             +{backlinks.length - INITIAL_LIMIT}개의 백링크 더 보기

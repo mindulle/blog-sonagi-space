@@ -17,7 +17,9 @@ export function BlogListClient({
   categories,
   postsPerPage = 9,
 }: BlogListClientProps) {
-  const [selectedCategory, setSelectedCategory] = useState<Category | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<Category | null>(
+    null
+  );
   const [currentPage, setCurrentPage] = useState(1);
 
   // 카테고리로 필터링된 포스트
@@ -57,7 +59,10 @@ export function BlogListClient({
       </div>
 
       {/* 결과 개수 */}
-      <div className="text-center text-sm" style={{ color: 'var(--color-text-secondary)' }}>
+      <div
+        className="text-center text-sm"
+        style={{ color: 'var(--sng-color-text-secondary)' }}
+      >
         {selectedCategory ? (
           <p>
             <span className="font-medium">{filteredPosts.length}개</span>의{' '}
@@ -88,7 +93,10 @@ export function BlogListClient({
         </>
       ) : (
         <div className="py-16 text-center">
-          <p className="text-lg" style={{ color: 'var(--color-text-secondary)' }}>
+          <p
+            className="text-lg"
+            style={{ color: 'var(--sng-color-text-secondary)' }}
+          >
             포스트가 없습니다.
           </p>
         </div>

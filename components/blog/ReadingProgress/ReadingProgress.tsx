@@ -13,7 +13,8 @@ export function ReadingProgress({ className }: ReadingProgressProps) {
   useEffect(() => {
     const updateProgress = () => {
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = (scrollTop / docHeight) * 100;
       setProgress(Math.min(Math.max(scrollPercent, 0), 100));
     };
@@ -32,7 +33,7 @@ export function ReadingProgress({ className }: ReadingProgressProps) {
   return (
     <div
       className={cn('fixed top-0 left-0 right-0 h-1 z-50', className)}
-      style={{ backgroundColor: 'var(--color-bg-overlay)' }}
+      style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
       role="progressbar"
       aria-label="Reading progress"
       aria-valuenow={progress}
@@ -44,7 +45,7 @@ export function ReadingProgress({ className }: ReadingProgressProps) {
         style={{
           width: `${progress}%`,
           background:
-            'linear-gradient(to right, var(--color-brand-primary), var(--color-brand-primary-hover))',
+            'linear-gradient(to right, var(--sng-color-brand-primary), var(--sng-color-brand-primary-hover))',
         }}
       />
     </div>

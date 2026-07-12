@@ -30,13 +30,13 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
         <div
           className="flex items-center justify-between px-4 py-2 border-b rounded-t-lg"
           style={{
-            backgroundColor: 'var(--color-bg-overlay)',
-            borderColor: 'var(--color-border-default)',
+            backgroundColor: 'var(--sng-color-bg-overlay)',
+            borderColor: 'var(--sng-color-border-default)',
           }}
         >
           <span
             className="text-xs font-mono uppercase"
-            style={{ color: 'var(--color-text-muted)' }}
+            style={{ color: 'var(--sng-color-text-muted)' }}
           >
             {language}
           </span>
@@ -47,8 +47,8 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
             className="flex items-center gap-1.5"
             style={{
               color: copied
-                ? 'var(--color-state-success)'
-                : 'var(--color-text-secondary)',
+                ? 'var(--sng-color-state-success)'
+                : 'var(--sng-color-text-secondary)',
             }}
             aria-label={copied ? 'Copied' : 'Copy code'}
           >
@@ -76,10 +76,10 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
             copied && 'opacity-100'
           )}
           style={{
-            backgroundColor: 'var(--color-bg-overlay)',
+            backgroundColor: 'var(--sng-color-bg-overlay)',
             color: copied
-              ? 'var(--color-state-success)'
-              : 'var(--color-text-secondary)',
+              ? 'var(--sng-color-state-success)'
+              : 'var(--sng-color-text-secondary)',
           }}
           aria-label={copied ? 'Copied' : 'Copy code'}
         >
