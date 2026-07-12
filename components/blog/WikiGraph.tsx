@@ -66,10 +66,17 @@ export function WikiGraph({
     });
 
     data.links.forEach((link) => {
+      if (!link) return;
       const sourceId =
-        typeof link.source === 'object' ? (link.source as any).id : link.source;
+        link.source && typeof link.source === 'object'
+          ? (link.source as any).id
+          : link.source;
       const targetId =
-        typeof link.target === 'object' ? (link.target as any).id : link.target;
+        link.target && typeof link.target === 'object'
+          ? (link.target as any).id
+          : link.target;
+
+      if (!sourceId || !targetId) return;
 
       if (!map.has(sourceId)) {
         map.set(sourceId, { neighbors: new Set([sourceId]), links: new Set() });
