@@ -2,9 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import type { ForceGraphMethods } from 'react-force-graph-2d';
+import * as d3 from 'd3-force';
 
 const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
   ssr: false,
@@ -56,32 +57,43 @@ export function WikiGraph({
   const [highlightNodes, setHighlightNodes] = useState(new Set<string>());
   const [highlightLinks, setHighlightLinks] = useState(new Set<Link>());
 
+  // Cache node connections using useMemo (caching neighbors and links for O(1) hover lookup)
+  const adjacencyList = useMemo(() => {
+    const map = new Map<string, { neighbors: Set<string>; links: Set<Link> }>();
+
+    data.nodes.forEach((node) => {
+      map.set(node.id, { neighbors: new Set([node.id]), links: new Set() });
+    });
+
+    data.links.forEach((link) => {
+      const sourceId =
+        typeof link.source === 'object' ? (link.source as any).id : link.source;
+      const targetId =
+        typeof link.target === 'object' ? (link.target as any).id : link.target;
+
+      if (!map.has(sourceId)) {
+        map.set(sourceId, { neighbors: new Set([sourceId]), links: new Set() });
+      }
+      if (!map.has(targetId)) {
+        map.set(targetId, { neighbors: new Set([targetId]), links: new Set() });
+      }
+
+      map.get(sourceId)!.neighbors.add(targetId);
+      map.get(sourceId)!.links.add(link);
+
+      map.get(targetId)!.neighbors.add(sourceId);
+      map.get(targetId)!.links.add(link);
+    });
+
+    return map;
+  }, [data.nodes, data.links]);
+
   const handleNodeHover = useCallback(
     (node: Node | any | null) => {
       setHoverNode(node || null);
 
-      if (node) {
-        const neighbors = new Set<string>();
-        neighbors.add(node.id);
-
-        const links = new Set<Link>();
-        data.links.forEach((link) => {
-          const sourceId =
-            typeof link.source === 'object'
-              ? (link.source as any).id
-              : link.source;
-          const targetId =
-            typeof link.target === 'object'
-              ? (link.target as any).id
-              : link.target;
-
-          if (sourceId === node.id || targetId === node.id) {
-            neighbors.add(sourceId);
-            neighbors.add(targetId);
-            links.add(link);
-          }
-        });
-
+      if (node && adjacencyList.has(node.id)) {
+        const { neighbors, links } = adjacencyList.get(node.id)!;
         setHighlightNodes(neighbors);
         setHighlightLinks(links);
       } else {
@@ -89,7 +101,7 @@ export function WikiGraph({
         setHighlightLinks(new Set());
       }
     },
-    [data]
+    [adjacencyList]
   );
 
   useEffect(() => {
@@ -112,45 +124,45 @@ export function WikiGraph({
   useEffect(() => {
     // 물리 엔진(d3-force) 거리 및 반발력 튜닝
     if (fgRef.current && !isLocal) {
-      // Import d3-force dynamically or rely on react-force-graph's internal d3 mapping
-      import('d3-force').then((d3) => {
-        // 그룹별 군집(Clustering)을 위한 가상의 중력점 좌표
-        const clusterCenters: Record<string, { x: number; y: number }> = {
-          frontend: { x: -300, y: -200 },
-          backend: { x: 300, y: -200 },
-          design: { x: -300, y: 200 },
-          'ai-ml': { x: 300, y: 200 },
-          cs: { x: 0, y: 0 },
-          management: { x: 0, y: 300 },
-          etc: { x: 0, y: -300 },
-          orphan: { x: 0, y: 0 },
-        };
+      // 그룹별 군집(Clustering)을 위한 가상의 중력점 좌표
+      const clusterCenters: Record<string, { x: number; y: number }> = {
+        frontend: { x: -300, y: -200 },
+        backend: { x: 300, y: -200 },
+        design: { x: -300, y: 200 },
+        'ai-ml': { x: 300, y: 200 },
+        cs: { x: 0, y: 0 },
+        management: { x: 0, y: 300 },
+        etc: { x: 0, y: -300 },
+        orphan: { x: 0, y: 0 },
+      };
 
-        const chargeStrength = Math.min(-250, data.nodes.length * -15);
-        fgRef.current.d3Force('charge')?.strength(chargeStrength);
-        fgRef.current.d3Force('link')?.distance(80);
+      const chargeStrength = Math.min(-250, data.nodes.length * -15);
+      fgRef.current.d3Force('charge')?.strength(chargeStrength);
+      fgRef.current.d3Force('link')?.distance(80);
 
-        // 커스텀 Force 주입: 같은 그룹끼리 특정 좌표로 끌어당김
-        fgRef.current.d3Force(
-          'x',
-          d3
-            .forceX()
-            .x((d: any) => clusterCenters[d.group]?.x || 0)
-            .strength(0.08)
-        );
-        fgRef.current.d3Force(
-          'y',
-          d3
-            .forceY()
-            .y((d: any) => clusterCenters[d.group]?.y || 0)
-            .strength(0.08)
-        );
+      // 커스텀 Force 주입: 같은 그룹끼리 특정 좌표로 끌어당김
+      fgRef.current.d3Force(
+        'x',
+        d3
+          .forceX()
+          .x((d: any) => clusterCenters[d.group]?.x || 0)
+          .strength(0.08)
+      );
+      fgRef.current.d3Force(
+        'y',
+        d3
+          .forceY()
+          .y((d: any) => clusterCenters[d.group]?.y || 0)
+          .strength(0.08)
+      );
 
-        fgRef.current.d3ReheatSimulation();
-      });
+      fgRef.current.d3ReheatSimulation();
     } else if (fgRef.current && isLocal) {
       fgRef.current.d3Force('charge')?.strength(-250);
       fgRef.current.d3Force('link')?.distance(80);
+      // 로컬 그래프에서는 x, y custom force 제거하여 단일 중력 중심으로 원형 정렬
+      fgRef.current.d3Force('x', null);
+      fgRef.current.d3Force('y', null);
       fgRef.current.d3ReheatSimulation();
     }
   }, [isLocal, data]);
