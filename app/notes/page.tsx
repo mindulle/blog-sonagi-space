@@ -1,8 +1,5 @@
-import fs from 'fs';
-import path from 'path';
 import { getAllNotes } from '@/lib/notes';
 import { NoteCard } from '@/components/blog/NoteCard';
-import { WikiGraph } from '@/components/blog/WikiGraph';
 
 export const metadata = {
   title: 'Digital Garden',
@@ -12,20 +9,6 @@ export const metadata = {
 export default async function NotesPage() {
   // OOM 방지 및 렌더링 최적화를 위해 최신 50개의 노트만 잘라서 가져옵니다.
   const notes = getAllNotes().slice(0, 50);
-
-  // 그래프 데이터 로드
-  const graphDataPath = path.join(process.cwd(), 'public', 'wiki-graph.json');
-  let graphData = { nodes: [], links: [] };
-  try {
-    const fileContent = await fs.promises.readFile(graphDataPath, 'utf8');
-    const parsed = JSON.parse(fileContent);
-    graphData = {
-      nodes: Array.isArray(parsed?.nodes) ? parsed.nodes : [],
-      links: Array.isArray(parsed?.links) ? parsed.links : [],
-    };
-  } catch (error) {
-    console.error('Failed to load wiki-graph.json:', error);
-  }
 
   return (
     <main
@@ -55,25 +38,6 @@ export default async function NotesPage() {
           개념과 영감들이 거미줄처럼 연결되어 자라나는 지식 정원
         </p>
       </header>
-
-      {/* 지식 그래프 뷰 */}
-      <section style={{ marginBottom: 'var(--space-12)' }}>
-        <div
-          id="graph-container"
-          style={{
-            width: '100%',
-            height: '600px',
-            border: '1px solid var(--sng-color-border-default)',
-            borderRadius: 'var(--sng-radius-xl)',
-            overflow: 'hidden',
-            backgroundColor: 'var(--sng-color-bg-subtle)',
-          }}
-        >
-          {graphData.nodes.length > 0 && (
-            <WikiGraph data={graphData} height={600} />
-          )}
-        </div>
-      </section>
 
       {/* 최근 노트 목록 */}
       <section style={{ maxWidth: '720px', margin: '0 auto' }}>
