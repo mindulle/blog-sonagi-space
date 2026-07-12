@@ -60,6 +60,17 @@ export function Footer() {
                 </Link>
               </li>
               <li>
+                <a
+                  href="https://design.sonagi.space"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="소나기 디자인 시스템 (새 창으로 열림)"
+                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                >
+                  Design System
+                </a>
+              </li>
+              <li>
                 <Link
                   href="/privacy"
                   className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
@@ -132,9 +143,15 @@ export function Footer() {
                 Next.js
               </a>{' '}
               and{' '}
-              <span className="text-[var(--sng-color-brand-primary)]">
+              <a
+                href="https://design.sonagi.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="소나기 디자인 시스템 (새 창으로 열림)"
+                className="hover:underline text-[var(--sng-color-brand-primary)]"
+              >
                 소나기 Design System
-              </span>
+              </a>
             </p>
           </div>
         </div>
