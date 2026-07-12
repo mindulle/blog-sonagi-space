@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import type React from 'react';
+import { Button } from '@/components/ui/Button';
 
 interface Backlink {
   sourceSlug: string;
@@ -13,150 +14,180 @@ interface BacklinksSectionProps {
   backlinks: Backlink[];
 }
 
-const INITIAL_LIMIT = 6;
+const INITIAL_LIMIT = 10;
 
 export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredBacklinks = useMemo(() => {
+    if (!searchQuery.trim()) return backlinks;
+    const lowerQuery = searchQuery.toLowerCase();
+    return backlinks.filter(
+      (link) =>
+        link.sourceTitle.toLowerCase().includes(lowerQuery) ||
+        link.excerpt.toLowerCase().includes(lowerQuery)
+    );
+  }, [backlinks, searchQuery]);
 
   if (backlinks.length === 0) return null;
 
-  const hasMore = backlinks.length > INITIAL_LIMIT;
+  const hasMore = filteredBacklinks.length > INITIAL_LIMIT;
   const visibleBacklinks = isExpanded
-    ? backlinks
-    : backlinks.slice(0, INITIAL_LIMIT);
+    ? filteredBacklinks
+    : filteredBacklinks.slice(0, INITIAL_LIMIT);
 
   return (
     <section
       style={{
-        marginTop: 'var(--space-12)',
-        paddingTop: 'var(--space-8)',
-        borderTop: '2px solid var(--sng-color-border)',
+        marginTop: 'var(--sng-spacing-12)',
+        paddingTop: 'var(--sng-spacing-8)',
+        borderTop: '2px solid var(--sng-color-border-default)',
       }}
     >
       <div
         style={{
           display: 'flex',
           alignItems: 'center',
-          gap: '8px',
-          marginBottom: 'var(--space-4)',
+          justifyContent: 'space-between',
+          marginBottom: 'var(--sng-spacing-4)',
         }}
       >
-        <h3
-          style={{
-            fontSize: 'var(--text-sm)',
-            fontWeight: '600',
-            textTransform: 'uppercase',
-            letterSpacing: '0.05em',
-            color: 'var(--sng-color-text-secondary)',
-            margin: 0,
-          }}
-        >
-          이 노트를 언급한 곳
-        </h3>
-        <span
-          style={{
-            fontSize: 'var(--text-xs)',
-            fontWeight: '600',
-            color: 'var(--sng-color-text-muted)',
-            background: 'var(--sng-color-bg-subtle)',
-            padding: '2px 8px',
-            borderRadius: '999px',
-          }}
-        >
-          {backlinks.length}
-        </span>
-      </div>
-
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-          gap: 'var(--space-4)',
-        }}
-      >
-        {visibleBacklinks.map((link) => (
-          <a
-            key={link.sourceSlug}
-            href={`/notes/${link.sourceSlug}`}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <h3
             style={{
-              display: 'block',
-              padding: 'var(--space-4)',
-              border: '2px solid var(--sng-color-border)',
-              borderRadius: 'var(--sng-radius-md)',
-              textDecoration: 'none',
-              transition: 'border-color 0.15s, transform 0.15s',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--sng-color-brand-primary)';
-              (e.currentTarget as HTMLElement).style.transform =
-                'translate(-2px, -2px)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--sng-color-border)';
-              (e.currentTarget as HTMLElement).style.transform = 'none';
+              fontSize: 'var(--sng-font-size-sm)',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+              color: 'var(--sng-color-text-secondary)',
+              margin: 0,
             }}
           >
-            <span
+            이 노트를 언급한 곳
+          </h3>
+          <span
+            style={{
+              fontSize: 'var(--sng-font-size-xs)',
+              fontWeight: '600',
+              color: 'var(--sng-color-text-muted)',
+              background: 'var(--sng-color-bg-overlay)',
+              padding: '2px 8px',
+              borderRadius: '999px',
+            }}
+          >
+            {backlinks.length}
+          </span>
+        </div>
+
+        {backlinks.length > 30 && (
+          <input
+            type="text"
+            placeholder="백링크 검색..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            style={{
+              padding: '4px 12px',
+              fontSize: 'var(--sng-font-size-sm)',
+              borderRadius: 'var(--sng-radius-md)',
+              border: '1px solid var(--sng-color-border-default)',
+              background: 'var(--sng-color-bg-surface)',
+              color: 'var(--sng-color-text-primary)',
+              outline: 'none',
+              width: '200px',
+            }}
+            onFocus={(e) =>
+              (e.currentTarget.style.borderColor =
+                'var(--sng-color-brand-primary)')
+            }
+            onBlur={(e) =>
+              (e.currentTarget.style.borderColor =
+                'var(--sng-color-border-default)')
+            }
+          />
+        )}
+      </div>
+
+      {filteredBacklinks.length === 0 ? (
+        <div
+          style={{
+            padding: 'var(--sng-spacing-8)',
+            textAlign: 'center',
+            color: 'var(--sng-color-text-muted)',
+            fontSize: 'var(--sng-font-size-sm)',
+            border: '1px dashed var(--sng-color-border-default)',
+            borderRadius: 'var(--sng-radius-md)',
+          }}
+        >
+          검색 결과가 없습니다.
+        </div>
+      ) : (
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
+            gap: 'var(--sng-spacing-4)',
+          }}
+        >
+          {visibleBacklinks.map((link) => (
+            <a
+              key={link.sourceSlug}
+              href={`/notes/${link.sourceSlug}`}
               style={{
                 display: 'block',
-                fontWeight: '600',
-                color: 'var(--sng-color-text-primary)',
-                marginBottom: 'var(--space-2)',
+                padding: 'var(--sng-spacing-4)',
+                border: '2px solid var(--sng-color-border-default)',
+                borderRadius: 'var(--sng-radius-md)',
+                textDecoration: 'none',
+                transition: 'border-color 0.15s, transform 0.15s',
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor =
+                  'var(--sng-color-brand-primary)';
+                (e.currentTarget as HTMLElement).style.transform =
+                  'translate(-2px, -2px)';
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLElement).style.borderColor =
+                  'var(--sng-color-border-default)';
+                (e.currentTarget as HTMLElement).style.transform = 'none';
               }}
             >
-              {link.sourceTitle}
-            </span>
-            <span
-              style={
-                {
-                  display: '-webkit-box',
-                  fontSize: 'var(--text-sm)',
-                  color: 'var(--sng-color-text-secondary)',
-                  lineHeight: '1.5',
-                  overflow: 'hidden',
-                  WebkitLineClamp: 2,
-                  WebkitBoxOrient: 'vertical',
-                } as React.CSSProperties
-              }
-            >
-              {link.excerpt}
-            </span>
-          </a>
-        ))}
-      </div>
+              <span
+                style={{
+                  display: 'block',
+                  fontWeight: '600',
+                  color: 'var(--sng-color-text-primary)',
+                  marginBottom: 'var(--sng-spacing-2)',
+                }}
+              >
+                {link.sourceTitle}
+              </span>
+              <span
+                style={
+                  {
+                    display: '-webkit-box',
+                    fontSize: 'var(--sng-font-size-sm)',
+                    color: 'var(--sng-color-text-secondary)',
+                    lineHeight: '1.5',
+                    overflow: 'hidden',
+                    WebkitLineClamp: 2,
+                    WebkitBoxOrient: 'vertical',
+                  } as React.CSSProperties
+                }
+              >
+                {link.excerpt}
+              </span>
+            </a>
+          ))}
+        </div>
+      )}
 
       {hasMore && !isExpanded && (
-        <div style={{ marginTop: 'var(--space-6)', textAlign: 'center' }}>
-          <button
-            onClick={() => setIsExpanded(true)}
-            style={{
-              background: 'transparent',
-              border: '2px solid var(--sng-color-border)',
-              color: 'var(--sng-color-text-secondary)',
-              fontWeight: '600',
-              fontSize: 'var(--text-sm)',
-              padding: 'var(--space-2) var(--space-6)',
-              borderRadius: 'var(--sng-radius-full)',
-              cursor: 'pointer',
-              transition: 'all 0.2s',
-            }}
-            onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--sng-color-brand-primary)';
-              (e.currentTarget as HTMLElement).style.color =
-                'var(--sng-color-brand-primary)';
-            }}
-            onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.borderColor =
-                'var(--sng-color-border)';
-              (e.currentTarget as HTMLElement).style.color =
-                'var(--sng-color-text-secondary)';
-            }}
-          >
-            +{backlinks.length - INITIAL_LIMIT}개의 백링크 더 보기
-          </button>
+        <div style={{ marginTop: 'var(--sng-spacing-6)', textAlign: 'center' }}>
+          <Button variant="secondary" onClick={() => setIsExpanded(true)}>
+            + {filteredBacklinks.length - INITIAL_LIMIT}개의 백링크 더 보기
+          </Button>
         </div>
       )}
     </section>
