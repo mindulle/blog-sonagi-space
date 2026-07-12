@@ -53,6 +53,44 @@ export function WikiGraph({
   const router = useRouter();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [hoverNode, setHoverNode] = useState<Node | null>(null);
+  const [highlightNodes, setHighlightNodes] = useState(new Set<string>());
+  const [highlightLinks, setHighlightLinks] = useState(new Set<Link>());
+
+  const handleNodeHover = useCallback(
+    (node: Node | any | null) => {
+      setHoverNode(node || null);
+
+      if (node) {
+        const neighbors = new Set<string>();
+        neighbors.add(node.id);
+
+        const links = new Set<Link>();
+        data.links.forEach((link) => {
+          const sourceId =
+            typeof link.source === 'object'
+              ? (link.source as any).id
+              : link.source;
+          const targetId =
+            typeof link.target === 'object'
+              ? (link.target as any).id
+              : link.target;
+
+          if (sourceId === node.id || targetId === node.id) {
+            neighbors.add(sourceId);
+            neighbors.add(targetId);
+            links.add(link);
+          }
+        });
+
+        setHighlightNodes(neighbors);
+        setHighlightLinks(links);
+      } else {
+        setHighlightNodes(new Set());
+        setHighlightLinks(new Set());
+      }
+    },
+    [data]
+  );
 
   useEffect(() => {
     const updateDimensions = () => {
@@ -73,15 +111,47 @@ export function WikiGraph({
 
   useEffect(() => {
     // 물리 엔진(d3-force) 거리 및 반발력 튜닝
-    if (fgRef.current) {
-      // 노드 수가 많아지면 반발력을 동적으로 더 강하게 주어 뭉침 방지 (중력 제어)
-      const chargeStrength = isLocal
-        ? Math.min(-250, data.nodes.length * -15)
-        : -50;
+    if (fgRef.current && !isLocal) {
+      // Import d3-force dynamically or rely on react-force-graph's internal d3 mapping
+      import('d3-force').then((d3) => {
+        // 그룹별 군집(Clustering)을 위한 가상의 중력점 좌표
+        const clusterCenters: Record<string, { x: number; y: number }> = {
+          frontend: { x: -300, y: -200 },
+          backend: { x: 300, y: -200 },
+          design: { x: -300, y: 200 },
+          'ai-ml': { x: 300, y: 200 },
+          cs: { x: 0, y: 0 },
+          management: { x: 0, y: 300 },
+          etc: { x: 0, y: -300 },
+          orphan: { x: 0, y: 0 },
+        };
 
-      fgRef.current.d3Force('charge')?.strength(chargeStrength);
-      fgRef.current.d3Force('link')?.distance(isLocal ? 80 : 30);
-      fgRef.current.d3ReheatSimulation(); // 시뮬레이션 재활성화
+        const chargeStrength = Math.min(-250, data.nodes.length * -15);
+        fgRef.current.d3Force('charge')?.strength(chargeStrength);
+        fgRef.current.d3Force('link')?.distance(80);
+
+        // 커스텀 Force 주입: 같은 그룹끼리 특정 좌표로 끌어당김
+        fgRef.current.d3Force(
+          'x',
+          d3
+            .forceX()
+            .x((d: any) => clusterCenters[d.group]?.x || 0)
+            .strength(0.08)
+        );
+        fgRef.current.d3Force(
+          'y',
+          d3
+            .forceY()
+            .y((d: any) => clusterCenters[d.group]?.y || 0)
+            .strength(0.08)
+        );
+
+        fgRef.current.d3ReheatSimulation();
+      });
+    } else if (fgRef.current && isLocal) {
+      fgRef.current.d3Force('charge')?.strength(-250);
+      fgRef.current.d3Force('link')?.distance(80);
+      fgRef.current.d3ReheatSimulation();
     }
   }, [isLocal, data]);
 
@@ -115,22 +185,40 @@ export function WikiGraph({
         height={dimensions.height}
         graphData={data}
         nodeLabel="" // We implement custom hover
+        nodeVal={(node: any) => node.val || 1} // 가중치에 따른 노드 크기 차별화
         nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
         nodeColor={(node: Node | any) => {
-          if (node.group === 'dummy')
-            return getCssVar('--sng-color-border-default', '#30363d');
-          if (node.visibility === 'public')
-            return getCssVar('--sng-color-brand-primary', '#58a6ff');
-          if (node.visibility === 'private')
-            return getCssVar('--sng-color-text-muted', '#8b949e');
-          return 'rgba(148, 163, 184, 0.2)'; // Faded for missing/shadow
+          // 호버 상태일 때 이웃 노드가 아니면 투명하게(Dimming) 처리
+          const isDimmed = hoverNode && !highlightNodes.has(node.id);
+          const opacity = isDimmed ? 0.1 : 1;
+
+          if (node.group === 'dummy') return `rgba(148, 163, 184, ${opacity})`;
+
+          if (node.visibility === 'public') {
+            return isDimmed
+              ? `rgba(88, 166, 255, 0.1)`
+              : getCssVar('--sng-color-brand-primary', '#58a6ff');
+          }
+          if (node.visibility === 'private') {
+            return isDimmed
+              ? `rgba(139, 148, 158, 0.1)`
+              : getCssVar('--sng-color-text-muted', '#8b949e');
+          }
+          return `rgba(148, 163, 184, ${isDimmed ? 0.05 : 0.2})`; // missing
         }}
-        linkColor={() => getCssVar('--sng-color-border-default', '#30363d')}
-        linkWidth={1}
-        linkDirectionalParticles={isLocal ? 2 : 0}
+        linkColor={(link: any) => {
+          const isDimmed = hoverNode && !highlightLinks.has(link);
+          return isDimmed
+            ? 'rgba(0,0,0,0)'
+            : getCssVar('--sng-color-border-default', '#30363d');
+        }}
+        linkWidth={(link: any) => (highlightLinks.has(link) ? 2 : 1)}
+        linkDirectionalParticles={(link: any) =>
+          highlightLinks.has(link) || isLocal ? 2 : 0
+        }
         linkDirectionalParticleSpeed={0.005}
         cooldownTicks={100}
-        onNodeHover={(node: Node | any | null) => setHoverNode(node || null)}
+        onNodeHover={handleNodeHover}
         onNodeClick={handleNodeClick}
         onEngineStop={() => fgRef.current?.zoomToFit(400, 50)}
       />
