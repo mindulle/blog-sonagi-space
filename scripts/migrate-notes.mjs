@@ -1,52 +1,76 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import { fileURLToPath } from 'url';
 
-const SOURCE_DIR = '/home/mindulle/projects/llm-wiki/20_Wiki';
-const TARGET_DIR = '/home/mindulle/projects/blog-sonagi-space/content/notes';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+const BLOG_ROOT = path.resolve(__dirname, '..');
+const WIKI_ROOT = process.env.WIKI_ROOT || path.resolve(BLOG_ROOT, '../llm-wiki');
+const SOURCE_DIR = path.join(WIKI_ROOT, '20_Wiki');
+const TARGET_NOTES_DIR = path.join(BLOG_ROOT, 'content/notes');
+const TARGET_IMG_DIR = path.join(BLOG_ROOT, 'public/images/wiki');
+
+const neededImages = new Set();
 
 function walkDir(dir, callback) {
+  if (!fs.existsSync(dir)) return;
   fs.readdirSync(dir).forEach((f) => {
     const dirPath = path.join(dir, f);
-    const isDirectory = fs.statSync(dirPath).isDirectory();
-    if (isDirectory) {
+    if (fs.statSync(dirPath).isDirectory()) {
       walkDir(dirPath, callback);
-    } else if (f.endsWith('.md')) {
+    } else {
       callback(path.join(dir, f));
     }
   });
 }
 
-if (!fs.existsSync(TARGET_DIR)) {
-  fs.mkdirSync(TARGET_DIR, { recursive: true });
-}
+if (!fs.existsSync(TARGET_NOTES_DIR)) fs.mkdirSync(TARGET_NOTES_DIR, { recursive: true });
+if (!fs.existsSync(TARGET_IMG_DIR)) fs.mkdirSync(TARGET_IMG_DIR, { recursive: true });
 
 let copiedCount = 0;
 let skippedCount = 0;
 
+console.log(`Starting migration from: ${SOURCE_DIR}`);
+
 walkDir(SOURCE_DIR, (filePath) => {
+  if (!filePath.endsWith('.md')) return;
+
   try {
-    const content = fs.readFileSync(filePath, 'utf8');
+    let content = fs.readFileSync(filePath, 'utf8');
     const parsed = matter(content);
     
-    // Frontmatter 체크
     if (parsed.data.publish === false || parsed.data.private === true) {
       skippedCount++;
       return;
     }
     
-    // index.md 나 README.md 같은 시스템 파일 제외
     const fileName = path.basename(filePath);
-    if (fileName.toLowerCase() === 'index.md' || fileName.toLowerCase() === 'readme.md' || fileName.startsWith('@')) {
+    if (['index.md', 'readme.md'].includes(fileName.toLowerCase()) || fileName.startsWith('@')) {
       skippedCount++;
       return;
     }
 
-    // 파일 이름에 공백이 있으면 하이픈으로 변경 (옵션)
     const safeFileName = fileName.replace(/\s+/g, '-');
-    const targetPath = path.join(TARGET_DIR, safeFileName);
+    const targetPath = path.join(TARGET_NOTES_DIR, safeFileName);
     
-    // 복사 진행
+    const wikilinkRegex = /!\[\[([^\]]+)\]\]/g;
+    content = content.replace(wikilinkRegex, (match, imageName) => {
+      neededImages.add(imageName);
+      return `![${imageName}](/images/wiki/${encodeURIComponent(imageName)})`;
+    });
+
+    const mdImageRegex = /!\[([^\]]*)\]\(([^)"]+)\)/g;
+    content = content.replace(mdImageRegex, (match, alt, imgPath) => {
+      if (!imgPath.startsWith('http') && !imgPath.startsWith('/')) {
+        const imgName = path.basename(imgPath);
+        neededImages.add(imgName);
+        return `![${alt}](/images/wiki/${encodeURIComponent(imgName)})`;
+      }
+      return match;
+    });
+
     fs.writeFileSync(targetPath, content, 'utf8');
     copiedCount++;
   } catch (err) {
@@ -54,6 +78,28 @@ walkDir(SOURCE_DIR, (filePath) => {
   }
 });
 
+let copiedImages = 0;
+
+if (neededImages.size > 0) {
+  console.log(`Looking for ${neededImages.size} images in ${WIKI_ROOT}...`);
+  walkDir(WIKI_ROOT, (filePath) => {
+    const ext = path.extname(filePath).toLowerCase();
+    if (['.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg'].includes(ext)) {
+      const fileName = path.basename(filePath);
+      if (neededImages.has(fileName)) {
+        const destPath = path.join(TARGET_IMG_DIR, fileName);
+        fs.copyFileSync(filePath, destPath);
+        copiedImages++;
+        neededImages.delete(fileName);
+      }
+    }
+  });
+}
+
 console.log(`Migration complete!`);
-console.log(`- Copied: ${copiedCount} files`);
-console.log(`- Skipped: ${skippedCount} files`);
+console.log(`- Copied Notes: ${copiedCount}`);
+console.log(`- Skipped Notes: ${skippedCount}`);
+console.log(`- Copied Images: ${copiedImages}`);
+if (neededImages.size > 0) {
+  console.log(`- Missing Images: ${neededImages.size}`);
+}
