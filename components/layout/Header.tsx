@@ -1,11 +1,10 @@
 'use client';
+import { Button } from '@sonagi/ui';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search } from 'lucide-react';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
-import { Button } from '@/components/ui/Button';
-
 import { Logo } from '@/components/ui/Logo';
 
 const navigation = [

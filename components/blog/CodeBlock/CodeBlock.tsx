@@ -1,10 +1,9 @@
 'use client';
+import { Button } from '@sonagi/ui';
 
 import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import { Button } from '@/components/ui/Button';
-
 type CodeBlockProps = {
   children: string;
   language?: string;

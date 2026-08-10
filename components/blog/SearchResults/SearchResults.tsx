@@ -1,10 +1,10 @@
 'use client';
+import { Badge } from '@sonagi/ui';
 
 import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
 import { CategoryBadge } from '../CategoryBadge';
 import { Card, CardBody } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 import type { Post } from '@/types/blog';
 
 type SearchResultsProps = {

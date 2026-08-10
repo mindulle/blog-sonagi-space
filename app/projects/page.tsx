@@ -1,6 +1,5 @@
+import { Card, Badge } from '@sonagi/ui';
 import { Container } from '@/components/ui/Container';
-import { Card } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 import Link from 'next/link';
 
 export default function ProjectsPage() {

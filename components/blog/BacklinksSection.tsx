@@ -1,9 +1,8 @@
 'use client';
+import { Button } from '@sonagi/ui';
 
 import { useState, useMemo } from 'react';
 import type React from 'react';
-import { Button } from '@/components/ui/Button';
-
 interface Backlink {
   sourceSlug: string;
   sourceTitle: string;
