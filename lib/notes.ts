@@ -27,6 +27,7 @@ export interface Note {
 
 export interface NoteWithContent extends Note {
   content: string;
+  rawContent: string;
 }
 
 /**
@@ -80,6 +81,7 @@ export function getNoteBySlug(slug: string): NoteWithContent | null {
       created: (data.created as string) || '',
       excerpt: extractExcerpt(content),
       content: processedContent.toString(),
+      rawContent: content,
     };
   } catch {
     return null;

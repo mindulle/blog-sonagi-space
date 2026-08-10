@@ -1,6 +1,6 @@
+import { Button } from '@sonagi/ui';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { Card, CardBody } from '@/components/ui/Card';
 

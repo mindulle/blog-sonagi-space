@@ -1,7 +1,7 @@
+import { Card } from '@sonagi/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock } from 'lucide-react';
-import { Card } from '@/components/ui/Card';
 import { CategoryBadge } from './CategoryBadge';
 import type { Post } from '@/types/blog';
 
