@@ -1,5 +1,4 @@
-\<easing-function\>
-===================
+# \<easing-function\>
 
 The `<easing-function>`
 [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) [](css_types.md) denotes a mathematical function that describes the rate
@@ -13,8 +12,7 @@ its duration. You can specify an easing function for CSS
 tion](transition-timing-function.md) and
 [animation](animation-timing-function.md) properties.
 
-Syntax
-------
+## Syntax
 
 [css]
 
@@ -44,93 +42,87 @@ step-end
 [`<po
 int-list>`](#point-list)
 
-:   List of linear stops.
+: List of linear stops.
 
 [`linear`](#linear)
 
-:   Indicates that the interpolation goes linearly. This keyword
-    represents the easing function `linear(0, 1)`.
+: Indicates that the interpolation goes linearly. This keyword
+represents the easing function `linear(0, 1)`.
 
 [`<x1>`](#x1), `<y1>`, `<x2>`, `<y2>`
 
-:   [`<number>`](number.md) values representing the abscissas and ordinates
-    of the [P1 and P2 points](#cubic_b%C3%A9zier_functions) defining the
-    cubic Bézier curve. `x1` and `x2` must be in the range `[0, 1]`,
-    otherwise the value is invalid.
+: [`<number>`](number.md) values representing the abscissas and ordinates
+of the [P1 and P2 points](#cubic_b%C3%A9zier_functions) defining the
+cubic Bézier curve. `x1` and `x2` must be in the range `[0, 1]`,
+otherwise the value is invalid.
 
 [`ease`](#ease)
 
-
-:   Indicates that the interpolation starts slowly, accelerates sharply,
-    and then slows gradually towards the end. This keyword represents
-    the easing function `cubic-bezier(0.25, 0.1, 0.25, 1.0)`. It is
-    similar to [`ease-in-out`](#ease-in-out), though it accelerates more
-    sharply at the beginning.
+: Indicates that the interpolation starts slowly, accelerates sharply,
+and then slows gradually towards the end. This keyword represents
+the easing function `cubic-bezier(0.25, 0.1, 0.25, 1.0)`. It is
+similar to [`ease-in-out`](#ease-in-out), though it accelerates more
+sharply at the beginning.
 
 [`ease-in`](#ease-in)
 
-:   Indicates that the interpolation starts slowly, then progressively
-    speeds up until the end, at which point it stops abruptly. This
-    keyword represent
+: Indicates that the interpolation starts slowly, then progressively
+speeds up until the end, at which point it stops abruptly. This
+keyword represent
 s the easing function
-    `cubic-bezier(0.42, 0.0, 1.0, 1.0)`.
+`cubic-bezier(0.42, 0.0, 1.0, 1.0)`.
 
 [`ease-out`](#ease-out)
 
-:   Indicates that the interpolation starts abruptly and then
-    progressively slows down towards the end. This keyword represents
-    the easing function `cubic-bezier(0.0, 0.0, 0.58, 1.0)`.
+: Indicates that the interpolation starts abruptly and then
+progressively slows down towards the end. This keyword represents
+the easing function `cubic-bezier(0.0, 0.0, 0.58, 1.0)`.
 
 [`ease-in-out`](#ease-in-out)
 
-:   Indicates that the interpolation starts slowly, speeds up, and then
-    slows down towards the end. This keyword represents the easing
-    function `cubic-bezier(0.42, 0.0, 0.58, 1.0
+: Indicates that the interpolation starts slowly, speeds up, and then
+slows down towards the end. This keyword represents the easing
+function `cubic-bezier(0.42, 0.0, 0.58, 1.0
 )`. At the beginning, it
-    behaves like the [`ease-in`](#ease-in) keyword; at the end, it is
-    like the [`ease-out`](#ease-out) keyword.
+behaves like the [`ease-in`](#ease-in) keyword; at the end, it is
+like the [`ease-out`](#ease-out) keyword.
 
 [`<number-of-steps>`](#number-of-steps)
 
-:   A strictly positive [`<integer>`](integer.md), representing the amount
-    of equidistant treads composing the stepping function.
+: A strictly positive [`<integer>`](integer.md), representing the amount
+of equidistant treads composing the stepping function.
 
 [`<direction>`](#direction)
 
-:   One of the following keywords that indicate when the jumps occur:
+: One of the following keywords that indicate when the jumps occur:
 
     -   `jump-start` denotes that the first step or jump happens when
-        the 
-interpolation begins.
-    -   `jump-end` denotes that the last step or jump happens when the
-        interpolation ends. This is the default.
-    -   `jump-both` denotes that jumps occur at both the 0% and 100%
-        marks, effectively adding a step during the interpolation
-        iteration.
-    -   `jump-none` denotes no jump on either end, effectively removing
-        a step during the interpolation iteration. Instead, it holds at
-        both the 0% mark and the 100% mark, each for 1/n of 
+        the
+
+interpolation begins. - `jump-end` denotes that the last step or jump happens when the
+interpolation ends. This is the default. - `jump-both` denotes that jumps occur at both the 0% and 100%
+marks, effectively adding a step during the interpolation
+iteration. - `jump-none` denotes no jump on either end, effectively removing
+a step during the interpolation iteration. Instead, it holds at
+both the 0% mark and the 100% mark, each for 1/n of
 the
-        duration.
-    -   `start` is the equivalent of `jump-start`.
-    -   `end` is the equivalent of `jump-end`.
+duration. - `start` is the equivalent of `jump-start`. - `end` is the equivalent of `jump-end`.
 
 [`step-start`](#step-start)
 
-:   Indicates that the interpolation jumps immediately to its final
-    state, where it stays until the end. This keyword represents the
-    easing function `steps(1, jump-start)` or `steps(1, start)`.
+: Indicates that the interpolation jumps immediately to its final
+state, where it stays until the end. This keyword represents the
+easing function `steps(1, jump-start)` or `steps(1, start)`.
 
 [`step-end`](#step-end)
 
-:   Indicates that the interpolation stays in its initial state until
-    the end, at which point it jumps directly to its
- final state. This
-    keyword represents the easing function `steps(1, jump-end)` or
-    `steps(1, end)`.
+: Indicates that the interpolation stays in its initial state until
+the end, at which point it jumps directly to its
+final state. This
+keyword represents the easing function `steps(1, jump-end)` or
+`steps(1, end)`.
 
-Description
------------
+## Description
 
 There are three types of easing functions:
 
@@ -148,13 +140,13 @@ interpolation is done at a constant rate from beginning to end. A
 typical use of the `linear()` function is to provide many points to
 approximate any curve.
 
-When you define the `linear()` function, you specify the *linear easing
-points* as a list, as in, `linear(0, 0.25, 1)`. This `linear()` function
+When you define the `linear()` function, you specify the _linear easing
+points_ as a list, as in, `linear(0, 0.25, 1)`. This `linear()` function
 produces an easing function that moves linearly from `0`, to `0.25`,
 then to `1`.
 
 Consider another example of the function: `linear(0, 0.25 75%, 1)`. This
-produces a linear 
+produces a linear
 easing function that spends 75% of the time
 transitioning from `0` to `0.25` and the last 25% transitioning from
 `0.25` to `1`.
@@ -212,12 +204,13 @@ Each of the keywords [`ease`](#ease), [`ease-in`](#ease-in),
 to a specific `cubic-bezier()` value.
 
 ### Ste
+
 ps easing function
 
 The `steps()` functional notation defines a [step
 function](https://en.wikipedia.org/wiki/Step_function) that divides the
 domain of output values in equidistant steps. This subclass of step
-functions are sometimes also called *staircase functions*.
+functions are sometimes also called _staircase functions_.
 
 These are a few examples illustrating the `steps()` function:
 
@@ -230,87 +223,65 @@ steps(5, jump-none)
 steps(3, jump-both)
 ```
 
-![Graphs of \"Input 
-progress\" to \"Output progress\", of which \"steps(2, jump-start)\" shows horizontal lines extending 0.5 unit from (0, 0.5) and (0.5, 1), respectively, with hollow points at the origin and (0.5, 0.5); \"steps(4, jump-end)\" shows horizontal lines extending 0.25 unit from (0, 0), (0.25, 0.25), (0.5,
- 0.5), and (0.75, 0.75), respectively, with hollow points at (0.25, 0), (0.5, 0.25), and (0.75, 0.5), and a point at (1, 1); \"steps(5, jump-none)\" shows horizontal lines extending 0.2 unit from (0, 
+![Graphs of "Input 
+progress" to "Output progress", of which "steps(2, jump-start)" shows horizontal lines extending 0.5 unit from (0, 0.5) and (0.5, 1), respectively, with hollow points at the origin and (0.5, 0.5); "steps(4, jump-end)" shows horizontal lines extending 0.25 unit from (0, 0), (0.25, 0.25), (0.5,
+ 0.5), and (0.75, 0.75), respectively, with hollow points at (0.25, 0), (0.5, 0.25), and (0.75, 0.5), and a point at (1, 1); "steps(5, jump-none)" shows horizontal lines extending 0.2 unit from (0, 
 0), (0.2, 0.25), (0.4, 0.5), (0.6,
-0.75), and (0.8, 1), respectively, with hollow points at (0.2, 0), (0.4, 0.25), (0.6, 0.5), and (0.8, 0.75); \"steps(3, jump-both)\" shows horizontal lines extending 1/3 unit from (0, 0.25), (1/3, 0.5), and (2/3, 0.75),respectively , with a point at (1, 1) and hollow points at the origin, (1/3, 0.25
-), (2/3, 0.5), and (1, 0.75).](data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iNTAwIj48c3R5bGU+dGV4dHtmb250
-OjEycHggc2Fucy1zZXJpZn0uY2FwdGlvbntmb250LXNpemU6MTZweH08L3N0eWxlPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDBoNDgwdjUwMEgweiIvPjxtYXJrZXIgaWQ9ImRvdCIgbWFya2VySGVpZ2h0PSI1IiBtYXJrZXJXaWR0aD0iNSIgdmlld0JveD0iLTIuNSAtMi41IDUgNSI+PGNpcmNsZSByPSIyIiBmaWxsPSIjMDBmIi8+PC9tYXJrZXI+PG1hcmtlciBpZD0iZG90LWhvbGxvdyIgbWFy
-a2VySGVpZ2h0PSI1IiBtYXJrZXJXaWR0aD0iNSIgdmlld0JveD0iLTIuNSAtMi41IDUgNSI+PGNpcmNsZSByPSIxLjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwZiIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9InRpY2siIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIG1h
-cmtlckhlaWdodD0iMTAiIG1hcmtlcldpZHRoPSIxIiBvcmllbnQ9ImF1dG8iIHZpZXdCb3g9Ii0wLjUgLTAuNSAxIDEwIj48cGF0aCBzdHJva2U9IiMwMDAiIGQ9Ik0wIDB2OSIvPjwvbWFya2VyPjxkZWZzPjxnIGlkPSJheGVzIj48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1kYXNoYXJyYXk9IjUiIGQ9Ik0xNjAtMTYwSDBNMTYwLTE2MFYwIi8+PHBhdGggc3Ryb2tlPSIjMDAwIiBtYXJrZXIt
-bWlkPSJ1cmwoI3RpY2spIiBtYXJrZXItc3RhcnQ9InVybCgjdGljaykiIGQ9Ik0wLTE2MHY4MFYwIi8+PHBhdGggc3Ryb2tlPSIjMDAwIiBtYXJrZXItZW5kPSJ1cmwoI3RpY2spIiBtYXJrZXItbWlkPSJ1cmwoI3RpY2spIiBkPSJNMCAwaDgwIDgwIi8+PHRleHQg
-eD0iLTE1IiB5PSItMTYwIiBkb21pbmFudC1iYXNlbGluZT0ibWF0aGVtYXRpY2FsIiB0ZXh0LWFuY2hvcj0iZW5kIj4xPC90ZXh0Pjx0ZXh0IHg9Ii0xNSIgeT0iLTgwIiBkb21pbmFudC1iYXNlbGluZT0ibWF0aGVtYXRpY2FsIiB0ZXh0LWFuY2hvcj0iZW5kIj4wLjU8L3RleHQ+PHRleHQgeD0iLTEwIiB5PSIxNSIgdGV4dC1hbmNob3I9ImVuZCI+MDwvdGV4dD48dGV4dCB4PSI4MCIgeT0iMjUi
-IHRleHQtYW5jaG9yPSJtaWRkbGUiPjAuNTwvdGV4dD48dGV4dCB4PSIxNjAiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xPC90ZXh0Pjx0ZXh0IHg9Ii00NSIgeT0iLTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB3cml0aW5nLW1vZGU9InZlcnRpY2FsLXJs
-Ij5PdXRwdXQgcHJvZ3Jlc3M8L3RleHQ+PHRleHQgeD0iODAiIHk9IjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbnB1dCBwcm9ncmVzczwvdGV4dD48L2c+PC9kZWZzPjxnIGlkPSJqdW1wLXN0YXJ0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NSAxOTUpIj48dXNlIGhyZWY9IiNheGVzIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2UtZGFzaGFycmF5PSI1IiBzdHJva2Utd2lkdGg9IjMiIGQ9
-Ik0wLTgwVjBtODAtMTYwdjgwIi8+PHBhdGggc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBkPSJNMCAwaDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93
-KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0wLTgwaDgwIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik04MC0xNjBoODAiLz48dGV4dCB4PSI4MCIgeT0iLTE3NSIgY2xhc3M9ImNhcHRpb24iIHRleHQtYW5jaG9yPSJtaWRkbGUiPnN0ZXBzKDIsIGp1bXAtc3RhcnQpPC90
-ZXh0PjwvZz48ZyBpZD0ianVtcC1lbmQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwNSAxOTUpIj48dXNlIGhyZWY9IiNheGVzIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2UtZGFzaGFycmF5PSI1IiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik00MC00MFYwbTQwLTgw
-djQwbTQwLTgwdjQwbTQwLTgwdjQwIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIG1hcmtlci1zdGFydD0idXJsKCNkb3QpIiBkPSJNMCAwaDQwIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIG1hcmtlci1zdGFydD0idXJsKCNkb3QpIiBkPSJN
-NDAtNDBoNDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik04MC04MGg0MCIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRo
-PSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTEyMC0xMjBoNDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0xNjAtMTYwIi8+PHRleHQgeD0iODAiIHk9Ii0xNzUiIGNsYXNzPSJjYXB0aW9uIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5zdGVwcyg0LCBqdW1w
-LWVuZCk8L3RleHQ+PC9nPjxnIGlkPSJqdW1wLW5vbmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1IDQ0NSkiPjx1c2UgaHJlZj0iI2F4ZXMiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS1kYXNoYXJyYXk9IjUiIHN0cm9rZS13aWR0aD0iMyIgZD0iTTMyLTQw
-VjBtMzItODB2NDBtMzItODB2NDBtMzItODB2NDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0wIDBoMzIiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2Rv
-dCkiIGQ9Ik0zMi00MGgzMiIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTY0LTgwaDMyIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJv
-a2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIG1hcmtlci1zdGFydD0idXJsKCNkb3QpIiBkPSJNOTYtMTIwaDMyIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0xMjgtMTYwaDMyIi8+PHRleHQgeD0iODAiIHk9Ii0xNzUiIGNsYXNzPSJjYXB0aW9uIiB0
-ZXh0LWFuY2hvcj0ibWlkZGxlIj5zdGVwcyg1LCBqdW1wLW5vbmUpPC90ZXh0PjwvZz48ZyBpZD0ianVtcC1ib3RoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMDUgNDQ1KSI+PHVzZSBocmVmPSIjYXhlcyIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLWRhc2hh
-cnJheT0iNSIgc3Ryb2tlLXdpZHRoPSIzIiBkPSJNMC00MFYwbTUzLjMtODB2NDBtNTMuNC04MHY0MG01My4zLTgwdjQwIi8+PHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIGQ9Ik0wIDBoMCIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXIt
-c3RhcnQ9InVybCgjZG90KSIgZD0iTTAtNDBoNTMuMyIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTUzLjMtODBoNTMuNCIvPjxwYXRo
-IHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTEwNi43LTEyMEgxNjAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0xNjAtMTYwIi8+PHRleHQgeD0iODAiIHk9Ii0xNzUiIGNsYXNzPSJjYXB0aW9uIiB0ZXh0
-LWFuY2hvcj0ibWlkZGxlIj5zdGVwcygzLCBqdW1wLWJvdGgpPC90ZXh0PjwvZz48L3N2Zz4K)
+0.75), and (0.8, 1), respectively, with hollow points at (0.2, 0), (0.4, 0.25), (0.6, 0.5), and (0.8, 0.75); "steps(3, jump-both)" shows horizontal lines extending 1/3 unit from (0, 0.25), (1/3, 0.5), and (2/3, 0.75),respectively , with a point at (1, 1) and hollow points at the origin, (1/3, 0.25
+), (2/3, 0.5), and (1, 0.75).](/images/wiki/svg%2Bxml%3Bbase64%2CPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0ODAiIGhlaWdodD0iNTAwIj48c3R5bGU%2BdGV4dHtmb250%0AOjEycHggc2Fucy1zZXJpZn0uY2FwdGlvbntmb250LXNpemU6MTZweH08L3N0eWxlPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0wIDBoNDgwdjUwMEgweiIvPjxtYXJrZXIgaWQ9ImRvdCIgbWFya2VySGVpZ2h0PSI1IiBtYXJrZXJXaWR0aD0iNSIgdmlld0JveD0iLTIuNSAtMi41IDUgNSI%2BPGNpcmNsZSByPSIyIiBmaWxsPSIjMDBmIi8%2BPC9tYXJrZXI%2BPG1hcmtlciBpZD0iZG90LWhvbGxvdyIgbWFy%0Aa2VySGVpZ2h0PSI1IiBtYXJrZXJXaWR0aD0iNSIgdmlld0JveD0iLTIuNSAtMi41IDUgNSI%2BPGNpcmNsZSByPSIxLjUiIGZpbGw9IiNmZmYiIHN0cm9rZT0iIzAwZiIvPjwvbWFya2VyPjxtYXJrZXIgaWQ9InRpY2siIHN0cm9rZS1saW5lY2FwPSJzcXVhcmUiIG1h%0AcmtlckhlaWdodD0iMTAiIG1hcmtlcldpZHRoPSIxIiBvcmllbnQ9ImF1dG8iIHZpZXdCb3g9Ii0wLjUgLTAuNSAxIDEwIj48cGF0aCBzdHJva2U9IiMwMDAiIGQ9Ik0wIDB2OSIvPjwvbWFya2VyPjxkZWZzPjxnIGlkPSJheGVzIj48cGF0aCBzdHJva2U9IiMwMDAiIHN0cm9rZS1kYXNoYXJyYXk9IjUiIGQ9Ik0xNjAtMTYwSDBNMTYwLTE2MFYwIi8%2BPHBhdGggc3Ryb2tlPSIjMDAwIiBtYXJrZXIt%0AbWlkPSJ1cmwoI3RpY2spIiBtYXJrZXItc3RhcnQ9InVybCgjdGljaykiIGQ9Ik0wLTE2MHY4MFYwIi8%2BPHBhdGggc3Ryb2tlPSIjMDAwIiBtYXJrZXItZW5kPSJ1cmwoI3RpY2spIiBtYXJrZXItbWlkPSJ1cmwoI3RpY2spIiBkPSJNMCAwaDgwIDgwIi8%2BPHRleHQg%0AeD0iLTE1IiB5PSItMTYwIiBkb21pbmFudC1iYXNlbGluZT0ibWF0aGVtYXRpY2FsIiB0ZXh0LWFuY2hvcj0iZW5kIj4xPC90ZXh0Pjx0ZXh0IHg9Ii0xNSIgeT0iLTgwIiBkb21pbmFudC1iYXNlbGluZT0ibWF0aGVtYXRpY2FsIiB0ZXh0LWFuY2hvcj0iZW5kIj4wLjU8L3RleHQ%2BPHRleHQgeD0iLTEwIiB5PSIxNSIgdGV4dC1hbmNob3I9ImVuZCI%2BMDwvdGV4dD48dGV4dCB4PSI4MCIgeT0iMjUi%0AIHRleHQtYW5jaG9yPSJtaWRkbGUiPjAuNTwvdGV4dD48dGV4dCB4PSIxNjAiIHk9IjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj4xPC90ZXh0Pjx0ZXh0IHg9Ii00NSIgeT0iLTgwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiB3cml0aW5nLW1vZGU9InZlcnRpY2FsLXJs%0AIj5PdXRwdXQgcHJvZ3Jlc3M8L3RleHQ%2BPHRleHQgeD0iODAiIHk9IjQwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5JbnB1dCBwcm9ncmVzczwvdGV4dD48L2c%2BPC9kZWZzPjxnIGlkPSJqdW1wLXN0YXJ0IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg2NSAxOTUpIj48dXNlIGhyZWY9IiNheGVzIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2UtZGFzaGFycmF5PSI1IiBzdHJva2Utd2lkdGg9IjMiIGQ9%0AIk0wLTgwVjBtODAtMTYwdjgwIi8%2BPHBhdGggc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBkPSJNMCAwaDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93%0AKSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0wLTgwaDgwIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik04MC0xNjBoODAiLz48dGV4dCB4PSI4MCIgeT0iLTE3NSIgY2xhc3M9ImNhcHRpb24iIHRleHQtYW5jaG9yPSJtaWRkbGUiPnN0ZXBzKDIsIGp1bXAtc3RhcnQpPC90%0AZXh0PjwvZz48ZyBpZD0ianVtcC1lbmQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMwNSAxOTUpIj48dXNlIGhyZWY9IiNheGVzIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2UtZGFzaGFycmF5PSI1IiBzdHJva2Utd2lkdGg9IjMiIGQ9Ik00MC00MFYwbTQwLTgw%0AdjQwbTQwLTgwdjQwbTQwLTgwdjQwIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIG1hcmtlci1zdGFydD0idXJsKCNkb3QpIiBkPSJNMCAwaDQwIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIG1hcmtlci1zdGFydD0idXJsKCNkb3QpIiBkPSJN%0ANDAtNDBoNDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik04MC04MGg0MCIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRo%0APSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTEyMC0xMjBoNDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0xNjAtMTYwIi8%2BPHRleHQgeD0iODAiIHk9Ii0xNzUiIGNsYXNzPSJjYXB0aW9uIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5zdGVwcyg0LCBqdW1w%0ALWVuZCk8L3RleHQ%2BPC9nPjxnIGlkPSJqdW1wLW5vbmUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY1IDQ0NSkiPjx1c2UgaHJlZj0iI2F4ZXMiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS1kYXNoYXJyYXk9IjUiIHN0cm9rZS13aWR0aD0iMyIgZD0iTTMyLTQw%0AVjBtMzItODB2NDBtMzItODB2NDBtMzItODB2NDAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0wIDBoMzIiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLWVuZD0idXJsKCNkb3QtaG9sbG93KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2Rv%0AdCkiIGQ9Ik0zMi00MGgzMiIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTY0LTgwaDMyIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJv%0Aa2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIG1hcmtlci1zdGFydD0idXJsKCNkb3QpIiBkPSJNOTYtMTIwaDMyIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90KSIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0xMjgtMTYwaDMyIi8%2BPHRleHQgeD0iODAiIHk9Ii0xNzUiIGNsYXNzPSJjYXB0aW9uIiB0%0AZXh0LWFuY2hvcj0ibWlkZGxlIj5zdGVwcyg1LCBqdW1wLW5vbmUpPC90ZXh0PjwvZz48ZyBpZD0ianVtcC1ib3RoIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgzMDUgNDQ1KSI%2BPHVzZSBocmVmPSIjYXhlcyIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLWRhc2hh%0AcnJheT0iNSIgc3Ryb2tlLXdpZHRoPSIzIiBkPSJNMC00MFYwbTUzLjMtODB2NDBtNTMuNC04MHY0MG01My4zLTgwdjQwIi8%2BPHBhdGggc3Ryb2tlPSIjMDBmIiBzdHJva2Utd2lkdGg9IjMiIG1hcmtlci1lbmQ9InVybCgjZG90LWhvbGxvdykiIGQ9Ik0wIDBoMCIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXIt%0Ac3RhcnQ9InVybCgjZG90KSIgZD0iTTAtNDBoNTMuMyIvPjxwYXRoIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTUzLjMtODBoNTMuNCIvPjxwYXRo%0AIHN0cm9rZT0iIzAwZiIgc3Ryb2tlLXdpZHRoPSIzIiBtYXJrZXItZW5kPSJ1cmwoI2RvdC1ob2xsb3cpIiBtYXJrZXItc3RhcnQ9InVybCgjZG90KSIgZD0iTTEwNi43LTEyMEgxNjAiLz48cGF0aCBzdHJva2U9IiMwMGYiIHN0cm9rZS13aWR0aD0iMyIgbWFya2VyLXN0YXJ0PSJ1cmwoI2RvdCkiIGQ9Ik0xNjAtMTYwIi8%2BPHRleHQgeD0iODAiIHk9Ii0xNzUiIGNsYXNzPSJjYXB0aW9uIiB0ZXh0%0ALWFuY2hvcj0ibWlkZGxlIj5zdGVwcygzLCBqdW1wLWJvdGgpPC90ZXh0PjwvZz48L3N2Zz4K)
 
 Each of the keywords [`step-start`](#step-start) and
 [`step-end`](#step-end) is equivalent to a specific `steps()` value.
 
 Fo
 rmal syntax
--------------
+
+---
 
 ```
-<easing-function> = 
+<easing-function> =
   linear                          |
   <linear-easing-function>        |
   <cubic-bezier-easing-function>  |
-  <step-easing-function>          
+  <step-easing-function>
 
-<linear-easing-function> = 
-  linear( <linear-stop-list> )  
+<linear-easing-function> =
+  linear( <linear-stop-list> )
 
-<cubic-bezier-easing-function> = 
+<cubic-bezier-easing-function> =
   ease                                                |
   ease-in                                             |
   ease-out                                            |
-  ease-in-out                           
+  ease-in-out
               |
-  cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )  
+  cubic-bezier( <number [0,1]> , <number> , <number [0,1]> , <number> )
 
-<step-easing-function> = 
+<step-easing-function> =
   step-start                                |
   step-end                                  |
-  steps( <integer> [, <step-position> ]? )  
+  steps( <integer> [, <step-position> ]? )
 
-<linear-stop-list> = 
-  [ <linear-stop> ]#  
+<linear-stop-list> =
+  [ <linear-stop> ]#
 
-<step-position> = 
+<step-position> =
   jump-start  |
   jump-end    |
   jump-none   |
   jump-both   |
   start       |
-  end         
+  end
 
-<linear-stop> = 
+<linear-stop> =
   <number>               &&
-  <linear-stop-length>?  
+  <linear-stop-length>?
 
 <linear-stop
--length> = 
-  <percentage>  
+-length> =
+  <percentage>
 ```
 
-Examples
---------
+## Examples
 
 ### Comparing the easing functions
 
@@ -330,8 +301,7 @@ can start and stop the animation using the provided button.
 </div>
 <ul>
   <li>
-    <button
- class="animation-button">Start animation</button>
+    <button class="animation-button">Start animation</button>
   </li>
   <li>
     <label for="easing-select">Choose an easing function:</label>
@@ -344,8 +314,7 @@ can start and stop the animation using the provided button.
       <option>ease-out</option>
       <option>cubic-bezier(0.1, -0.6, 0.2, 0)</option>
       <option>cubic-bezier(0, 1.1, 0.8, 4)</option>
-      <option>steps
-(5, end)</option>
+      <option>steps (5, end)</option>
       <option>steps(3, start)</option>
       <option>steps(4)</option>
     </select>
@@ -378,8 +347,7 @@ div > div {
   animation: 1.5s infinite alternate;
 }
 
-@keyfram
-es move-right {
+@keyfram es move-right {
   from {
     left: 10%;
   }
@@ -510,23 +478,23 @@ steps(-3, start)
 steps(0, jump-none)
 ```
 
-Specifications
---------------
+## Specifications
 
-  -----------------------------------------------------------------------------------
+---
 
 Specification
-  ------------------------------------------------------------------------------
------
 
-  [CSS Easing Functions Level 1\
-  [\#
-  easing-functions]](https://drafts.csswg.org/css-easing/#easing-functions)
+---
 
-  -----------------------------------------------------------------------------------
+---
 
-Browser compatibility
----------------------
+[CSS Easing Functions Level 1\
+ [\#
+easing-functions]](https://drafts.csswg.org/css-easing/#easing-functions)
+
+---
+
+## Browser compatibility
 
 Desktop
 
@@ -661,8 +629,7 @@ No
 
 1.0
 
-See also
---------
+## See also
 
 - [CSS animations](css_animations.md)
 - [CSS transitions](css_transitions.md)

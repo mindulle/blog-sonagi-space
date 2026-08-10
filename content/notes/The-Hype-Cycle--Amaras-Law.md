@@ -10,7 +10,7 @@
 
 <br>
 
-<!-- <!-- BROKEN IMAGE: ![The Gartner Hype Cycle](./images/gartner_hype_cycle.png) --> -->
+<!-- <!-- BROKEN IMAGE: ![The Gartner Hype Cycle](/images/wiki/gartner_hype_cycle.png) --> -->
 
 _(이미치 출처: Jeremykemp @영어 Wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10547051)_
 
@@ -22,9 +22,10 @@ _(이미치 출처: Jeremykemp @영어 Wikipedia, CC BY-SA 3.0, https://commons.
 
 <br>
 
-
 ---
-## 상세 내용 (Merged from 20_Wiki/Business/_commons/tree/Decide/The-Hype-Cycle--Amaras-Law.md)
+
+## 상세 내용 (Merged from 20_Wiki/Business/\_commons/tree/Decide/The-Hype-Cycle--Amaras-Law.md)
+
 ### 하이프 사이클 & 아마라의 법칙
 
 [위키피디아의 하이프 사이클](https://ko.wikipedia.org/wiki/하이프_사이클)
@@ -35,9 +36,9 @@ _(이미치 출처: Jeremykemp @영어 Wikipedia, CC BY-SA 3.0, https://commons.
 
 하이프 사이클은 미국의 정보 기술 연구 및 자문 회사인 가트너에서 시간의 흐름에 따른 기술에 대한 기대와 성숙도를 시각적으로 나타낸 것이다.
 
-<!-- BROKEN IMAGE: ![The Hype Cycle](./images/gartner_hype_cycle.png) -->
+<!-- BROKEN IMAGE: ![The Hype Cycle](/images/wiki/gartner_hype_cycle.png) -->
 
-*(이미치 출처: Jeremykemp @영어 Wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10547051)*
+_(이미치 출처: Jeremykemp @영어 Wikipedia, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=10547051)_
 
 즉, 이 사이클에 따르면 대개 신기술과 그 전망에 대하여 거품이 촉발된다. 이때 많은 팀들은 너무 빠르게 뛰어들었다가 결과물에 종종 실망하고는 한다. 이것은 어쩌면 기술이 아직 덜 성숙하기 때문이거나, 혹은 실제 세계에의 적용이 덜 이루어졌기 때문일 것이다.
 

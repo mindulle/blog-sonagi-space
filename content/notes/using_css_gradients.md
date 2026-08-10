@@ -1,13 +1,12 @@
-Using CSS gradients
-===================
+# Using CSS gradients
 
 **CSS gradients** are represented by the [`<gradient>`](gradient.md)
 data type, a special type of [`<image>`](_Resources/Markup%20And%20Styling/css/image.md) made of a progressive
 transition between two or more colors. You can choose between three
-types of gradients: *linear* (created with the
-[`linear-gradient()`](linear-gradient.md) function), *radial*
+types of gradients: _linear_ (created with the
+[`linear-gradient()`](linear-gradient.md) function), _radial_
 (created with the [`radial-gradient()`](radial-gradient.md)
-function), and *conic* (created with the
+function), and _conic_ (created with the
 [
 `conic-gradient()`](conic-gradient.md) function). You can also
 create repeating gradients with the
@@ -18,7 +17,7 @@ functions.
 
 Gradients can be used anywhere you would use an `<image>`, such as in
 backgrounds. Because gradients are dynamically generated, they can
-negate the need for the raster image files that traditionally 
+negate the need for the raster image files that traditionally
 were used
 to achieve similar effects. In addition, because gradients are generated
 by the browser, they look better than raster images when zoomed in, and
@@ -28,8 +27,7 @@ We\'ll start by introducing linear gradients, then introduce features
 that are supported in all gradient types using linear gradients as the
 example, then move on to radial, conic and repeating gradients
 
-Using linear gradients
-----------------------
+## Using linear gradients
 
 A linear gradient creates a band of colors that progress in a str
 aight
@@ -38,7 +36,7 @@ line.
 ### A basic linear gradient
 
 To create the most basic type of gradient, all you need is to specify
-two colors. These are called *color stops*. You must have at least two,
+two colors. These are called _color stops_. You must have at least two,
 but you can have as many as you want.
 
 [css]
@@ -58,8 +56,7 @@ their rotation by specifying a direction.
 
 ```css
 .horizontal-gradient {
-  background: linear
--gradient(to right, blue, pink);
+  background: linear -gradient(to right, blue, pink);
 }
 ```
 
@@ -95,39 +92,9 @@ so on in a clockwise direction. Negative angles run in the
 counterclockwise direction.
 
 ![Four boxes listing angle and showing associated gradient from red to white. 0deg starts at the bottom and goes up. 90deg starts at left and goes right. 180deg starts at the top and goes down. -90deg starts at
-right and goes left.](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAegAAAB6CAMAAABDVzDCAAACKFBMVEX////4xMLwSjnwUEHwTj7wQi
-zwQSsAAADwPyfwQCnwRTHxUkTwQy773dz3vbvwPibzhH3xX1T2qqbydW3xVUfxWUvwSDX619bxXVL1nJj0mpbziIL1p6P3trP0mZT4wr/+9/f97ez84+P98vH3urjyb2bwTDv2sa75ycfxY1j2rar5ysjxWk7xZFr4v73wRzTyd2/wPifye3T++vr61NPxZ133uLb+9fX4x8XyeXH85OT1paHwSTjzhoDzgHrzjIfwPSXyc2vwRjP2sK3zgnvxV0nxZlvya2L/+/v1o6D1oZ30j4r86un//v750tD0ko3wRD
-D5zcvzfXbxYVb50M797+73tLH85ub0k47zf3nycGj0lpH5zszxW0/ybWT1n5v62djycWn0jon0kYvybGPwTT3zi4X629rwUkP609LxXFDxVEbyenP74N/1o5/xaWD0lZDxaV/62Nf99PP1npr74eD2s7D98/L97u32r6z739774uH2rKj86Of+9vb86ej4w8DhPypHCw
-SSJxTFNiMABA4AFDaYOSMvDQzWXUNOUmgAByNbOjXhbVviioYAHmGqLh/XjFsoQ2CrV0qFUkTfd3FmGgt6JBfJTjAEKkefd3bCXFPpupIAPITmnJpdIB/t5eSkRjP61763b2m0h42+nJyIZGjO3eiLjp+XuNNJdp3AsbSflJ3WpIBjjrTi3eD3y6zr19fve2Xlzc32pZX1wJyKn7vuw5uCLIcwAAASuElEQVR42uxa+VcTWRaWQHgsQcUFG7VpQINCWgEFlaW1RQZFaRZpmgZRQQghToMK0iCOtlXZ90ACCb
-ussri2zsy/N/fVklSRpFJED8MP+U6l7qtb7yWn8uUu797s2RNFFFFEEUUUUUQRRRRRRBFFFFFEEUUooB1B9JP/35+8B93YAQR/6H2FCQmJifHxUll9UkV+WrkkJy42tif50D8O/3j3u9TG3DPFj6533WvtOFhQcu52y+X9+491X7nV+fvjjKPpT29Wlx0/kPfs1J/fX7
-iw9+wPMZcuKRp+rS060q5K6c0ubf4rq+nEwMXMG7+E+OQdQPBP/uXG+cyLJ5qyal6UZj8fSWk/UlT7a1vD6UsxP+zde/LC97+dupZ34HhZ38376Ucz7tR13rrSfeyn/ZWXb/9RcvDg1Vb5va7iqjO5janf3f3x8KF/JsfGxsXlSMrT8iuS6mVSaXxiYkLhvp9DEH1+ByBItNRPtDKOT/STR/fkHVdZon+iib7jJzrv2m/fXzi5hehBhuihl5nnQ/zECinsK6QpgQEPWM/qto6584XXCxE9nPXXi+bswd6Ufo
-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)
+right and goes left.](/images/wiki/419pkqhrTJi5bQAAAABJRU5ErkJggg%3D%3D)
 
-Declaring colors & creating effects
------------------------------------
+## Declaring colors & creating effects
 
 All CSS gradient types are a range of position-dependent colors. The
 colors produced by CSS gradients can vary continuously with position,
@@ -184,8 +151,7 @@ mark, halfway through the gradient:
 
 ```css
 .striped {
-  background: linear-gradient(to bottom le
-ft, cyan 50%, palegoldenrod 50%);
+  background: linear-gradient(to bottom le ft, cyan 50%, palegoldenrod 50%);
 }
 ```
 
@@ -208,7 +174,8 @@ moved the midpoint of the transition from the 50% mark to the 10% mark.
 ```
 
 ### Creating
- color bands & stripes
+
+color bands & stripes
 
 To include a solid, non-transitioning color area within a gradient,
 include two positions for the color stop. Color stops can have two
@@ -268,7 +235,7 @@ staying solid red up until 45% through the gradient, where it fades to
 cyan, being fully cyan for 15% of the gradient, and so on.
 
 In the second example, the second color stop for each color is at the
-same location as the first color stop for 
+same location as the first color stop for
 the adjacent color, creating a
 striped effect.
 
@@ -312,12 +279,13 @@ to bottom, with the first specified being on top.
 
 ```css
 .layered-image {
-  background: linear-gradient(to right, transparent, mistyrose),
-    url("critters.png");
+  background:
+    linear-gradient(to right, transparent, mistyrose), url('critters.png');
 }
 ```
 
 ### Stacked gr
+
 adients
 
 You can even stack gradients with other gradients. As long as the top
@@ -328,18 +296,16 @@ visible.
 
 ```css
 .stacked-linear {
-  background: linear-gradient(
-      217deg,
-      rgba(255, 0, 0, 0.8),
-      rgba(255, 0, 0, 0) 70.71%
-    ), linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
+  background:
+    linear-gradient(217deg, rgba(255, 0, 0, 0.8), rgba(255, 0, 0, 0) 70.71%),
+    linear-gradient(127deg, rgba(0, 255, 0, 0.8), rgba(0, 255, 0, 0) 70.71%),
     linear-gradient(336deg, rgba(0, 0, 255, 0.8), rgba(0, 0, 255, 0) 70.71%);
 }
 ```
 
-Using radial gradients
-----------------
-------
+## Using radial gradients
+
+---
 
 Radial gradients are similar to linear gradients, except that they
 radiate out from a central point. You can dictate where that central
@@ -356,8 +322,7 @@ box:
 
 ```css
 .simple-radial {
-  background: radial-g
-radient(red, blue);
+  background: radial-g radient(red, blue);
 }
 ```
 
@@ -399,6 +364,7 @@ default. Circles can also be sized with a length, and ellipses a length
 or percentage.
 
 #### Exampl
+
 e: `closest-side` for ellipses
 
 This example uses the `closest-side` size value, which means the size is
@@ -466,7 +432,7 @@ bottom, and the div element\'s height is smaller than the width.
 
 #### Example: length or percentage for ellipses
 
-For ellipses only, you can size the ellipse using a length 
+For ellipses only, you can size the ellipse using a length
 or
 percentage. The first value represents the horizontal radius, the second
 the vertical radius, where you use a percentage this corresponds to the
@@ -517,8 +483,7 @@ first specified is on top, the last on the bottom.
       rgba(255, 0, 0, 0) 70.71%
     ),
     radial-gradient(
-    
-  circle at 6.7% 75%,
+      circle at 6.7% 75%,
       rgba(0, 0, 255, 0.5),
       rgba(0, 0, 255, 0) 70.71%
     ),
@@ -526,13 +491,13 @@ first specified is on top, the last on the bottom.
         circle at 93.3% 75%,
         rgba(0, 255, 0, 0.5),
         rgba(0, 255, 0, 0) 70.71%
-      ) beige;
+      )
+      beige;
   border-radius: 50%;
 }
 ```
 
-Using conic gradients
----------------------
+## Using conic gradients
 
 The `conic-gradient()`
 [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) function creates
@@ -584,7 +549,6 @@ with keyterms, percentage, or absolute lengths, with the keyword \"at\"
 .conic-gradient {
   background: conic-gradient(at 0% 30%, red 10%, yellow 30%, #1e90ff 50%);
 }
-
 ```
 
 ### Changing the angle
@@ -605,7 +569,8 @@ colors stops by including an angle or length after them.
 
 Using repeating gr
 adients
--------------------------
+
+---
 
 The [`linear-gradient()`](linear-gradient.md),
 [`radial-gradient()`](radial-gradient.md), and
@@ -659,7 +624,7 @@ gradient line is 10px long.
 Similar to regular linear and radial gradients, you can include multiple
 gradients, one on top of the other. This only makes sense if the
 gradients are partially transparent allowing subsequent gradients to
-show through the 
+show through the
 transparent areas, or if you include different
 [background-sizes](background-size.md), optionally with different
 [background-position](background-position.md) property values, for each
@@ -671,18 +636,20 @@ In this case the gradient lines are 300px, 230px, and 300px long.
 
 ```css
 .multi-repeating-linear {
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       190deg,
       rgba(255, 0, 0, 0.5) 40px,
       rgba(255, 153, 0, 0.5) 80px,
       rgba(255, 255, 0, 0.5) 120px,
-     
- rgba(0, 255, 0, 0.5) 160px,
+
+      rgba(0, 255, 0, 0.5) 160px,
       rgba(0, 0, 255, 0.5) 200px,
       rgba(75, 0, 130, 0.5) 240px,
       rgba(238, 130, 238, 0.5) 280px,
       rgba(255, 0, 0, 0.5) 300px
-    ), repeating-linear-gradient(
+    ),
+    repeating-linear-gradient(
       -190deg,
       rgba(255, 0, 0, 0.5) 30px,
       rgba(255, 153, 0, 0.5) 60px,
@@ -692,9 +659,18 @@ In this case the gradient lines are 300px, 230px, and 300px long.
       rgba(75, 0, 130, 0.5) 180px,
       rgba(238, 130, 238, 0.5) 210px,
       rgba(255, 0, 0, 0.5) 230px
-    )
-, repeating-linear-gradient(23deg, red 50px, orange 100px, yellow 150px, green
-        200px, blue 250px, indigo 300px, violet 350px, red 370px);
+    ),
+    repeating-linear-gradient(
+      23deg,
+      red 50px,
+      orange 100px,
+      yellow 150px,
+      green 200px,
+      blue 250px,
+      indigo 300px,
+      violet 350px,
+      red 370px
+    );
 }
 ```
 
@@ -709,9 +685,9 @@ multiple position color stop syntax:
 
 ```css
 .plaid-gradient {
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       90deg,
-
       transparent,
       transparent 50px,
       rgba(255, 127, 0, 0.25) 50px,
@@ -724,13 +700,13 @@ multiple position color stop syntax:
       transparent 116px,
       rgba(255, 206, 0, 0.25) 116px,
       rgba(255, 206, 0, 0.25) 166px
-    ), repeating-linear-gradient(
+    ),
+    repeating-linear-gradient(
       0deg,
       transparent,
       transparent 50px,
       rgba(255, 127, 0, 0.25) 50px,
-      rgba(255, 1
-27, 0, 0.25) 56px,
+      rgba(255, 1 27, 0, 0.25) 56px,
       transparent 56px,
       transparent 63px,
       rgba(255, 127, 0, 0.25) 63px,
@@ -739,21 +715,24 @@ multiple position color stop syntax:
       transparent 116px,
       rgba(255, 206, 0, 0.25) 116px,
       rgba(255, 206, 0, 0.25) 166px
-    ), repeating-linear-gradient(
+    ),
+    repeating-linear-gradient(
       -45deg,
       transparent,
       transparent 5px,
       rgba(143, 77, 63, 0.25) 5px,
       rgba(143, 77, 63, 0.25) 10px
-    ), repeating-linear-gradient(45deg, transparent, transparent 5px, rgba(
-   
-       143,
-          77,
-          63,
-          0.25
-        ) 5px, rgba(143, 77, 63, 0.25) 10px);
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 5px,
+      rgba(143, 77, 63, 0.25) 5px,
+      rgba(143, 77, 63, 0.25) 10px
+    );
 
-  background: repeating-linear-gradient(
+  background:
+    repeating-linear-gradient(
       90deg,
       transparent 0 50px,
       rgba(255, 127, 0, 0.25) 50px 56px,
@@ -761,25 +740,26 @@ multiple position color stop syntax:
       rgba(255, 127, 0, 0.25) 63px 69px,
       transparent 69px 116px,
       rgba(255, 206, 0, 0.25) 116px 166px
-    ), repeating-linear-gradient(
+    ),
+    repeating-linear-gradient(
       0deg,
       transparent 0 50px,
       rgba(255, 127, 0, 0.25) 50px 56px,
-      transparent 56px
- 63px,
+      transparent 56px 63px,
       rgba(255, 127, 0, 0.25) 63px 69px,
       transparent 69px 116px,
       rgba(255, 206, 0, 0.25) 116px 166px
-    ), repeating-linear-gradient(
+    ),
+    repeating-linear-gradient(
       -45deg,
       transparent 0 5px,
       rgba(143, 77, 63, 0.25) 5px 10px
-    ), repeating-linear-gradient(45deg, transparent 0 5px, rgba(
-          143,
-          77,
-          63,
-          0.25
-        ) 5px 10px);
+    ),
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 5px,
+      rgba(143, 77, 63, 0.25) 5px 10px
+    );
 }
 ```
 
@@ -815,45 +795,45 @@ colors get cycled over and over as the gradient repeats.
         ellipse at 80% 50%,
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5) 15px,
-        rgba(255, 255, 255,
- 0.5) 15px,
+        rgba(255, 255, 255, 0.5) 15px,
         rgba(255, 255, 255, 0.5) 30px
-      ) top left no-repeat,
+      )
+      top left no-repeat,
     repeating-radial-gradient(
         ellipse at 20% 50%,
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.5) 10px,
         rgba(255, 255, 255, 0.5) 10px,
         rgba(255, 255, 255, 0.5) 20px
-      ) top left no-repeat yellow;
+      )
+      top left no-repeat yellow;
   background-size:
     200px 200px,
     150px 150px;
 }
 ```
 
-See also
---------
+## See also
 
 - Gradient functions:
-    [`linear-gradient()`](linear-gradient.md),
-    [`radial-gradient()`](radial-gradient.
-md),
-    [`conic-gradient()`](conic-gradient.md),
-    [`repeating-linear-gradient()`](repeating-linear-gradient.md),
-    [`repeating-radial-gradient()`](repeating-radial-gradient.md),
-    [`repeating-conic-gradient()`](repeating-conic-gradient.md)
+  [`linear-gradient()`](linear-gradient.md),
+  [`radial-gradient()`](radial-gradient.
+  md),
+  [`conic-gradient()`](conic-gradient.md),
+  [`repeating-linear-gradient()`](repeating-linear-gradient.md),
+  [`repeating-radial-gradient()`](repeating-radial-gradient.md),
+  [`repeating-conic-gradient()`](repeating-conic-gradient.md)
 - Gradient-related CSS data types: [`<gradient>`](gradient.md),
-    [`<image>`](_Resources/Markup%20And%20Styling/css/image.md)
+  [`<image>`](_Resources/Markup%20And%20Styling/css/image.md)
 - Gradient-related CSS properties: [`background`](background.md),
-    [`background-image`](background-image.md)
+  [`background-image`](background-image.md)
 - [CSS Gradi
-ents Patterns Gallery, by Lea
-    Verou](https://projects.verou.me/css3patterns/)
+  ents Patterns Gallery, by Lea
+  Verou](https://projects.verou.me/css3patterns/)
 - [CSS Gradients Library, by Estelle
-    Weyl](https://standardista.com/cssgradients/)
+  Weyl](https://standardista.com/cssgradients/)
 - [Gradient CSS
-    Generator](https://cssgenerator.org/gradient-css-generator.html)
+  Generator](https://cssgenerator.org/gradient-css-generator.html)
 
 © 2005--2023 MDN contributors.\
 Licensed under the Creative Commons Attribution-ShareAlike License v2.5

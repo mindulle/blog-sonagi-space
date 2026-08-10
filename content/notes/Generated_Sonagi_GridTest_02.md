@@ -1,5 +1,5 @@
 ---
-title: "Generated Sonagi Grid Test 02 (Apple Bite)"
+title: 'Generated Sonagi Grid Test 02 (Apple Bite)'
 tags: [design, generated, controlnet, grid, logo]
 ---
 
@@ -10,12 +10,14 @@ tags: [design, generated, controlnet, grid, logo]
 뼈대 특유의 둥근 여백과 파고드는 형태(Negative Space)를 AI가 빗방울, 구름, 추상적인 로고 형태로 해석해 낸 결과물입니다.
 
 ### 시안 1~4
-![[sonagi_grid_test_00001_.png]]
-![[sonagi_grid_test_00002_.png]]
-![[sonagi_grid_test_00003_.png]]
-![[sonagi_grid_test_00004_.png]]
+
+![sonagi_grid_test_00001_.png](/images/wiki/sonagi_grid_test_00001_.png)
+![sonagi_grid_test_00002_.png](/images/wiki/sonagi_grid_test_00002_.png)
+![sonagi_grid_test_00003_.png](/images/wiki/sonagi_grid_test_00003_.png)
+![sonagi_grid_test_00004_.png](/images/wiki/sonagi_grid_test_00004_.png)
 
 ---
-* **사용한 그리드**: `apple_bite_blueprint.svg`
-* **프롬프트**: `masterpiece, elegant minimalist logo, abstract overlapping translucent cloud and rain drops, pure vector art, thin elegant lines, modern corporate branding, flat design, isolated on white background, dribbble trending`
-* **제어 강도**: ControlNet Lineart 0.85
+
+- **사용한 그리드**: `apple_bite_blueprint.svg`
+- **프롬프트**: `masterpiece, elegant minimalist logo, abstract overlapping translucent cloud and rain drops, pure vector art, thin elegant lines, modern corporate branding, flat design, isolated on white background, dribbble trending`
+- **제어 강도**: ControlNet Lineart 0.85

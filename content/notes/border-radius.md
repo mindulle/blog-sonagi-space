@@ -1,5 +1,4 @@
-border-radius
-=============
+# border-radius
 
 The `border-radius`
 [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) property rounds
@@ -7,8 +6,7 @@ the corners of an element\'s outer border edge. You can set a single
 radius to make circular corners, or two radii to make elliptical
 corners.
 
-Try it
-------
+## Try it
 
 The radius applies to the whole [`background`](background.md), even if the
 element has no border; the exact position of the clipping is defined by
@@ -22,8 +20,7 @@ cannot inherit, such as in `border-radius:0 0 inherit inherit`, which
 would partially override existing definitions. Instead, the individual
 longhand properties have to be used.
 
-Constituent properties
-----------------------
+## Constituent properties
 
 This property is a shorthand for the following CSS properties:
 
@@ -32,8 +29,7 @@ This property is a shorthand for the following CSS properties:
 - [`border-bottom-right-radius`](border-bottom-right-radius.md)
 - [`border-bottom-left-radius`](border-bottom-left-radius.md)
 
-Syntax
-------
+## Syntax
 
 [css]
 
@@ -75,30 +71,29 @@ border-radius: unset;
 The `border-radius` property is specified as:
 
 - one, two, three, or four [`<length>`](length.md) or
-    [`<percentage>`](percentage.md) values. This is used to set a single
-    radius for the corners.
+  [`<percentage>`](percentage.md) values. This is used to set a single
+  radius for the corners.
 - followed optionally by \"/\" and one, two, three, or four `<length>`
-    or `<percentage>` values. This is used to set an additional radius,
-    so you can have elliptical corners.
+  or `<percentage>` values. This is used to set an additional radius,
+  so you can have elliptical corners.
 
 ### Values
 
-![](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEUAAAA8BAMAAADCjmoTAAAAG1BMVEX////P5+YAAACAgIDQ6Obs7OxZWVnB2ddpaWkCF9iNAAAAcUlEQVRIx2NgUAIDBiwAIQNhGWMB6GoEsQC4GlZCahSIVqMoiBMIKamNqiGohoGAGlA4MzAL4gMiBgyjakbVjKoZSWrwly3iRJTPo2qIVIOrHhSC1YMMxKvBVncboanB1gZggqtRSwOCJKxqOkCAOHMAP4+YU9vmCzcAAAAASUVORK
-5CYII=)
+![](/images/wiki/P5%2BYAAACAgIDQ6Obs7OxZWVnB2ddpaWkCF9iNAAAAcUlEQVRIx2NgUAIDBiwAIQNhGWMB6GoEsQC4GlZCahSIVqMoiBMIKamNqiGohoGAGlA4MzAL4gMiBgyjakbVjKoZSWrwly3iRJTPo2qIVIOrHhSC1YMMxKvBVncboanB1gZggqtRSwOCJKxqOkCAOHMAP4%2BYU9vmCzcAAAAASUVORK%0A5CYII%3D)
 
 [`<length>`](length.md)
 
-:   Denotes the size of the circle radius, or the semi-major and
-    semi-minor axes of the ellipse, using length values. Negative values
-    are invalid.
+: Denotes the size of the circle radius, or the semi-major and
+semi-minor axes of the ellipse, using length values. Negative values
+are invalid.
 
 [`<percentage>`](percentage.md)
 
-:   Denotes the size of the circle radius, or the semi-major and
-    semi-minor axes of the ellipse, using percentage values. Percentages
-    for the horizontal axis refer to the width of the box; percentages
-    for the vertical axis refer to the height of the box. Negative
-    values are invalid.
+: Denotes the size of the circle radius, or the semi-major and
+semi-minor axes of the ellipse, using percentage values. Percentages
+for the horizontal axis refer to the width of the box; percentages
+for the vertical axis refer to the height of the box. Negative
+values are invalid.
 
 For example:
 
@@ -126,101 +121,98 @@ border-bottom-right-radius: 6px 2px;
 border-bottom-left-radius: 3px 4px;
 ```
 
-Formal definition
------------------
+## Formal definition
 
 +-----------------------------------+-----------------------------------+
-| [Initial value](initial_value.md)    | as each of the properties of the  |
-|                                   | shorthand:\                       |
-|                                   |                                   |
-|                                   | -   [](border-top-left-radius.md): |
-|                                   |     `0`                           |
-|                                   | -   [](border-top-right-radius.md): |
-|                                   |     `0`                           |
-|                                   | -   [](border-bottom-right-radius.md): |
-|                                   |     `0`                           |
-|                                   | -   [](border-bottom-left-radius.md): |
-|                                   |     `0`                           |
+| [Initial value](initial_value.md) | as each of the properties of the |
+| | shorthand:\ |
+| | |
+| | - [](border-top-left-radius.md): |
+| | `0` |
+| | - [](border-top-right-radius.md): |
+| | `0` |
+| | - [](border-bottom-right-radius.md): |
+| | `0` |
+| | - [](border-bottom-left-radius.md): |
+| | `0` |
 +-----------------------------------+-----------------------------------+
-| Applies to                        | all elements; but User Agents are |
-|                                   | not required to apply to `table`  |
-|                                   | and `inline-table` elements when  |
-|                                   | [](border-collapse.md) |
-|                                   | is `collapse`. The behavior on    |
-|                                   | internal table elements is        |
-|                                   | undefined for the moment.. It     |
-|                                   | also applies to                   |
-|                                   | [`|
+| Applies to | all elements; but User Agents are |
+| | not required to apply to `table` |
+| | and `inline-table` elements when |
+| | [](border-collapse.md) |
+| | is `collapse`. The behavior on |
+| | internal table elements is |
+| | undefined for the moment.. It |
+| | also applies to |
+| | [`|
 |                                   | ::first-letter`](::first-letter). |
 +-----------------------------------+-----------------------------------+
-| [Inherited](inheritance.md)          | no                                |
+| [Inherited](inheritance.md) | no |
 +-----------------------------------+-----------------------------------+
-| Percentages                       | refer to the corresponding        |
-|                                   | dimension of the border box       |
+| Percentages | refer to the corresponding |
+| | dimension of the border box |
 +-----------------------------------+-----------------------------------+
-| [Computed value](computed_value.md)  | as each of the properties of the  |
-|                                   | shorthand:\                       |
-|                                   |                                   |
-|                                   | -   [](border-bottom-left-radius.md): |
-|                                   |     two absolute                  |
-|                                   |     [`<length>`](length.md)s or      |
-|                                   |     [`<percentage>`](percentage.md)s |
-|                                   | -   [](border-bottom-right-radius.md): |
-|                                   |     two absolute                  |
-|                                   |     [`<length>`](length.md)s or      |
-|                                   |     [`<percentage>`](percentage.md)s |
-|                                   | -   [](border-top-left-radius.md): |
-|                                   |     two absolute                  |
-|                                   |     [`<length>`](length.md)s or      |
-|                                   |     [`<percentage>`](percentage.md)s |
-|                                   | -   [](border-top-right-radius.md): |
-|                                   |     two absolute                  |
-|                                   |     [`<length>`](length.md)s or      |
-|                                   |     [`<percentage>`](percentage.md)s |
+| [Computed value](computed_value.md) | as each of the properties of the |
+| | shorthand:\ |
+| | |
+| | - [](border-bottom-left-radius.md): |
+| | two absolute |
+| | [`<length>`](length.md)s or |
+| | [`<percentage>`](percentage.md)s |
+| | - [](border-bottom-right-radius.md): |
+| | two absolute |
+| | [`<length>`](length.md)s or |
+| | [`<percentage>`](percentage.md)s |
+| | - [](border-top-left-radius.md): |
+| | two absolute |
+| | [`<length>`](length.md)s or |
+| | [`<percentage>`](percentage.md)s |
+| | - [](border-top-right-radius.md): |
+| | two absolute |
+| | [`<length>`](length.md)s or |
+| | [`<percentage>`](percentage.md)s |
 +-----------------------------------+-----------------------------------+
-| Animation type                    | as each of the properties of the  |
-|                                   | shorthand:\                       |
-|                                   |                                   |
-|                                   | -   [](border-top-left-radius.md): |
-|                                   |     a                             |
-|                                   |                                   |
-|                                   |   [length](length.md#interpolation), |
-|                                   |     [](percentage.md#interpolation) |
-|                                   |     or calc();                    |
-|                                   | -   [](border-top-right-radius.md): |
-|                                   |     a                             |
-|                                   |                                   |
-|                                   |   [length](length.md#interpolation), |
-|                                   |     [](percentage.md#interpolation) |
-|                                   |     or calc();                    |
-|                                   | -   [](border-bottom-right-radius.md): |
-|                                   |     a                             |
-|                                   |                                   |
-|                                   |   [length](length.md#interpolation), |
-|                                   |     [](percentage.md#interpolation) |
-|                                   |     or calc();                    |
-|                                   | -   [](border-bottom-left-radius.md): |
-|                                   |     a                             |
-|                                   |                                   |
-|                                   |   [length](length.md#interpolation), |
-|                                   |     [](percentage.md#interpolation) |
-|                                   |     or calc();                    |
+| Animation type | as each of the properties of the |
+| | shorthand:\ |
+| | |
+| | - [](border-top-left-radius.md): |
+| | a |
+| | |
+| | [length](length.md#interpolation), |
+| | [](percentage.md#interpolation) |
+| | or calc(); |
+| | - [](border-top-right-radius.md): |
+| | a |
+| | |
+| | [length](length.md#interpolation), |
+| | [](percentage.md#interpolation) |
+| | or calc(); |
+| | - [](border-bottom-right-radius.md): |
+| | a |
+| | |
+| | [length](length.md#interpolation), |
+| | [](percentage.md#interpolation) |
+| | or calc(); |
+| | - [](border-bottom-left-radius.md): |
+| | a |
+| | |
+| | [length](length.md#interpolation), |
+| | [](percentage.md#interpolation) |
+| | or calc(); |
 +-----------------------------------+-----------------------------------+
 
-Formal syntax
--------------
+## Formal syntax
 
 ```
-border-radius = 
-  <length-percentage [0,∞]> ]?  
+border-radius =
+  <length-percentage [0,∞]> ]?
 
-<length-percentage> = 
+<length-percentage> =
   <length>      |
-  <percentage>  
+  <percentage>
 ```
 
-Examples
---------
+## Examples
 
 ### Live Samples
 
@@ -230,22 +222,21 @@ Examples
 - Sample 4 : https://jsfiddle.net/Tripad/qnGKj/5/>
 - Sample 5 : https://jsfiddle.net/Tripad/qnGKj/6/>
 
-Specifications
---------------
+## Specifications
 
-  ----------------------------------------------------------------------------------
+---
 
 Specification
-  ----------------------------------------------------------------------------------
 
-  [CSS Backgrounds and Borders Module Level 3\
-  [\#
-  border-radius]](https://drafts.csswg.org/css-backgrounds/#border-radius)
+---
 
-  ----------------------------------------------------------------------------------
+[CSS Backgrounds and Borders Module Level 3\
+ [\#
+border-radius]](https://drafts.csswg.org/css-backgrounds/#border-radius)
 
-Browser compatibility
----------------------
+---
+
+## Browser compatibility
 
 Desktop
 
@@ -413,18 +404,17 @@ buggy.
 
 1.0
 
-See also
---------
+## See also
 
 - Border-radius-related CSS properties:
-    [`border-top-left-radius`](border-top-left-radius.md),
-    [`border-top-right-radius`](border-top-right-radius.md),
-    [`border-bottom-right-radius`](border-bottom-right-radius.md),
-    [`border-bottom-left-radius`](border-bottom-left-radius.md),
-    [`border-start-start-radius`](border-start-start-radius.md),
-    [`border-start-end-radius`](border-start-end-radius.md),
-    [`border-end-start-radius`](border-end-start-radius.md),
-    [`border-end-end-radius`](border-end-end-radius.md)
+  [`border-top-left-radius`](border-top-left-radius.md),
+  [`border-top-right-radius`](border-top-right-radius.md),
+  [`border-bottom-right-radius`](border-bottom-right-radius.md),
+  [`border-bottom-left-radius`](border-bottom-left-radius.md),
+  [`border-start-start-radius`](border-start-start-radius.md),
+  [`border-start-end-radius`](border-start-end-radius.md),
+  [`border-end-start-radius`](border-end-start-radius.md),
+  [`border-end-end-radius`](border-end-end-radius.md)
 
 © 2005--2023 MDN contributors.\
 Licensed under the Creative Commons Attribution-ShareAlike License v2.5

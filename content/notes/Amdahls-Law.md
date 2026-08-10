@@ -8,9 +8,9 @@
 
 아래의 그래프는 성능 향상 가능성의 예시를 보여준다.
 
-<!-- BROKEN IMAGE: ![Diagram: Amdahl's Law](./images/amdahls_law.png) -->
+<!-- BROKEN IMAGE: ![Diagram: Amdahl's Law](/images/wiki/amdahls_law.png) -->
 
-*(이미지 출처: Daniels220 @영어 Wikipedia, Creative Commons Attribution-Share Alike 3.0 Unported, https://en.wikipedia.org/wiki/File:AmdahlsLaw.svg)*
+_(이미지 출처: Daniels220 @영어 Wikipedia, Creative Commons Attribution-Share Alike 3.0 Unported, https://en.wikipedia.org/wiki/File:AmdahlsLaw.svg)_
 
 <br>
 
@@ -26,10 +26,10 @@
 
 <br>
 
-
-
 ---
-## 상세 내용 (Merged from 20_Wiki/Computing/_commons/tree/law/Amdahls-Law.md)
+
+## 상세 내용 (Merged from 20_Wiki/Computing/\_commons/tree/law/Amdahls-Law.md)
+
 ### 암달의 법칙
 
 [위키피디아의 암달의 법칙](https://ko.wikipedia.org/wiki/암달의_법칙)
@@ -40,14 +40,15 @@
 
 아래의 그래프는 성능 향상 가능성의 예시를 보여준다.
 
-<!-- BROKEN IMAGE: ![Diagram: Amdahl's Law](./images/amdahls_law.png) -->
+<!-- BROKEN IMAGE: ![Diagram: Amdahl's Law](/images/wiki/amdahls_law.png) -->
 
-*(이미지 출처: Daniels220 @영어 Wikipedia, Creative Commons Attribution-Share Alike 3.0 Unported, https://en.wikipedia.org/wiki/File:AmdahlsLaw.svg)*
+_(이미지 출처: Daniels220 @영어 Wikipedia, Creative Commons Attribution-Share Alike 3.0 Unported, https://en.wikipedia.org/wiki/File:AmdahlsLaw.svg)_
 
 보다시피 50%나 병렬화 가능한 프로그램임에도 10개 프로세서 이후에는 거의 이득이 없는 반면, 95% 병렬화 가능한 프로그램은 수천 개가 추가될 때까지도 유의미한 성능 향상을 보여주고 있다.
 
 [[Moores-Law|Moores-Law]]과 개별 프로세서의 성능 증가 속도가 완화되면서, 병렬화는 최적화의 핵심이 되었다. 그래픽스 프로그래밍이 이에 대한 가장 알맞은 예시이다. 셰이더 기반의 최신 컴퓨팅에서는 개별 픽셀 혹은 프래그먼트를 병렬로 렌더링할 수 있는데, 이것이 최신 그래픽 카드들이 대개 수천 개의 코어(GPU 또는 셰이더 유닛)로 구성된 이유이다.
 
 #### 참고 :
+
 - [[Brooks-Law|Brooks-Law]]
 - [[Moores-Law|Moores-Law]]

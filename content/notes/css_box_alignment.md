@@ -1,5 +1,4 @@
-CSS box alignment
-=================
+# CSS box alignment
 
 The **CSS box alignment** module specifies CSS features that relate to
 the alignment of boxes in the various CSS box layout models: block
@@ -10,8 +9,7 @@ details the general concepts found in the specification.
 **Note:** The documentation for each layout method will detail how Box
 Alignment is applied there.
 
-Older alignment methods
------------------------
+## Older alignment methods
 
 CSS traditionally had very limited alignment capabilities. We were able
 to align text using [`text-align`](text-align.md), center blocks using auto
@@ -29,8 +27,7 @@ the specification notes that the Box Alignment specification should be
 referred to as it may add additional capabilities over what is currently
 in Flexbox.
 
-Basic examples
---------------
+## Basic examples
 
 The following examples demonstrate how some of the Box Alignment
 Properties are applied in [Grid](css_grid_layout.md) and
@@ -54,8 +51,7 @@ In this example, three flex items are aligned on the main axis using
 item overrides the `align-items` set on the group by setting
 `align-self` to `center`.
 
-Key concepts and terminology
-----------------------------
+## Key concepts and terminology
 
 The specification details some alignment terminology to make it easier
 to discuss these alignment properties outside their implementation
@@ -126,19 +122,18 @@ alignment** will come into play and deal with the available space. This
 fallback alignment is specified individually for each layout method and
 detailed on the page for that method.
 
-Types of alignment
-------------------
+## Types of alignment
 
 There are three different types of alignment that the specification
 details; these use keyword values.
 
 - **Positional alignment**: specifying the position of an alignment
-    subject with relation to its alignment container.
+  subject with relation to its alignment container.
 - **Baseline alignment**: These keywords define alignment as a
-    relationship among the baselines of multiple alignment subjects
-    within an alignment context.
+  relationship among the baselines of multiple alignment subjects
+  within an alignment context.
 - **Distributed alignment**: These keywords define alignment as a
-    distribution of space among alignment subjects.
+  distribution of space among alignment subjects.
 
 ### Positional alignment keyword values
 
@@ -173,11 +168,7 @@ Both of these examples have `justify-content: start`, however the
 location of start changes according to the writing mode.
 
 ![There are two boxes, each with 3 children of differing heights but similar widths. The first box has three children with the letters A, B, and C. These three boxes are all aligned to the left. The second box has
-three children with arabic letters in them. Those three boxes are all aligned to the right.](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAd4AAABlBAMAAAARyp/yAAAALVBMVEXAwMCXl5f///8rKkheXXFrans7O1WhoaeurrK3t7lLSmKRkJp1dYR/f4yJiJM0Xi65AAACmklEQVR42u3cT2sTQRgG8Il2s7vpNrR48yT9BA1vuolbC4GkCJ4C2oN/DoWtV
-PASKPQgCoF4EE8LPeglEMih14XgSQ+FXEUKQbxW1IPfwu1EcWZ3RzbFpEP6vJeQObx5fkx2MpPDsJUZ1Gq2mkUUBi+8M/OuTrm4d/ofAi+88MIL7+XwMrnOhm7IQ1fSRv56z90AXnjh/U9ep50hrjWJ13yvsffroJLBa7Qm8C5QoK3XItrJ4D0M58RbpBehHLfL35ly3
-MHxXHjtE/Y8emmJcR/xXNfluNdqSu+H7Z8J75uPoey1fnwKNPAafNoWe2LcJzxXfVnydnoqb4HIbce9d8kLJO83oj0NvHmedKEkxDWrPNfwWPLm11TeUfkB1eJet05N0WuS13eDi/fuc69zS4i7uD4GNiVv4abK+71pUy/urdl+VfQWqGW4yxfvHfBZYI+FuBbtNu5tNe7IXqOifH6td79XeMF7yoYl0XvVY7YOz2/HbWxFOtHL+sRL9jolldfpU9LbZqNN0dsp67E+F8a2dTHuQZp3aUPlrXtf/F6Kd0P0H
-np6eE0/6bU/b59VKHmLqvm1osUq6T1l9YrozbsstxtqsN/octvD2P4ql9gu5KoKr0m9peT3ea87HvvTwKDbz6il7flo/yjuLe4ovLbv+rQW80ZDFIoN7GigrO95sO/FvY5yP3lAm6NS3PuansoNXhLd19c7rCTOg4Hy9+hV2vn3bbyB2db4vG+d4P8NeOGFF1544YUXX
-njhhRdeeOGFF1544YUXXnjhhRfe1LjJmtCbrQG88MILL7zwwgsvvPDCq7s3U/3Le+4G8MILL7zwwgsvvPDCCy+88MILL7zwwjvFwv1m8MILL7waey/b/cC4/xneufH+Avyoc2BcIV5BAAAAAElFTkSuQmCC)
+three children with arabic letters in them. Those three boxes are all aligned to the right.](/images/wiki/xneufH%2BAvyoc2BcIV5BAAAAAElFTkSuQmCC)
 
 ### Baseline alignment
 
@@ -219,8 +210,7 @@ and any available space after displaying the items is placed after the
 items.
 
 ![Three rectangles of different widths are inside a box. They are all aligned to the left side of the containing box, with about 10px between them, and 10px between the left side of the first rectangle and the
-parent container](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAi8AAABkAgMAAAAzujhRAAAACVBMVEXY2NiXl5f///8iBAieAAAAlUlEQVRo3u3bMQ5AMBQG4BrcyxEMXMK9DHpKSTcUkZAU3z/+adJv6/BeQ19OugADcxkzxEIywsDAwMDAwJxipt1XPUlXXcx0uSOfwDQhnyph2kVXx223Sg0DAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDA3Mn5njInsP8ZOJ/kjtusrICAwMD
-AwMD8xzGXxWYF2NmSJ2/a8FPB9AAAAAASUVORK5CYII=)
+parent container](/images/wiki/a8FPB9AAAAAASUVORK5CYII%3D)
 
 If you set `justify-content: space-between` on the flex container, the
 available space is now shared out and placed between the items.
@@ -229,8 +219,7 @@ There needs to be space available in the dimension you wish to align the
 items in, in order for these keywords to take effect. With no space,
 there is nothing to distribute.
 
-Overflow alignment
-------------------
+## Overflow alignment
 
 The `safe` and `unsafe` keywords help define behavior when an alignment
 subject is larger than the alignment container. The `safe` keyword will
@@ -242,8 +231,7 @@ to.
 If you specify `unsafe` then the alignment will be honoured even if it
 would cause such data loss.
 
-Gaps between boxes
-------------------
+## Gaps between boxes
 
 The box alignment specification also includes the `gap`, `row-gap`, and
 `column-gap` properties. These properties enable the setting of a
@@ -271,8 +259,7 @@ Be aware that other things may increase the visual gap displayed, for
 example using the space distribution keywords or adding margins to
 items.
 
-Pages detailing individual alignment properties
------------------------------------------------
+## Pages detailing individual alignment properties
 
 As the CSS box alignment properties are implemented differently
 depending on the specification they interact with, refer to the
@@ -284,8 +271,7 @@ alignment properties with it:
 - [](box_alignment_in_multi-column_layout.md)
 - [](box_alignment_in_block_abspos_tables.md)
 
-Reference
----------
+## Reference
 
 ### CSS Properties
 
@@ -305,30 +291,28 @@ Reference
 ### Glossary Entries
 
 - [Cross
-    axis](https://developer.mozilla.org/en-US/docs/Glossary/Cross_Axis)
+  axis](https://developer.mozilla.org/en-US/docs/Glossary/Cross_Axis)
 - [Main
-    axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis)
+  axis](https://developer.mozilla.org/en-US/docs/Glossary/Main_Axis)
 - [Alignment
-    container](https://developer.mozilla.org/en-US/docs/Glossary/Alignment_Container)
+  container](https://developer.mozilla.org/en-US/docs/Glossary/Alignment_Container)
 - [Alignment
-    subject](https://developer.mozilla.org/en-US/docs/Glossary/Alignment_Subject)
+  subject](https://developer.mozilla.org/en-US/docs/Glossary/Alignment_Subject)
 - [Fallback
-    alignment](https://developer.mozilla.org/en-US/docs/Glossary/Fallback_Alignment)
+  alignment](https://developer.mozilla.org/en-US/docs/Glossary/Fallback_Alignment)
 
-Guides
-------
+## Guides
 
-- CSS Flexbox guide: *[](basic_concepts_of_flexbox.md)*
-- CSS Flexbox guide: *[](aligning_items_in_a_flex_container.md)*
-- CSS Grid guide: *[](_Resources/Markup%20And%20Styling/css/css_grid_layout/box_alignment_in_grid_layout.md)*
+- CSS Flexbox guide: _[](basic_concepts_of_flexbox.md)_
+- CSS Flexbox guide: _[](aligning_items_in_a_flex_container.md)_
+- CSS Grid guide: _[](_Resources/Markup%20And%20Styling/css/css_grid_layout/box_alignment_in_grid_layout.md)_
 
-External Resources
-------------------
+## External Resources
 
 - [CSS Grid, Flexbox and Box
-    alignment](https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/)
+  alignment](https://www.smashingmagazine.com/2016/11/css-grids-flexbox-box-alignment-new-layout-standard/)
 - [Thoughts on partial implementations of Box
-    alignment](https://blogs.igalia.com/jfernandez/2017/05/03/can-i-use-css-box-alignment/)
+  alignment](https://blogs.igalia.com/jfernandez/2017/05/03/can-i-use-css-box-alignment/)
 
 © 2005--2023 MDN contributors.\
 Licensed under the Creative Commons Attribution-ShareAlike License v2.5
