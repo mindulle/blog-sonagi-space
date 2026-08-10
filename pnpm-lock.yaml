@@ -15,8 +15,11 @@ importers:
         specifier: ^16.0.0
         version: 16.0.0(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))
       '@sonagi/tokens':
-        specifier: ^1.3.1
-        version: 1.3.1
+        specifier: file:vendor/sonagi-tokens-1.3.2.tgz
+        version: file:vendor/sonagi-tokens-1.3.2.tgz
+      '@sonagi/ui':
+        specifier: file:vendor/sonagi-ui-1.1.0.tgz
+        version: file:vendor/sonagi-ui-1.1.0.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -736,8 +739,16 @@ packages:
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
 
-  '@sonagi/tokens@1.3.1':
-    resolution: {integrity: sha512-nf2h9tRYwVOw7EcTMGmTGy3Af43SDRiOT0b6apBygm4s3ikmyqvDd3lXOR5HVojEIhcBPeG490ReLK+hVi30fg==}
+  '@sonagi/tokens@file:vendor/sonagi-tokens-1.3.2.tgz':
+    resolution: {integrity: sha512-2rWcjj61Yl+U8QyRVcYi83RHtJyTFRJENq7CmC37gRbeYIaRN6VPaMIHidB/CjbMVDy2bkVJ5bKWwf5AQFfuGw==, tarball: file:vendor/sonagi-tokens-1.3.2.tgz}
+    version: 1.3.2
+
+  '@sonagi/ui@file:vendor/sonagi-ui-1.1.0.tgz':
+    resolution: {integrity: sha512-ZsdV7OjiYNraW4OiUDoTUUZvZtP/eWy+xcFKVK2LqQv3kxMTiGEaNuhzlff0FUcBhRzv2FP4p/ypPGybHlyZtQ==, tarball: file:vendor/sonagi-ui-1.1.0.tgz}
+    version: 1.1.0
+    peerDependencies:
+      react: '>=18'
+      react-dom: '>=18'
 
   '@standard-schema/spec@1.1.0':
     resolution: {integrity: sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w==}
@@ -4081,7 +4092,13 @@ snapshots:
 
   '@rtsao/scc@1.1.0': {}
 
-  '@sonagi/tokens@1.3.1': {}
+  '@sonagi/tokens@file:vendor/sonagi-tokens-1.3.2.tgz': {}
+
+  '@sonagi/ui@file:vendor/sonagi-ui-1.1.0.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+    dependencies:
+      '@sonagi/tokens': file:vendor/sonagi-tokens-1.3.2.tgz
+      react: 19.2.0
+      react-dom: 19.2.0(react@19.2.0)
 
   '@standard-schema/spec@1.1.0': {}
 

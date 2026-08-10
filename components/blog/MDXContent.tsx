@@ -19,15 +19,21 @@ async function fetchNoteSummary(slug: string) {
   return { title: note.title, excerpt: note.excerpt };
 }
 
+import React from 'react';
+
+interface CustomAnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  'data-slug'?: string;
+}
+
 const components = {
-  a: (props: any) => {
+  a: (props: CustomAnchorProps) => {
     const { href, className, 'data-slug': dataSlug, children, ...rest } = props;
-    
+
     // 위키링크인 경우 HoverPreview 적용
     if (className && className.includes('wikilink')) {
       const isBroken = className.includes('broken');
       const slug = dataSlug || href;
-      
+
       // 끊어진 링크는 HoverPreview 없이 단순 렌더링
       if (isBroken) {
         return (
@@ -38,33 +44,45 @@ const components = {
       }
 
       return (
-        <WikiLinkPreview slug={slug} href={`/notes/${slug}`} fetchNote={fetchNoteSummary}>
+        <WikiLinkPreview
+          slug={slug}
+          href={`/notes/${slug}`}
+          fetchNote={fetchNoteSummary}
+        >
           {children}
         </WikiLinkPreview>
       );
     }
-    
+
     // 일반 외부 링크
     if (href?.startsWith('http')) {
-      return <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>{children}</a>;
+      return (
+        <a href={href} target="_blank" rel="noopener noreferrer" {...rest}>
+          {children}
+        </a>
+      );
     }
-    
+
     // 내부 링크
-    return <Link href={href || '#'} {...rest}>{children}</Link>;
-  }
+    return (
+      <Link href={href || '#'} {...rest}>
+        {children}
+      </Link>
+    );
+  },
 };
 
 export function MDXContent({ content }: MDXContentProps) {
   return (
     <article className="prose prose-neutral dark:prose-invert max-w-none">
-      <MDXRemote 
-        source={content} 
+      <MDXRemote
+        source={content}
         components={components}
         options={{
           mdxOptions: {
             remarkPlugins: [remarkGfm, remarkWikilinks],
-            rehypePlugins: [rehypeHighlight]
-          }
+            rehypePlugins: [rehypeHighlight],
+          },
         }}
       />
     </article>
