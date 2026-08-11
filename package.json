@@ -9,6 +9,8 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest",
+    "test:e2e": "playwright test",
+    "chromatic": "chromatic --playwright",
     "prepare": "husky"
   },
   "dependencies": {
@@ -39,6 +41,7 @@
     "unist-util-visit": "^5.1.0"
   },
   "devDependencies": {
+    "@chromatic-com/playwright": "^0.14.11",
     "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.19",
@@ -51,6 +54,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@vitejs/plugin-react": "^6.0.2",
+    "chromatic": "^18.1.0",
     "eslint": "^9",
     "eslint-config-next": "16.0.0",
     "husky": "^9.1.7",
