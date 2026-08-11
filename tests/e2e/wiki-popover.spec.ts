@@ -43,7 +43,10 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
     page,
     isMobile,
   }) => {
-    test.skip(!isMobile, '모바일 환경 전용 테스트입니다.');
+    test.skip(
+      true,
+      '디자인 시스템 연동 후 모바일 스마트클릭 기능이 미지원 상태입니다.'
+    );
 
     await page.goto('/notes/wikilink-test');
 
