@@ -35,6 +35,7 @@ jobs:
         run: pnpm run test:e2e
 
       - name: Upload to Chromatic
-        env:
-          CHROMATIC_PROJECT_TOKEN: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
-        run: pnpm run chromatic --project-token=$CHROMATIC_PROJECT_TOKEN
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          playwright: true
