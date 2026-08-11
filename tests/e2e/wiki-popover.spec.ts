@@ -1,37 +1,21 @@
 import { test, expect } from '@chromatic-com/playwright';
 
 test.describe('Wiki Hover Popover (Desktop)', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.route('**/note-summaries.json', (route) => {
-      route.fulfill({
-        status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify({
-          dummy: {
-            slug: 'dummy',
-            title: 'Dummy Note',
-            excerpt: 'This is a dummy excerpt for testing.',
-            tags: ['dummy', 'test'],
-          },
-        }),
-      });
-    });
-  });
-
   test('마우스를 올렸다 뗐다를 반복해도 여러 번 정상적으로 팝오버가 작동한다', async ({
     page,
   }) => {
     await page.goto('/notes/wikilink-test');
 
-    const link = page.locator('a.wikilink').first();
+    const link = page.locator('a.sng-wikilink, a.wikilink').first();
     await expect(link).toBeVisible();
 
-    const tooltip = page.locator('div[role="tooltip"]').first();
+    const tooltip = page.locator('[role="tooltip"]').first();
 
     // -- 첫 번째 호버 --
     await link.hover();
     await expect(tooltip).toBeVisible({ timeout: 2000 });
-    await expect(tooltip).toContainText('Dummy Note');
+    // 서버 액션으로 동작하므로 실제 제목인 'Architecture'가 불러와짐
+    await expect(tooltip).toContainText('Architecture');
 
     // -- 호버 아웃 --
     await page.locator('body').hover({ position: { x: 10, y: 10 } });
@@ -55,23 +39,6 @@ test.describe('Wiki Hover Popover (Desktop)', () => {
 });
 
 test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.route('**/note-summaries.json', (route) => {
-      route.fulfill({
-        status: 200,
-        contentType: 'application/json',
-        body: JSON.stringify({
-          dummy: {
-            slug: 'dummy',
-            title: 'Dummy Note',
-            excerpt: 'This is a dummy excerpt for testing.',
-            tags: ['dummy', 'test'],
-          },
-        }),
-      });
-    });
-  });
-
   test('모바일 환경에서 링크 터치 시 페이지 이동 대신 팝오버가 열려야 한다', async ({
     page,
     isMobile,
@@ -80,11 +47,11 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
 
     await page.goto('/notes/wikilink-test');
 
-    const link = page.locator('a.wikilink').first();
+    const link = page.locator('a.sng-wikilink, a.wikilink').first();
     await expect(link).toBeVisible();
 
     await link.tap();
-    const tooltip = page.locator('div[role="tooltip"]').first();
+    const tooltip = page.locator('[role="tooltip"]').first();
     await expect(tooltip).toBeVisible();
 
     await page.mouse.click(10, 10);
