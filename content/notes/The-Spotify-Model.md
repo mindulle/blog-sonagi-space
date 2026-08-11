@@ -8,16 +8,16 @@
 
 <br>
 
-<!-- BROKEN IMAGE: ![Spotify Tribe Engineering Model](./images/spotify_model.jpg) -->
+<!-- BROKEN IMAGE: ![Spotify Tribe Engineering Model](/images/wiki/spotify_model.jpg) -->
 
-*(이미지 출처: https://medium.com/@media_75624/exploring-key-elements-of-spotifys-agile-scaling-model-471d2a23d7ea)*
+_(이미지 출처: https://medium.com/@media_75624/exploring-key-elements-of-spotifys-agile-scaling-model-471d2a23d7ea)_
 
 <br>
 
-
-
 ---
-## 상세 내용 (Merged from 20_Wiki/Develop/_commons/tree/Principle/The-Spotify-Model.md)
+
+## 상세 내용 (Merged from 20_Wiki/Develop/\_commons/tree/Principle/The-Spotify-Model.md)
+
 ### 스포티파이 모델
 
 [The Spotify Model on Spotify Labs](https://labs.spotify.com/2014/03/27/spotify-engineering-culture-part-1/)
@@ -26,5 +26,6 @@
 
 스포티파이 모델은 부족, 길드, 지부와 같은 그들 조직 구조의 요소 또한 유명하게 만들었다.
 
-<!-- BROKEN IMAGE: ![Spotify Tribe Engineering Model](./images/spotify_model.jpg) -->
-*(이미지 출처: https://medium.com/@media_75624/exploring-key-elements-of-spotifys-agile-scaling-model-471d2a23d7ea)*
+<!-- BROKEN IMAGE: ![Spotify Tribe Engineering Model](/images/wiki/spotify_model.jpg) -->
+
+_(이미지 출처: https://medium.com/@media_75624/exploring-key-elements-of-spotifys-agile-scaling-model-471d2a23d7ea)_

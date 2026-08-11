@@ -1,5 +1,5 @@
 ---
-title: "Generated Sonagi Grid Test 03 (Advanced ControlNet)"
+title: 'Generated Sonagi Grid Test 03 (Advanced ControlNet)'
 tags: [design, generated, controlnet, early-stopping]
 ---
 
@@ -9,9 +9,10 @@ ControlNet이 그리드를 '색칠공부 밑그림'으로 오해하는 현상을
 
 (현재 P40 서버에서 렌더링 중입니다. 이미지가 완료되면 아래에 동기화됩니다.)
 
-![[sonagi_grid_test_v3_00001_.png]]
+![sonagi_grid_test_v3_00001_.png](/images/wiki/sonagi_grid_test_v3_00001_.png)
 
 ---
-* **사용한 그리드**: `apple_bite_blueprint.svg`
-* **제어 기법**: ControlNet Lineart (Start: 0.0, **End: 0.35**)
-* **프롬프트**: `solid forms, no outlines, modern corporate branding, flat design, soft gradient...`
+
+- **사용한 그리드**: `apple_bite_blueprint.svg`
+- **제어 기법**: ControlNet Lineart (Start: 0.0, **End: 0.35**)
+- **프롬프트**: `solid forms, no outlines, modern corporate branding, flat design, soft gradient...`

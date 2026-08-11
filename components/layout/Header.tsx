@@ -1,11 +1,10 @@
 'use client';
+import { Button } from '@sonagi/ui';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Search } from 'lucide-react';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
-import { Button } from '@/components/ui/Button';
-
 import { Logo } from '@/components/ui/Logo';
 
 const navigation = [
@@ -60,7 +59,7 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center gap-2">
             <Link href="/search">
-              <Button variant="ghost" size="small" aria-label="Search">
+              <Button variant="secondary" size="sm" aria-label="Search">
                 <Search size={20} />
               </Button>
             </Link>

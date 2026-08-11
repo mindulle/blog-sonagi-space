@@ -1,10 +1,10 @@
 'use client';
+import { Badge } from '@sonagi/ui';
 
 import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
 import { CategoryBadge } from '../CategoryBadge';
 import { Card, CardBody } from '@/components/ui/Card';
-import { Badge } from '@/components/ui/Badge';
 import type { Post } from '@/types/blog';
 
 type SearchResultsProps = {
@@ -98,7 +98,7 @@ export function SearchResults({
                 {post.tags && post.tags.length > 0 && (
                   <div className="flex flex-wrap gap-2 mt-4">
                     {post.tags.map((tag) => (
-                      <Badge key={tag} variant="default" size="small">
+                      <Badge key={tag} variant="label">
                         #{tag}
                       </Badge>
                     ))}

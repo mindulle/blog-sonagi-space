@@ -347,3 +347,69 @@ a:hover {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
 }
+
+/* AI Components & Badge Backports */
+.sng-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: var(--sng-font-size-xs, 0.75rem);
+  font-weight: 500;
+  border-radius: 4px;
+  background: linear-gradient(
+    135deg,
+    var(--sng-color-brand-primary),
+    var(--sng-color-brand-logo)
+  );
+  color: var(--sng-color-bg-base);
+}
+
+.sng-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--sng-color-border-subtle);
+}
+.sng-badge--info {
+  background: var(--sng-color-state-info-bg);
+  color: var(--sng-color-state-info);
+}
+.sng-badge--success {
+  background: var(--sng-color-state-success-bg);
+  color: var(--sng-color-state-success);
+}
+.sng-badge--warning {
+  background: var(--sng-color-state-warning-bg);
+  color: var(--sng-color-state-warning);
+}
+.sng-badge--error {
+  background: var(--sng-color-state-error-bg);
+  color: var(--sng-color-state-error);
+}
+
+.sng-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sng-btn--primary {
+  background: var(--sng-color-brand-primary);
+  color: white;
+}
+.sng-btn--primary:hover {
+  background: var(--sng-color-brand-primary-hover);
+}
+.sng-btn--outline {
+  border: 1px solid var(--sng-color-border-strong);
+  color: var(--sng-color-text-primary);
+}
+.sng-btn--outline:hover {
+  background: var(--sng-color-bg-surface);
+}

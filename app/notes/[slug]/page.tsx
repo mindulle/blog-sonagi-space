@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getNoteBySlug } from '@/lib/notes';
 import { BacklinksSection } from '@/components/blog/BacklinksSection';
 import { LocalGraph } from '@/components/blog/LocalGraph';
-import { PostContent } from '@/components/blog/PostContent';
+import { MDXContent } from '@/components/blog/MDXContent';
 import backlinksData from '@/lib/generated/backlinks.json';
 
 interface Props {
@@ -10,8 +10,6 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  // Return an empty array to build all pages on demand (ISR)
-  // This prevents Out of Memory (OOM) errors during build when there are thousands of notes.
   return [];
 }
 
@@ -21,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
   try {
     decodedSlug = decodeURIComponent(slug);
   } catch {
-    // 무시 (디코딩 실패 시 원본 사용)
+    // 무시
   }
   const note = getNoteBySlug(decodedSlug);
 
@@ -29,17 +27,11 @@ export async function generateMetadata({ params }: Props) {
     return {
       title: `${decodedSlug} - 🌱 Seed`,
       description: '아직 내용이 심어지지 않은 지식의 씨앗(작성 예정)입니다.',
-      robots: {
-        index: false,
-        follow: false,
-      },
+      robots: { index: false, follow: false },
     };
   }
 
-  return {
-    title: note.title,
-    description: note.excerpt,
-  };
+  return { title: note.title, description: note.excerpt };
 }
 
 export default async function NotePage({ params }: Props) {
@@ -48,20 +40,18 @@ export default async function NotePage({ params }: Props) {
   try {
     decodedSlug = decodeURIComponent(slug);
   } catch {
-    // 무시 (디코딩 실패 시 원본 사용)
+    // 무시
   }
 
   const note = getNoteBySlug(decodedSlug);
-
   const backlinks =
     (
       backlinksData as Record<
         string,
-        Array<{ sourceSlug: string; sourceTitle: string; excerpt: string }>
+        { sourceSlug: string; sourceTitle: string; excerpt: string }[]
       >
     )[decodedSlug] ?? [];
 
-  // 방안 C: 미작성된 문서(Seed) 플레이스홀더 렌더링
   if (!note) {
     return (
       <main
@@ -71,7 +61,6 @@ export default async function NotePage({ params }: Props) {
           padding: 'var(--space-8) var(--space-4)',
         }}
       >
-        {/* 헤더 */}
         <header style={{ marginBottom: 'var(--space-8)' }}>
           <Link
             href="/notes"
@@ -98,21 +87,12 @@ export default async function NotePage({ params }: Props) {
             {decodedSlug}
           </h1>
           <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
-            <span
-              style={{
-                fontSize: 'var(--text-xs)',
-                padding: '2px 8px',
-                border: '1px solid var(--sng-color-border-default)',
-                borderRadius: 'var(--sng-radius-sm)',
-                color: 'var(--sng-color-text-muted)',
-              }}
-            >
+            <span className="sng-badge sng-badge--warning">
               🌱 Seed (작성 예정)
             </span>
           </div>
         </header>
 
-        {/* 씨앗 페이지 본문 안내 */}
         <div
           style={{
             backgroundColor: 'var(--sng-color-bg-subtle)',
@@ -144,16 +124,12 @@ export default async function NotePage({ params }: Props) {
           </p>
         </div>
 
-        {/* 로컬 그래프 (디지털 가든) */}
         <LocalGraph slug={decodedSlug} />
-
-        {/* 백링크 */}
         <BacklinksSection backlinks={backlinks} />
       </main>
     );
   }
 
-  // 작성된 정상 노트 렌더링
   return (
     <main
       style={{
@@ -162,7 +138,6 @@ export default async function NotePage({ params }: Props) {
         padding: 'var(--space-8) var(--space-4)',
       }}
     >
-      {/* 헤더 */}
       <header style={{ marginBottom: 'var(--space-8)' }}>
         <Link
           href="/notes"
@@ -178,7 +153,6 @@ export default async function NotePage({ params }: Props) {
         >
           ← Notes
         </Link>
-
         <h1
           style={{
             fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
@@ -189,22 +163,12 @@ export default async function NotePage({ params }: Props) {
         >
           {note.title}
         </h1>
-
         {note.tags.length > 0 && (
           <div
             style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}
           >
             {note.tags.map((tag) => (
-              <span
-                key={tag}
-                style={{
-                  fontSize: 'var(--text-xs)',
-                  padding: '2px 8px',
-                  border: '1px solid var(--sng-color-border-default)',
-                  borderRadius: 'var(--sng-radius-sm)',
-                  color: 'var(--sng-color-text-secondary)',
-                }}
-              >
+              <span key={tag} className="sng-badge sng-badge--info">
                 {tag}
               </span>
             ))}
@@ -212,13 +176,9 @@ export default async function NotePage({ params }: Props) {
         )}
       </header>
 
-      {/* 본문 */}
-      <PostContent html={note.content} className="prose" />
+      <MDXContent content={note.rawContent} />
 
-      {/* 로컬 그래프 (디지털 가든) */}
       <LocalGraph slug={decodedSlug} />
-
-      {/* 백링크 */}
       <BacklinksSection backlinks={backlinks} />
     </main>
   );

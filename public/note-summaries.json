@@ -691,6 +691,12 @@
     "tags": ["communication", "workflow", "pm", "handoff", "design-codex"],
     "excerpt": "디자인은 그림을 그리는 작업 이전에 '소통'하는 작업입니다. 이 볼륨은 기획자(PM)가 던지는 추상적인 요구사항이나, 개발자로 넘어가는 핸드오프(Handoff) 과정에서 사용되는 에이전시 및 인하우스(In-house) 실무 은어들을 해독합니다."
   },
+  "06화_AI가_디자이너를_둘로_가른다": {
+    "slug": "06화_AI가_디자이너를_둘로_가른다",
+    "title": "06화 AI가 디자이너를 둘로 가른다",
+    "tags": [],
+    "excerpt": "\"판단하는 사람은 살아남는다\"는 말이 놓치고 있는 것"
+  },
   "07.-Outline-a-logo-shape": {
     "slug": "07.-Outline-a-logo-shape",
     "title": "07.-Outline-a-logo-shape",
@@ -768,6 +774,24 @@
     "title": "13.-Summary",
     "tags": [],
     "excerpt": "Technical Writing One covered the following basic lessons of technical writing:"
+  },
+  "1953_1주차_미팅준비안": {
+    "slug": "1953_1주차_미팅준비안",
+    "title": "1953_1주차_미팅준비안",
+    "tags": [],
+    "excerpt": "킥오프 미팅에서 프로젝트의 범위를 명확히 좁히기 위해 확인해야 할 필수 질문들입니다."
+  },
+  "1953_노션_대시보드_스키마": {
+    "slug": "1953_노션_대시보드_스키마",
+    "title": "1953_노션_대시보드_스키마",
+    "tags": [],
+    "excerpt": "**Phase 1 (우선 구현 타겟 - 프로토타입용)**"
+  },
+  "1953_프로젝트_개요": {
+    "slug": "1953_프로젝트_개요",
+    "title": "1953_프로젝트_개요",
+    "tags": [],
+    "excerpt": "- **주관/운영기관**: 고용노동부 (미래내일 일경험 프로젝트) / 해냄 주식회사"
   },
   "2-1.-Identify-the-error's-cause": {
     "slug": "2-1.-Identify-the-error's-cause",
@@ -2635,6 +2659,12 @@
     "tags": ["concept", "ai-red-teaming"],
     "excerpt": "As AI agents capable of autonomous action become more common, AI Red Teamers must test their unique security implications. This involves assessing ris..."
   },
+  "Agentic-Open-Source-Convention": {
+    "slug": "Agentic-Open-Source-Convention",
+    "title": "Agentic-Open-Source-Convention",
+    "tags": ["agentic", "open-source", "architecture", "llm", "convention"],
+    "excerpt": "과거의 오픈 소스 생태계가 '인간 개발자'들이 어떻게 협업할 것인가에 초점을 맞추었다면, 앞으로의 오픈 소스는 **\"저장소에 접근하는 외부 AI 에이전트를 어떻게 통제하고 컨벤션을 강제할 것인가\"**가 핵심이 됩니다."
+  },
   "Agents-Usecases": {
     "slug": "Agents-Usecases",
     "title": "Agents Usecases",
@@ -2802,6 +2832,12 @@
     "title": "Alchemy",
     "tags": ["concept", "blockchain"],
     "excerpt": "Alchemy is a platform that provides developers with the infrastructure and tools needed to build and scale decentralized applications (dApps). It simp..."
+  },
+  "Alert_시스템을_표준화하고_IaC로_운영하기__GeekNews": {
+    "slug": "Alert_시스템을_표준화하고_IaC로_운영하기__GeekNews",
+    "title": "Alert 시스템을 표준화하고 IaC로 운영하기 | GeekNews",
+    "tags": [],
+    "excerpt": "[▲](javascript:vote(30986, 'up'); \"토픽 추천\")"
   },
   "Algorithmic-Bias": {
     "slug": "Algorithmic-Bias",
@@ -4021,6 +4057,12 @@
     "tags": ["concept", "nodejs"],
     "excerpt": "An `AssertionError` in Node.js is an error that is thrown when the `assert` module determines that a given expression is not truthy. The `assert` modu..."
   },
+  "Assessment_CheatSheet": {
+    "slug": "Assessment_CheatSheet",
+    "title": "어세스먼트 실전 치트시트 (Assessment Cheat Sheet)",
+    "tags": ["anki-sync", "card", "assessment", "cheatsheet"],
+    "excerpt": "이 문서는 실전 알고리즘 어세스먼트 및 시스템 설계 면접에서 자주 발생하는 치명적인 버그와 엣지 케이스들을 모아둔 치트시트입니다."
+  },
   "Asset-Management": {
     "slug": "Asset-Management",
     "title": "Asset Management",
@@ -4314,6 +4356,12 @@
     "title": "Atlassian",
     "tags": ["concept", "qa"],
     "excerpt": "Jira is a software application used for issue tracking and project management. The tool, developed by the Australian software company Atlassian, has b..."
+  },
+  "Atlassian의_DESIGN.md_공개_-_이식_가능한_디자인_컨텍스트를_실전_테스트하__GeekNews": {
+    "slug": "Atlassian의_DESIGN.md_공개_-_이식_가능한_디자인_컨텍스트를_실전_테스트하__GeekNews",
+    "title": "Atlassian의 DESIGN.md 공개 - 이식 가능한 디자인 컨텍스트를 실전 테스트하 | GeekNews",
+    "tags": [],
+    "excerpt": "[▲](javascript:vote(30990, 'up'); \"토픽 추천\")"
   },
   "Atomic-Operations-&-Memory-Barriers": {
     "slug": "Atomic-Operations-&-Memory-Barriers",
@@ -17747,6 +17795,12 @@
     "tags": ["concept", "frontend"],
     "excerpt": "Device Orientation API detects device tilt and movement (pitch, roll, yaw) for motion-responsive applications. Requires permission for AR, gaming, and..."
   },
+  "Devth": {
+    "slug": "Devth",
+    "title": "Devth",
+    "tags": [],
+    "excerpt": "AI 활용 역량 진단을 위한  "
+  },
   "Diagnostic-Analysis": {
     "slug": "Diagnostic-Analysis",
     "title": "Diagnostic Analysis",
@@ -20891,6 +20945,12 @@
     "tags": ["concept", "engineering-manager"],
     "excerpt": "The role of an Engineering Manager extends to external collaboration as well. Here, they often serve the role of liaising with external teams, vendors..."
   },
+  "External_Storage_Structure": {
+    "slug": "External_Storage_Structure",
+    "title": "External_Storage_Structure",
+    "tags": ["infrastructure", "storage", "architecture"],
+    "excerpt": "본 문서는 사내 인프라의 디스크 용량 한계를 극복하기 위해 구성된 `devops-instance` (100.82.121.40)의 외장하드(`/mnt/monitoring`) 디렉토리 구조 및 오프로딩 파이프라인 명세서입니다."
+  },
   "Extract-Data": {
     "slug": "Extract-Data",
     "title": "Extract Data",
@@ -23433,31 +23493,31 @@
     "slug": "Generated_Calligraphy_Wiki_Implementation_00001_",
     "title": "Generated Calligraphy_Wiki_Implementation_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![Calligraphy_Wiki_Implementation_00001_.png](/images/wiki/Calligraphy_Wiki_Implementation_00001_.png)"
   },
   "Generated_Rabbit_Style_Implementation_00001_": {
     "slug": "Generated_Rabbit_Style_Implementation_00001_",
     "title": "Generated Rabbit_Style_Implementation_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![Rabbit_Style_Implementation_00001_.png](/images/wiki/Rabbit_Style_Implementation_00001_.png)"
   },
   "Generated_SDXL_Logo_Test_00001_": {
     "slug": "Generated_SDXL_Logo_Test_00001_",
     "title": "Generated SDXL_Logo_Test_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![SDXL_Logo_Test_00001_.png](/images/wiki/SDXL_Logo_Test_00001_.png)"
   },
   "Generated_SDXL_Pixel_Logo_Test_00001_": {
     "slug": "Generated_SDXL_Pixel_Logo_Test_00001_",
     "title": "Generated SDXL_Pixel_Logo_Test_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![SDXL_Pixel_Logo_Test_00001_.png](/images/wiki/SDXL_Pixel_Logo_Test_00001_.png)"
   },
   "Generated_Sonagi_Calligraphy_Variant_00001_": {
     "slug": "Generated_Sonagi_Calligraphy_Variant_00001_",
     "title": "Generated Sonagi_Calligraphy_Variant_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![Sonagi_Calligraphy_Variant_00001_.png](/images/wiki/Sonagi_Calligraphy_Variant_00001_.png)"
   },
   "Generated_Sonagi_GridTest_02": {
     "slug": "Generated_Sonagi_GridTest_02",
@@ -23475,223 +23535,223 @@
     "slug": "Generated_Sonagi_Logo_Test_00001_",
     "title": "Generated Sonagi_Logo_Test_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![Sonagi_Logo_Test_00001_.png](/images/wiki/Sonagi_Logo_Test_00001_.png)"
   },
   "Generated_Sonagi_RabbitStyle_Variant_00001_": {
     "slug": "Generated_Sonagi_RabbitStyle_Variant_00001_",
     "title": "Generated Sonagi_RabbitStyle_Variant_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![Sonagi_RabbitStyle_Variant_00001_.png](/images/wiki/Sonagi_RabbitStyle_Variant_00001_.png)"
   },
   "Generated_Sonagi_Refined_Logo_00001_": {
     "slug": "Generated_Sonagi_Refined_Logo_00001_",
     "title": "Generated Sonagi_Refined_Logo_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![Sonagi_Refined_Logo_00001_.png](/images/wiki/Sonagi_Refined_Logo_00001_.png)"
   },
   "Generated_brand_1_minimal_00001_": {
     "slug": "Generated_brand_1_minimal_00001_",
     "title": "Generated brand_1_minimal_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![brand_1_minimal_00001_.png](/images/wiki/brand_1_minimal_00001_.png)"
   },
   "Generated_brand_2_appicon_00001_": {
     "slug": "Generated_brand_2_appicon_00001_",
     "title": "Generated brand_2_appicon_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![brand_2_appicon_00001_.png](/images/wiki/brand_2_appicon_00001_.png)"
   },
   "Generated_brand_3_lineart_00001_": {
     "slug": "Generated_brand_3_lineart_00001_",
     "title": "Generated brand_3_lineart_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![brand_3_lineart_00001_.png](/images/wiki/brand_3_lineart_00001_.png)"
   },
   "Generated_jenny_64x64_clean_00001_": {
     "slug": "Generated_jenny_64x64_clean_00001_",
     "title": "Generated jenny_64x64_clean_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_64x64_clean_00001_.png](/images/wiki/jenny_64x64_clean_00001_.png)"
   },
   "Generated_jenny_64x64_clean_00002_": {
     "slug": "Generated_jenny_64x64_clean_00002_",
     "title": "Generated jenny_64x64_clean_00002_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_64x64_clean_00002_.png](/images/wiki/jenny_64x64_clean_00002_.png)"
   },
   "Generated_jenny_advanced_bridge_00001_": {
     "slug": "Generated_jenny_advanced_bridge_00001_",
     "title": "Generated jenny_advanced_bridge_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_advanced_bridge_00001_.png](/images/wiki/jenny_advanced_bridge_00001_.png)"
   },
   "Generated_jenny_color_locked_00001_": {
     "slug": "Generated_jenny_color_locked_00001_",
     "title": "Generated jenny_color_locked_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_color_locked_00001_.png](/images/wiki/jenny_color_locked_00001_.png)"
   },
   "Generated_jenny_color_locked_00002_": {
     "slug": "Generated_jenny_color_locked_00002_",
     "title": "Generated jenny_color_locked_00002_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_color_locked_00002_.png](/images/wiki/jenny_color_locked_00002_.png)"
   },
   "Generated_jenny_final_on_template_00001_": {
     "slug": "Generated_jenny_final_on_template_00001_",
     "title": "Generated jenny_final_on_template_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_final_on_template_00001_.png](/images/wiki/jenny_final_on_template_00001_.png)"
   },
   "Generated_jenny_master_xl_00001_": {
     "slug": "Generated_jenny_master_xl_00001_",
     "title": "Generated jenny_master_xl_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_master_xl_00001_.png](/images/wiki/jenny_master_xl_00001_.png)"
   },
   "Generated_jenny_phase1_pixel_mass_00001_": {
     "slug": "Generated_jenny_phase1_pixel_mass_00001_",
     "title": "Generated jenny_phase1_pixel_mass_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_phase1_pixel_mass_00001_.png](/images/wiki/jenny_phase1_pixel_mass_00001_.png)"
   },
   "Generated_jenny_phase1_shapes_00001_": {
     "slug": "Generated_jenny_phase1_shapes_00001_",
     "title": "Generated jenny_phase1_shapes_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_phase1_shapes_00001_.png](/images/wiki/jenny_phase1_shapes_00001_.png)"
   },
   "Generated_jenny_pixel_v2_00001_": {
     "slug": "Generated_jenny_pixel_v2_00001_",
     "title": "Generated jenny_pixel_v2_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_pixel_v2_00001_.png](/images/wiki/jenny_pixel_v2_00001_.png)"
   },
   "Generated_jenny_standing_v1_00001_": {
     "slug": "Generated_jenny_standing_v1_00001_",
     "title": "Generated jenny_standing_v1_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_standing_v1_00001_.png](/images/wiki/jenny_standing_v1_00001_.png)"
   },
   "Generated_jenny_strict_v2_00001_": {
     "slug": "Generated_jenny_strict_v2_00001_",
     "title": "Generated jenny_strict_v2_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_strict_v2_00001_.png](/images/wiki/jenny_strict_v2_00001_.png)"
   },
   "Generated_jenny_style_sample_00001_": {
     "slug": "Generated_jenny_style_sample_00001_",
     "title": "Generated jenny_style_sample_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_style_sample_00001_.png](/images/wiki/jenny_style_sample_00001_.png)"
   },
   "Generated_jenny_style_sample_00002_": {
     "slug": "Generated_jenny_style_sample_00002_",
     "title": "Generated jenny_style_sample_00002_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_style_sample_00002_.png](/images/wiki/jenny_style_sample_00002_.png)"
   },
   "Generated_jenny_style_sample_00003_": {
     "slug": "Generated_jenny_style_sample_00003_",
     "title": "Generated jenny_style_sample_00003_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_style_sample_00003_.png](/images/wiki/jenny_style_sample_00003_.png)"
   },
   "Generated_jenny_style_sample_00004_": {
     "slug": "Generated_jenny_style_sample_00004_",
     "title": "Generated jenny_style_sample_00004_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_style_sample_00004_.png](/images/wiki/jenny_style_sample_00004_.png)"
   },
   "Generated_jenny_vector_source_00001_": {
     "slug": "Generated_jenny_vector_source_00001_",
     "title": "Generated jenny_vector_source_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_vector_source_00001_.png](/images/wiki/jenny_vector_source_00001_.png)"
   },
   "Generated_jenny_vector_source_00002_": {
     "slug": "Generated_jenny_vector_source_00002_",
     "title": "Generated jenny_vector_source_00002_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![jenny_vector_source_00002_.png](/images/wiki/jenny_vector_source_00002_.png)"
   },
   "Generated_maru_advanced_bridge_00001_": {
     "slug": "Generated_maru_advanced_bridge_00001_",
     "title": "Generated maru_advanced_bridge_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![maru_advanced_bridge_00001_.png](/images/wiki/maru_advanced_bridge_00001_.png)"
   },
   "Generated_maru_master_xl_00001_": {
     "slug": "Generated_maru_master_xl_00001_",
     "title": "Generated maru_master_xl_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![maru_master_xl_00001_.png](/images/wiki/maru_master_xl_00001_.png)"
   },
   "Generated_mix_1_retro_logo_00001_": {
     "slug": "Generated_mix_1_retro_logo_00001_",
     "title": "Generated mix_1_retro_logo_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![mix_1_retro_logo_00001_.png](/images/wiki/mix_1_retro_logo_00001_.png)"
   },
   "Generated_mix_2_watercolor_logo_00001_": {
     "slug": "Generated_mix_2_watercolor_logo_00001_",
     "title": "Generated mix_2_watercolor_logo_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![mix_2_watercolor_logo_00001_.png](/images/wiki/mix_2_watercolor_logo_00001_.png)"
   },
   "Generated_mix_3_clay_logo_00001_": {
     "slug": "Generated_mix_3_clay_logo_00001_",
     "title": "Generated mix_3_clay_logo_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![mix_3_clay_logo_00001_.png](/images/wiki/mix_3_clay_logo_00001_.png)"
   },
   "Generated_money_advanced_bridge_00001_": {
     "slug": "Generated_money_advanced_bridge_00001_",
     "title": "Generated money_advanced_bridge_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![money_advanced_bridge_00001_.png](/images/wiki/money_advanced_bridge_00001_.png)"
   },
   "Generated_money_master_xl_00001_": {
     "slug": "Generated_money_master_xl_00001_",
     "title": "Generated money_master_xl_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![money_master_xl_00001_.png](/images/wiki/money_master_xl_00001_.png)"
   },
   "Generated_nuri_advanced_bridge_00001_": {
     "slug": "Generated_nuri_advanced_bridge_00001_",
     "title": "Generated nuri_advanced_bridge_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![nuri_advanced_bridge_00001_.png](/images/wiki/nuri_advanced_bridge_00001_.png)"
   },
   "Generated_nuri_master_xl_00001_": {
     "slug": "Generated_nuri_master_xl_00001_",
     "title": "Generated nuri_master_xl_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![nuri_master_xl_00001_.png](/images/wiki/nuri_master_xl_00001_.png)"
   },
   "Generated_nuri_strict_v1_00001_": {
     "slug": "Generated_nuri_strict_v1_00001_",
     "title": "Generated nuri_strict_v1_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![nuri_strict_v1_00001_.png](/images/wiki/nuri_strict_v1_00001_.png)"
   },
   "Generated_sonagi_master_style_test_00001_": {
     "slug": "Generated_sonagi_master_style_test_00001_",
     "title": "Generated sonagi_master_style_test_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![sonagi_master_style_test_00001_.png](/images/wiki/sonagi_master_style_test_00001_.png)"
   },
   "Generated_sonagi_master_style_test_00002_": {
     "slug": "Generated_sonagi_master_style_test_00002_",
     "title": "Generated sonagi_master_style_test_00002_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![sonagi_master_style_test_00002_.png](/images/wiki/sonagi_master_style_test_00002_.png)"
   },
   "Generated_sonagi_pixel_dummy_32x32_00001_": {
     "slug": "Generated_sonagi_pixel_dummy_32x32_00001_",
     "title": "Generated sonagi_pixel_dummy_32x32_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![sonagi_pixel_dummy_32x32_00001_.png](/images/wiki/sonagi_pixel_dummy_32x32_00001_.png)"
   },
   "Generated_sonagi_t2i_test_01": {
     "slug": "Generated_sonagi_t2i_test_01",
@@ -23703,103 +23763,103 @@
     "slug": "Generated_style_10_isometric_00001_",
     "title": "Generated style_10_isometric_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_10_isometric_00001_.png](/images/wiki/style_10_isometric_00001_.png)"
   },
   "Generated_style_11_clay_00001_": {
     "slug": "Generated_style_11_clay_00001_",
     "title": "Generated style_11_clay_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_11_clay_00001_.png](/images/wiki/style_11_clay_00001_.png)"
   },
   "Generated_style_12_render_00001_": {
     "slug": "Generated_style_12_render_00001_",
     "title": "Generated style_12_render_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_12_render_00001_.png](/images/wiki/style_12_render_00001_.png)"
   },
   "Generated_style_19_sumukhwa_00001_": {
     "slug": "Generated_style_19_sumukhwa_00001_",
     "title": "Generated style_19_sumukhwa_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_19_sumukhwa_00001_.png](/images/wiki/style_19_sumukhwa_00001_.png)"
   },
   "Generated_style_1_vector_00001_": {
     "slug": "Generated_style_1_vector_00001_",
     "title": "Generated style_1_vector_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_1_vector_00001_.png](/images/wiki/style_1_vector_00001_.png)"
   },
   "Generated_style_20_minhwa_00001_": {
     "slug": "Generated_style_20_minhwa_00001_",
     "title": "Generated style_20_minhwa_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_20_minhwa_00001_.png](/images/wiki/style_20_minhwa_00001_.png)"
   },
   "Generated_style_2_cel_00001_": {
     "slug": "Generated_style_2_cel_00001_",
     "title": "Generated style_2_cel_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_2_cel_00001_.png](/images/wiki/style_2_cel_00001_.png)"
   },
   "Generated_style_3_concept_00001_": {
     "slug": "Generated_style_3_concept_00001_",
     "title": "Generated style_3_concept_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_3_concept_00001_.png](/images/wiki/style_3_concept_00001_.png)"
   },
   "Generated_style_4_watercolor_00001_": {
     "slug": "Generated_style_4_watercolor_00001_",
     "title": "Generated style_4_watercolor_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_4_watercolor_00001_.png](/images/wiki/style_4_watercolor_00001_.png)"
   },
   "Generated_style_5_oil_00001_": {
     "slug": "Generated_style_5_oil_00001_",
     "title": "Generated style_5_oil_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_5_oil_00001_.png](/images/wiki/style_5_oil_00001_.png)"
   },
   "Generated_style_6_ink_00001_": {
     "slug": "Generated_style_6_ink_00001_",
     "title": "Generated style_6_ink_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_6_ink_00001_.png](/images/wiki/style_6_ink_00001_.png)"
   },
   "Generated_style_7_retro_00001_": {
     "slug": "Generated_style_7_retro_00001_",
     "title": "Generated style_7_retro_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_7_retro_00001_.png](/images/wiki/style_7_retro_00001_.png)"
   },
   "Generated_style_8_ghibli_00001_": {
     "slug": "Generated_style_8_ghibli_00001_",
     "title": "Generated style_8_ghibli_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_8_ghibli_00001_.png](/images/wiki/style_8_ghibli_00001_.png)"
   },
   "Generated_style_9_chibi_00001_": {
     "slug": "Generated_style_9_chibi_00001_",
     "title": "Generated style_9_chibi_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_9_chibi_00001_.png](/images/wiki/style_9_chibi_00001_.png)"
   },
   "Generated_style_A_modern_00001_": {
     "slug": "Generated_style_A_modern_00001_",
     "title": "Generated style_A_modern_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_A_modern_00001_.png](/images/wiki/style_A_modern_00001_.png)"
   },
   "Generated_style_B_chibi_00001_": {
     "slug": "Generated_style_B_chibi_00001_",
     "title": "Generated style_B_chibi_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_B_chibi_00001_.png](/images/wiki/style_B_chibi_00001_.png)"
   },
   "Generated_style_C_retro_00001_": {
     "slug": "Generated_style_C_retro_00001_",
     "title": "Generated style_C_retro_00001_",
     "tags": ["design", "generated"],
-    "excerpt": "!"
+    "excerpt": "![style_C_retro_00001_.png](/images/wiki/style_C_retro_00001_.png)"
   },
   "Generation": {
     "slug": "Generation",
@@ -24521,6 +24581,12 @@
     "tags": ["concept", "backend"],
     "excerpt": "GitHub is Microsoft's web-based Git hosting platform offering repositories, pull requests, issues, and automated workflows. Supports public/private re..."
   },
+  "GitHub_-_multica-aiandrej-karpathy-skills_A_single_CLAUDE.md_file_to_improve_Claude_Code_behavior,_derived_from_Andrej_Karpathy's_observations_on_LLM_coding_pitfalls._·_GitHub": {
+    "slug": "GitHub_-_multica-aiandrej-karpathy-skills_A_single_CLAUDE.md_file_to_improve_Claude_Code_behavior,_derived_from_Andrej_Karpathy's_observations_on_LLM_coding_pitfalls._·_GitHub",
+    "title": "GitHub - multica-ai/andrej-karpathy-skills: A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls. · GitHub",
+    "tags": [],
+    "excerpt": "[Skip to content](https://github.com/multica-ai/andrej-karpathy-skills#start-of-content)"
+  },
   "GitHub_v2": {
     "slug": "GitHub_v2",
     "title": "GitHub",
@@ -24916,6 +24982,12 @@
     "title": "Google Suite",
     "tags": ["concept", "cyber-security"],
     "excerpt": "Google Workspace, formerly known as G Suite, is a collection of cloud-based productivity and collaboration tools developed by Google. It includes popu..."
+  },
+  "Google_Copybara_저장소_간_코드_이동__GeekNews": {
+    "slug": "Google_Copybara_저장소_간_코드_이동__GeekNews",
+    "title": "Google Copybara: 저장소 간 코드 이동 | GeekNews",
+    "tags": [],
+    "excerpt": "[▲](javascript:vote(31018, 'up'); \"토픽 추천\")"
   },
   "Gosh": {
     "slug": "Gosh",
@@ -27630,6 +27702,12 @@
     "title": "IQR",
     "tags": ["concept", "bi-analyst"],
     "excerpt": "The Interquartile Range (IQR) is a measure of statistical dispersion, representing the spread of the middle 50% of a dataset. It's calculated as the d..."
+  },
+  "ISAAC_Course_Raw_Archive": {
+    "slug": "ISAAC_Course_Raw_Archive",
+    "title": "ISAAC_Course_Raw_Archive",
+    "tags": [],
+    "excerpt": "Project Overview"
   },
   "ISAM": {
     "slug": "ISAM",
@@ -37008,6 +37086,12 @@
     "tags": ["concept", "cyber-security"],
     "excerpt": "**Network Address Translation (NAT)** is a method used to modify IP address information in packet headers while they are in transit across a network. ..."
   },
+  "NEXON_MUSEUM_네포지토리_체험존_-_더즈_인터랙티브": {
+    "slug": "NEXON_MUSEUM_네포지토리_체험존_-_더즈_인터랙티브",
+    "title": "NEXON MUSEUM 네포지토리 체험존 - 더즈 인터랙티브",
+    "tags": [],
+    "excerpt": "Exhibition"
+  },
   "NFC": {
     "slug": "NFC",
     "title": "NFC",
@@ -39030,6 +39114,12 @@
     "tags": ["concept", "cyber-security"],
     "excerpt": "**OneDrive** is a cloud storage service provided by Microsoft that allows users to store, sync, and share files and folders online. It integrates seam..."
   },
+  "OneForma_ISAAC_Search_Relevance_Grading": {
+    "slug": "OneForma_ISAAC_Search_Relevance_Grading",
+    "title": "OneForma_ISAAC_Search_Relevance_Grading",
+    "tags": [],
+    "excerpt": "이 프로젝트는 사용자가 검색엔진에 검색어(Query)를 입력했을 때 표시되는 결과(Result)가 사용자의 의도(Intent)를 얼마나 잘 충족하는지 평가(Satisfaction Rating)하여 검색 품질을 향상시키는 작업입니다."
+  },
   "Onehouse": {
     "slug": "Onehouse",
     "title": "Onehouse",
@@ -39053,6 +39143,12 @@
     "title": "Online Communities",
     "tags": ["concept", "devrel"],
     "excerpt": "- devrel"
+  },
+  "Oomwoo_-_직접_만드는_오픈소스_로봇_청소기__GeekNews": {
+    "slug": "Oomwoo_-_직접_만드는_오픈소스_로봇_청소기__GeekNews",
+    "title": "Oomwoo - 직접 만드는 오픈소스 로봇 청소기 | GeekNews",
+    "tags": [],
+    "excerpt": "[▲](javascript:vote(31060, 'up'); \"토픽 추천\")"
   },
   "Opacity": {
     "slug": "Opacity",
@@ -49480,6 +49576,12 @@
     "tags": ["concept", "aws"],
     "excerpt": "In AWS SES, when your account is in the sandbox (default mode for all new accounts), you can only send emails to verified email addresses and the maxi..."
   },
+  "Sandbox_Migration_Log": {
+    "slug": "Sandbox_Migration_Log",
+    "title": "Sandbox Migration Log",
+    "tags": ["sandbox", "migration", "codesandbox"],
+    "excerpt": "관련 이슈: CEO-211"
+  },
   "Sandboxing": {
     "slug": "Sandboxing",
     "title": "Sandboxing",
@@ -52233,6 +52335,12 @@
     "title": "소나기 로고: 1,280 메가 아이디에이션 팩토리",
     "tags": ["ideation", "logo", "mega-factory", "svg"],
     "excerpt": "대표님의 압도적인 스케일업(Scale-up) 지시에 따라, 8개의 베이스 도형 × 8개의 궤적(Path) × 5개의 불리언 기법 × 4개의 선 굵기를 곱하여 **총 1,280개의 유니크한 조합**을 파이썬으로 찍어냈습니다! "
+  },
+  "Sonagi_Observability": {
+    "slug": "Sonagi_Observability",
+    "title": "Sonagi_Observability",
+    "tags": [],
+    "excerpt": "Sonagi 시스템은 인프라 안정성을 보장하고 신속한 디버깅을 위해 글로벌 표준 수준의 3대 옵저버빌리티 기둥(Metrics, Logs, Traces)과 상태 감시(Synthetic Monitoring) 시스템을 완벽하게 분리하여 구축했습니다."
   },
   "Sonagi_Semantic_Monograms": {
     "slug": "Sonagi_Semantic_Monograms",
@@ -55221,6 +55329,12 @@
     "title": "Tasks",
     "tags": ["concept", "aws"],
     "excerpt": "Tasks in Amazon ECS are the instantiation of a task definition within a cluster. They can be thought of as the running instance of the definition, the..."
+  },
+  "Taste_Skill__The_Anti-Slop_Frontend_Framework_for_AI_Agents": {
+    "slug": "Taste_Skill__The_Anti-Slop_Frontend_Framework_for_AI_Agents",
+    "title": "Taste Skill | The Anti-Slop Frontend Framework for AI Agents",
+    "tags": [],
+    "excerpt": "![](https://www.tasteskill.dev/_next/image?url=%2Fcleanstoneimg.webp&w=3840&q=75&dpl=dpl_5KLqYaKZBuYNz7okfHWs9vUy5DsU)"
   },
   "Tauri": {
     "slug": "Tauri",
@@ -61349,6 +61463,150 @@
     "tags": ["concept", "backend"],
     "excerpt": "WebSockets enable full-duplex, real-time communication over a single persistent connection between client and server. Unlike HTTP's request-response c..."
   },
+  "Web_Clip_20260626_165106": {
+    "slug": "Web_Clip_20260626_165106",
+    "title": "Web_Clip_20260626_165106",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260627_095009": {
+    "slug": "Web_Clip_20260627_095009",
+    "title": "Web_Clip_20260627_095009",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_061608": {
+    "slug": "Web_Clip_20260629_061608",
+    "title": "Web_Clip_20260629_061608",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_070248": {
+    "slug": "Web_Clip_20260629_070248",
+    "title": "Web_Clip_20260629_070248",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_071619": {
+    "slug": "Web_Clip_20260629_071619",
+    "title": "Web_Clip_20260629_071619",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_100115": {
+    "slug": "Web_Clip_20260629_100115",
+    "title": "Web_Clip_20260629_100115",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_105600": {
+    "slug": "Web_Clip_20260629_105600",
+    "title": "Web_Clip_20260629_105600",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_105832": {
+    "slug": "Web_Clip_20260629_105832",
+    "title": "Web_Clip_20260629_105832",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_105906": {
+    "slug": "Web_Clip_20260629_105906",
+    "title": "Web_Clip_20260629_105906",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260629_122726": {
+    "slug": "Web_Clip_20260629_122726",
+    "title": "Web_Clip_20260629_122726",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260630_065944": {
+    "slug": "Web_Clip_20260630_065944",
+    "title": "Web_Clip_20260630_065944",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260630_142102": {
+    "slug": "Web_Clip_20260630_142102",
+    "title": "Web_Clip_20260630_142102",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260630_200859": {
+    "slug": "Web_Clip_20260630_200859",
+    "title": "Web_Clip_20260630_200859",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260630_202753": {
+    "slug": "Web_Clip_20260630_202753",
+    "title": "Web_Clip_20260630_202753",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260630_203750": {
+    "slug": "Web_Clip_20260630_203750",
+    "title": "Web_Clip_20260630_203750",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260701_031219": {
+    "slug": "Web_Clip_20260701_031219",
+    "title": "Web_Clip_20260701_031219",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260701_040938": {
+    "slug": "Web_Clip_20260701_040938",
+    "title": "Web_Clip_20260701_040938",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260701_105648": {
+    "slug": "Web_Clip_20260701_105648",
+    "title": "Web_Clip_20260701_105648",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260703_115248": {
+    "slug": "Web_Clip_20260703_115248",
+    "title": "Web_Clip_20260703_115248",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260704_024239": {
+    "slug": "Web_Clip_20260704_024239",
+    "title": "Web_Clip_20260704_024239",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260704_055008": {
+    "slug": "Web_Clip_20260704_055008",
+    "title": "Web_Clip_20260704_055008",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260704_060505": {
+    "slug": "Web_Clip_20260704_060505",
+    "title": "Web_Clip_20260704_060505",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260704_061939": {
+    "slug": "Web_Clip_20260704_061939",
+    "title": "Web_Clip_20260704_061939",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
+  "Web_Clip_20260704_075118": {
+    "slug": "Web_Clip_20260704_075118",
+    "title": "Web_Clip_20260704_075118",
+    "tags": [],
+    "excerpt": "자막 추출 실패: type object 'YouTubeTranscriptApi' has no attribute 'list_transcripts'"
+  },
   "Web_v2": {
     "slug": "Web_v2",
     "title": "Web",
@@ -63839,6 +64097,12 @@
     "tags": [],
     "excerpt": "## Jakob’s Law\r"
   },
+  "[연재_브런치북]_디자인_종말_이후의_디자인": {
+    "slug": "[연재_브런치북]_디자인_종말_이후의_디자인",
+    "title": "[연재 브런치북] 디자인 종말 이후의 디자인",
+    "tags": [],
+    "excerpt": "**디자인 종말 이후의 디자인** 이규현"
+  },
   "_-moz-first-node": {
     "slug": "_-moz-first-node",
     "title": "_-moz-first-node",
@@ -65308,7 +65572,7 @@
     "slug": "align-content",
     "title": "align-content",
     "tags": [],
-    "excerpt": "align-content"
+    "excerpt": "The [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)"
   },
   "align-items": {
     "slug": "align-items",
@@ -65344,7 +65608,7 @@
     "slug": "aligning_items_in_a_flex_container",
     "title": "aligning_items_in_a_flex_container",
     "tags": [],
-    "excerpt": "Aligning items in a flex container"
+    "excerpt": "One of the reasons that flexbox quickly caught the interest of web"
   },
   "alignitems": {
     "slug": "alignitems",
@@ -65669,6 +65933,12 @@
     "title": "and Getting Keys",
     "tags": ["concept", "redis"],
     "excerpt": "In Redis, setting keys refers to the operation of storing keys by associating them with unique identifiers (keys), it's the process of writing or upda..."
+  },
+  "andrej-karpathy-skills_행동지침_하나로_클로드코드_혼란_줄이기": {
+    "slug": "andrej-karpathy-skills_행동지침_하나로_클로드코드_혼란_줄이기",
+    "title": "andrej-karpathy-skills: 행동지침 하나로 클로드코드 혼란 줄이기",
+    "tags": [],
+    "excerpt": "[본문 바로가기](https://americanopeople.tistory.com/514#content)"
   },
   "android": {
     "slug": "android",
@@ -68002,7 +68272,7 @@
     "slug": "basic_shapes",
     "title": "basic_shapes",
     "tags": [],
-    "excerpt": "Basic shapes"
+    "excerpt": "CSS Shapes can be defined using the [`<basic-shape>`](basic-shape.md)"
   },
   "basics": {
     "slug": "basics",
@@ -68812,7 +69082,7 @@
     "slug": "border-image-slice",
     "title": "border-image-slice",
     "tags": [],
-    "excerpt": "border-image-slice"
+    "excerpt": "Baseline is determined by this web feature being supported on the"
   },
   "border-image-source": {
     "slug": "border-image-source",
@@ -68938,7 +69208,7 @@
     "slug": "border-radius",
     "title": "border-radius",
     "tags": [],
-    "excerpt": "border-radius"
+    "excerpt": "The `border-radius`"
   },
   "border-radius_generator": {
     "slug": "border-radius_generator",
@@ -74250,7 +74520,7 @@
     "slug": "css_box_alignment",
     "title": "css_box_alignment",
     "tags": [],
-    "excerpt": "CSS box alignment"
+    "excerpt": "The **CSS box alignment** module specifies CSS features that relate to"
   },
   "css_box_model": {
     "slug": "css_box_model",
@@ -78153,7 +78423,7 @@
     "slug": "easing-function",
     "title": "easing-function",
     "tags": [],
-    "excerpt": "\\<easing-function\\>"
+    "excerpt": "The `<easing-function>`"
   },
   "easing": {
     "slug": "easing",
@@ -80913,7 +81183,7 @@
     "slug": "flex-basis",
     "title": "flex-basis",
     "tags": [],
-    "excerpt": "flex-basis"
+    "excerpt": "Baseline is determined by this web feature being supported on the"
   },
   "flex-direction": {
     "slug": "flex-direction",
@@ -85748,7 +86018,7 @@
     "slug": "hue-interpolation-method",
     "title": "hue-interpolation-method",
     "tags": [],
-    "excerpt": "\\<hue-interpolation-method\\>"
+    "excerpt": "The `<hue-interpolation-method>`"
   },
   "hue-rotate": {
     "slug": "hue-rotate",
@@ -101295,7 +101565,7 @@
     "slug": "radial-gradient",
     "title": "radial-gradient",
     "tags": [],
-    "excerpt": "radial-gradient()"
+    "excerpt": "The `radial-gradient()`"
   },
   "radialgradientelement-class": {
     "slug": "radialgradientelement-class",
@@ -101511,7 +101781,7 @@
     "slug": "ratio",
     "title": "ratio",
     "tags": [],
-    "excerpt": "\\<ratio\\>"
+    "excerpt": "The `<ratio>` [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)"
   },
   "rawaddress": {
     "slug": "rawaddress",
@@ -104209,7 +104479,7 @@
     "slug": "rotate3d",
     "title": "rotate3d",
     "tags": [],
-    "excerpt": "rotate3d()"
+    "excerpt": "The `rotate3d()` [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)"
   },
   "rotateaxisangle": {
     "slug": "rotateaxisangle",
@@ -111410,7 +111680,7 @@
     "slug": "text-decoration-skip",
     "title": "text-decoration-skip",
     "tags": [],
-    "excerpt": "text-decoration-skip"
+    "excerpt": "**Experimental:** **This is an [experimental"
   },
   "text-decoration-style": {
     "slug": "text-decoration-style",
@@ -116231,7 +116501,7 @@
     "slug": "using_css_gradients",
     "title": "using_css_gradients",
     "tags": [],
-    "excerpt": "Using CSS gradients"
+    "excerpt": "**CSS gradients** are represented by the [`<gradient>`](gradient.md)"
   },
   "using_css_nesting": {
     "slug": "using_css_nesting",
@@ -120464,6 +120734,12 @@
     "tags": [],
     "excerpt": "[dart:typed\\_data](../../dart-typed_data/dart-typed_data-library){._links-link}"
   },
+  "‎Gemini_-_direct_access_to_Google_AI": {
+    "slug": "‎Gemini_-_direct_access_to_Google_AI",
+    "title": "‎Gemini - direct access to Google AI",
+    "tags": [],
+    "excerpt": "[](https://www.google.co.kr/intl/en/about/products)"
+  },
   "가치-기반-가격-책정": {
     "slug": "가치-기반-가격-책정",
     "title": "가치 기반 가격 책정 (Value-Based Pricing)",
@@ -120602,6 +120878,12 @@
     "title": "나의 생각 정리 및 성장 기록",
     "tags": ["identity", "hub", "growth", "thoughts"],
     "excerpt": "이곳은 LLM-Wiki 프로젝트를 진행하며 얻는 개인적인 통찰, 커리어에 대한 고민, 그리고 장기적인 성장 기록을 모아두는 허브입니다."
+  },
+  "논쟁_대부분은_아이디어가_아니라_자아에_관한_것__GeekNews": {
+    "slug": "논쟁_대부분은_아이디어가_아니라_자아에_관한_것__GeekNews",
+    "title": "논쟁 대부분은 아이디어가 아니라 자아에 관한 것 | GeekNews",
+    "tags": [],
+    "excerpt": "[▲](javascript:vote(31029, 'up'); \"토픽 추천\")"
   },
   "단청": {
     "slug": "단청",
@@ -120804,6 +121086,12 @@
     "tags": ["ux", "research", "user-centric", "alan-cooper"],
     "excerpt": "**사용자 페르소나(User Persona)**는 타겟 고객층을 대표하는 '가상의 가짜 인물'을 설정하여, 그들의 행동, 목표, 동기, 불만(Pain points)을 구체화하는 UX 리서치 기법입니다. "
   },
+  "사전_직무교육_260627": {
+    "slug": "사전_직무교육_260627",
+    "title": "사전 직무교육 260627",
+    "tags": [],
+    "excerpt": "![](https://v1.padlet.pics/1/image?t=c_scale,dpr_1,e_blur:1000,f_jpg,h_60,w_60&url=https%3A%2F%2Felvis.padletcdn.com%2F1%2Fatat%2Fe_in-u_1773398369%2F..."
+  },
   "상위_1%_고수들이_나노바나나로_상세페이지_이미지_만드는_법": {
     "slug": "상위_1%_고수들이_나노바나나로_상세페이지_이미지_만드는_법",
     "title": "상위 1% 고수들이 나노바나나로 상세페이지 이미지 만드는 법 (워크플로우 공개)",
@@ -120906,6 +121194,12 @@
     "tags": [],
     "excerpt": "- [바로가기](https://www.youtube.com/shorts/xajSK9Yl5sY)"
   },
+  "영문이력서_및_AI플랫폼준비": {
+    "slug": "영문이력서_및_AI플랫폼준비",
+    "title": "영문이력서_및_AI플랫폼준비",
+    "tags": [],
+    "excerpt": "DataAnnotation과 유사한 AI 학습 데이터 구축 및 RLHF(강화학습) 참여 플랫폼들입니다. 정보컴퓨터공학부 전공 + n8n/AI 자동화 구축 경험은 이 플랫폼들에서 **최우선 선호(고단가 코딩 태스크)** 대상입니다."
+  },
   "영업을_백날_해도_이길_수_없는_동네_경쟁업체_인력소에_간_이유_-_YouTube": {
     "slug": "영업을_백날_해도_이길_수_없는_동네_경쟁업체_인력소에_간_이유_-_YouTube",
     "title": "영업을 백날 해도 이길 수 없는 동네 경쟁업체 인력소에 간 이유 - YouTube",
@@ -120917,6 +121211,12 @@
     "title": "오픈북_마스터_치트시트",
     "tags": [],
     "excerpt": "본 문서는 오픈북 시험에 최적화된 **'합법적 커닝 페이퍼(Cheat Sheet)'**입니다. 강의 범위 내의 모든 핵심 디자인 패턴, 리팩토링, 테스트, AI 에이전트 설계 원칙과 UML, 코드 예제를 꼼꼼하게 단권화했습니다."
+  },
+  "오픈소스_개발자대회_-_오픈소스_포털": {
+    "slug": "오픈소스_개발자대회_-_오픈소스_포털",
+    "title": "오픈소스 개발자대회 - 오픈소스 포털",
+    "tags": [],
+    "excerpt": "[본문 바로가기](https://www.oss.kr/pages/2#breadcrumb)"
   },
   "우디": {
     "slug": "우디",
