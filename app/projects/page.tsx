@@ -77,7 +77,7 @@ export default function ProjectsPage() {
                 </p>
                 <div className="flex flex-wrap gap-2 mt-auto">
                   {project.tags.map((tag) => (
-                    <Badge key={tag} variant="default">
+                    <Badge key={tag} variant="label">
                       {tag}
                     </Badge>
                   ))}

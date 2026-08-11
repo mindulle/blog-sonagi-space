@@ -57,15 +57,15 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/blog">
-                <Button size="large" className="w-full sm:w-auto">
+                <Button size="lg" className="w-full sm:w-auto">
                   블로그 보기
                   <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </Link>
               <Link href="/about">
                 <Button
-                  variant="outline"
-                  size="large"
+                  variant="secondary"
+                  size="lg"
                   className="w-full sm:w-auto"
                 >
                   About

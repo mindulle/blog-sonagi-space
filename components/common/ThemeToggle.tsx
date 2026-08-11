@@ -16,8 +16,8 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <Button
-        variant="ghost"
-        size="small"
+        variant="secondary"
+        size="sm"
         aria-label="Toggle theme"
         className="w-10 h-10"
       >
@@ -40,8 +40,8 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="ghost"
-      size="small"
+      variant="secondary"
+      size="sm"
       onClick={cycleTheme}
       aria-label="Toggle theme"
       title={`Current theme: ${theme || 'system'}`}

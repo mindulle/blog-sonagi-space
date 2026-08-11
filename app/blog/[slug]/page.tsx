@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { getAllPosts, getPostBySlug } from '@/lib/mdx';
 import { extractHeadings } from '@/lib/headings';
 import { PostHeader } from '@/components/blog/PostHeader';
-import { PostContent } from '@/components/blog/PostContent';
+import { MDXContent } from '@/components/blog/MDXContent';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { TableOfContents } from '@/components/blog/TableOfContents';
@@ -84,7 +84,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
               {/* Main Content */}
               <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <PostContent html={post.content} />
+                <MDXContent content={post.content} />
               </div>
 
               {/* Sidebar - Table of Contents */}

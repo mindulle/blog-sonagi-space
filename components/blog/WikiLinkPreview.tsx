@@ -1,7 +1,10 @@
 'use client';
 import { HoverPreview } from '@sonagi/ui';
 
-import type { NotePreview } from '@sonagi/ui';
+interface NotePreview {
+  title: string;
+  excerpt: string;
+}
 
 interface Props {
   children: React.ReactNode;

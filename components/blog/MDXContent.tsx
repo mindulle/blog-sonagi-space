@@ -32,7 +32,7 @@ const components = {
     // 위키링크인 경우 HoverPreview 적용
     if (className && className.includes('wikilink')) {
       const isBroken = className.includes('broken');
-      const slug = dataSlug || href;
+      const slug = dataSlug || href || '';
 
       // 끊어진 링크는 HoverPreview 없이 단순 렌더링
       if (isBroken) {

@@ -87,7 +87,7 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
     const tooltip = page.locator('div[role="tooltip"]').first();
     await expect(tooltip).toBeVisible();
 
-    await page.mouse.tap(10, 10);
+    await page.mouse.click(10, 10);
     await expect(tooltip).not.toBeVisible();
 
     await link.tap();

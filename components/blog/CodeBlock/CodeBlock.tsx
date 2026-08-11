@@ -40,8 +40,8 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
             {language}
           </span>
           <Button
-            variant="ghost"
-            size="small"
+            variant="secondary"
+            size="sm"
             onClick={handleCopy}
             className="flex items-center gap-1.5"
             style={{
@@ -67,8 +67,8 @@ export function CodeBlock({ children, language, className }: CodeBlockProps) {
       )}
       {!language && (
         <Button
-          variant="ghost"
-          size="small"
+          variant="secondary"
+          size="sm"
           onClick={handleCopy}
           className={cn(
             'absolute top-2 right-2 transition-all opacity-0 group-hover:opacity-100',
