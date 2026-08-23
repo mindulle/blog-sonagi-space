@@ -118,7 +118,7 @@ export const remarkWikilinks: Plugin<[], Root> = () => {
           title: resolved ? resolved.title : null,
           data: {
             hProperties: {
-              className: resolved ? 'wikilink' : 'wikilink broken',
+              className: resolved ? ['wikilink'] : ['wikilink', 'broken'],
               'data-slug': actualSlug,
             },
           },

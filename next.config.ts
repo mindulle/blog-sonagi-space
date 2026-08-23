@@ -6,6 +6,7 @@ import rehypeHighlight from 'rehype-highlight';
 const nextConfig: NextConfig = {
   // MDX 파일을 페이지로 사용할 수 있도록 설정
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  transpilePackages: ['@mindulle/ui', '@mindulle/tokens'],
 
   // 이미지 최적화
   images: {

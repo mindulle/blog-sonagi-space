@@ -1,0 +1,22 @@
+npm warn Unknown env config "auto-install-peers". This will stop working in the next major version of npm.
+npm warn Unknown project config "onlyBuiltDependencies". This will stop working in the next major version of npm.
+
+> blog-sonagi-space@0.1.0 dev
+> next dev --webpack
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /home/ubuntu/pnpm-lock.yaml as the root directory.
+ To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
+ Detected additional lockfiles: 
+   * /home/ubuntu/blog-sonagi-space/pnpm-lock.yaml
+
+   ▲ Next.js 16.0.10 (webpack)
+   - Local:         http://localhost:3000
+   - Network:       http://10.0.0.193:3000
+
+ ✓ Starting...
+ ✓ Ready in 2.4s
+ ○ Compiling / ...
+ GET / 200 in 12.5s (compile: 11.2s, render: 1306ms)

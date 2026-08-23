@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@sonagi/ui';
+import { Button } from '@mindulle/ui';
 
 import { useState, useMemo } from 'react';
 import type React from 'react';

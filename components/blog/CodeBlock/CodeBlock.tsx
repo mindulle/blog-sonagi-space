@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@sonagi/ui';
+import { Button } from '@mindulle/ui';
 
 import { useState } from 'react';
 import { Check, Copy } from 'lucide-react';

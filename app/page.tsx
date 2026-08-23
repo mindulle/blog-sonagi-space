@@ -1,4 +1,4 @@
-import { Button } from '@sonagi/ui';
+import { Button } from '@mindulle/ui';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Container } from '@/components/ui/Container';

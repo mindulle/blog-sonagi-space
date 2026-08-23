@@ -1,4 +1,4 @@
-import { Card } from '@sonagi/ui';
+import { Card } from '@mindulle/ui';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Calendar, Clock } from 'lucide-react';

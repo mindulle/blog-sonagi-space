@@ -1,4 +1,4 @@
-import { Card, Badge } from '@sonagi/ui';
+import { Card, Badge } from '@mindulle/ui';
 import { Container } from '@/components/ui/Container';
 import Link from 'next/link';
 

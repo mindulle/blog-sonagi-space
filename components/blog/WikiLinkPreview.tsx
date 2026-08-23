@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
-import { HoverPreview } from '@sonagi/ui';
+import { HoverPreview } from '@mindulle/ui';
 
 interface NotePreview {
   title: string;
@@ -16,7 +17,7 @@ interface Props {
 export function WikiLinkPreview({ children, slug, href, fetchNote }: Props) {
   return (
     <HoverPreview slug={slug} href={href} fetchNote={fetchNote}>
-      {children}
+      {children as any}
     </HoverPreview>
   );
 }
