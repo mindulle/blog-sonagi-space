@@ -17,7 +17,7 @@
 ## 3. 아키텍처 및 디자인 시스템 규칙 (엄수)
 
 - **Next.js App Router**: 본 프로젝트는 Next.js App Router (`app/`) 구조를 따릅니다.
-- **Sonagi Tokens Only**: 모든 스타일링은 `@sonagi/tokens` 패키지(또는 `sonagi-tokens.tgz`)의 CSS 변수(`var(--color-...)`)만을 사용해야 합니다.
+- **Sonagi Tokens Only**: 모든 스타일링은 `@mindulle/tokens` 패키지(또는 `sonagi-tokens.tgz`)의 CSS 변수(`var(--color-...)`)만을 사용해야 합니다.
 - **Tailwind 금지**: `bg-blue-500` 등 하드코딩된 유틸리티 클래스 사용을 엄격히 금지합니다. 토큰 기반의 시맨틱 컬러(다크/라이트 자동 지원)를 사용하십시오.
 - **Client/Server Component 분리**: 상호작용(Hover, Click)이 필요한 컴포넌트 최상단에는 반드시 `"use client";`를 선언하십시오.
 

@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@sonagi/ui';
+import { Button } from '@mindulle/ui';
 
 import { useSyncExternalStore } from 'react';
 import { Moon, Sun, Monitor } from 'lucide-react';

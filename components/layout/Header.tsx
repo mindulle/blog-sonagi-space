@@ -1,5 +1,5 @@
 'use client';
-import { Button } from '@sonagi/ui';
+import { Button } from '@mindulle/ui';
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';

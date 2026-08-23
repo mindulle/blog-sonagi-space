@@ -1,5 +1,5 @@
 'use client';
-import { Badge } from '@sonagi/ui';
+import { Badge } from '@mindulle/ui';
 
 import Link from 'next/link';
 import { Calendar, Clock } from 'lucide-react';
