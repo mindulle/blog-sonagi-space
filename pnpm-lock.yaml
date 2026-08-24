@@ -12,8 +12,8 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1(@types/react@19.2.18)(react@19.2.0)
       '@mindulle/tokens':
-        specifier: file:./vendor/mindulle-tokens-1.5.1.tgz
-        version: file:vendor/mindulle-tokens-1.5.1.tgz
+        specifier: file:./vendor/mindulle-tokens-1.6.0.tgz
+        version: file:vendor/mindulle-tokens-1.6.0.tgz
       '@mindulle/ui':
         specifier: file:./vendor/mindulle-ui-1.2.1.tgz
         version: file:vendor/mindulle-ui-1.2.1.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
@@ -718,12 +718,12 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@mindulle/tokens@file:vendor/mindulle-tokens-1.5.1.tgz':
-    resolution: {integrity: sha512-vv/mUtqPKG+m4Lf7IAAphBtE/49EDHwxBMKV6mmj+siwDytiAHLiCyHXFlZgs/qb3A6c/6XxkrM5+aRGbBWcQg==, tarball: file:vendor/mindulle-tokens-1.5.1.tgz}
-    version: 1.5.1
+  '@mindulle/tokens@file:vendor/mindulle-tokens-1.6.0.tgz':
+    resolution: {integrity: sha512-Xscfq3mjaLARjdESSZKAUxB8yFQoVawxeNSjIj291oM6IJy0jPw1+NpQF7Tdqrze5MvWHdE40lFDhiOcv52Vwg==, tarball: file:vendor/mindulle-tokens-1.6.0.tgz}
+    version: 1.6.0
 
   '@mindulle/ui@file:vendor/mindulle-ui-1.2.1.tgz':
-    resolution: {integrity: sha512-DhxpkNwKL9/FdjAnn3LWhX8e7OXVMB2mFdxdpPCyz5zhBELpZrUSg+ulNe3zvS3WQ42FrsMXA3sUgzrH44LCJQ==, tarball: file:vendor/mindulle-ui-1.2.1.tgz}
+    resolution: {integrity: sha512-fCtutEpqLEulDGXmMJJgqDSrEe1boi7jsondWRG0RFElDEOYuW8qRj0wMCWOTf7v2MJzXtuIDyceJhYzEt+w/Q==, tarball: file:vendor/mindulle-ui-1.2.1.tgz}
     version: 1.2.1
     peerDependencies:
       react: '>=18'
@@ -4321,7 +4321,7 @@ snapshots:
       '@types/react': 19.2.18
       react: 19.2.0
 
-  '@mindulle/tokens@file:vendor/mindulle-tokens-1.5.1.tgz': {}
+  '@mindulle/tokens@file:vendor/mindulle-tokens-1.6.0.tgz': {}
 
   '@mindulle/ui@file:vendor/mindulle-ui-1.2.1.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
