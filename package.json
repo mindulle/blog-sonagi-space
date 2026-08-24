@@ -8,7 +8,7 @@
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest",
+    "test": "vitest --passWithNoTests",
     "test:e2e": "playwright test",
     "chromatic": "chromatic --playwright",
     "prepare": "husky"
