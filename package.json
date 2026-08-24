@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "prebuild": "node scripts/generate-backlinks.mjs && node scripts/generate-summaries.mjs && node scripts/enrich-graph.mjs",
-    "build": "node scripts/generate-backlinks.mjs && node scripts/generate-summaries.mjs && node scripts/enrich-graph.mjs && next build --webpack",
+    "build": "NODE_OPTIONS='--max-old-space-size=4096' node scripts/generate-backlinks.mjs && node scripts/generate-summaries.mjs && node scripts/enrich-graph.mjs && next build --webpack",
     "start": "next start",
     "lint": "eslint",
     "test": "vitest --passWithNoTests",
