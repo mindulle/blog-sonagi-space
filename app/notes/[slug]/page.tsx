@@ -3,11 +3,21 @@ import { getNoteBySlug } from '@/lib/notes';
 import { BacklinksSection } from '@/components/blog/BacklinksSection';
 import { LocalGraph } from '@/components/blog/LocalGraph';
 import { MDXContent } from '@/components/blog/MDXContent';
+import { TableOfContents } from '@/components/blog/TableOfContents';
+import { MobileTOC } from '@/components/blog/TableOfContents/MobileTOC';
+import { Badge } from '@/components/ui';
+import { extractHeadings } from '@/lib/headings';
 import backlinksData from '@/lib/generated/backlinks.json';
 
 interface Props {
   params: Promise<{ slug: string }>;
 }
+
+const surfaceCardStyle = {
+  backgroundColor: 'var(--sng-color-bg-surface)',
+  borderColor: 'var(--sng-color-border-default)',
+  boxShadow: 'var(--sng-shadow-raised)',
+};
 
 export async function generateStaticParams() {
   return [];
@@ -52,134 +62,210 @@ export default async function NotePage({ params }: Props) {
       >
     )[decodedSlug] ?? [];
 
-  if (!note) {
-    return (
-      <main
-        style={{
-          maxWidth: '720px',
-          margin: '0 auto',
-          padding: 'var(--space-8) var(--space-4)',
-        }}
-      >
-        <header style={{ marginBottom: 'var(--space-8)' }}>
-          <Link
-            href="/notes"
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 'var(--space-1)',
-              fontSize: 'var(--text-sm)',
-              color: 'var(--sng-color-text-secondary)',
-              textDecoration: 'none',
-              marginBottom: 'var(--space-4)',
-            }}
-          >
-            ← Notes
-          </Link>
-          <h1
-            style={{
-              fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
-              fontWeight: '700',
-              color: 'var(--sng-color-text-primary)',
-              marginBottom: 'var(--space-3)',
-            }}
-          >
-            {decodedSlug}
-          </h1>
-          <div style={{ display: 'flex', gap: 'var(--space-2)' }}>
-            <span className="sng-badge sng-badge--warning">
-              🌱 Seed (작성 예정)
-            </span>
-          </div>
-        </header>
+  const headings = note ? extractHeadings(note.rawContent) : [];
 
-        <div
-          style={{
-            backgroundColor: 'var(--sng-color-bg-subtle)',
-            border: '2px dashed var(--sng-color-border-default)',
-            borderRadius: 'var(--sng-radius-lg)',
-            padding: 'var(--space-8) var(--space-4)',
-            textAlign: 'center',
-            marginBottom: 'var(--space-12)',
-          }}
-        >
-          <p
-            style={{
-              fontSize: 'var(--text-lg)',
-              color: 'var(--sng-color-text-secondary)',
-              margin: '0 0 var(--space-2) 0',
-            }}
+  const backLink = (
+    <Link
+      href="/notes"
+      className="inline-flex items-center gap-1 mb-4 text-sm"
+      style={{ color: 'var(--sng-color-text-secondary)' }}
+    >
+      ← Notes
+    </Link>
+  );
+
+  /** 데스크탑 우측 사이드바: 목차 → Graph View → 백링크 */
+  const sidebar = (
+    <aside className="hidden lg:block lg:col-span-4">
+      <div className="sticky top-24 space-y-8">
+        {headings.length > 0 && (
+          <div
+            className="p-4 border rounded-[var(--sng-radius-lg)]"
+            style={surfaceCardStyle}
           >
-            아직 내용이 심어지지 않은 <strong>지식의 씨앗</strong>입니다.
-          </p>
-          <p
-            style={{
-              fontSize: 'var(--text-sm)',
-              color: 'var(--sng-color-text-muted)',
-              margin: 0,
-            }}
+            <TableOfContents headings={headings} />
+          </div>
+        )}
+
+        <div>
+          <h3
+            className="mb-2 text-sm font-medium"
+            style={{ color: 'var(--sng-color-text-secondary)' }}
           >
-            본문은 비어있지만, 하단의 로컬 그래프나 백링크를 통해
-            <br />이 개념이 어떤 문서들과 연결되어 있는지 탐색해 보세요!
-          </p>
+            지식 연결망
+          </h3>
+          <div
+            className="h-64 overflow-hidden border rounded-[var(--sng-radius-lg)]"
+            style={surfaceCardStyle}
+          >
+            <LocalGraph slug={decodedSlug} />
+          </div>
         </div>
 
-        <LocalGraph slug={decodedSlug} />
         <BacklinksSection backlinks={backlinks} />
-      </main>
+      </div>
+    </aside>
+  );
+
+  /** 모바일: 사이드바가 숨겨지므로 본문 하단에 노출 */
+  const mobileExtras = (
+    <div className="block lg:hidden mt-16 space-y-8">
+      <div
+        className="h-64 overflow-hidden border rounded-[var(--sng-radius-lg)]"
+        style={surfaceCardStyle}
+      >
+        <LocalGraph slug={decodedSlug} />
+      </div>
+      <BacklinksSection backlinks={backlinks} />
+    </div>
+  );
+
+  if (!note) {
+    return (
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          <main className="lg:col-span-8">
+            <header className="mb-8">
+              {backLink}
+              <h1
+                className="mb-3 text-3xl md:text-4xl font-bold"
+                style={{ color: 'var(--sng-color-text-primary)' }}
+              >
+                {decodedSlug}
+              </h1>
+
+              <details className="group">
+                <summary
+                  className="inline-flex items-center gap-2 text-sm font-medium cursor-pointer"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  <span className="transition-transform group-open:rotate-90">
+                    ▶
+                  </span>
+                  문서 메타정보 보기
+                </summary>
+                <div
+                  className="flex items-center gap-2 mt-4 p-4 border rounded-[var(--sng-radius-md)]"
+                  style={{
+                    backgroundColor: 'var(--sng-color-bg-surface)',
+                    borderColor: 'var(--sng-color-border-subtle)',
+                  }}
+                >
+                  <span
+                    className="text-xs"
+                    style={{ color: 'var(--sng-color-text-muted)' }}
+                  >
+                    상태
+                  </span>
+                  <Badge variant="pill" color="warning">
+                    🌱 Seed (작성 예정)
+                  </Badge>
+                </div>
+              </details>
+            </header>
+
+            <div
+              className="p-8 mb-12 text-center border-2 border-dashed rounded-[var(--sng-radius-lg)]"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <p
+                className="mb-2 text-lg"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                아직 내용이 심어지지 않은 <strong>지식의 씨앗</strong>입니다.
+              </p>
+              <p
+                className="text-sm"
+                style={{ color: 'var(--sng-color-text-muted)' }}
+              >
+                본문은 비어있지만, 연결망과 백링크를 통해
+                <br />이 개념이 어떤 문서들과 이어져 있는지 탐색해 보세요.
+              </p>
+            </div>
+
+            {mobileExtras}
+          </main>
+
+          {sidebar}
+        </div>
+      </div>
     );
   }
 
   return (
-    <main
-      style={{
-        maxWidth: '720px',
-        margin: '0 auto',
-        padding: 'var(--space-8) var(--space-4)',
-      }}
-    >
-      <header style={{ marginBottom: 'var(--space-8)' }}>
-        <Link
-          href="/notes"
-          style={{
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: 'var(--space-1)',
-            fontSize: 'var(--text-sm)',
-            color: 'var(--sng-color-text-secondary)',
-            textDecoration: 'none',
-            marginBottom: 'var(--space-4)',
-          }}
-        >
-          ← Notes
-        </Link>
-        <h1
-          style={{
-            fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
-            fontWeight: '700',
-            color: 'var(--sng-color-text-primary)',
-            marginBottom: 'var(--space-3)',
-          }}
-        >
-          {note.title}
-        </h1>
-        {note.tags.length > 0 && (
-          <div
-            style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-2)' }}
-          >
-            {note.tags.map((tag) => (
-              <span key={tag} className="sng-badge sng-badge--info">
-                {tag}
-              </span>
-            ))}
-          </div>
-        )}
-      </header>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <main className="lg:col-span-8">
+          <header className="mb-10">
+            {backLink}
+            <h1
+              className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold"
+              style={{ color: 'var(--sng-color-text-primary)' }}
+            >
+              {note.title}
+            </h1>
 
-      <MDXContent content={note.rawContent} />
+            <details className="group">
+              <summary
+                className="inline-flex items-center gap-2 text-sm font-medium cursor-pointer"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                <span className="transition-transform group-open:rotate-90">
+                  ▶
+                </span>
+                문서 메타정보 보기
+              </summary>
+              <div
+                className="flex flex-col gap-3 mt-4 p-4 border rounded-[var(--sng-radius-md)]"
+                style={{
+                  backgroundColor: 'var(--sng-color-bg-surface)',
+                  borderColor: 'var(--sng-color-border-subtle)',
+                }}
+              >
+                <div className="flex items-center gap-2">
+                  <span
+                    className="w-12 text-xs"
+                    style={{ color: 'var(--sng-color-text-muted)' }}
+                  >
+                    상태
+                  </span>
+                  <Badge variant="pill" color="success">
+                    🌲 Evergreen
+                  </Badge>
+                </div>
 
-      <LocalGraph slug={decodedSlug} />
-      <BacklinksSection backlinks={backlinks} />
-    </main>
+                {note.tags.length > 0 && (
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="w-12 text-xs"
+                      style={{ color: 'var(--sng-color-text-muted)' }}
+                    >
+                      태그
+                    </span>
+                    <div className="flex flex-wrap gap-2">
+                      {note.tags.map((tag) => (
+                        <Badge key={tag} variant="label" color="info">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </details>
+          </header>
+
+          <MDXContent content={note.rawContent} />
+
+          <MobileTOC headings={headings} />
+          {mobileExtras}
+        </main>
+
+        {sidebar}
+      </div>
+    </div>
   );
 }

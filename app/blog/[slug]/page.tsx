@@ -7,6 +7,7 @@ import { MDXContent } from '@/components/blog/MDXContent';
 import { ShareButtons } from '@/components/blog/ShareButtons';
 import { RelatedPosts } from '@/components/blog/RelatedPosts';
 import { TableOfContents } from '@/components/blog/TableOfContents';
+import { MobileTOC } from '@/components/blog/TableOfContents/MobileTOC';
 import { ReadingProgress } from '@/components/blog/ReadingProgress';
 import { Container } from '@/components/ui/Container';
 
@@ -68,7 +69,7 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const allPosts = getAllPosts();
-  const headings = extractHeadings(post.content);
+  const headings = extractHeadings(post.rawContent);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const postUrl = `${siteUrl}/blog/${post.slug}`;
 
@@ -83,15 +84,27 @@ export default async function BlogPostPage({ params }: Props) {
 
             <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
               {/* Main Content */}
-              <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <MDXContent content={post.content} />
-              </div>
+              <MDXContent content={post.rawContent} />
 
               {/* Sidebar - Table of Contents */}
               <aside className="hidden lg:block">
-                <TableOfContents headings={headings} />
+                <div className="sticky top-24">
+                  <div
+                    className="p-4 border rounded-[var(--sng-radius-lg)]"
+                    style={{
+                      backgroundColor: 'var(--sng-color-bg-surface)',
+                      borderColor: 'var(--sng-color-border-default)',
+                      boxShadow: 'var(--sng-shadow-raised)',
+                    }}
+                  >
+                    <TableOfContents headings={headings} />
+                  </div>
+                </div>
               </aside>
             </div>
+
+            {/* Mobile TOC */}
+            <MobileTOC headings={headings} />
 
             {/* Share Buttons */}
             <div

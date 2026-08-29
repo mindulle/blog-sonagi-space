@@ -15,8 +15,8 @@ importers:
         specifier: file:./vendor/mindulle-tokens-1.5.1.tgz
         version: file:vendor/mindulle-tokens-1.5.1.tgz
       '@mindulle/ui':
-        specifier: file:./vendor/mindulle-ui-1.2.1.tgz
-        version: file:vendor/mindulle-ui-1.2.1.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: file:vendor/mindulle-ui.tgz
+        version: file:vendor/mindulle-ui.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@next/mdx':
         specifier: ^16.0.0
         version: 16.3.2(@mdx-js/react@3.1.1(@types/react@19.2.18)(react@19.2.0))
@@ -32,6 +32,9 @@ importers:
       fuse.js:
         specifier: ^7.1.0
         version: 7.5.0
+      github-slugger:
+        specifier: ^2.0.0
+        version: 2.0.0
       glob:
         specifier: ^11.1.0
         version: 11.1.0
@@ -108,6 +111,9 @@ importers:
       '@types/d3-force':
         specifier: ^3.0.10
         version: 3.0.10
+      '@types/hast':
+        specifier: ^3.0.5
+        version: 3.0.5
       '@types/mdast':
         specifier: ^4.0.4
         version: 4.0.4
@@ -722,9 +728,9 @@ packages:
     resolution: {integrity: sha512-vv/mUtqPKG+m4Lf7IAAphBtE/49EDHwxBMKV6mmj+siwDytiAHLiCyHXFlZgs/qb3A6c/6XxkrM5+aRGbBWcQg==, tarball: file:vendor/mindulle-tokens-1.5.1.tgz}
     version: 1.5.1
 
-  '@mindulle/ui@file:vendor/mindulle-ui-1.2.1.tgz':
-    resolution: {integrity: sha512-DhxpkNwKL9/FdjAnn3LWhX8e7OXVMB2mFdxdpPCyz5zhBELpZrUSg+ulNe3zvS3WQ42FrsMXA3sUgzrH44LCJQ==, tarball: file:vendor/mindulle-ui-1.2.1.tgz}
-    version: 1.2.1
+  '@mindulle/ui@file:vendor/mindulle-ui.tgz':
+    resolution: {integrity: sha512-P32UgYN6Fbo1ZC8Bhz4XR6ZxXM6t5t2dnV/hPv7WJx8i5Nz41pBJWtdGzlY57Z3f4ZNKAy5vDN0r++CogPPKmQ==, tarball: file:vendor/mindulle-ui.tgz}
+    version: 1.3.0
     peerDependencies:
       react: '>=18'
       react-dom: '>=18'
@@ -2164,6 +2170,9 @@ packages:
 
   get-tsconfig@4.14.3:
     resolution: {integrity: sha512-++QEw4DIY7WGoukz+/+A/8dGYPT9l9yIadnmSgZ8Rjr3YVSVDipQSO9CdnJo9ePqFqUUqh+wk9uIaoiAwsiPkA==}
+
+  github-slugger@2.0.0:
+    resolution: {integrity: sha512-IaOQ9puYtjrkq7Y0Ygl9KDZnrf/aiUJYUpVf89y8kyaxbRG7Y1SrX/jaumrv81vc61+kiMempujsM3Yw7w5qcw==}
 
   glob-parent@5.1.2:
     resolution: {integrity: sha512-AOIgSQCepiJYwP3ARnGx+5VnTu2HBYdzbGP45eLw1vr3zB3vZLeyed1sC9hnbcOc9/SrMyM5RPQrkGz4aS9Zow==}
@@ -4323,7 +4332,7 @@ snapshots:
 
   '@mindulle/tokens@file:vendor/mindulle-tokens-1.5.1.tgz': {}
 
-  '@mindulle/ui@file:vendor/mindulle-ui-1.2.1.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@mindulle/ui@file:vendor/mindulle-ui.tgz(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@mindulle/tokens': link:../tokens
       react: 19.2.0
@@ -5842,6 +5851,8 @@ snapshots:
   get-tsconfig@4.14.3:
     dependencies:
       resolve-pkg-maps: 1.0.0
+
+  github-slugger@2.0.0: {}
 
   glob-parent@5.1.2:
     dependencies:
