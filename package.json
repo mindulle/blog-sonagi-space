@@ -15,8 +15,8 @@
   },
   "dependencies": {
     "@mdx-js/react": "^3.1.1",
-    "@mindulle/tokens": "^1.11.0",
-    "@mindulle/ui": "^1.8.0",
+    "@mindulle/tokens": "^1.11.4",
+    "@mindulle/ui": "^1.8.2",
     "@next/mdx": "^16.0.0",
     "clsx": "^2.1.1",
     "d3-force": "^3.0.0",
