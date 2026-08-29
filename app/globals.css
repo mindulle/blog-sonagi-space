@@ -12,6 +12,12 @@
 
   대신 아래 @source 로 컴포넌트 번들을 스캔 대상에 포함시켜
   앱의 Tailwind 가 필요한 유틸리티를 직접 생성한다.
+
+  ⚠️ 알려진 제약
+  @mindulle/ui 의 Input 컴포넌트만 아직 레거시 `.sng-input` 클래스를 쓴다.
+  그 클래스는 Tailwind 유틸리티가 아니라서 이 방식으로는 생성되지 않으므로,
+  Input 을 직접 가져다 쓰면 스타일이 적용되지 않는다.
+  현재 이 앱은 Input 을 사용하지 않는다. (CEO-1028)
 */
 
 /**
@@ -155,6 +161,26 @@
   --color-state-error-bg: var(--sng-color-state-error-bg);
   --color-state-info: var(--sng-color-state-info);
   --color-state-info-bg: var(--sng-color-state-info-bg);
+
+  /* ───────────────────────────────────────────────────────
+     radius 스케일 브릿지
+
+     @mindulle/ui 의 Button 은 사이즈별로 아래 유틸리티를 쓴다.
+       sm → rounded-sm   md → rounded-base   lg → rounded-md
+
+     이 중 `rounded-base` 는 Tailwind 기본 스케일에 없는 이름이라
+     여기서 `--radius-base` 를 정의해 주지 않으면 유틸리티가 생성되지 않고
+     **기본 사이즈(md) 버튼의 모서리가 각지게 렌더된다.**
+
+     아울러 `rounded-sm` / `rounded-md` 등이 Tailwind 자체 기본값이 아니라
+     디자인 토큰을 따르도록 스케일 전체를 매핑한다.
+  ─────────────────────────────────────────────────────── */
+  --radius-sm: var(--sng-radius-sm);
+  --radius-base: var(--sng-radius-base);
+  --radius-md: var(--sng-radius-md);
+  --radius-lg: var(--sng-radius-lg);
+  --radius-xl: var(--sng-radius-xl);
+  --radius-full: var(--sng-radius-full);
 }
 
 /*
