@@ -108402,6 +108402,17 @@
     ],
     "excerpt": "이 문서는 소나기(Sonagi) 디자인 시스템의 시각적 언어와 기술적 구현 규격을 정의합니다. 모든 에이전트는 코드 생성 및 디자인 검수 시 이 코덱스를 최우선으로 참조해야 합니다."
   },
+  "design-system-shape-color-semantics": {
+    "slug": "design-system-shape-color-semantics",
+    "title": "디자인 시스템의 형태와 색상 의미론 (Shape and Color Semantics)",
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "blog"
+    ],
+    "excerpt": "디자인 시스템을 구축하고 운영할 때, UI 컴포넌트의 가짓수를 무한정 늘리지 않으면서도 명확한 커뮤니케이션을 하기 위해 **색상(Color)**과 **형태(Shape)**의 역할을 엄격하게 분리하는 것이 글로벌 테크 기업(Atlassian, GitHub Primer, ..."
+  },
   "design-system": {
     "slug": "design-system",
     "title": "Design system",
