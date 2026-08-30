@@ -44,6 +44,8 @@
 :root {
   /* 별칭(alias) — 대상 토큰이 테마별로 정의되어 있어 자동으로 따라감 */
   --sng-color-accent-default: var(--sng-color-brand-accent);
+  --sng-color-bg-base: var(--sng-color-background-base);
+  --sng-color-bg-surface: var(--sng-color-background-surface);
   --sng-color-bg-elevated: var(--sng-color-background-elevated);
   --sng-color-brand-logo: var(--sng-color-wordmark-dot);
 
