@@ -16,7 +16,7 @@ export function ThemeToggle() {
   if (!mounted) {
     return (
       <Button
-        variant="secondary"
+        variant="primary"
         size="sm"
         aria-label="Toggle theme"
         className="w-10 h-10"
@@ -40,7 +40,7 @@ export function ThemeToggle() {
 
   return (
     <Button
-      variant="secondary"
+      variant="primary"
       size="sm"
       onClick={cycleTheme}
       aria-label="Toggle theme"

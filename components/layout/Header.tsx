@@ -59,7 +59,7 @@ export function Header() {
           {/* Actions */}
           <div className="flex items-center gap-2">
             <Link href="/search">
-              <Button variant="secondary" size="sm" aria-label="Search">
+              <Button variant="primary" size="sm" aria-label="Search">
                 <Search size={20} />
               </Button>
             </Link>
