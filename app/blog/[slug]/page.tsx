@@ -1,5 +1,6 @@
 import { getNoteBySlug } from '@/lib/notes';
 import { UnifiedDetail } from '@/components/blog/UnifiedDetail';
+import type { Backlink } from '@/components/blog/BacklinksSection';
 import backlinksData from '@/lib/generated/backlinks.json';
 import { notFound } from 'next/navigation';
 
@@ -32,7 +33,8 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const backlinks = (backlinksData as Record<string, unknown[]>)[decodedSlug] ?? [];
+  const backlinks =
+    (backlinksData as Record<string, Backlink[]>)[decodedSlug] ?? [];
 
   return <UnifiedDetail note={note} backlinks={backlinks} isBlogView={true} />;
 }
