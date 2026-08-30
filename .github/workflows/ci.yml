@@ -26,10 +26,16 @@ jobs:
           node-version: '20'
           cache: 'pnpm'
 
+      - name: Configure GitHub Packages auth for pnpm
+        # 프로젝트 .npmrc의 ${VAR} 치환이 pnpm v10.34.2+/v11.5.3+에서 보안상
+        # 비활성화되어(GHSA-3qhv-2rgh-x77r), env로 넘기는 대신 신뢰되는
+        # global 설정에 직접 기록합니다. secrets.GITHUB_TOKEN은 다른 저장소
+        # (sonagi-design-system)에 배포된 패키지를 읽을 권한이 없으므로
+        # read:packages 스코프의 PAT를 PACKAGES_READ_TOKEN에 등록해야 합니다.
+        run: pnpm config set "//npm.pkg.github.com/:_authToken" "${{ secrets.PACKAGES_READ_TOKEN }}"
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Linter
         run: pnpm run lint
