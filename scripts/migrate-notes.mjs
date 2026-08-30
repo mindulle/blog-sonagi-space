@@ -41,7 +41,8 @@ walkDir(SOURCE_DIR, (filePath) => {
     let content = fs.readFileSync(filePath, 'utf8');
     const parsed = matter(content);
     
-    if (parsed.data.publish === false || parsed.data.private === true) {
+    // [화이트리스트 방식] 명시적으로 published: true (또는 publish: true)인 글만 가져옴
+    if (parsed.data.published !== true && parsed.data.publish !== true) {
       skippedCount++;
       return;
     }
