@@ -1,4 +1,4 @@
-import { Card } from '@mindulle/ui';
+import { Card } from '@/components/ui';
 import { Container } from '@/components/ui/Container';
 
 export default function AboutPage() {

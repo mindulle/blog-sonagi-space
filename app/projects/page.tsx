@@ -1,11 +1,11 @@
-import { Card, Badge } from '@mindulle/ui';
+import { Card, Badge } from '@/components/ui';
 import { Container } from '@/components/ui/Container';
 import Link from 'next/link';
 import { getAllNotes } from '@/lib/notes';
 
 export default function ProjectsPage() {
   const allNotes = getAllNotes();
-  const projects = allNotes.filter(note => note.category === 'project');
+  const projects = allNotes.filter((note) => note.category === 'project');
 
   return (
     <Container className="py-20">

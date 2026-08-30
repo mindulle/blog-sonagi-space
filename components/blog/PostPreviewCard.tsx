@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card } from '@mindulle/ui';
+import { Card } from '@/components/ui';
 import { Calendar, Clock } from 'lucide-react';
 import { GrowthBadge } from './GrowthBadge';
 import { CategoryLabel } from './CategoryLabel';
