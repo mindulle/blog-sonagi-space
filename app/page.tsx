@@ -2,9 +2,12 @@ import { Button } from '@mindulle/ui';
 import Link from 'next/link';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
-import { Card, CardBody } from '@/components/ui/Card';
+import { PostPreviewCard } from '@/components/blog/PostPreviewCard';
+import { getAllNotes } from '@/lib/notes';
 
 export default function Home() {
+  const recentNotes = getAllNotes().slice(0, 3);
+
   return (
     <>
       {/* Hero Section */}
@@ -76,7 +79,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Features Section */}
+      {/* Recent Seedlings Section */}
       <section
         className="py-20"
         style={{ backgroundColor: 'var(--sng-color-bg-base)' }}
@@ -87,72 +90,39 @@ export default function Home() {
               className="text-3xl font-bold text-center mb-12"
               style={{ color: 'var(--sng-color-text-primary)' }}
             >
-              이런 것들을 공유합니다
+              🌱 Recent Seedlings
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <Card variant="outlined" hoverable>
-                <CardBody className="p-6">
-                  <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                    style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
-                  >
-                    <span className="text-2xl">💻</span>
-                  </div>
-                  <h3
-                    className="text-xl font-semibold mb-2"
-                    style={{ color: 'var(--sng-color-text-primary)' }}
-                  >
-                    개발
-                  </h3>
-                  <p style={{ color: 'var(--sng-color-text-secondary)' }}>
-                    웹 개발, React, Next.js, TypeScript 등 프론트엔드 기술에
-                    대한 이야기
-                  </p>
-                </CardBody>
-              </Card>
-
-              <Card variant="outlined" hoverable>
-                <CardBody className="p-6">
-                  <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                    style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
-                  >
-                    <span className="text-2xl">🎨</span>
-                  </div>
-                  <h3
-                    className="text-xl font-semibold mb-2"
-                    style={{ color: 'var(--sng-color-text-primary)' }}
-                  >
-                    디자인
-                  </h3>
-                  <p style={{ color: 'var(--sng-color-text-secondary)' }}>
-                    UI/UX 디자인, 디자인 시스템, 그리고 아름다운 웹을 만드는
-                    방법
-                  </p>
-                </CardBody>
-              </Card>
-
-              <Card variant="outlined" hoverable>
-                <CardBody className="p-6">
-                  <div
-                    className="w-12 h-12 rounded-lg flex items-center justify-center mb-4"
-                    style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
-                  >
-                    <span className="text-2xl">✨</span>
-                  </div>
-                  <h3
-                    className="text-xl font-semibold mb-2"
-                    style={{ color: 'var(--sng-color-text-primary)' }}
-                  >
-                    프로젝트
-                  </h3>
-                  <p style={{ color: 'var(--sng-color-text-secondary)' }}>
-                    개인 프로젝트, 사이드 프로젝트, 그리고 배운 것들의 기록
-                  </p>
-                </CardBody>
-              </Card>
-            </div>
+            {recentNotes.length > 0 ? (
+              <div className="grid md:grid-cols-3 gap-8">
+                {recentNotes.map((note) => (
+                  <PostPreviewCard
+                    key={note.slug}
+                    href={`/notes/${note.slug}`}
+                    post={{
+                      slug: note.slug,
+                      title: note.title,
+                      excerpt: note.excerpt,
+                      category: note.category,
+                      status: note.status,
+                      dateLabel: (
+                        note.publishedDate ||
+                        note.created ||
+                        ''
+                      ).slice(0, 10),
+                      coverImage: note.coverImage,
+                    }}
+                  />
+                ))}
+              </div>
+            ) : (
+              <p
+                className="text-center"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                아직 심어진 씨앗이 없습니다. 곧 첫 글이 자라날 예정이에요.
+              </p>
+            )}
           </div>
         </Container>
       </section>

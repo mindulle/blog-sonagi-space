@@ -1,4 +1,5 @@
-export { PostCard } from './PostCard';
+export { PostPreviewCard } from './PostPreviewCard';
+export type { PostPreviewCardPost } from './PostPreviewCard';
 export { PostList } from './PostList';
 export { PostHeader } from './PostHeader';
 export { CategoryBadge } from './CategoryBadge';
