@@ -17,9 +17,7 @@ export function BlogListClient({
   categories,
   postsPerPage = 9,
 }: BlogListClientProps) {
-  const [selectedCategory, setSelectedCategory] = useState<string | null>(
-    null
-  );
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
 
   const filteredPosts = useMemo(() => {
@@ -37,14 +35,14 @@ export function BlogListClient({
     <div className="space-y-12">
       <CategoryFilter
         categories={categories}
-        selectedCategory={selectedCategory as unknown}
-        onSelectCategory={(cat: unknown) => {
+        selectedCategory={selectedCategory}
+        onSelectCategory={(cat: string | null) => {
           setSelectedCategory(cat);
           setCurrentPage(1);
         }}
       />
 
-      <PostList posts={currentPosts as unknown} />
+      <PostList posts={currentPosts} />
 
       {totalPages > 1 && (
         <Pagination

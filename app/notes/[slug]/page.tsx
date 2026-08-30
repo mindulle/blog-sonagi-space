@@ -1,5 +1,6 @@
 import { getNoteBySlug } from '@/lib/notes';
 import { UnifiedDetail } from '@/components/blog/UnifiedDetail';
+import type { Backlink } from '@/components/blog/BacklinksSection';
 import backlinksData from '@/lib/generated/backlinks.json';
 
 interface Props {
@@ -31,7 +32,8 @@ export default async function NotePage({ params }: Props) {
     return <div>Not found</div>;
   }
 
-  const backlinks = (backlinksData as Record<string, unknown[]>)[decodedSlug] ?? [];
+  const backlinks =
+    (backlinksData as Record<string, Backlink[]>)[decodedSlug] ?? [];
 
   return <UnifiedDetail note={note} backlinks={backlinks} />;
 }
