@@ -1,16 +1,15 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import type { Category } from '@/types/blog';
 
 interface CategoryFilterProps {
-  categories: Category[];
-  selectedCategory: Category | null;
-  onSelectCategory: (category: Category | null) => void;
+  categories: string[];
+  selectedCategory: string | null;
+  onSelectCategory: (category: string | null) => void;
   className?: string;
 }
 
-const categoryLabels: Record<Category, string> = {
+const categoryLabels: Record<string, string> = {
   development: '개발',
   design: '디자인',
   essay: '에세이',
@@ -60,7 +59,7 @@ export function CategoryFilter({
               : { backgroundColor: 'var(--sng-color-bg-overlay)' }
           }
         >
-          {categoryLabels[category]}
+          {categoryLabels[category] || category}
         </button>
       ))}
     </div>

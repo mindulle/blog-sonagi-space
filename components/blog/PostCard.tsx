@@ -1,138 +1,59 @@
-'use client';
-
 import Link from 'next/link';
-import Image from 'next/image';
-import { Calendar, Clock } from 'lucide-react';
-import { Card, CardHeader, CardFooter } from '@/components/ui/Card';
-import { CategoryBadge } from './CategoryBadge';
-import type { Post } from '@/types/blog';
-import { cn } from '@/lib/utils';
+import { Card, Badge } from '@mindulle/ui';
+import type { Note } from '@/lib/notes';
 
-export interface PostCardProps {
-  post: Post;
-  variant?: 'default' | 'compact' | 'featured';
-  showImage?: boolean;
-  showExcerpt?: boolean;
-  className?: string;
+interface PostCardProps {
+  post: Note;
 }
 
-/**
- * PostCard 컴포넌트
- *
- * 블로그 포스트를 카드 형태로 표시
- */
-export function PostCard({
-  post,
-  variant = 'default',
-  showImage = true,
-  showExcerpt = true,
-  className,
-}: PostCardProps) {
-  const isCompact = variant === 'compact';
-
+export function PostCard({ post }: PostCardProps) {
   return (
-    <Card
-      variant="elevated"
-      hoverable
-      className={cn(
-        'group overflow-hidden',
-        variant === 'featured' &&
-          'border-2 border-[var(--sng-color-brand-primary)]',
-        className
-      )}
-    >
-      {/* 커버 이미지 */}
-      {showImage && post.coverImage && (
-        <Link href={`/blog/${post.slug}`} className="block">
-          <div
-            className={cn(
-              'relative w-full overflow-hidden',
-              isCompact ? 'aspect-[4/3]' : 'aspect-video'
-            )}
+    <Link href={`/blog/${post.slug}`} className="group block h-full">
+      <Card
+        className="h-full flex flex-col p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1"
+        style={{
+          borderColor: 'var(--sng-color-border-default)',
+        }}
+      >
+        <div className="flex justify-between items-start mb-4">
+          <Badge variant="label">{post.category || 'Note'}</Badge>
+          <time
+            className="text-sm"
+            style={{ color: 'var(--sng-color-text-muted)' }}
           >
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              fill
-              className="object-cover transition-transform group-hover:scale-105"
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            />
-          </div>
-        </Link>
-      )}
-
-      <CardHeader className={isCompact ? 'p-4' : undefined}>
-        {/* 메타 정보 */}
-        <div
-          className={cn(
-            'mb-3 flex flex-wrap items-center gap-2',
-            isCompact ? 'text-xs' : 'text-sm'
-          )}
-          style={{ color: 'var(--sng-color-text-secondary)' }}
-        >
-          <time dateTime={post.date} className="flex items-center gap-1">
-            <Calendar size={isCompact ? 12 : 14} />
-            {new Date(post.date).toLocaleDateString('ko-KR', {
-              year: 'numeric',
-              month: isCompact ? 'short' : 'long',
-              day: 'numeric',
-            })}
+            {post.publishedDate || post.created}
           </time>
-          <span>·</span>
-          <span className="flex items-center gap-1">
-            <Clock size={isCompact ? 12 : 14} />
-            {post.readingTime}분
-          </span>
         </div>
 
-        {/* 제목 */}
-        <Link href={`/blog/${post.slug}`}>
-          <h3
-            className={cn(
-              'font-bold transition-colors group-hover:text-[var(--sng-color-brand-primary)]',
-              variant === 'featured' && 'text-2xl',
-              variant === 'default' && 'text-xl',
-              variant === 'compact' && 'text-lg'
-            )}
-          >
-            {post.title}
-          </h3>
-        </Link>
+        <h3
+          className="text-xl font-bold mb-3 line-clamp-2 transition-colors group-hover:text-[var(--sng-color-brand-primary)]"
+          style={{ color: 'var(--sng-color-text-primary)' }}
+        >
+          {post.title}
+        </h3>
 
-        {/* 설명 */}
-        {showExcerpt && !isCompact && (
-          <p
-            className="mt-2 line-clamp-2"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
-          >
-            {post.description}
-          </p>
-        )}
-      </CardHeader>
+        <p
+          className="mb-6 text-sm line-clamp-3 leading-relaxed flex-grow"
+          style={{ color: 'var(--sng-color-text-secondary)' }}
+        >
+          {post.excerpt}
+        </p>
 
-      <CardFooter
-        className={cn(
-          'flex items-center justify-between',
-          isCompact ? 'p-4 pt-0' : undefined
-        )}
-      >
-        {/* 카테고리 */}
-        <CategoryBadge
-          category={post.category}
-          href={`/blog/category/${post.category}`}
-        />
-
-        {/* Read More 링크 */}
-        {!isCompact && (
-          <Link
-            href={`/blog/${post.slug}`}
-            className="text-sm font-medium hover:underline"
-            style={{ color: 'var(--sng-color-brand-primary)' }}
-          >
-            Read more →
-          </Link>
-        )}
-      </CardFooter>
-    </Card>
+        <div className="flex flex-wrap gap-2 mt-auto">
+          {post.tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="text-xs px-2 py-1 rounded-md"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-overlay)',
+                color: 'var(--sng-color-text-secondary)',
+              }}
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </Card>
+    </Link>
   );
 }

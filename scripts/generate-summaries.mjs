@@ -38,6 +38,14 @@ for (const fileName of files) {
     slug,
     title: data.title || slug,
     tags: data.tags || [],
+    created: data.created || '',
+    status: data.status || 'seed',
+    published: data.published ?? false,
+    publishedDate: data.publishedDate || '',
+    category: data.category || '',
+    coverImage: data.coverImage || '',
+    series: data.series || '',
+    seriesOrder: data.seriesOrder || null,
     excerpt: extractExcerpt(content)
   };
 }

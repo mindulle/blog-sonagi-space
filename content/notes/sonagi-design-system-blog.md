@@ -1,12 +1,17 @@
 ---
-title: '소나기 디자인 시스템으로 블로그 만들기'
-description: '청량하고 세련된 소나기 디자인 시스템을 활용하여 개인 블로그를 구축하는 방법을 소개합니다.'
-date: '2025-10-23'
-category: 'design'
-tags: ['design-system', 'ui', 'ux', 'tailwind']
-coverImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=630&fit=crop'
-author: 'Sonagi Designer'
-featured: true
+title: 소나기 디자인 시스템으로 블로그 만들기
+tags:
+  - design-system
+  - ui
+  - ux
+  - tailwind
+created: '2025-10-23'
+category: design
+coverImage: >-
+  https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=630&fit=crop
+status: evergreen
+published: true
+publishedDate: '2025-10-23'
 ---
 
 # 소나기 디자인 시스템으로 블로그 만들기
@@ -41,6 +46,7 @@ featured: true
 ```tsx
 import { Button, Card } from '@mindulle/components';
 
+```tsx
 <Card>
   <Card.Header>
     <Card.Title>제목</Card.Title>
@@ -52,6 +58,7 @@ import { Button, Card } from '@mindulle/components';
     <Button variant="primary">버튼</Button>
   </Card.Footer>
 </Card>
+```
 ```
 
 ## 블로그에 적용하기
