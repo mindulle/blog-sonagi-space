@@ -20,58 +20,31 @@ export default function Home() {
       >
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <div
-              className="inline-flex items-center gap-2 px-4 py-2 mb-6 rounded-full"
-              style={{
-                backgroundColor: 'var(--sng-color-bg-surface)',
-                border: '1px solid var(--sng-color-border-default)',
-              }}
-            >
-              <Sparkles
-                className="w-4 h-4"
-                style={{ color: 'var(--sng-color-brand-primary)' }}
-              />
-              <span
-                className="text-sm font-medium"
-                style={{ color: 'var(--sng-color-text-primary)' }}
-              >
-                소나기 디자인 시스템으로 만든 블로그
-              </span>
-            </div>
-
             <h1
               className="text-4xl md:text-6xl font-bold mb-6"
               style={{ color: 'var(--sng-color-text-primary)' }}
             >
-              청량하고 세련된
+              쏟아지는 영감,
               <br />
-              <span style={{ color: 'var(--sng-color-brand-primary)' }}>
-                개발 블로그
-              </span>
+              자라나는 생각들
             </h1>
 
             <p
               className="text-lg md:text-xl mb-8 max-w-2xl mx-auto"
               style={{ color: 'var(--sng-color-text-secondary)' }}
             >
-              Next.js 15와 소나기 디자인 시스템으로 구축한 개인 블로그입니다.
-              개발, 디자인, 그리고 일상의 이야기를 공유합니다.
+              디자인 시스템, AI 에이전트, 그리고 웹 아키텍처가 교차하는 개인
+              지식 정원입니다.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/blog">
-                <Button size="lg" className="w-full sm:w-auto">
-                  블로그 보기
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </Button>
-              </Link>
-              <Link href="/about">
+            <div className="flex justify-center">
+              <Link href="/notes">
                 <Button
-                  variant="secondary"
+                  variant="primary"
                   size="lg"
-                  className="w-full sm:w-auto"
+                  className="w-full sm:w-auto px-8"
                 >
-                  About
+                  Enter the Garden
                 </Button>
               </Link>
             </div>
