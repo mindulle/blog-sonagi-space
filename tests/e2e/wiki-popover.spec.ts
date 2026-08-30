@@ -6,7 +6,11 @@ test.describe('Wiki Hover Popover (Desktop)', () => {
   }) => {
     await page.goto('/notes/wikilink-test');
 
-    const link = page.locator('a.sng-wikilink, a.wikilink').first();
+    // 참고: 디자인 시스템 리스킨(PR #33) 이후 정상 해석된 위키링크는
+    // Tailwind 유틸리티 클래스로 스타일링되며 `wikilink` 클래스를 더 이상
+    // 갖지 않는다 (끊어진 링크만 레거시 `wikilink broken` 클래스를 유지).
+    // 그래서 클래스 기반 셀렉터 대신 항상 부여되는 data-slug로 특정 링크를 지정한다.
+    const link = page.locator('a[data-slug="Architecture"]').first();
     await expect(link).toBeVisible();
 
     const tooltip = page.locator('[role="tooltip"]').first();
@@ -50,7 +54,7 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
 
     await page.goto('/notes/wikilink-test');
 
-    const link = page.locator('a.sng-wikilink, a.wikilink').first();
+    const link = page.locator('a[data-slug="Architecture"]').first();
     await expect(link).toBeVisible();
 
     await link.tap();

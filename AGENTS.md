@@ -56,34 +56,42 @@ style={{ color: '#1991B9' }}
 **UI 컴포넌트는 `components/ui/`의 것만 사용합니다. 직접 HTML 요소로 구현하지 마세요.**
 
 ```tsx
-// ✅ 올바름
-import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { Card } from '@/components/ui/Card';
+// ✅ 올바름 — 반드시 components/ui 배럴을 통해 import (내부적으로 @mindulle/ui를 통과시킴)
+import { Button, Badge, Card } from '@/components/ui';
 
-<Button variant="primary" size="medium">저장</Button>
-<Badge variant="success">완료</Badge>
+<Button variant="primary" size="md">저장</Button>
+<Badge variant="pill" color="success">완료</Badge>
+<Card elevation="raised">...</Card>
 
 // ❌ 금지 — 직접 구현
 <button className="bg-blue-500 px-4 py-2 rounded">저장</button>
+
+// ❌ 금지 — components/ui 배럴을 우회하고 @mindulle/ui를 직접 import
+import { Button } from '@mindulle/ui';
 ```
 
-### Button variants
-- `primary` — 주요 액션 (저장, 제출)
-- `secondary` — 보조 액션
-- `ghost` — 아이콘 버튼, 네비게이션
-- `outline` — Wild & Thin 강조 스타일
+> Button/Badge/Card는 로컬 재구현이 아니라 실제 디자인 시스템 패키지(`@mindulle/ui`)를
+> `components/ui/index.ts`에서 그대로 재수출한 것입니다. API는 항상 설치된
+> `@mindulle/ui` 버전의 실제 타입 정의(`node_modules/@mindulle/ui/dist/index.d.ts`)를
+> 기준으로 삼으세요 — 아래 표는 참고용 스냅샷이며 패키지가 업데이트되면 달라질 수 있습니다.
 
-### Badge variants
-- `default` — 일반 태그
-- `primary` — 강조 카테고리
-- `success` / `warning` / `error` — 상태 표시
-- `outline` — 테두리형
+### Button
 
-### Card variants
-- `elevated` — 그림자 있는 카드 (기본)
-- `outlined` — 테두리 카드
-- `filled` — 배경 채운 카드
+- `variant`: `primary` / `secondary` / `danger`
+- `size`: `sm` / `md` / `lg`
+- `state`: `default` / `hover` / `active` / `disabled` (보통 직접 지정할 필요 없음)
+
+### Badge
+
+- `variant`: `pill`(상태/성숙도 메타데이터 전용) / `label`(카테고리·태그·경고)
+- `color`: `info` / `success` / `warning` / `danger` / `error`
+
+### Card
+
+- `elevation`: `flat`(그림자 없음) / `raised`(기본, `shadow-sm`) / `floating`(`shadow-md`)
+- `clickable`: `boolean` — true면 hover 시 떠오르는 효과 + cursor-pointer
+- 배경(`bg-bg-surface`), 테두리, radius, padding(`p-5`), 자식 간 간격(`gap-3`)은 모두 내장되어 있어
+  별도 서브컴포넌트(Header/Body/Footer) 없이 자식을 바로 렌더링합니다.
 
 ---
 
@@ -136,10 +144,10 @@ className="text-neutral-900 dark:text-neutral-100"
 
 ## 6. 금지 사항 요약
 
-| 금지 | 이유 |
-|---|---|
-| Tailwind 색상 클래스 | 토큰 체계 일관성 깨짐 |
-| 색상 하드코딩 | 다크모드 대응 불가 |
-| `dark:` prefix | CSS 변수가 처리함 |
-| `components/ui/` 우회 | 디자인 시스템 무력화 |
-| 임의 `z-index` 숫자 | `--z-*` 변수 사용 |
+| 금지                  | 이유                  |
+| --------------------- | --------------------- |
+| Tailwind 색상 클래스  | 토큰 체계 일관성 깨짐 |
+| 색상 하드코딩         | 다크모드 대응 불가    |
+| `dark:` prefix        | CSS 변수가 처리함     |
+| `components/ui/` 우회 | 디자인 시스템 무력화  |
+| 임의 `z-index` 숫자   | `--z-*` 변수 사용     |

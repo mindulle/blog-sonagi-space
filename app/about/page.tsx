@@ -1,3 +1,4 @@
+import { Card } from '@/components/ui';
 import { Container } from '@/components/ui/Container';
 
 export default function AboutPage() {
@@ -49,72 +50,54 @@ export default function AboutPage() {
           </h2>
 
           <div className="space-y-6">
-            <div
-              className="p-6 rounded-lg"
-              style={{
-                backgroundColor: 'var(--sng-color-bg-surface)',
-                border: '1px solid var(--sng-color-border-subtle)',
-              }}
-            >
+            <Card elevation="flat">
               <h3
-                className="text-lg font-bold mb-2"
+                className="text-lg font-bold"
                 style={{ color: 'var(--sng-color-text-primary)' }}
               >
                 1. Everything as Code
               </h3>
               <p
-                className="text-sm m-0"
+                className="text-sm"
                 style={{ color: 'var(--sng-color-text-secondary)' }}
               >
                 디자인 토큰부터 인프라 프로비저닝까지, 가능한 모든 것을 코드로
                 관리하여 재현 가능(Reproducible)하게 만듭니다.
               </p>
-            </div>
+            </Card>
 
-            <div
-              className="p-6 rounded-lg"
-              style={{
-                backgroundColor: 'var(--sng-color-bg-surface)',
-                border: '1px solid var(--sng-color-border-subtle)',
-              }}
-            >
+            <Card elevation="flat">
               <h3
-                className="text-lg font-bold mb-2"
+                className="text-lg font-bold"
                 style={{ color: 'var(--sng-color-text-primary)' }}
               >
                 2. Single Source of Truth
               </h3>
               <p
-                className="text-sm m-0"
+                className="text-sm"
                 style={{ color: 'var(--sng-color-text-secondary)' }}
               >
                 지식은 위키(Wiki)에, 색상은 토큰(JSON)에. 파편화된 정보를 하나의
                 완벽한 출처에서 관리하고 각 플랫폼으로 배포합니다.
               </p>
-            </div>
+            </Card>
 
-            <div
-              className="p-6 rounded-lg"
-              style={{
-                backgroundColor: 'var(--sng-color-bg-surface)',
-                border: '1px solid var(--sng-color-border-subtle)',
-              }}
-            >
+            <Card elevation="flat">
               <h3
-                className="text-lg font-bold mb-2"
+                className="text-lg font-bold"
                 style={{ color: 'var(--sng-color-text-primary)' }}
               >
                 3. AI-Native Workflow
               </h3>
               <p
-                className="text-sm m-0"
+                className="text-sm"
                 style={{ color: 'var(--sng-color-text-secondary)' }}
               >
                 에이전트(AI)가 이해하고 조작할 수 있는 명확한 마크다운 문서와
                 구조를 작성하여, 인간과 AI가 협업하는 미래형 워크플로우를
                 실험합니다.
               </p>
-            </div>
+            </Card>
           </div>
 
           <h2
