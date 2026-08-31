@@ -2,7 +2,12 @@
   "design-system-shape-color-semantics": {
     "slug": "design-system-shape-color-semantics",
     "title": "디자인 시스템의 형태와 색상 의미론 (Shape and Color Semantics)",
-    "tags": ["design-system", "ui", "ux", "blog"],
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "blog"
+    ],
     "created": "2026-08-29T00:00:00.000Z",
     "status": "sapling",
     "published": false,
@@ -16,7 +21,12 @@
   "sonagi-design-system-blog": {
     "slug": "sonagi-design-system-blog",
     "title": "소나기 디자인 시스템으로 블로그 만들기",
-    "tags": ["design-system", "ui", "ux", "tailwind"],
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "tailwind"
+    ],
     "created": "2025-10-23",
     "status": "evergreen",
     "published": true,
@@ -30,7 +40,12 @@
   "sonagi-design-system": {
     "slug": "sonagi-design-system",
     "title": "소나기 디자인 시스템 소개",
-    "tags": ["design-system", "ui", "ux", "component"],
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "component"
+    ],
     "created": "2025-10-20",
     "status": "evergreen",
     "published": true,
@@ -44,7 +59,10 @@
   "wikilink-test": {
     "slug": "wikilink-test",
     "title": "WikiLink Test",
-    "tags": ["wikilink", "test"],
+    "tags": [
+      "wikilink",
+      "test"
+    ],
     "created": "",
     "status": "seed",
     "published": false,
