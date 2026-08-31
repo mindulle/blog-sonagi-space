@@ -3,6 +3,9 @@ title: 디자인 시스템의 형태와 색상 의미론 (Shape and Color Semant
 tags: [design-system, ui, ux, blog]
 created: 2026-08-29
 updated: 2026-08-29
+status: sapling
+series: 소나기 디자인 시스템 만들기
+seriesOrder: 2
 ---
 
 # 디자인 시스템의 형태와 색상 의미론 (Shape and Color Semantics)

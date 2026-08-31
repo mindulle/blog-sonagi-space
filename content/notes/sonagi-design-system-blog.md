@@ -12,6 +12,8 @@ coverImage: >-
 status: evergreen
 published: true
 publishedDate: '2025-10-23'
+series: 소나기 디자인 시스템 만들기
+seriesOrder: 3
 ---
 
 # 소나기 디자인 시스템으로 블로그 만들기
@@ -26,9 +28,9 @@ publishedDate: '2025-10-23'
 
 ```css
 /* Primary Colors */
---primary-50: #E8F4F8;
---primary-500: #3DA8CC;
---primary-600: #379AC3;
+--primary-50: #e8f4f8;
+--primary-500: #3da8cc;
+--primary-600: #379ac3;
 ```
 
 ### 2. 명확한 타이포그래피
@@ -43,7 +45,7 @@ publishedDate: '2025-10-23'
 
 재사용 가능한 컴포넌트 라이브러리:
 
-```tsx
+````tsx
 import { Button, Card } from '@mindulle/components';
 
 ```tsx
@@ -58,8 +60,9 @@ import { Button, Card } from '@mindulle/components';
     <Button variant="primary">버튼</Button>
   </Card.Footer>
 </Card>
-```
-```
+````
+
+````
 
 ## 블로그에 적용하기
 
@@ -71,7 +74,7 @@ import { Button, Card } from '@mindulle/components';
   --spacing-md: 1rem;
   --radius-lg: 0.75rem;
 }
-```
+````
 
 ### Step 2: 컴포넌트 활용
 

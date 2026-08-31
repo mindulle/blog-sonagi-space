@@ -2,49 +2,67 @@
   "design-system-shape-color-semantics": {
     "slug": "design-system-shape-color-semantics",
     "title": "디자인 시스템의 형태와 색상 의미론 (Shape and Color Semantics)",
-    "tags": ["design-system", "ui", "ux", "blog"],
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "blog"
+    ],
     "created": "2026-08-29T00:00:00.000Z",
-    "status": "seed",
+    "status": "sapling",
     "published": false,
     "publishedDate": "",
     "category": "",
     "coverImage": "",
-    "series": "",
-    "seriesOrder": null,
+    "series": "소나기 디자인 시스템 만들기",
+    "seriesOrder": 2,
     "excerpt": "디자인 시스템을 구축하고 운영할 때, UI 컴포넌트의 가짓수를 무한정 늘리지 않으면서도 명확한 커뮤니케이션을 하기 위해 **색상(Color)**과 **형태(Shape)**의 역할을 엄격하게 분리하는 것이 글로벌 테크 기업(Atlassian, GitHub Primer, ..."
   },
   "sonagi-design-system-blog": {
     "slug": "sonagi-design-system-blog",
     "title": "소나기 디자인 시스템으로 블로그 만들기",
-    "tags": ["design-system", "ui", "ux", "tailwind"],
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "tailwind"
+    ],
     "created": "2025-10-23",
     "status": "evergreen",
     "published": true,
     "publishedDate": "2025-10-23",
     "category": "design",
     "coverImage": "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=630&fit=crop",
-    "series": "",
-    "seriesOrder": null,
+    "series": "소나기 디자인 시스템 만들기",
+    "seriesOrder": 3,
     "excerpt": "소나기 디자인 시스템은 비 온 뒤의 맑고 청량한 느낌을 담은 모던한 디자인 시스템입니다. 이번 포스트에서는 소나기를 활용하여 아름다운 블로그를 만드는 방법을 알아봅니다."
   },
   "sonagi-design-system": {
     "slug": "sonagi-design-system",
     "title": "소나기 디자인 시스템 소개",
-    "tags": ["design-system", "ui", "ux", "component"],
+    "tags": [
+      "design-system",
+      "ui",
+      "ux",
+      "component"
+    ],
     "created": "2025-10-20",
     "status": "evergreen",
     "published": true,
     "publishedDate": "2025-10-20",
     "category": "design",
     "coverImage": "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=630&fit=crop",
-    "series": "",
-    "seriesOrder": null,
+    "series": "소나기 디자인 시스템 만들기",
+    "seriesOrder": 1,
     "excerpt": "**소나기(Sonagi)**는 '소나기처럼 청량한' 디자인 경험을 제공하는 디자인 시스템입니다. 비가 내린 후의 맑고 깨끗한 느낌을 디지털 제품에 담았습니다."
   },
   "wikilink-test": {
     "slug": "wikilink-test",
     "title": "WikiLink Test",
-    "tags": ["wikilink", "test"],
+    "tags": [
+      "wikilink",
+      "test"
+    ],
     "created": "",
     "status": "seed",
     "published": false,

@@ -12,6 +12,8 @@ coverImage: >-
 status: evergreen
 published: true
 publishedDate: '2025-10-20'
+series: 소나기 디자인 시스템 만들기
+seriesOrder: 1
 ---
 
 # 소나기 디자인 시스템 소개
@@ -38,14 +40,15 @@ publishedDate: '2025-10-20'
 
 ```css
 /* 소나기 블루 */
---primary-50: #E8F4F8;
---primary-100: #C5E4EF;
---primary-500: #3DA8CC;  /* Main */
---primary-600: #379AC3;
---primary-900: #19599C;
+--primary-50: #e8f4f8;
+--primary-100: #c5e4ef;
+--primary-500: #3da8cc; /* Main */
+--primary-600: #379ac3;
+--primary-900: #19599c;
 ```
 
 **사용 가이드:**
+
 - Primary-500: 주요 액션 버튼, 링크
 - Primary-600: Hover 상태
 - Primary-50: 배경, 하이라이트
@@ -54,9 +57,9 @@ publishedDate: '2025-10-20'
 
 ```css
 /* 중립 색상 */
---neutral-50: #F9FAFB;
---neutral-100: #F3F4F6;
---neutral-500: #6B7280;
+--neutral-50: #f9fafb;
+--neutral-100: #f3f4f6;
+--neutral-500: #6b7280;
 --neutral-900: #111827;
 ```
 
@@ -64,9 +67,9 @@ publishedDate: '2025-10-20'
 
 ```css
 /* 시맨틱 색상 */
---success: #10B981;  /* 성공 */
---warning: #F59E0B;  /* 경고 */
---error: #EF4444;    /* 에러 */
+--success: #10b981; /* 성공 */
+--warning: #f59e0b; /* 경고 */
+--error: #ef4444; /* 에러 */
 ```
 
 ## 타이포그래피
@@ -85,15 +88,15 @@ publishedDate: '2025-10-20'
 
 ```css
 /* Heading */
---text-4xl: 2.25rem;  /* 36px */
+--text-4xl: 2.25rem; /* 36px */
 --text-3xl: 1.875rem; /* 30px */
---text-2xl: 1.5rem;   /* 24px */
---text-xl: 1.25rem;   /* 20px */
+--text-2xl: 1.5rem; /* 24px */
+--text-xl: 1.25rem; /* 20px */
 
 /* Body */
---text-base: 1rem;    /* 16px */
---text-sm: 0.875rem;  /* 14px */
---text-xs: 0.75rem;   /* 12px */
+--text-base: 1rem; /* 16px */
+--text-sm: 0.875rem; /* 14px */
+--text-xs: 0.75rem; /* 12px */
 ```
 
 ### Line Height
@@ -109,14 +112,14 @@ publishedDate: '2025-10-20'
 8px 기반의 일관된 간격 시스템:
 
 ```css
---spacing-1: 0.25rem;  /* 4px */
---spacing-2: 0.5rem;   /* 8px */
---spacing-3: 0.75rem;  /* 12px */
---spacing-4: 1rem;     /* 16px */
---spacing-6: 1.5rem;   /* 24px */
---spacing-8: 2rem;     /* 32px */
---spacing-12: 3rem;    /* 48px */
---spacing-16: 4rem;    /* 64px */
+--spacing-1: 0.25rem; /* 4px */
+--spacing-2: 0.5rem; /* 8px */
+--spacing-3: 0.75rem; /* 12px */
+--spacing-4: 1rem; /* 16px */
+--spacing-6: 1.5rem; /* 24px */
+--spacing-8: 2rem; /* 32px */
+--spacing-12: 3rem; /* 48px */
+--spacing-16: 4rem; /* 64px */
 ```
 
 ## 컴포넌트
@@ -141,11 +144,13 @@ publishedDate: '2025-10-20'
 ```
 
 **Variants:**
+
 - `primary`: 주요 액션
 - `secondary`: 보조 액션
 - `ghost`: 최소 강조
 
 **Sizes:**
+
 - `small`: 12px padding
 - `medium`: 16px padding
 - `large`: 20px padding
@@ -158,15 +163,14 @@ publishedDate: '2025-10-20'
     <Card.Title>Card Title</Card.Title>
     <Card.Subtitle>Subtitle</Card.Subtitle>
   </Card.Header>
-  <Card.Body>
-    Content goes here...
-  </Card.Body>
+  <Card.Body>Content goes here...</Card.Body>
   <Card.Footer>
     <Button variant="primary">Action</Button>
   </Card.Footer>
 </Card>
 ```
-```
+
+````
 
 **Variants:**
 - `elevated`: 그림자 효과
@@ -183,9 +187,10 @@ publishedDate: '2025-10-20'
   helperText="We'll never share your email"
   error={errorMessage}
 />
-```
+````
 
 **Features:**
+
 - Label 지원
 - Error 상태
 - Helper text
@@ -206,19 +211,21 @@ publishedDate: '2025-10-20'
 
 ```css
 /* Mobile First */
---breakpoint-sm: 640px;   /* Tablet */
---breakpoint-md: 768px;   /* Desktop */
---breakpoint-lg: 1024px;  /* Large Desktop */
---breakpoint-xl: 1280px;  /* Extra Large */
+--breakpoint-sm: 640px; /* Tablet */
+--breakpoint-md: 768px; /* Desktop */
+--breakpoint-lg: 1024px; /* Large Desktop */
+--breakpoint-xl: 1280px; /* Extra Large */
 ```
 
 ### 사용 예시
 
 ```tsx
-<div className="
+<div
+  className="
   px-4 md:px-8 lg:px-12
   text-base md:text-lg lg:text-xl
-">
+"
+>
   반응형 콘텐츠
 </div>
 ```
@@ -232,9 +239,7 @@ publishedDate: '2025-10-20'
 ```tsx
 // ThemeProvider
 <html className={theme}>
-  <body>
-    {children}
-  </body>
+  <body>{children}</body>
 </html>
 ```
 
@@ -243,14 +248,14 @@ publishedDate: '2025-10-20'
 ```css
 /* Light Mode */
 :root {
-  --background: #FFFFFF;
+  --background: #ffffff;
   --foreground: #111827;
 }
 
 /* Dark Mode */
 .dark {
   --background: #111827;
-  --foreground: #F9FAFB;
+  --foreground: #f9fafb;
 }
 ```
 
@@ -292,11 +297,11 @@ publishedDate: '2025-10-20'
 
 ```css
 /* Good */
-color: #111827;  /* on white background */
-color: #F9FAFB;  /* on dark background */
+color: #111827; /* on white background */
+color: #f9fafb; /* on dark background */
 
 /* Bad */
-color: #9CA3AF;  /* on white - 대비 부족 */
+color: #9ca3af; /* on white - 대비 부족 */
 ```
 
 ### Focus States
@@ -335,19 +340,20 @@ button:focus-visible {
       className="group-hover:scale-105 transition"
     />
   </Link>
-  
+
   <Card.Header>
     <Badge variant="secondary">{post.category}</Badge>
     <Card.Title>{post.title}</Card.Title>
     <Card.Subtitle>{post.description}</Card.Subtitle>
   </Card.Header>
-  
+
   <Card.Footer>
     <time>{post.date}</time>
     <span>{post.readingTime} min read</span>
   </Card.Footer>
 </Card>
 ```
+
 ```
 
 ## 마무리
@@ -355,3 +361,4 @@ button:focus-visible {
 소나기 디자인 시스템은 계속 진화하고 있습니다. 여러분의 프로젝트에서도 청량한 경험을 만들어보세요!
 
 **다음 포스트 예고:** 소나기 디자인 시스템으로 실전 프로젝트 만들기
+```

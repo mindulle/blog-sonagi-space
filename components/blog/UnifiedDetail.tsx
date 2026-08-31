@@ -12,7 +12,9 @@ import { GrowthBadge } from './GrowthBadge';
 import { CategoryLabel } from './CategoryLabel';
 import { MetadataToggle } from './MetadataToggle';
 import { SeriesNav } from './SeriesNav';
+import { SeriesPanel } from './SeriesPanel';
 import { extractHeadings } from '@/lib/headings';
+import { getSeriesContext } from '@/lib/series';
 import type { NoteWithContent } from '@/lib/notes';
 import type { Post } from '@/types/blog';
 
@@ -36,6 +38,7 @@ export function UnifiedDetail({
   isBlogView = false,
 }: UnifiedDetailProps) {
   const headings = extractHeadings(note.rawContent);
+  const seriesContext = getSeriesContext(note.series, note.slug);
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const currentUrl = `${siteUrl}/${isBlogView ? 'blog' : 'notes'}/${note.slug}`;
 
@@ -84,12 +87,14 @@ export function UnifiedDetail({
               </div>
             </header>
 
-            {note.series && (
+            {seriesContext && (
               <div className="mb-8">
                 <SeriesNav
-                  series={note.series}
-                  seriesOrder={note.seriesOrder || 1}
-                  total={note.seriesOrder || 1}
+                  series={seriesContext.series}
+                  seriesOrder={seriesContext.seriesOrder}
+                  total={seriesContext.total}
+                  prev={seriesContext.prev}
+                  next={seriesContext.next}
                 />
               </div>
             )}
@@ -133,6 +138,14 @@ export function UnifiedDetail({
                 >
                   <TableOfContents headings={headings} />
                 </div>
+              )}
+
+              {seriesContext && (
+                <SeriesPanel
+                  series={seriesContext.series}
+                  entries={seriesContext.entries}
+                  currentSlug={note.slug}
+                />
               )}
 
               <div>
