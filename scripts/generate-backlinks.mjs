@@ -72,9 +72,15 @@ for (const [, { slug: sourceSlug, title: sourceTitle, content }] of noteMap) {
     const pos = match.index;
     const start = Math.max(0, pos - 50);
     const end = Math.min(content.length, pos + match[0].length + 50);
+    // 위키링크 → 표시 텍스트.
+    // '$2' || '$1' 은 replace 호출 전에 JS가 평가해 항상 '$2' 가 되므로,
+    // alias 없는 [[Foo]] 가 빈 문자열로 지워졌다. 함수 replacer 로 교체.
     const excerpt = content
       .slice(start, end)
-      .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, '$2' || '$1') // 위키링크 → 텍스트
+      .replace(
+        /\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g,
+        (_full, target, alias) => alias || target
+      )
       .trim();
 
     // 중복 방지
