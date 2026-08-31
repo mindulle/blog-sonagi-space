@@ -26,6 +26,7 @@ const superGroups = {
 };
 
 let enrichedCount = 0;
+let preservedCount = 0;
 
 graphData.nodes.forEach(node => {
   // 노드 id(slug)를 기반으로 summary 데이터 조회
@@ -45,10 +46,22 @@ graphData.nodes.forEach(node => {
     
     node.group = assignedGroup;
     enrichedCount++;
-  } else {
+  } else if (!node.group) {
+    // 요약에 없는 노드는 기존 group 을 보존한다.
+    //
+    // wiki-graph.json 은 재현 불가능한 동결 자산인데(생성기가 레포에 없음),
+    // note-summaries.json 은 content/notes/ 만 반영한다. 예전에는 이 분기가
+    // 무조건 'orphan' 을 덮어써서, 노트 4개 기준으로 빌드하면 21,353개 노드의
+    // 분류(cs/backend/frontend/design/...)가 전부 날아갔다.
+    // 자세한 내용은 docs/generated-artifacts.md 참조.
     node.group = 'orphan';
+    preservedCount++;
+  } else {
+    preservedCount++;
   }
 });
 
 fs.writeFileSync(GRAPH_FILE, JSON.stringify(graphData, null, 2), 'utf8');
-console.log(`✅ Graph enrichment complete: ${enrichedCount} nodes assigned to clusters.`);
+console.log(
+  `✅ Graph enrichment complete: ${enrichedCount} nodes assigned, ${preservedCount} preserved.`
+);
