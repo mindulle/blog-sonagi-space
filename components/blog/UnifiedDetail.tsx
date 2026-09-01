@@ -87,8 +87,11 @@ export function UnifiedDetail({
               </div>
             </header>
 
+            <MDXContent content={note.rawContent} />
+
+            {/* 본문 하단: 시리즈 네비게이션 및 목차 패널 (Figma 시안 반영) */}
             {seriesContext && (
-              <div className="mb-8">
+              <div className="mt-16 mb-8 space-y-8">
                 <SeriesNav
                   series={seriesContext.series}
                   seriesOrder={seriesContext.seriesOrder}
@@ -96,10 +99,13 @@ export function UnifiedDetail({
                   prev={seriesContext.prev}
                   next={seriesContext.next}
                 />
+                <SeriesPanel
+                  series={seriesContext.series}
+                  entries={seriesContext.entries}
+                  currentSlug={note.slug}
+                />
               </div>
             )}
-
-            <MDXContent content={note.rawContent} />
 
             <MobileTOC headings={headings} />
 
@@ -138,14 +144,6 @@ export function UnifiedDetail({
                 >
                   <TableOfContents headings={headings} />
                 </div>
-              )}
-
-              {seriesContext && (
-                <SeriesPanel
-                  series={seriesContext.series}
-                  entries={seriesContext.entries}
-                  currentSlug={note.slug}
-                />
               )}
 
               <div>
