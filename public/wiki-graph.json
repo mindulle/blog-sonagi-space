@@ -144595,7 +144595,7 @@
     {
       "id": "wikilink-test",
       "title": "WikiLink Test",
-      "visibility": "public",
+      "visibility": "private",
       "summary": "This note tests the custom wiki link resolution logic.",
       "val": 1,
       "group": "etc"
@@ -157482,7 +157482,7 @@
     },
     {
       "id": "sonagi-design-system",
-      "title": "Sonagi 디자인 시스템 소개",
+      "title": "소나기 디자인 시스템 소개",
       "visibility": "public",
       "summary": "Sonagi는 **비 온 뒤의 맑고 깨끗한 느낌**을 디자인 언어로 표현한 디자인 시스템입니다.",
       "val": 2.5,
@@ -170838,6 +170838,27 @@
       "visibility": "missing",
       "summary": "아직 작성되지 않은 문서입니다.",
       "val": 1.5,
+      "group": "orphan"
+    },
+    {
+      "id": "design-system-shape-color-semantics",
+      "title": "디자인 시스템의 형태와 색상 의미론 (Shape and Color Semantics)",
+      "visibility": "private",
+      "val": 1,
+      "group": "etc"
+    },
+    {
+      "id": "sonagi-design-system-blog",
+      "title": "소나기 디자인 시스템으로 블로그 만들기",
+      "visibility": "public",
+      "val": 1,
+      "group": "etc"
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "visibility": "private",
+      "val": 1,
       "group": "orphan"
     }
   ],
@@ -283121,6 +283142,14 @@
     {
       "source": "윌_패터슨",
       "target": "일러스트레이터(Illustrator)"
+    },
+    {
+      "source": "design-system-shape-color-semantics",
+      "target": "sonagi-design-system"
+    },
+    {
+      "source": "wikilink-test",
+      "target": "architecture"
     }
   ]
 }

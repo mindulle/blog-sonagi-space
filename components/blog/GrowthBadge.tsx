@@ -11,6 +11,10 @@ const statusMap = {
 };
 
 export function GrowthBadge({ status }: GrowthBadgeProps) {
-  const { label, color } = statusMap[status];
-  return <Badge variant="pill" color={color}>{label}</Badge>;
+  const config = statusMap[status] || statusMap['seed'];
+  return (
+    <Badge variant="pill" color={config.color}>
+      {config.label}
+    </Badge>
+  );
 }
