@@ -14,6 +14,5 @@ export { ReadingProgress } from './ReadingProgress';
 export { CodeBlock } from './CodeBlock';
 export { GrowthBadge } from './GrowthBadge';
 export { SeriesNav } from './SeriesNav';
-export { SeriesPanel } from './SeriesPanel';
 
 export type { Heading } from './TableOfContents';
