@@ -199,6 +199,9 @@ export function WikiGraph({
           nodeVal={(node: any) => node.val || 1} // 가중치에 따른 노드 크기 차별화
           nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
           nodeColor={(node: Node | any) => {
+            // 더미 노드 색상
+            if (node.group === 'dummy') return 'rgba(148, 163, 184, 0.8)';
+
             // 호버 상태일 때 이웃 노드가 아니면 투명하게(Dimming) 처리
             if (
               hoverNode &&
@@ -207,14 +210,16 @@ export function WikiGraph({
             ) {
               return 'rgba(200, 200, 200, 0.2)';
             }
+
+            // 캔버스는 var(--)를 인식하지 못하므로 getCssVar 헬퍼 사용
             return node.visibility === 'private'
-              ? 'var(--sng-color-border-strong)'
-              : 'var(--sng-color-brand-primary)';
+              ? getCssVar('--sng-color-border-strong', '#8b949e')
+              : getCssVar('--sng-color-brand-primary', '#3DA8CC');
           }}
           linkColor={(link: any) =>
             highlightLinks.has(link)
-              ? 'var(--sng-color-brand-primary)'
-              : 'var(--sng-color-border-default)'
+              ? getCssVar('--sng-color-brand-primary', '#3DA8CC')
+              : getCssVar('--sng-color-border-default', '#e5e7eb')
           }
           linkWidth={(link: any) =>
             highlightLinks.has(link) || isLocal ? 2 : 0.5
