@@ -105,12 +105,7 @@ export function UnifiedDetail({
             <MobileTOC headings={headings} />
 
             <div className="block lg:hidden mt-16 space-y-8">
-              <div
-                className="h-64 overflow-hidden border rounded-[var(--sng-radius-lg)]"
-                style={surfaceCardStyle}
-              >
-                <LocalGraph slug={note.slug} />
-              </div>
+              <LocalGraph slug={note.slug} />
               <BacklinksSection backlinks={backlinks} />
             </div>
 
@@ -141,20 +136,7 @@ export function UnifiedDetail({
                 </div>
               )}
 
-              <div>
-                <h3
-                  className="mb-2 text-sm font-medium"
-                  style={{ color: 'var(--sng-color-text-secondary)' }}
-                >
-                  지식 연결망
-                </h3>
-                <div
-                  className="h-64 overflow-hidden border rounded-[var(--sng-radius-lg)]"
-                  style={surfaceCardStyle}
-                >
-                  <LocalGraph slug={note.slug} />
-                </div>
-              </div>
+              <LocalGraph slug={note.slug} />
 
               <BacklinksSection backlinks={backlinks} />
 
