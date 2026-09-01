@@ -50,6 +50,7 @@ export function WikiGraph({
   isLocal?: boolean;
 }) {
   const fgRef = useRef<any>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [hoverNode, setHoverNode] = useState<Node | null>(null);
@@ -112,7 +113,7 @@ export function WikiGraph({
 
   useEffect(() => {
     const updateDimensions = () => {
-      const container = document.getElementById('graph-container');
+      const container = wrapperRef.current;
       if (container) {
         setDimensions({
           width: container.clientWidth,
@@ -122,7 +123,8 @@ export function WikiGraph({
     };
 
     window.addEventListener('resize', updateDimensions);
-    updateDimensions();
+    // Slight delay to ensure DOM is fully rendered before getting clientWidth
+    setTimeout(updateDimensions, 0);
 
     return () => window.removeEventListener('resize', updateDimensions);
   }, [height]);
@@ -187,7 +189,7 @@ export function WikiGraph({
 
   return (
     <div
-      id="graph-container"
+      ref={wrapperRef}
       style={{
         position: 'relative',
         width: '100%',
