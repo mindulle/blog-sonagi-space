@@ -12,7 +12,7 @@ import { GrowthBadge } from './GrowthBadge';
 import { CategoryLabel } from './CategoryLabel';
 import { MetadataToggle } from './MetadataToggle';
 import { SeriesNav } from './SeriesNav';
-import { SeriesPanel } from './SeriesPanel';
+
 import { extractHeadings } from '@/lib/headings';
 import { getSeriesContext } from '@/lib/series';
 import type { NoteWithContent } from '@/lib/notes';
@@ -89,20 +89,15 @@ export function UnifiedDetail({
 
             <MDXContent content={note.rawContent} />
 
-            {/* 본문 하단: 시리즈 네비게이션 및 목차 패널 (Figma 시안 반영) */}
+            {/* 본문 하단: 시리즈 네비게이션 (Figma 시안 반영) */}
             {seriesContext && (
-              <div className="mt-16 mb-8 space-y-8">
+              <div className="mt-16 mb-8">
                 <SeriesNav
                   series={seriesContext.series}
                   seriesOrder={seriesContext.seriesOrder}
                   total={seriesContext.total}
                   prev={seriesContext.prev}
                   next={seriesContext.next}
-                />
-                <SeriesPanel
-                  series={seriesContext.series}
-                  entries={seriesContext.entries}
-                  currentSlug={note.slug}
                 />
               </div>
             )}
