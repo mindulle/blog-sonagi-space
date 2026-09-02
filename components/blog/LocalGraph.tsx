@@ -40,11 +40,22 @@ export function LocalGraph({ slug }: LocalGraphProps) {
         if (!isCurrent) return;
 
         // 1. 현재 노트와 직간접적으로 연결된 링크 찾기 (1-hop)
-        const relevantLinks = fullData.links.filter(
-          (link: any) => link.source === slug || link.target === slug
-        );
+        // D3 force-graph가 link 객체를 변이(mutate)시키므로 typeof 체크 필요
+        const relevantLinks = fullData.links.filter((link: any) => {
+          const sourceId =
+            typeof link.source === 'object' ? link.source.id : link.source;
+          const targetId =
+            typeof link.target === 'object' ? link.target.id : link.target;
+          return sourceId === slug || targetId === slug;
+        });
 
-        let finalLinks = relevantLinks;
+        // Deep clone links to avoid polluting the global cached object
+        let finalLinks = relevantLinks.map((link: any) => ({
+          source:
+            typeof link.source === 'object' ? link.source.id : link.source,
+          target:
+            typeof link.target === 'object' ? link.target.id : link.target,
+        }));
         const relevantNodeIds = new Set<string>();
         relevantNodeIds.add(slug);
 
@@ -62,9 +73,10 @@ export function LocalGraph({ slug }: LocalGraphProps) {
           relevantNodeIds.add(dummyId);
           finalLinks.push({ source: slug, target: dummyId });
 
-          const relevantNodes = fullData.nodes.filter((node: any) =>
-            relevantNodeIds.has(node.id)
-          );
+          const relevantNodes = fullData.nodes
+            .filter((node: any) => relevantNodeIds.has(node.id))
+            .map((node: any) => ({ ...node }));
+
           relevantNodes.push({
             id: dummyId,
             title: `+ ${relevantLinks.length - MAX_NEIGHBORS} links`,
@@ -74,13 +86,14 @@ export function LocalGraph({ slug }: LocalGraphProps) {
 
           setData({ nodes: relevantNodes, links: finalLinks });
         } else {
-          relevantLinks.forEach((link: any) => {
+          finalLinks.forEach((link: any) => {
             relevantNodeIds.add(link.source);
             relevantNodeIds.add(link.target);
           });
-          const relevantNodes = fullData.nodes.filter((node: any) =>
-            relevantNodeIds.has(node.id)
-          );
+          const relevantNodes = fullData.nodes
+            .filter((node: any) => relevantNodeIds.has(node.id))
+            .map((node: any) => ({ ...node }));
+
           setData({ nodes: relevantNodes, links: finalLinks });
         }
 

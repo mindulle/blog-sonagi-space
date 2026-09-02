@@ -21,17 +21,14 @@ function calculateReadingTime(content: string): number {
  * Add IDs to headings for anchor links and TOC
  */
 function addHeadingIds(html: string): string {
-  return html.replace(
-    /<h([23])>(.*?)<\/h\1>/g,
-    (match, level, content) => {
-      const text = content.replace(/<[^>]*>/g, '');
-      const id = text
-        .toLowerCase()
-        .replace(/[^a-z0-9가-힣\s-]/g, '')
-        .replace(/\s+/g, '-');
-      return `<h${level} id="${id}">${content}</h${level}>`;
-    }
-  );
+  return html.replace(/<h([23])>(.*?)<\/h\1>/g, (match, level, content) => {
+    const text = content.replace(/<[^>]*>/g, '');
+    const id = text
+      .toLowerCase()
+      .replace(/[^a-z0-9가-힣\s-]/g, '')
+      .replace(/\s+/g, '-');
+    return `<h${level} id="${id}">${content}</h${level}>`;
+  });
 }
 
 /**
@@ -78,7 +75,9 @@ export function getAllPosts(): Post[] {
 /**
  * Get a single post by slug
  */
-export function getPostBySlug(slug: string): (Post & { content: string }) | null {
+export function getPostBySlug(
+  slug: string
+): (Post & { content: string; rawContent: string }) | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.mdx`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -91,7 +90,7 @@ export function getPostBySlug(slug: string): (Post & { content: string }) | null
       .processSync(content);
 
     let htmlContent = processedContent.toString();
-    
+
     // Add IDs to headings
     htmlContent = addHeadingIds(htmlContent);
 
@@ -107,7 +106,11 @@ export function getPostBySlug(slug: string): (Post & { content: string }) | null
       draft: data.draft || false,
       featured: data.featured || false,
       readingTime: calculateReadingTime(content),
+      // 사전 렌더링된 HTML. MDX 컴파일러에 넘기면 안 된다.
+      // (코드블록 안의 `{` 가 JSX 표현식으로 해석되어 컴파일이 실패한다)
       content: htmlContent,
+      // MDX 렌더링 및 목차 추출에 사용할 원본 마크다운
+      rawContent: content,
     };
   } catch {
     return null;

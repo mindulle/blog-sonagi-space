@@ -1,4 +1,5 @@
-export { PostCard } from './PostCard';
+export { PostPreviewCard } from './PostPreviewCard';
+export type { PostPreviewCardPost } from './PostPreviewCard';
 export { PostList } from './PostList';
 export { PostHeader } from './PostHeader';
 export { CategoryBadge } from './CategoryBadge';
@@ -11,5 +12,7 @@ export { SearchBar } from './SearchBar';
 export { SearchResults } from './SearchResults';
 export { ReadingProgress } from './ReadingProgress';
 export { CodeBlock } from './CodeBlock';
+export { GrowthBadge } from './GrowthBadge';
+export { SeriesNav } from './SeriesNav';
 
 export type { Heading } from './TableOfContents';

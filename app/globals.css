@@ -1,5 +1,24 @@
 @import 'tailwindcss';
-@import '@sonagi/tokens/css';
+@import '@mindulle/tokens/css';
+
+/*
+  @mindulle/ui 의 dist/global.css 는 직접 import 하지 않는다.
+
+  이유:
+  1. 해당 패키지의 exports 필드가 CSS 를 노출하지 않아 번들러가 차단한다.
+     (Syntax error: "./dist/global.css" is not exported ... — CEO-1029)
+  2. 그 파일은 Tailwind 프리플라이트(리셋)를 포함한 완제품 스타일시트라
+     이미 tailwindcss 를 import 하는 이 앱에 넣으면 리셋이 중복된다.
+
+  대신 아래 @source 로 컴포넌트 번들을 스캔 대상에 포함시켜
+  앱의 Tailwind 가 필요한 유틸리티를 직접 생성한다.
+
+  ⚠️ 알려진 제약
+  @mindulle/ui 의 Input 컴포넌트만 아직 레거시 `.sng-input` 클래스를 쓴다.
+  그 클래스는 Tailwind 유틸리티가 아니라서 이 방식으로는 생성되지 않으므로,
+  Input 을 직접 가져다 쓰면 스타일이 적용되지 않는다.
+  현재 이 앱은 Input 을 사용하지 않는다. (CEO-1028)
+*/
 
 /**
  * Sonagi Design System — globals.css
@@ -9,6 +28,40 @@
  * 2. 레이아웃(flex, grid, gap, p, m 등) Tailwind 유틸리티는 허용.
  * 3. 다크모드는 [data-theme="dark"] 기반 (html 요소에 적용).
  */
+
+/* ─────────────────────────────────────────────────────────
+   ⚠️ 임시 SHIM — @mindulle/ui ↔ @mindulle/tokens 계약 불일치 보정
+
+   @mindulle/ui@1.3.0 의 dist/global.css 가 참조하지만
+   @mindulle/tokens@1.5.1 에 정의되어 있지 않은 토큰들입니다.
+   미정의 상태에서는 background-color 가 투명으로 렌더링되어
+   Badge / Input / Select / Textarea 의 배경이 사라집니다.
+   (= 컴포넌트가 의도와 달리 "아웃라인"으로 보이는 원인)
+
+   근본 해결은 tokens 패키지에서 토큰을 정의하는 것이며,
+   해당 이슈 해결 후 이 블록은 반드시 제거해야 합니다.
+───────────────────────────────────────────────────────── */
+:root {
+  /* 별칭(alias) — 대상 토큰이 테마별로 정의되어 있어 자동으로 따라감 */
+  --sng-color-accent-default: var(--sng-color-brand-accent);
+  --sng-color-bg-base: var(--sng-color-background-base);
+  --sng-color-bg-surface: var(--sng-color-background-surface);
+  --sng-color-bg-elevated: var(--sng-color-background-elevated);
+  --sng-color-brand-logo: var(--sng-color-wordmark-dot);
+
+  /* Badge 배경 — tokens 에는 `-light` 접미사만 있고 `-bg` 가 없음 */
+  --sng-color-state-success-bg: #d4edda;
+  --sng-color-state-warning-bg: #fff3cd;
+  --sng-color-state-error-bg: #f8d7da;
+  --sng-color-state-info-bg: #d9e7f5;
+}
+
+[data-theme='dark'] {
+  --sng-color-state-success-bg: #15291c;
+  --sng-color-state-warning-bg: #332a12;
+  --sng-color-state-error-bg: #3a1d1f;
+  --sng-color-state-info-bg: #12283d;
+}
 
 /* ─────────────────────────────────────────────────────────
    블로그 커스텀 토큰 (카테고리, 구문 강조)
@@ -37,10 +90,6 @@
 }
 
 [data-theme='dark'] {
-  /* Brand Overrides (다크모드 명도 대비 개선 CEO-276) */
-  --sng-color-brand-primary: #58a6ff;
-  --sng-color-brand-primary-hover: #79c0ff;
-
   /* Category (다크모드) */
   --sng-color-cat-dev-bg: #1e3a5f;
   --sng-color-cat-dev-text: #93c5fd;
@@ -69,7 +118,75 @@
 @theme inline {
   --sng-font-sans: var(--sng-font-sans);
   --sng-font-mono: var(--sng-font-mono);
+
+  /* ───────────────────────────────────────────────────────
+     @mindulle/ui 색상 브릿지
+
+     @mindulle/ui 의 React 컴포넌트(Badge, Button 등)는
+     `bg-state-success-bg`, `text-text-primary` 같은
+     Tailwind 색상 유틸리티로 빌드되어 있다.
+     이 이름들이 테마에 정의되어 있지 않으면 색상이 아예 생성되지 않아
+     컴포넌트가 배경/글자색 없이 테두리만 남은 상태로 렌더된다.
+
+     `@theme inline` 을 사용하므로 유틸리티가 var() 를 그대로 참조하고,
+     따라서 다크모드 전환도 자동으로 따라간다.
+  ─────────────────────────────────────────────────────── */
+  --color-bg-base: var(--sng-color-bg-base);
+  --color-bg-surface: var(--sng-color-bg-surface);
+  --color-bg-elevated: var(--sng-color-bg-elevated);
+
+  --color-border-default: var(--sng-color-border-default);
+  --color-border-subtle: var(--sng-color-border-subtle);
+  --color-border-strong: var(--sng-color-border-strong);
+
+  --color-brand-primary: var(--sng-color-brand-primary);
+  --color-brand-primary-hover: var(--sng-color-brand-primary-hover);
+  --color-brand-accent: var(--sng-color-brand-accent);
+  --color-primary: var(--sng-color-brand-primary);
+  --color-accent: var(--sng-color-brand-accent);
+
+  --color-text-primary: var(--sng-color-text-primary);
+  --color-text-secondary: var(--sng-color-text-secondary);
+  --color-text-muted: var(--sng-color-text-muted);
+  --color-text-disabled: var(--sng-color-text-disabled);
+  --color-text-inverse: var(--sng-color-text-inverse);
+
+  --color-state-success: var(--sng-color-state-success);
+  --color-state-success-bg: var(--sng-color-state-success-bg);
+  --color-state-warning: var(--sng-color-state-warning);
+  --color-state-warning-bg: var(--sng-color-state-warning-bg);
+  --color-state-error: var(--sng-color-state-error);
+  --color-state-error-bg: var(--sng-color-state-error-bg);
+  --color-state-info: var(--sng-color-state-info);
+  --color-state-info-bg: var(--sng-color-state-info-bg);
+
+  /* ───────────────────────────────────────────────────────
+     radius 스케일 브릿지
+
+     @mindulle/ui 의 Button 은 사이즈별로 아래 유틸리티를 쓴다.
+       sm → rounded-sm   md → rounded-base   lg → rounded-md
+
+     이 중 `rounded-base` 는 Tailwind 기본 스케일에 없는 이름이라
+     여기서 `--radius-base` 를 정의해 주지 않으면 유틸리티가 생성되지 않고
+     **기본 사이즈(md) 버튼의 모서리가 각지게 렌더된다.**
+
+     아울러 `rounded-sm` / `rounded-md` 등이 Tailwind 자체 기본값이 아니라
+     디자인 토큰을 따르도록 스케일 전체를 매핑한다.
+  ─────────────────────────────────────────────────────── */
+  --radius-sm: var(--sng-radius-sm);
+  --radius-base: var(--sng-radius-base);
+  --radius-md: var(--sng-radius-md);
+  --radius-lg: var(--sng-radius-lg);
+  --radius-xl: var(--sng-radius-xl);
+  --radius-full: var(--sng-radius-full);
 }
+
+/*
+  Tailwind 는 기본적으로 node_modules 를 스캔하지 않는다.
+  @mindulle/ui 컴포넌트가 사용하는 유틸리티 클래스를 생성하려면
+  해당 번들을 소스로 명시해야 한다.
+*/
+@source "../node_modules/@mindulle/ui/dist";
 
 /* ─────────────────────────────────────────────────────────
    Base
@@ -127,6 +244,102 @@ a:hover {
 .prose a:hover {
   color: var(--sng-color-brand-primary-hover);
   text-decoration-color: var(--sng-color-brand-primary);
+}
+
+/* 위키링크 (WikiLink / Backlink / HoverPreview) 전용 고유 스타일 */
+.sng-wikilink,
+.prose a.sng-wikilink,
+.prose a.wikilink,
+.prose a[class*='wikilink'],
+.wikilink {
+  color: var(--sng-color-brand-primary, #1991b9) !important;
+  background-color: var(
+    --sng-color-state-info-bg,
+    rgba(232, 241, 248, 0.7)
+  ) !important;
+  border-bottom: 2px solid var(--sng-color-brand-primary, #1991b9) !important;
+  padding: 2px 6px !important;
+  margin: 0 2px !important;
+  border-radius: var(--sng-radius-sm, 4px) !important;
+  font-weight: 600 !important;
+  text-decoration: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 3px !important;
+  transition: all var(--sng-duration-base, 150ms) var(--sng-ease-default, ease) !important;
+}
+
+.sng-wikilink::before,
+.prose a.wikilink::before {
+  content: '📄 ';
+  font-size: 0.85em;
+  opacity: 0.8;
+}
+
+.sng-wikilink:hover,
+.prose a.sng-wikilink:hover,
+.prose a.wikilink:hover,
+.wikilink:hover {
+  color: #ffffff !important;
+  background-color: var(--sng-color-brand-primary, #1991b9) !important;
+  border-bottom-color: transparent !important;
+  box-shadow: var(
+    --sng-shadow-raised,
+    0 2px 8px rgba(25, 145, 185, 0.25)
+  ) !important;
+  transform: translateY(-1px) !important;
+}
+
+.prose a.wikilink.broken,
+.wikilink.broken {
+  color: var(--sng-color-text-muted);
+  text-decoration: dashed underline !important;
+  background-color: transparent;
+  opacity: 0.7;
+}
+
+/* HoverPreview 팝업 카드 스타일 */
+.sng-wikilink-preview {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 500;
+  width: 280px;
+  padding: 12px 16px;
+  background-color: var(--sng-color-bg-elevated, #ffffff);
+  color: var(--sng-color-text-primary, #1e1311);
+  border: 1px solid var(--sng-color-border-default, #9d8986);
+  border-radius: var(--sng-radius-md, 8px);
+  box-shadow: var(--sng-shadow-floating, 0 4px 16px rgba(0, 0, 0, 0.15));
+  font-size: 0.875rem;
+  line-height: 1.5;
+  pointer-events: none;
+  animation: sng-fade-in 0.15s ease-out;
+}
+
+.sng-wikilink-preview__title {
+  display: block;
+  font-weight: 700;
+  color: var(--sng-color-brand-primary, #1991b9);
+  margin-bottom: 4px;
+}
+
+.sng-wikilink-preview__excerpt {
+  display: block;
+  color: var(--sng-color-text-secondary, #614f4b);
+  font-size: 0.8125rem;
+}
+
+@keyframes sng-fade-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 4px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }
 
 .prose strong {
@@ -346,4 +559,70 @@ a:hover {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 3;
+}
+
+/* AI Components & Badge Backports */
+.sng-ai-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  font-size: var(--sng-font-size-xs, 0.75rem);
+  font-weight: 500;
+  border-radius: 4px;
+  background: linear-gradient(
+    135deg,
+    var(--sng-color-brand-primary),
+    var(--sng-color-brand-logo)
+  );
+  color: var(--sng-color-bg-base);
+}
+
+.sng-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 999px;
+  border: 1px solid var(--sng-color-border-subtle);
+}
+.sng-badge--info {
+  background: var(--sng-color-state-info-bg);
+  color: var(--sng-color-state-info);
+}
+.sng-badge--success {
+  background: var(--sng-color-state-success-bg);
+  color: var(--sng-color-state-success);
+}
+.sng-badge--warning {
+  background: var(--sng-color-state-warning-bg);
+  color: var(--sng-color-state-warning);
+}
+.sng-badge--error {
+  background: var(--sng-color-state-error-bg);
+  color: var(--sng-color-state-error);
+}
+
+.sng-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  display: inline-block;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.sng-btn--primary {
+  background: var(--sng-color-brand-primary);
+  color: white;
+}
+.sng-btn--primary:hover {
+  background: var(--sng-color-brand-primary-hover);
+}
+.sng-btn--outline {
+  border: 1px solid var(--sng-color-border-strong);
+  color: var(--sng-color-text-primary);
+}
+.sng-btn--outline:hover {
+  background: var(--sng-color-bg-surface);
 }

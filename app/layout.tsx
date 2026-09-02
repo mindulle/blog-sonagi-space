@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     '프론트엔드',
     '포트폴리오',
   ],
-  authors: [{ name: 'Sonagi Developer' }],
+  authors: [{ name: 'Sonagi Developer', url: 'https://blog.sonagi.space' }],
   openGraph: {
     type: 'website',
     locale: 'ko_KR',

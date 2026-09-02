@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 import { useEffect, useRef, useState, useCallback, useMemo } from 'react';
@@ -20,6 +19,7 @@ interface Node {
   val: number;
   x?: number;
   y?: number;
+  group?: string;
 }
 
 interface Link {
@@ -51,6 +51,7 @@ export function WikiGraph({
   isLocal?: boolean;
 }) {
   const fgRef = useRef<any>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
   const [dimensions, setDimensions] = useState({ width: 800, height: 600 });
   const [hoverNode, setHoverNode] = useState<Node | null>(null);
@@ -66,17 +67,15 @@ export function WikiGraph({
     });
 
     data.links.forEach((link) => {
-      if (!link) return;
+      // D3 mutates links so source/target might be objects
       const sourceId =
-        link.source && typeof link.source === 'object'
-          ? (link.source as any).id
-          : link.source;
+        typeof link.source === 'object'
+          ? (link.source as Node).id
+          : (link.source as string);
       const targetId =
-        link.target && typeof link.target === 'object'
-          ? (link.target as any).id
-          : link.target;
-
-      if (!sourceId || !targetId) return;
+        typeof link.target === 'object'
+          ? (link.target as Node).id
+          : (link.target as string);
 
       if (!map.has(sourceId)) {
         map.set(sourceId, { neighbors: new Set([sourceId]), links: new Set() });
@@ -111,21 +110,23 @@ export function WikiGraph({
     [adjacencyList]
   );
 
+  // 창 크기 변경 시 그래프 크기 조절
   useEffect(() => {
-    const updateDimensions = () => {
-      const container = document.getElementById('graph-container');
-      if (container) {
-        setDimensions({
-          width: container.clientWidth,
-          height: height || window.innerHeight * 0.7,
-        });
-      }
-    };
+    if (!wrapperRef.current) return;
 
-    window.addEventListener('resize', updateDimensions);
-    updateDimensions();
+    const observer = new ResizeObserver((entries) => {
+      if (!entries || entries.length === 0) return;
+      const { width } = entries[0].contentRect;
 
-    return () => window.removeEventListener('resize', updateDimensions);
+      setDimensions({
+        width: width,
+        height: height || window.innerHeight * 0.7,
+      });
+    });
+
+    observer.observe(wrapperRef.current);
+
+    return () => observer.disconnect();
   }, [height]);
 
   useEffect(() => {
@@ -147,48 +148,38 @@ export function WikiGraph({
       fgRef.current.d3Force('charge')?.strength(chargeStrength);
       fgRef.current.d3Force('link')?.distance(80);
 
-      // 커스텀 Force 주입: 같은 그룹끼리 특정 좌표로 끌어당김
+      // Custom grouping force
       fgRef.current.d3Force(
-        'x',
+        'cluster',
         d3
-          .forceX()
-          .x((d: any) => clusterCenters[d.group]?.x || 0)
-          .strength(0.08)
-      );
-      fgRef.current.d3Force(
-        'y',
-        d3
-          .forceY()
-          .y((d: any) => clusterCenters[d.group]?.y || 0)
-          .strength(0.08)
+          .forceX((d: any) => {
+            if (d.group && clusterCenters[d.group])
+              return clusterCenters[d.group].x;
+            return 0;
+          })
+          .strength(0.05)
       );
 
-      fgRef.current.d3ReheatSimulation();
+      fgRef.current.d3Force(
+        'clusterY',
+        d3
+          .forceY((d: any) => {
+            if (d.group && clusterCenters[d.group])
+              return clusterCenters[d.group].y;
+            return 0;
+          })
+          .strength(0.05)
+      );
     } else if (fgRef.current && isLocal) {
-      fgRef.current.d3Force('charge')?.strength(-250);
+      // 로컬 뷰에서는 군집 대신 중앙에 모이는 일반적인 포스 사용
+      fgRef.current.d3Force('charge')?.strength(-150);
       fgRef.current.d3Force('link')?.distance(80);
-      // 로컬 그래프에서는 x, y custom force 제거하여 단일 중력 중심으로 원형 정렬
-      fgRef.current.d3Force('x', null);
-      fgRef.current.d3Force('y', null);
-      fgRef.current.d3ReheatSimulation();
     }
   }, [isLocal, data]);
 
-  const handleNodeClick = useCallback(
-    (node: any) => {
-      // 가상 노드(Dummy Node)는 클릭 무시
-      if (node.group === 'dummy') return;
-
-      if (node.visibility === 'public') {
-        router.push(`/notes/${node.id}`);
-      }
-    },
-    [router]
-  );
-
   return (
     <div
-      id="graph-container"
+      ref={wrapperRef}
       style={{
         position: 'relative',
         width: '100%',
@@ -198,141 +189,98 @@ export function WikiGraph({
         backgroundColor: 'var(--sng-color-bg-surface)',
       }}
     >
-      <ForceGraph2D
-        ref={fgRef}
-        width={dimensions.width}
-        height={dimensions.height}
-        graphData={data}
-        nodeLabel="" // We implement custom hover
-        nodeVal={(node: any) => node.val || 1} // 가중치에 따른 노드 크기 차별화
-        nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
-        nodeColor={(node: Node | any) => {
-          // 호버 상태일 때 이웃 노드가 아니면 투명하게(Dimming) 처리
-          const isDimmed = hoverNode && !highlightNodes.has(node.id);
-          const opacity = isDimmed ? 0.1 : 1;
+      {dimensions.width > 0 && (
+        <ForceGraph2D
+          ref={fgRef}
+          width={dimensions.width}
+          height={dimensions.height}
+          graphData={data}
+          nodeLabel="" // We implement custom hover
+          nodeVal={(node: any) => node.val || 1} // 가중치에 따른 노드 크기 차별화
+          nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
+          nodeColor={(node: Node | any) => {
+            // 더미 노드 색상
+            if (node.group === 'dummy') return 'rgba(148, 163, 184, 0.8)';
 
-          if (node.group === 'dummy') return `rgba(148, 163, 184, ${opacity})`;
+            // 호버 상태일 때 이웃 노드가 아니면 투명하게(Dimming) 처리
+            if (
+              hoverNode &&
+              !highlightNodes.has(node.id) &&
+              node.id !== hoverNode.id
+            ) {
+              return 'rgba(200, 200, 200, 0.2)';
+            }
 
-          if (node.visibility === 'public') {
-            return isDimmed
-              ? `rgba(88, 166, 255, 0.1)`
-              : getCssVar('--sng-color-brand-primary', '#58a6ff');
+            // 캔버스는 var(--)를 인식하지 못하므로 getCssVar 헬퍼 사용
+            return node.visibility === 'private'
+              ? getCssVar('--sng-color-border-strong', '#8b949e')
+              : getCssVar('--sng-color-brand-primary', '#3DA8CC');
+          }}
+          linkColor={(link: any) =>
+            highlightLinks.has(link)
+              ? getCssVar('--sng-color-brand-primary', '#3DA8CC')
+              : getCssVar('--sng-color-border-default', '#e5e7eb')
           }
-          if (node.visibility === 'private') {
-            return isDimmed
-              ? `rgba(139, 148, 158, 0.1)`
-              : getCssVar('--sng-color-text-muted', '#8b949e');
+          linkWidth={(link: any) =>
+            highlightLinks.has(link) || isLocal ? 2 : 0.5
           }
-          return `rgba(148, 163, 184, ${isDimmed ? 0.05 : 0.2})`; // missing
-        }}
-        linkColor={(link: any) => {
-          const isDimmed = hoverNode && !highlightLinks.has(link);
-          return isDimmed
-            ? 'rgba(0,0,0,0)'
-            : getCssVar('--sng-color-border-default', '#30363d');
-        }}
-        linkWidth={(link: any) => (highlightLinks.has(link) ? 2 : 1)}
-        linkDirectionalParticles={(link: any) =>
-          highlightLinks.has(link) || isLocal ? 2 : 0
-        }
-        linkDirectionalParticleSpeed={0.005}
-        cooldownTicks={100}
-        onNodeHover={handleNodeHover}
-        onNodeClick={handleNodeClick}
-        onEngineStop={() => fgRef.current?.zoomToFit(400, 50)}
-      />
+          onNodeHover={handleNodeHover}
+          onNodeClick={(node: any) => {
+            // 더미 노드 처리 (링크 생략 알림)
+            if (node.group === 'dummy') return;
+            router.push(isLocal ? `/notes/${node.id}` : `/notes/${node.id}`);
+          }}
+        />
+      )}
 
-      {/* Custom Hover Tooltip */}
-      {hoverNode && (
+      {/* 툴팁 오버레이 */}
+      {hoverNode && hoverNode.group !== 'dummy' && (
         <div
+          className="absolute z-10 p-4 border rounded-[var(--sng-radius-lg)] pointer-events-none transition-opacity duration-200"
           style={{
-            position: 'absolute',
-            zIndex: 50,
-            top: '16px',
-            left: '16px',
+            left: 16,
+            top: 16,
             maxWidth: '300px',
-            backgroundColor: 'var(--sng-color-bg-surface)',
-            border: '2px solid var(--sng-color-border-default)',
-            borderRadius: 'var(--sng-radius-md)',
-            boxShadow: '4px 4px 0 var(--sng-color-border-default)',
-            padding: 'var(--space-4)',
-            pointerEvents: 'none',
+            backgroundColor: 'var(--sng-color-bg-elevated)',
+            borderColor: 'var(--sng-color-border-subtle)',
+            boxShadow: 'var(--sng-shadow-raised)',
           }}
         >
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px',
-              marginBottom: '8px',
-            }}
-          >
+          <div className="flex items-center gap-2 mb-2">
             <span
+              className="px-2 py-0.5 text-xs font-semibold rounded-full"
               style={{
-                width: '12px',
-                height: '12px',
-                borderRadius: '50%',
-                backgroundColor:
+                backgroundColor: 'var(--sng-color-bg-base)',
+                color: 'var(--sng-color-text-secondary)',
+                border: '1px solid var(--sng-color-border-default)',
+              }}
+            >
+              {hoverNode.group || 'note'}
+            </span>
+            <span
+              className="text-xs font-medium"
+              style={{
+                color:
                   hoverNode.visibility === 'public'
-                    ? '#8b5cf6'
-                    : hoverNode.visibility === 'private'
-                      ? '#64748b'
-                      : '#cbd5e1',
-              }}
-            />
-            <h3
-              style={{
-                fontWeight: '700',
-                fontSize: 'var(--text-sm)',
-                color: 'var(--sng-color-text-primary)',
-                margin: 0,
+                    ? 'var(--sng-color-state-success)'
+                    : 'var(--sng-color-state-warning)',
               }}
             >
-              {hoverNode.title}
-            </h3>
+              {hoverNode.visibility === 'public' ? 'Published' : 'Private'}
+            </span>
           </div>
-          <p
-            style={{
-              fontSize: 'var(--text-xs)',
-              color: 'var(--sng-color-text-secondary)',
-              lineHeight: 1.6,
-              margin: 0,
-              display: '-webkit-box',
-              WebkitLineClamp: 3,
-              WebkitBoxOrient: 'vertical',
-              overflow: 'hidden',
-            }}
+          <h4
+            className="text-sm font-bold mb-1 line-clamp-2"
+            style={{ color: 'var(--sng-color-text-primary)' }}
           >
-            {hoverNode.summary || '요약이 존재하지 않습니다.'}
+            {hoverNode.title}
+          </h4>
+          <p
+            className="text-xs line-clamp-3 leading-relaxed"
+            style={{ color: 'var(--sng-color-text-secondary)' }}
+          >
+            {hoverNode.summary || 'Summary not available.'}
           </p>
-          {hoverNode.visibility === 'public' ? (
-            <span
-              style={{
-                display: 'inline-block',
-                marginTop: '8px',
-                fontSize: 'var(--text-xs)',
-                fontWeight: 600,
-                color: 'var(--sng-color-brand-primary)',
-              }}
-            >
-              클릭하여 읽기 →
-            </span>
-          ) : (
-            <span
-              style={{
-                display: 'inline-block',
-                marginTop: '8px',
-                fontSize: 'var(--text-xs)',
-                fontWeight: 500,
-                color: 'var(--sng-color-text-muted)',
-              }}
-            >
-              {hoverNode.visibility === 'missing'
-                ? '작성 예정 문서'
-                : '비공개 문서'}{' '}
-              🔒
-            </span>
-          )}
         </div>
       )}
     </div>

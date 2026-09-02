@@ -1,0 +1,101 @@
+---
+title: 소나기 디자인 시스템으로 블로그 만들기
+tags:
+  - design-system
+  - ui
+  - ux
+  - tailwind
+created: '2025-10-23'
+category: design
+coverImage: >-
+  https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=1200&h=630&fit=crop
+status: evergreen
+published: true
+publishedDate: '2025-10-23'
+series: 소나기 디자인 시스템 만들기
+seriesOrder: 3
+---
+
+# 소나기 디자인 시스템으로 블로그 만들기
+
+소나기 디자인 시스템은 비 온 뒤의 맑고 청량한 느낌을 담은 모던한 디자인 시스템입니다. 이번 포스트에서는 이 [[sonagi-design-system]]을 활용하여 아름다운 블로그를 만들고, [[design-system-shape-color-semantics]] 규칙에 맞게 시각적인 통일성을 맞추는 과정을 소개합니다.
+
+## 소나기 디자인 시스템의 특징
+
+### 1. 청량한 색상 팔레트
+
+소나기는 비 온 뒤의 맑은 하늘을 연상시키는 블루 계열의 색상을 주로 사용합니다.
+
+```css
+/* Primary Colors */
+--primary-50: #e8f4f8;
+--primary-500: #3da8cc;
+--primary-600: #379ac3;
+```
+
+### 2. 명확한 타이포그래피
+
+가독성을 최우선으로 하는 타이포그래피 시스템:
+
+- **Heading**: 명확한 계층 구조
+- **Body**: 편안한 읽기 경험
+- **Code**: 개발자 친화적인 폰트
+
+### 3. 일관된 컴포넌트
+
+재사용 가능한 컴포넌트 라이브러리:
+
+````tsx
+import { Button, Card } from '@mindulle/components';
+
+```tsx
+<Card>
+  <Card.Header>
+    <Card.Title>제목</Card.Title>
+  </Card.Header>
+  <Card.Body>
+    내용
+  </Card.Body>
+  <Card.Footer>
+    <Button variant="primary">버튼</Button>
+  </Card.Footer>
+</Card>
+````
+
+````
+
+## 블로그에 적용하기
+
+### Step 1: 디자인 토큰 설정
+
+```css
+:root {
+  --color-primary: #3DA8CC;
+  --spacing-md: 1rem;
+  --radius-lg: 0.75rem;
+}
+````
+
+### Step 2: 컴포넌트 활용
+
+PostCard, Header, Footer 등의 컴포넌트를 소나기 스타일로 구성합니다.
+
+### Step 3: 다크 모드 지원
+
+```css
+.dark {
+  --color-bg: #1a1a1a;
+  --color-text: #f5f5f5;
+}
+```
+
+## 디자인 원칙
+
+1. **청량감**: 깨끗하고 맑은 디자인
+2. **여백**: 충분한 공간 활용
+3. **일관성**: 통일된 스타일
+4. **접근성**: 모두를 위한 디자인
+
+## 마무리
+
+소나기 디자인 시스템으로 당신만의 블로그를 만들어보세요. 청량하고 세련된 디자인이 콘텐츠를 더욱 돋보이게 할 것입니다! 🌧️✨

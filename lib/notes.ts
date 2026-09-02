@@ -23,10 +23,18 @@ export interface Note {
   tags: string[];
   created: string;
   excerpt: string;
+  status: 'seed' | 'sapling' | 'evergreen';
+  published?: boolean;
+  publishedDate?: string;
+  category?: string;
+  coverImage?: string;
+  series?: string;
+  seriesOrder?: number;
 }
 
 export interface NoteWithContent extends Note {
   content: string;
+  rawContent: string;
 }
 
 /**
@@ -57,6 +65,13 @@ export function getAllNotes(): Note[] {
       title: summary.title as string,
       tags: (summary.tags as string[]) || [],
       created: (summary.created as string) || '',
+      status: (summary.status as 'seed' | 'sapling' | 'evergreen') || 'seed',
+      published: !!summary.published,
+      publishedDate: (summary.publishedDate as string) || '',
+      category: (summary.category as string) || '',
+      coverImage: (summary.coverImage as string) || '',
+      series: (summary.series as string) || '',
+      seriesOrder: (summary.seriesOrder as number) || undefined,
       excerpt: (summary.excerpt as string) || '',
     }))
     .sort((a, b) => (a.created < b.created ? 1 : -1));
@@ -78,8 +93,16 @@ export function getNoteBySlug(slug: string): NoteWithContent | null {
       title: (data.title as string) || slug,
       tags: (data.tags as string[]) || [],
       created: (data.created as string) || '',
+      status: (data.status as 'seed' | 'sapling' | 'evergreen') || 'seed',
+      published: !!data.published,
+      publishedDate: (data.publishedDate as string) || '',
+      category: (data.category as string) || '',
+      coverImage: (data.coverImage as string) || '',
+      series: (data.series as string) || '',
+      seriesOrder: (data.seriesOrder as number) || undefined,
       excerpt: extractExcerpt(content),
       content: processedContent.toString(),
+      rawContent: content,
     };
   } catch {
     return null;

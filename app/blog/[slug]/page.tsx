@@ -1,122 +1,40 @@
+import { getNoteBySlug } from '@/lib/notes';
+import { UnifiedDetail } from '@/components/blog/UnifiedDetail';
+import type { Backlink } from '@/components/blog/BacklinksSection';
+import backlinksData from '@/lib/generated/backlinks.json';
 import { notFound } from 'next/navigation';
-import type { Metadata } from 'next';
-import { getAllPosts, getPostBySlug } from '@/lib/mdx';
-import { extractHeadings } from '@/lib/headings';
-import { PostHeader } from '@/components/blog/PostHeader';
-import { PostContent } from '@/components/blog/PostContent';
-import { ShareButtons } from '@/components/blog/ShareButtons';
-import { RelatedPosts } from '@/components/blog/RelatedPosts';
-import { TableOfContents } from '@/components/blog/TableOfContents';
-import { ReadingProgress } from '@/components/blog/ReadingProgress';
-import { Container } from '@/components/ui/Container';
 
-type Props = {
+interface Props {
   params: Promise<{ slug: string }>;
-};
+}
 
 export async function generateStaticParams() {
-  // Return an empty array to build all pages on demand (ISR)
-  // This prevents Out of Memory (OOM) errors during build.
   return [];
 }
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const note = getNoteBySlug(decodedSlug);
 
-  if (!post) {
-    return {
-      title: 'Post Not Found',
-    };
+  if (!note) {
+    return { title: 'Not Found' };
   }
 
-  return {
-    title: post.title,
-    description: post.description,
-    authors: post.author ? [{ name: post.author }] : undefined,
-    openGraph: {
-      title: post.title,
-      description: post.description,
-      type: 'article',
-      publishedTime: post.date,
-      images: post.coverImage
-        ? [
-            {
-              url: post.coverImage,
-              width: 1200,
-              height: 630,
-              alt: post.title,
-            },
-          ]
-        : undefined,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: post.title,
-      description: post.description,
-      images: post.coverImage ? [post.coverImage] : undefined,
-    },
-  };
+  return { title: note.title, description: note.excerpt };
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const decodedSlug = decodeURIComponent(slug);
+  const note = getNoteBySlug(decodedSlug);
 
-  if (!post) {
+  if (!note || !note.published) {
     notFound();
   }
 
-  const allPosts = getAllPosts();
-  const headings = extractHeadings(post.content);
-  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
-  const postUrl = `${siteUrl}/blog/${post.slug}`;
+  const backlinks =
+    (backlinksData as Record<string, Backlink[]>)[decodedSlug] ?? [];
 
-  return (
-    <>
-      <ReadingProgress />
-
-      <article className="py-12">
-        <Container>
-          <div className="max-w-4xl mx-auto">
-            <PostHeader post={post} />
-
-            <div className="mt-12 grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
-              {/* Main Content */}
-              <div className="prose prose-neutral dark:prose-invert max-w-none">
-                <PostContent html={post.content} />
-              </div>
-
-              {/* Sidebar - Table of Contents */}
-              <aside className="hidden lg:block">
-                <TableOfContents headings={headings} />
-              </aside>
-            </div>
-
-            {/* Share Buttons */}
-            <div
-              className="mt-12 pt-8 border-t"
-              style={{ borderColor: 'var(--sng-color-border-default)' }}
-            >
-              <h3
-                className="text-lg font-semibold mb-4"
-                style={{ color: 'var(--sng-color-text-primary)' }}
-              >
-                Share this post
-              </h3>
-              <ShareButtons title={post.title} url={postUrl} />
-            </div>
-
-            {/* Related Posts */}
-            <div
-              className="mt-16 pt-8 border-t"
-              style={{ borderColor: 'var(--sng-color-border-default)' }}
-            >
-              <RelatedPosts currentPost={post} allPosts={allPosts} />
-            </div>
-          </div>
-        </Container>
-      </article>
-    </>
-  );
+  return <UnifiedDetail note={note} backlinks={backlinks} isBlogView={true} />;
 }

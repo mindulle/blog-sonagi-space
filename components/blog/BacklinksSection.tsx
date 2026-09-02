@@ -1,10 +1,9 @@
 'use client';
+import { Button } from '@mindulle/ui';
 
 import { useState, useMemo } from 'react';
 import type React from 'react';
-import { Button } from '@/components/ui/Button';
-
-interface Backlink {
+export interface Backlink {
   sourceSlug: string;
   sourceTitle: string;
   excerpt: string;
