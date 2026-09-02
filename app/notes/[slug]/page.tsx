@@ -36,9 +36,33 @@ export async function generateMetadata({ params }: Props) {
     };
   }
 
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.sonagi.space';
+
   return {
     title: note.title,
     description: note.excerpt,
+    openGraph: {
+      title: note.title,
+      description: note.excerpt,
+      type: 'article',
+      publishedTime: note.created,
+      url: `${siteUrl}/notes/${note.slug}`,
+      images: [
+        {
+          url: `${siteUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: note.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: note.title,
+      description: note.excerpt,
+      images: [`${siteUrl}/og-image.png`],
+    },
   };
 }
 
