@@ -23,7 +23,7 @@ export async function GET() {
       description: post.description,
       url: `${baseUrl}/blog/${post.slug}`,
       date: post.date || new Date(),
-      author: post.author?.name || 'Sonagi',
+      author: post.author || 'Sonagi',
       categories: [post.category, ...post.tags],
     });
   });
