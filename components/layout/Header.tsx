@@ -1,8 +1,9 @@
 'use client';
+import { useState } from 'react';
 import { Button } from '@mindulle/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Search, Menu } from 'lucide-react';
+import { Search, Menu, X } from 'lucide-react';
 import { ThemeToggle } from '@/components/common/ThemeToggle';
 import { Logo } from '@/components/ui/Logo';
 
@@ -15,6 +16,7 @@ const navigation = [
 
 export function Header() {
   const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   return (
     <header
@@ -32,6 +34,7 @@ export function Header() {
           {/* Logo */}
           <Link
             href="/"
+            onClick={() => setIsMobileMenuOpen(false)}
             className="flex items-center transition-opacity hover:opacity-80 text-[var(--sng-color-text-primary)]"
           >
             <Logo height={28} />
@@ -60,7 +63,7 @@ export function Header() {
 
             {/* Actions - gap-4 (16px) */}
             <div className="flex items-center gap-4">
-              <Link href="/search">
+              <Link href="/search" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button
                   variant="secondary"
                   aria-label="Search"
@@ -75,14 +78,55 @@ export function Header() {
               <Button
                 variant="secondary"
                 aria-label="Menu"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="md:hidden !p-2 text-[var(--sng-color-icon-muted)] hover:text-[var(--sng-color-text-primary)] bg-transparent border-transparent"
               >
-                <Menu size={20} />
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </Button>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div
+          className="md:hidden absolute top-[64px] left-0 w-full backdrop-blur-xl"
+          style={{
+            backgroundColor:
+              'color-mix(in srgb, var(--sng-color-bg-surface) 95%, transparent)',
+            borderBottom:
+              'var(--sng-border-thin) solid var(--sng-color-border-default)',
+            boxShadow: 'var(--sng-shadow-sm)',
+          }}
+        >
+          <nav className="flex flex-col py-4 px-6 gap-2">
+            {navigation.map((item) => {
+              const isActive =
+                pathname === item.href ||
+                (pathname?.startsWith(item.href) && item.href !== '/');
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-lg font-medium transition-colors p-3 rounded-lg"
+                  style={{
+                    color: isActive
+                      ? 'var(--sng-color-text-primary)'
+                      : 'var(--sng-color-text-secondary)',
+                    backgroundColor: isActive
+                      ? 'var(--sng-color-bg-elevated)'
+                      : 'transparent',
+                  }}
+                >
+                  {item.name}
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
