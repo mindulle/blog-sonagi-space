@@ -1,7 +1,5 @@
 import type { NextConfig } from 'next';
 import createMDX from '@next/mdx';
-import remarkGfm from 'remark-gfm';
-import rehypeHighlight from 'rehype-highlight';
 
 const nextConfig: NextConfig = {
   // MDX 파일을 페이지로 사용할 수 있도록 설정
@@ -31,8 +29,8 @@ const nextConfig: NextConfig = {
 
 const withMDX = createMDX({
   options: {
-    remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeHighlight],
+    remarkPlugins: [['remark-gfm', {}]],
+    rehypePlugins: [['rehype-highlight', {}]],
   },
 });
 
