@@ -11,13 +11,16 @@ description: Testing custom wiki link resolution
 This note tests the custom wiki link resolution logic.
 
 ## Direct Links
-- [[Architecture|Architecture]] (Same directory, if exists)
+
+- [[sonagi-design-system|Architecture]] (Testing with an existing note)
 - [[getting-started|Getting Started]] (Should resolve to /notes/dev/getting-started)
 - [[broken-link]] (Should be red/broken)
 
 ## Aliased Links
+
 - [[getting-started|Start Here]] (Should show as "Start Here")
 
 ## Case Insensitivity
+
 - [[getting-started|getting started]] (Should resolve)
 - [[getting-started|GETTING STARTED]] (Should resolve)
