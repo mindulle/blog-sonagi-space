@@ -1,0 +1,9 @@
+[pr_reviewer]
+extra_instructions = """
+이 레포지토리는 소나기 스페이스의 공식 기술 블로그(Wiki)입니다. 
+- 마크다운 문법 오류나 깨진 링크(Broken Links)가 없는지 위주로 확인해주세요.
+- 기술적인 내용이 포함되어 있다면, 코드 스니펫의 문법 오류도 점검해주세요.
+"""
+
+[config]
+ignore_files = ["package-lock.json", "pnpm-lock.yaml", "yarn.lock", "public/assets/*", "*.svg"]
