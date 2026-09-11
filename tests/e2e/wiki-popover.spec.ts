@@ -10,7 +10,7 @@ test.describe('Wiki Hover Popover (Desktop)', () => {
     // Tailwind 유틸리티 클래스로 스타일링되며 `wikilink` 클래스를 더 이상
     // 갖지 않는다 (끊어진 링크만 레거시 `wikilink broken` 클래스를 유지).
     // 그래서 클래스 기반 셀렉터 대신 항상 부여되는 data-slug로 특정 링크를 지정한다.
-    const link = page.locator('a[data-slug="Architecture"]').first();
+    const link = page.locator('a[data-slug="sonagi-design-system"]').first();
     await expect(link).toBeVisible();
 
     const tooltip = page.locator('[role="tooltip"]').first();
@@ -18,8 +18,8 @@ test.describe('Wiki Hover Popover (Desktop)', () => {
     // -- 첫 번째 호버 --
     await link.hover();
     await expect(tooltip).toBeVisible({ timeout: 2000 });
-    // 서버 액션으로 동작하므로 실제 제목인 'Architecture'가 불러와짐
-    await expect(tooltip).toContainText('Architecture');
+    // 서버 액션으로 동작하므로 실제 제목인 '소나기 디자인 시스템 소개'가 불러와짐
+    await expect(tooltip).toContainText('소나기 디자인 시스템 소개');
 
     // -- 호버 아웃 --
     await page.locator('body').hover({ position: { x: 10, y: 10 } });
@@ -54,7 +54,7 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
 
     await page.goto('/notes/wikilink-test');
 
-    const link = page.locator('a[data-slug="Architecture"]').first();
+    const link = page.locator('a[data-slug="sonagi-design-system"]').first();
     await expect(link).toBeVisible();
 
     await link.tap();

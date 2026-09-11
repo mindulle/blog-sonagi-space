@@ -72,7 +72,12 @@ const components = {
       // 끊어진 링크는 HoverPreview 없이 단순 렌더링
       if (isBroken) {
         return (
-          <Link href={`/notes/${slug}`} className={className} {...rest}>
+          <Link
+            href={`/notes/${slug}`}
+            className={className}
+            data-slug={dataSlug}
+            {...rest}
+          >
             {children}
           </Link>
         );
@@ -83,6 +88,7 @@ const components = {
           slug={slug}
           href={`/notes/${slug}`}
           fetchNote={fetchNoteSummary}
+          data-slug={dataSlug}
         >
           {children}
         </WikiLinkPreview>
