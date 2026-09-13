@@ -3,7 +3,7 @@ title: 'UXUI Portfolio Structure'
 tags: ['concept', 'portfolio', 'uxui', 'career']
 source: '2026-09-02_YouTube_cxgwRPG1glQ.md'
 created: '2026-09-02'
-published: true
+published: false
 status: 'evergreen'
 publishedDate: '2026-09-02'
 category: 'Design'

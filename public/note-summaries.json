@@ -56,7 +56,7 @@
     "coverImage": "",
     "series": "픽셀 퍼펙트 UI 엔지니어링 가이드",
     "seriesOrder": 3,
-    "excerpt": "디자이너와 프론트엔드 개발자 간의 소통에서 가장 많은 병목이 발생하는 곳은 바로 '레이아웃'입니다. 하지만 Figma의 오토레이아웃(Auto Layout)은 사실상 웹 표준인 **CSS Flexbox를 완벽하게 모사**하고 있습니다. "
+    "excerpt": "디자이너와 프론트엔드 개발자 간의 소통에서 가장 많은 병목이 발생하는 곳은 바로 '레이아웃'입니다. 하지만 Figma의 오토레이아웃(Auto Layout)은 사실상 웹 표준인 **CSS Flexbox를 완벽하게 모사**하고 있습니다."
   },
   "Pixel-Perfect-Intro": {
     "slug": "Pixel-Perfect-Intro",
@@ -135,7 +135,7 @@
     ],
     "created": "2026-09-02",
     "status": "evergreen",
-    "published": true,
+    "published": false,
     "publishedDate": "2026-09-02",
     "category": "Design",
     "coverImage": "",
