@@ -10,6 +10,7 @@ import { Logo } from '@/components/ui/Logo';
 const navigation = [
   { name: 'Blog', href: '/blog' },
   { name: 'Garden', href: '/notes' },
+  { name: 'Series', href: '/series' },
   { name: 'Projects', href: '/projects' },
   { name: 'About', href: '/about' },
 ];
