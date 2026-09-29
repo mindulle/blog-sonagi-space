@@ -56,7 +56,7 @@
     "coverImage": "",
     "series": "픽셀 퍼펙트 UI 엔지니어링 가이드",
     "seriesOrder": 3,
-    "excerpt": "디자이너와 프론트엔드 개발자 간의 소통에서 가장 많은 병목이 발생하는 곳은 바로 '레이아웃'입니다. 하지만 Figma의 오토레이아웃(Auto Layout)은 사실상 웹 표준인 **CSS Flexbox를 완벽하게 모사**하고 있습니다."
+    "excerpt": "디자이너와 프론트엔드 개발자 간의 소통에서 가장 많은 병목이 발생하는 곳은 바로 '레이아웃'입니다. 하지만 Figma의 오토레이아웃(Auto Layout)은 사실상 웹 표준인 **CSS Flexbox를 완벽하게 모사**하고 있습니다. "
   },
   "Pixel-Perfect-Intro": {
     "slug": "Pixel-Perfect-Intro",
@@ -107,6 +107,25 @@
   },
   "UI Typography Criteria": {
     "slug": "UI Typography Criteria",
+    "title": "UI Typography Criteria",
+    "tags": [
+      "concept",
+      "ui",
+      "typography",
+      "design"
+    ],
+    "created": "2026-09-02",
+    "status": "seed",
+    "published": true,
+    "publishedDate": "",
+    "category": "",
+    "coverImage": "",
+    "series": "픽셀 퍼펙트 UI 엔지니어링 가이드",
+    "seriesOrder": 2,
+    "excerpt": "소프트웨어 제품(Product)의 UI에서 글꼴을 선택할 때는 본문의 가독성뿐만 아니라 버튼, 입력창, 아이콘 등과 함께 **별도의 수직 보정 없이 완벽하게 정렬**되는지가 핵심 기준이 된다. (예: Inter 폰트)"
+  },
+  "UI-Typography-Criteria": {
+    "slug": "UI-Typography-Criteria",
     "title": "UI Typography Criteria",
     "tags": [
       "concept",
@@ -216,5 +235,23 @@
     "series": "",
     "seriesOrder": null,
     "excerpt": "This note tests the custom wiki link resolution logic."
+  },
+  "건강한_이별_연민이_거둬지는_순간": {
+    "slug": "건강한_이별_연민이_거둬지는_순간",
+    "title": "건강한 이별: 연민이 거둬지는 순간, 조용한 단절이 시작된다",
+    "tags": [
+      "psychology",
+      "mindset",
+      "relationship"
+    ],
+    "created": "",
+    "status": "seed",
+    "published": true,
+    "publishedDate": "",
+    "category": "",
+    "coverImage": "",
+    "series": "",
+    "seriesOrder": null,
+    "excerpt": "> 📚 **시리즈:** "
   }
 }

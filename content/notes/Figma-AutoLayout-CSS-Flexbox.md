@@ -1,10 +1,17 @@
 ---
 title: 'Figma 오토레이아웃과 CSS Flexbox의 완벽한 1:1 매칭 가이드'
-tags: ['concept', 'ui', 'engineering', 'figma', 'css', 'flexbox']
+tags:
+  - concept
+  - ui
+  - engineering
+  - figma
+  - css
+  - flexbox
 created: '2026-09-13'
-series: '픽셀 퍼펙트 UI 엔지니어링 가이드'
+series: 픽셀 퍼펙트 UI 엔지니어링 가이드
 seriesOrder: 3
 published: true
+status: seed
 ---
 
 # Figma 오토레이아웃과 CSS Flexbox 완벽 대응 가이드

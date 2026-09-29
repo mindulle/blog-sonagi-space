@@ -1,8 +1,9 @@
 ---
 title: '샘플 시리즈 2편: 완성하기'
-series: '블로그 퍼블리싱 테스트 시리즈'
+series: 블로그 퍼블리싱 테스트 시리즈
 seriesOrder: 2
 published: true
+status: seed
 ---
 
 # 샘플 시리즈 2편: 완성하기
