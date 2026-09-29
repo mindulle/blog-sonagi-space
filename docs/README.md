@@ -1,0 +1,1 @@
+# Repository Documentation\n\n이 `docs/` 폴더는 **코드베이스에 종속된 기술 문서(아키텍처, 빌드 규칙, 에러 해결 등)**만을 보관합니다.\n\n새로운 기능 기획(PRD), 아이데이션, 스펙 정의 등은 **`llm-wiki` (Obsidian Vault)** 내의 `01_Projects/blog-sonagi-space` 폴더에서 진행합니다.

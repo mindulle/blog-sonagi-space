@@ -1,10 +1,15 @@
 ---
 title: '디자인 토큰: Figma Variables와 CSS의 완벽한 동기화'
-tags: ['concept', 'ui', 'engineering', 'design-token']
+tags:
+  - concept
+  - ui
+  - engineering
+  - design-token
 created: '2026-09-13'
-series: '픽셀 퍼펙트 UI 엔지니어링 가이드'
+series: 픽셀 퍼펙트 UI 엔지니어링 가이드
 seriesOrder: 4
 published: true
+status: seed
 ---
 
 # 디자인 토큰: Figma Variables와 CSS의 완벽한 동기화

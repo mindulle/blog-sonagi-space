@@ -1,10 +1,15 @@
 ---
 title: '모던 디자인 핸드오프: 스펙 시트가 필요 없는 파이프라인'
-tags: ['concept', 'ui', 'engineering', 'handoff']
+tags:
+  - concept
+  - ui
+  - engineering
+  - handoff
 created: '2026-09-13'
-series: '픽셀 퍼펙트 UI 엔지니어링 가이드'
+series: 픽셀 퍼펙트 UI 엔지니어링 가이드
 seriesOrder: 5
 published: true
+status: seed
 ---
 
 # 모던 디자인 핸드오프: 스펙 시트가 필요 없는 파이프라인
