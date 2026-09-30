@@ -29,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // 3. Series
   const series = getAllSeries().map((s) => ({
-    url: `${baseUrl}/series/${s.id}`,
+    url: `${baseUrl}/series/${encodeURIComponent(s.series)}`,
     lastModified: new Date().toISOString().split('T')[0],
     changeFrequency: 'weekly' as const,
     priority: 0.6,
