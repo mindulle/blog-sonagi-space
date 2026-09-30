@@ -9,7 +9,8 @@
     "build": "NODE_OPTIONS='--max-old-space-size=4096' node scripts/generate-backlinks.mjs && node scripts/generate-summaries.mjs && node scripts/generate-graph.mjs && node scripts/enrich-graph.mjs && next build --webpack",
     "start": "next start",
     "lint": "eslint",
-    "test": "vitest --passWithNoTests",
+    "test": "vitest run --passWithNoTests",
+    "test:coverage": "vitest run --coverage --passWithNoTests",
     "test:e2e": "playwright test",
     "chromatic": "chromatic --playwright",
     "prepare": "husky"
@@ -73,6 +74,7 @@
     "tailwindcss": "^4",
     "typescript": "^5",
     "unified": "^11.0.5",
+    "@vitest/coverage-v8": "^4.1.9",
     "vitest": "^4.1.9"
   },
   "lint-staged": {
