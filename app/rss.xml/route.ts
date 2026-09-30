@@ -1,9 +1,9 @@
 import RSS from 'rss';
-import { getAllPosts } from '@/lib/mdx';
+import { getAllNotes } from '@/lib/notes';
 
 export async function GET() {
   const baseUrl = 'https://blog.sonagi.space';
-  const posts = getAllPosts();
+  const notes = getAllNotes().filter((n) => n.published);
 
   const feed = new RSS({
     title: '소나기 블로그',
@@ -17,14 +17,16 @@ export async function GET() {
     copyright: `All rights reserved ${new Date().getFullYear()}, Sonagi`,
   });
 
-  posts.forEach((post) => {
+  notes.forEach((note) => {
     feed.item({
-      title: post.title,
-      description: post.description,
-      url: `${baseUrl}/blog/${post.slug}`,
-      date: post.date || new Date(),
-      author: post.author || 'Sonagi',
-      categories: [post.category, ...post.tags],
+      title: note.title,
+      description: note.excerpt || '',
+      url: `${baseUrl}/blog/${note.slug}`,
+      date: note.publishedDate || note.created || new Date(),
+      author: 'Sonagi',
+      categories: [note.category, ...(note.tags || [])].filter(
+        Boolean
+      ) as string[],
     });
   });
 

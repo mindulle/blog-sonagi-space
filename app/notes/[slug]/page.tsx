@@ -26,15 +26,20 @@ export async function generateMetadata({ params }: Props) {
   return {
     title: note.title,
     description: note.excerpt,
+    alternates: {
+      canonical: `${siteUrl}/blog/${note.slug}`, // SEO 중복 방지: blog 경로를 원본으로 지정
+    },
     openGraph: {
       title: note.title,
       description: note.excerpt,
       type: 'article',
-      publishedTime: note.created,
+      publishedTime: note.publishedDate || note.created,
       url: `${siteUrl}/notes/${note.slug}`,
       images: [
         {
-          url: `${siteUrl}/og-image.png`,
+          url: note.coverImage
+            ? `${siteUrl}${note.coverImage}`
+            : `${siteUrl}/og-image.png`,
           width: 1200,
           height: 630,
           alt: note.title,
@@ -45,7 +50,11 @@ export async function generateMetadata({ params }: Props) {
       card: 'summary_large_image',
       title: note.title,
       description: note.excerpt,
-      images: [`${siteUrl}/og-image.png`],
+      images: [
+        note.coverImage
+          ? `${siteUrl}${note.coverImage}`
+          : `${siteUrl}/og-image.png`,
+      ],
     },
   };
 }
@@ -59,8 +68,8 @@ export default async function NotePage({ params }: Props) {
     return <div>Not found</div>;
   }
 
-  const backlinks =
-    (backlinksData as Record<string, Backlink[]>)[decodedSlug] ?? [];
+  const backlinks: Backlink[] =
+    (backlinksData as Record<string, Backlink[]>)[decodedSlug] || [];
 
   return <UnifiedDetail note={note} backlinks={backlinks} />;
 }

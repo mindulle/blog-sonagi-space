@@ -21,7 +21,40 @@ export async function generateMetadata({ params }: Props) {
     return { title: 'Not Found' };
   }
 
-  return { title: note.title, description: note.excerpt };
+  const siteUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.sonagi.space';
+
+  return {
+    title: note.title,
+    description: note.excerpt,
+    openGraph: {
+      title: note.title,
+      description: note.excerpt,
+      type: 'article',
+      publishedTime: note.publishedDate || note.created,
+      url: `${siteUrl}/blog/${note.slug}`,
+      images: [
+        {
+          url: note.coverImage
+            ? `${siteUrl}${note.coverImage}`
+            : `${siteUrl}/og-image.png`,
+          width: 1200,
+          height: 630,
+          alt: note.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: note.title,
+      description: note.excerpt,
+      images: [
+        note.coverImage
+          ? `${siteUrl}${note.coverImage}`
+          : `${siteUrl}/og-image.png`,
+      ],
+    },
+  };
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -33,8 +66,8 @@ export default async function BlogPostPage({ params }: Props) {
     notFound();
   }
 
-  const backlinks =
-    (backlinksData as Record<string, Backlink[]>)[decodedSlug] ?? [];
+  const backlinks: Backlink[] =
+    (backlinksData as Record<string, Backlink[]>)[decodedSlug] || [];
 
   return <UnifiedDetail note={note} backlinks={backlinks} isBlogView={true} />;
 }
