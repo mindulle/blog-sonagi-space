@@ -1,0 +1,27 @@
+name: Link Checker
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # 매주 월요일 자정(UTC), 한국 시간 아침 9시에 정기 링크 검사
+    - cron: "0 0 * * 1"
+
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # 블로그 글(notes)과 기획 문서들의 깨진 링크를 검사합니다.
+          # GitHub 속도 제한 방지를 위해 github.com 링크 등은 캐시를 사용합니다.
+          args: '--cache --max-cache-age 1d "content/notes/**/*.md" "docs/**/*.md" "README.md"'
+          # 깨진 링크 발견 시 파이프라인을 실패시킵니다.
+          fail: true
