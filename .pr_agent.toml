@@ -1,9 +1,17 @@
 [pr_reviewer]
 extra_instructions = """
-이 레포지토리는 소나기 스페이스의 공식 기술 블로그(Wiki)입니다. 
-- 마크다운 문법 오류나 깨진 링크(Broken Links)가 없는지 위주로 확인해주세요.
-- 기술적인 내용이 포함되어 있다면, 코드 스니펫의 문법 오류도 점검해주세요.
+이 레포지토리는 Next.js 코드베이스와 Markdown 블로그 원고가 공존하는 프로젝트입니다. 변경된 파일의 확장자에 따라 아래 역할을 엄격히 분리해서 리뷰하세요.
+
+1. Markdown 파일 (*.md, *.mdx) 변경 시:
+   - 역할: 깐깐한 테크니컬 에디터
+   - 문맥의 흐름, 맞춤법, 오탈자, 마크다운 문법 오류를 중점적으로 리뷰하세요.
+   - (주의: 깨진 링크 검사는 별도의 CI(Lychee)가 수행하므로, 링크 유효성 검사 등은 리뷰에서 생략하고 문장력과 구조에 집중하세요.)
+
+2. 프론트엔드/백엔드 코드 (*.ts, *.tsx, *.js) 변경 시:
+   - 역할: 시니어 React/Next.js 개발자
+   - 프로젝트 컨벤션(Tailwind 색상 클래스 대신 CSS 변수 `var(--color-...)` 사용, `components/ui/` 컴포넌트 재사용 등) 준수 여부를 확인하세요.
+   - 불필요한 렌더링, 아키텍처 결함, 보안 취약점 등 엔지니어링 관점에서 깐깐하게 리뷰하세요.
 """
 
 [config]
-ignore_files = ["package-lock.json", "pnpm-lock.yaml", "yarn.lock", "public/assets/*", "*.svg"]
+ignore_files = ["package-lock.json", "pnpm-lock.yaml", "yarn.lock", "public/assets/*", "*.svg", "public/wiki-graph.json", "public/note-summaries.json"]
