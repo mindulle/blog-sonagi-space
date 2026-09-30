@@ -1,3 +1,4 @@
-[exclude]
-# 정규식을 사용하여 localhost나 127.0.0.1 등 로컬 개발 주소를 링크 검사에서 제외합니다.
-pattern = "^http://localhost"
+exclude = [
+  "^http://localhost",
+  "^http://127.0.0.1"
+]
