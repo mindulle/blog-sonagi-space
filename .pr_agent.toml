@@ -1,17 +1,10 @@
 [pr_reviewer]
 extra_instructions = """
-이 레포지토리는 Next.js 코드베이스와 Markdown 블로그 원고가 공존하는 프로젝트입니다. 변경된 파일의 확장자에 따라 아래 역할을 엄격히 분리해서 리뷰하세요.
+[Sonagi Architecture Convention Check]
+이 레포지토리는 블로그(blog-sonagi-space) 프로젝트입니다.
+PR 리뷰 시 아래 규칙을 엄격히 검사하고 위반 시 지적(Request Changes)하세요.
 
-1. Markdown 파일 (*.md, *.mdx) 변경 시:
-   - 역할: 깐깐한 테크니컬 에디터
-   - 문맥의 흐름, 맞춤법, 오탈자, 마크다운 문법 오류를 중점적으로 리뷰하세요.
-   - (주의: 깨진 링크 검사는 별도의 CI(Lychee)가 수행하므로, 링크 유효성 검사 등은 리뷰에서 생략하고 문장력과 구조에 집중하세요.)
-
-2. 프론트엔드/백엔드 코드 (*.ts, *.tsx, *.js) 변경 시:
-   - 역할: 시니어 React/Next.js 개발자
-   - 프로젝트 컨벤션(Tailwind 색상 클래스 대신 CSS 변수 `var(--color-...)` 사용, `components/ui/` 컴포넌트 재사용 등) 준수 여부를 확인하세요.
-   - 불필요한 렌더링, 아키텍처 결함, 보안 취약점 등 엔지니어링 관점에서 깐깐하게 리뷰하세요.
+1. 콘텐츠 SSOT (CRITICAL): 블로그의 모든 본문 텍스트나 게시물 원본은 마크다운(llm-wiki) 또는 CMS를 통해 동기화되어야 합니다. 소스 코드 내부에 긴 텍스트 콘텐츠를 직접 하드코딩했는지 검사하세요.
+2. 이미지 및 에셋 참조: 프로젝트 저장소 내부에 이미지 파일(png, jpg 등)을 직접 업로드하지 않았는지 확인하세요. 모든 정적 에셋은 MinIO CDN(cdn.sonagi.space) URL을 참조해야 합니다.
+3. 마케팅 웹 디자인 룰: 마케팅/콘텐츠 웹이므로 Framer와 협업하는 구조를 가집니다. 불필요하게 무거운 클라이언트 상태 관리(Global State)나 비즈니스 로직이 프론트엔드에 하드코딩되었는지 확인하세요.
 """
-
-[config]
-ignore_files = ["package-lock.json", "pnpm-lock.yaml", "yarn.lock", "public/assets/*", "*.svg", "public/wiki-graph.json", "public/note-summaries.json"]
