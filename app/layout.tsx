@@ -62,6 +62,7 @@ import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { ThemeProvider } from '@/components/providers/ThemeProvider';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import { Toaster } from 'sonner';
 
 export default function RootLayout({
   children,
@@ -87,6 +88,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </ThemeProvider>
+        <Toaster position="top-center" />
         {gaId && <GoogleAnalytics gaId={gaId} />}
       </body>
     </html>

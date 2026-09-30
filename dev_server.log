@@ -1,12 +1,7 @@
-npm warn Unknown env config "auto-install-peers". This will stop working in the next major version of npm.
-npm warn Unknown project config "onlyBuiltDependencies". This will stop working in the next major version of npm.
-
-> blog-sonagi-space@0.1.0 dev
-> next dev --webpack
-
+$ next dev --webpack
 [baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
  ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
- We detected multiple lockfiles and selected the directory of /home/ubuntu/pnpm-lock.yaml as the root directory.
+ We detected multiple lockfiles and selected the directory of /home/ubuntu/package-lock.json as the root directory.
  To silence this warning, set `outputFileTracingRoot` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
    See https://nextjs.org/docs/app/api-reference/config/next-config-js/output#caveats for more information.
  Detected additional lockfiles: 
@@ -17,6 +12,68 @@ npm warn Unknown project config "onlyBuiltDependencies". This will stop working 
    - Network:       http://10.0.0.193:3000
 
  ✓ Starting...
- ✓ Ready in 2.4s
+ ✓ Ready in 2.5s
  ○ Compiling / ...
- GET / 200 in 12.5s (compile: 11.2s, render: 1306ms)
+ HEAD / 200 in 5.0s (compile: 4.6s, render: 454ms)
+ ○ Compiling /notes/[slug] ...
+ GET /notes/Pixel-Perfect-Intro 200 in 5.9s (compile: 4.9s, render: 1006ms)
+ ⚠ Cross origin request detected from 100.91.9.83 to /_next/* resource. In a future major version of Next.js, you will need to explicitly configure "allowedDevOrigins" in next.config to allow this.
+Read more: https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
+ GET /notes/Pixel-Perfect-Intro 200 in 251ms (compile: 33ms, render: 218ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 869ms (compile: 282ms, render: 587ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 1083ms (compile: 195ms, render: 888ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ HEAD / 200 in 2.1s (compile: 1698ms, render: 372ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 694ms (compile: 91ms, render: 604ms)
+ GET /notes/Figma-AutoLayout-CSS-Flexbox 200 in 232ms (compile: 34ms, render: 198ms)
+ GET /notes/UI%20Typography%20Criteria 200 in 176ms (compile: 38ms, render: 138ms)
+ GET /notes/UI%20Typography%20Criteria 200 in 1249ms (compile: 402ms, render: 847ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 1239ms (compile: 390ms, render: 850ms)
+ GET /notes/UI%20Typography%20Criteria 200 in 1023ms (compile: 224ms, render: 799ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 183ms (compile: 7ms, render: 176ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 199ms (compile: 46ms, render: 154ms)
+ GET /notes/UI%20Typography%20Criteria 200 in 98ms (compile: 6ms, render: 92ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 117ms (compile: 33ms, render: 84ms)
+ GET /notes/UI%20Typography%20Criteria 200 in 102ms (compile: 15ms, render: 87ms)
+ GET /notes/Figma-AutoLayout-CSS-Flexbox 200 in 188ms (compile: 33ms, render: 155ms)
+ GET /notes/Design-Token-Variables 200 in 88ms (compile: 6ms, render: 82ms)
+ GET /notes/Design-Token-Variables 200 in 732ms (compile: 155ms, render: 577ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 734ms (compile: 154ms, render: 580ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 1086ms (compile: 266ms, render: 820ms)
+ GET /notes/Design-Token-Variables 200 in 1086ms (compile: 264ms, render: 821ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 694ms (compile: 56ms, render: 638ms)
+ GET /notes/Design-Token-Variables 200 in 692ms (compile: 53ms, render: 639ms)
+ HEAD /series 200 in 3.3s (compile: 3.0s, render: 281ms)
+ GET /series 200 in 135ms (compile: 8ms, render: 127ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 902ms (compile: 59ms, render: 843ms)
+ GET /notes/Design-Token-Variables 200 in 903ms (compile: 58ms, render: 845ms)
+ GET /series 200 in 1047ms (compile: 224ms, render: 822ms)
+ GET /notes/Design-Token-Variables 200 in 1039ms (compile: 355ms, render: 684ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 1044ms (compile: 357ms, render: 687ms)
+ ○ Compiling /_not-found ...
+ GET /series 404 in 8.3s (compile: 8.2s, render: 55ms)
+ GET /notes/Design-Token-Variables 200 in 7.8s (compile: 6.7s, render: 1125ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 7.8s (compile: 6.7s, render: 1130ms)
+ GET /series 200 in 2.5s (compile: 1894ms, render: 615ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 2.5s (compile: 1822ms, render: 631ms)
+ GET /notes/Design-Token-Variables 200 in 2.4s (compile: 1791ms, render: 635ms)
+ GET /series 200 in 236ms (compile: 8ms, render: 229ms)
+ GET /notes/Design-Token-Variables 200 in 209ms (compile: 15ms, render: 194ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 208ms (compile: 13ms, render: 196ms)
+ GET /series 200 in 338ms (compile: 16ms, render: 322ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 374ms (compile: 48ms, render: 327ms)
+ GET /notes/Design-Token-Variables 200 in 379ms (compile: 49ms, render: 330ms)
+ GET /series 200 in 711ms (compile: 39ms, render: 672ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 692ms (compile: 236ms, render: 456ms)
+ GET /notes/Design-Token-Variables 200 in 691ms (compile: 232ms, render: 459ms)
+ GET /series 200 in 382ms (compile: 9ms, render: 372ms)
+ GET /notes/Pixel-Perfect-Intro 200 in 721ms (compile: 56ms, render: 665ms)
+ GET /notes/Design-Token-Variables 200 in 727ms (compile: 54ms, render: 673ms)
+ GET /series 200 in 460ms (compile: 205ms, render: 255ms)
+ GET /series/%EC%96%B4%EB%A5%B8%EB%93%A4%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EB%A7%88%EC%9D%8C%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EA%B3%B5%EB%B6%80 200 in 2.9s (compile: 2.7s, render: 175ms)
+ GET /series/%EC%96%B4%EB%A5%B8%EB%93%A4%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EB%A7%88%EC%9D%8C%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EA%B3%B5%EB%B6%80 200 in 101ms (compile: 50ms, render: 51ms)
+ GET /series/%EC%96%B4%EB%A5%B8%EB%93%A4%EC%9D%84%20%EC%9C%84%ED%95%9C%20%EB%A7%88%EC%9D%8C%20%EB%82%98%EB%A8%B8%EC%A7%80%20%EA%B3%B5%EB%B6%80 200 in 38ms (compile: 8ms, render: 30ms)
+ GET /notes/%EA%B1%B4%EA%B0%95%ED%95%9C_%EC%9D%B4%EB%B3%84_%EC%97%B0%EB%AF%BC%EC%9D%B4_%EA%B1%B0%EB%91%AC%EC%A7%80%EB%8A%94_%EC%88%9C%EA%B0%84 200 in 604ms (compile: 95ms, render: 509ms)
+ ⚠ The "middleware" file convention is deprecated. Please use "proxy" instead. Learn more: https://nextjs.org/docs/messages/middleware-to-proxy
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+[?25h
