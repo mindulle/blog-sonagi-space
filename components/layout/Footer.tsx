@@ -106,8 +106,8 @@ export function Footer() {
                 <Twitter className="w-5 h-5" />
               </a>
               <a
-                href="/feed.xml"
-                aria-label="RSS Feed"
+                href="/rss.xml"
+                aria-label="RSS Feed (/rss.xml)"
                 className="transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
               >
                 <Rss className="w-5 h-5" />

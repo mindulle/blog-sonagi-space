@@ -170937,6 +170937,48 @@
       "visibility": "public",
       "val": 1,
       "group": "etc"
+    },
+    {
+      "id": "어른들을_위한_마음_나머지_공부_목차",
+      "title": "어른들을_위한_마음_나머지_공부_목차",
+      "visibility": "private",
+      "val": 1,
+      "group": "orphan"
+    },
+    {
+      "id": "The-Gardener",
+      "title": "The Gardener: 디지털 정원사의 철학과 집필 원칙",
+      "visibility": "public",
+      "val": 1,
+      "group": "etc"
+    },
+    {
+      "id": "design-token-variables",
+      "title": "Design-Token-Variables",
+      "visibility": "private",
+      "val": 1,
+      "group": "orphan"
+    },
+    {
+      "id": "노트-이름",
+      "title": "노트 이름",
+      "visibility": "private",
+      "val": 1,
+      "group": "orphan"
+    },
+    {
+      "id": "uxui-portfolio-structure",
+      "title": "UXUI Portfolio Structure",
+      "visibility": "private",
+      "val": 1,
+      "group": "orphan"
+    },
+    {
+      "id": "the-gardener",
+      "title": "The Gardener",
+      "visibility": "private",
+      "val": 1,
+      "group": "orphan"
     }
   ],
   "links": [
@@ -283243,6 +283285,38 @@
     {
       "source": "Sample-Series-Part-1",
       "target": "sample-series-part-2"
+    },
+    {
+      "source": "건강한_이별_연민이_거둬지는_순간",
+      "target": "어른들을_위한_마음_나머지_공부_목차"
+    },
+    {
+      "source": "The-Gardener",
+      "target": "design-system-shape-color-semantics"
+    },
+    {
+      "source": "The-Gardener",
+      "target": "sonagi-design-system-blog"
+    },
+    {
+      "source": "The-Gardener",
+      "target": "design-token-variables"
+    },
+    {
+      "source": "The-Gardener",
+      "target": "노트-이름"
+    },
+    {
+      "source": "The-Gardener",
+      "target": "uxui-portfolio-structure"
+    },
+    {
+      "source": "UXUI Portfolio Structure",
+      "target": "the-gardener"
+    },
+    {
+      "source": "design-system-shape-color-semantics",
+      "target": "the-gardener"
     }
   ]
 }

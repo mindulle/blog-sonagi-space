@@ -56,7 +56,7 @@
     "coverImage": "",
     "series": "픽셀 퍼펙트 UI 엔지니어링 가이드",
     "seriesOrder": 3,
-    "excerpt": "디자이너와 프론트엔드 개발자 간의 소통에서 가장 많은 병목이 발생하는 곳은 바로 '레이아웃'입니다. 하지만 Figma의 오토레이아웃(Auto Layout)은 사실상 웹 표준인 **CSS Flexbox를 완벽하게 모사**하고 있습니다. "
+    "excerpt": "디자이너와 프론트엔드 개발자 간의 소통에서 가장 많은 병목이 발생하는 곳은 바로 '레이아웃'입니다. 하지만 Figma의 오토레이아웃(Auto Layout)은 사실상 웹 표준인 **CSS Flexbox를 완벽하게 모사**하고 있습니다."
   },
   "Pixel-Perfect-Intro": {
     "slug": "Pixel-Perfect-Intro",
@@ -104,6 +104,27 @@
     "series": "블로그 퍼블리싱 테스트 시리즈",
     "seriesOrder": 2,
     "excerpt": "1편에 이어서 작성되는 시리즈 2편 테스트 문서입니다."
+  },
+  "The-Gardener": {
+    "slug": "The-Gardener",
+    "title": "The Gardener: 디지털 정원사의 철학과 집필 원칙",
+    "tags": [
+      "digital-garden",
+      "philosophy",
+      "gardener",
+      "writing",
+      "design-system",
+      "mds"
+    ],
+    "created": "2025-11-12",
+    "status": "evergreen",
+    "published": true,
+    "publishedDate": "2025-11-12",
+    "category": "essay",
+    "coverImage": "",
+    "series": "",
+    "seriesOrder": null,
+    "excerpt": "> \"정원은 완성을 목표로 하지 않는다. 그것은 지속적인 보살핌과 변화의 과정 그 자체다.\""
   },
   "UI Typography Criteria": {
     "slug": "UI Typography Criteria",

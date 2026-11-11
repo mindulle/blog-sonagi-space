@@ -24,35 +24,60 @@ export async function getFile(path: string): Promise<FileData | null> {
   const repo = process.env.OBSIDIAN_REPO_NAME;
 
   if (!owner || !repo) {
-    throw new Error('OBSIDIAN_REPO_OWNER or OBSIDIAN_REPO_NAME is not configured');
+    throw new Error(
+      'OBSIDIAN_REPO_OWNER or OBSIDIAN_REPO_NAME is not configured'
+    );
   }
 
   try {
     const response = await octokit.rest.repos.getContent({
-      owner, repo, path,
+      owner,
+      repo,
+      path,
     });
     if (Array.isArray(response.data) || response.data.type !== 'file') {
       throw new Error('Path is not a single file');
     }
-    const content = Buffer.from(response.data.content, 'base64').toString('utf-8');
+    const content = Buffer.from(response.data.content, 'base64').toString(
+      'utf-8'
+    );
     return { content, sha: response.data.sha };
-  } catch (error: any) {
-    if (error.status === 404) return null;
+  } catch (error: unknown) {
+    if (
+      typeof error === 'object' &&
+      error !== null &&
+      'status' in error &&
+      (error as { status: number }).status === 404
+    ) {
+      return null;
+    }
     throw error;
   }
 }
 
-export async function updateFile(path: string, content: string, sha: string, commitMessage: string): Promise<string> {
+export async function updateFile(
+  path: string,
+  content: string,
+  sha: string,
+  commitMessage: string
+): Promise<string> {
   const octokit = getOctokit();
   const owner = process.env.OBSIDIAN_REPO_OWNER;
   const repo = process.env.OBSIDIAN_REPO_NAME;
 
   if (!owner || !repo) {
-    throw new Error('OBSIDIAN_REPO_OWNER or OBSIDIAN_REPO_NAME is not configured');
+    throw new Error(
+      'OBSIDIAN_REPO_OWNER or OBSIDIAN_REPO_NAME is not configured'
+    );
   }
 
   const response = await octokit.rest.repos.createOrUpdateFileContents({
-    owner, repo, path, message: commitMessage, content: Buffer.from(content).toString('base64'), sha,
+    owner,
+    repo,
+    path,
+    message: commitMessage,
+    content: Buffer.from(content).toString('base64'),
+    sha,
   });
   return response.data.content!.sha!;
 }

@@ -6,9 +6,9 @@ export async function GET() {
   const notes = getAllNotes().filter((n) => n.published);
 
   const feed = new RSS({
-    title: '소나기 블로그',
+    title: '소나기 블로그 & 디지털 정원',
     description:
-      '웹 개발과 디자인 시스템, 그리고 기술적인 통찰력을 공유하는 소나기 블로그입니다.',
+      '웹 개발, 디자인 시스템(MDS), 그리고 디지털 정원사의 생각을 기록하는 소나기 스페이스입니다.',
     site_url: baseUrl,
     feed_url: `${baseUrl}/rss.xml`,
     language: 'ko-KR',
