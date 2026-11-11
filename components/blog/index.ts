@@ -14,5 +14,6 @@ export { ReadingProgress } from './ReadingProgress';
 export { CodeBlock } from './CodeBlock';
 export { GrowthBadge } from './GrowthBadge';
 export { SeriesNav } from './SeriesNav';
+export { RssSubscribeWidget } from './RssSubscribeWidget';
 
 export type { Heading } from './TableOfContents';

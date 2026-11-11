@@ -7,7 +7,21 @@ import {
 } from './mdx';
 import fs from 'fs';
 
-vi.mock('fs');
+vi.mock('fs', () => {
+  const existsSync = vi.fn();
+  const readdirSync = vi.fn();
+  const readFileSync = vi.fn();
+  return {
+    default: {
+      existsSync,
+      readdirSync,
+      readFileSync,
+    },
+    existsSync,
+    readdirSync,
+    readFileSync,
+  };
+});
 
 describe('MDX Utility', () => {
   describe('getAllPosts', () => {

@@ -1,111 +1,443 @@
-import { Card } from '@/components/ui';
+import Link from 'next/link';
+import {
+  ArrowRight,
+  ExternalLink,
+  Sparkles,
+  Sprout,
+  Network,
+  Code2,
+} from 'lucide-react';
+import { Button, Badge, Card } from '@/components/ui';
 import { Container } from '@/components/ui/Container';
+import { RssSubscribeWidget } from '@/components/blog';
+import type { Metadata } from 'next';
 
-// ListItem 로컬 구현체 (디자인 시스템 배포 전 임시)
-function LocalListItem({
-  title,
-  description,
-}: {
-  title: string;
-  description: string;
-}) {
-  return (
-    <div className="flex flex-col gap-1 p-4 bg-[var(--sng-color-bg-elevated)] rounded-xl border border-[var(--sng-color-border-subtle)]">
-      <h4 className="font-bold text-[var(--sng-color-text-primary)]">
-        {title}
-      </h4>
-      <p className="text-sm text-[var(--sng-color-text-secondary)]">
-        {description}
-      </p>
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: 'About the Gardener & Sonagi Space',
+  description:
+    '디지털 정원사(The Gardener)의 소개와 집필 철학, 그리고 소나기 디자인 시스템(MDS) 및 포트폴리오와의 유기적 생태계를 소개합니다.',
+};
 
 export default function AboutPage() {
   return (
     <Container className="max-w-[1440px] mx-auto">
-      <div className="flex flex-col gap-16 md:gap-[120px] px-6 md:px-[120px] py-12 md:py-[80px]">
-        {/* 1. Intro */}
-        <section className="flex flex-col gap-4">
-          <h1 className="text-[32px] md:text-[48px] font-bold text-[var(--sng-color-text-primary)]">
-            About Sonagi Space
+      <div className="flex flex-col gap-16 md:gap-24 px-4 sm:px-6 md:px-12 lg:px-24 py-12 md:py-20">
+        {/* 1. Hero / Gardener Intro */}
+        <section className="flex flex-col gap-6 max-w-4xl">
+          <div className="flex items-center gap-2">
+            <Badge variant="pill" color="success">
+              🌱 The Gardener
+            </Badge>
+            <Badge variant="label">Digital Garden</Badge>
+          </div>
+
+          <h1
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
+            style={{ color: 'var(--sng-color-text-primary)' }}
+          >
+            쏟아지는 영감의 씨앗을 심고,
+            <br />
+            유기적인 사유의 숲을 가꿉니다.
           </h1>
-          <p className="text-[16px] md:text-[20px] font-normal leading-relaxed text-[var(--sng-color-text-secondary)]">
-            디지털 정원(Digital Garden)은 시간이 지남에 따라 진화하고, 기여하며,
-            축적되는 구조를 지향합니다. 단순한 블로그가 아니라 연결된 생각들의
-            네트워크를 구성합니다.
+
+          <p
+            className="text-base sm:text-lg md:text-xl font-normal leading-relaxed"
+            style={{ color: 'var(--sng-color-text-secondary)' }}
+          >
+            소나기 스페이스(Sonagi Space)는 시간순으로 휘발되는 기존
+            블로그(Stream)의 한계를 넘어, 시간이 지남에 따라 진화하고 교차
+            수분되는 지식 정원(Digital Garden)입니다. 정원사는 완결된 지식의
+            권위자가 아닌, 불완전한 생각의 씨앗을 열린 공간에서 가꾸고 돌보는
+            관리자입니다.
           </p>
         </section>
 
-        {/* 2. Core Philosophy */}
-        <section className="flex flex-col gap-8">
-          <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--sng-color-text-primary)]">
-            Core Philosophy
-          </h2>
-          <div className="flex flex-col md:flex-row gap-6">
-            <Card className="flex-1 flex flex-col gap-2 p-6" elevation="flat">
-              <h3 className="text-lg font-bold text-[var(--sng-color-text-primary)]">
-                1. Everything as Code
-              </h3>
-              <p className="text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
-                디자인 토큰부터 인프라 프로비저닝까지, 가능한 모든 것을 코드로
-                관리하여 재현 가능(Reproducible)하게 만듭니다.
-              </p>
-            </Card>
-
-            <Card className="flex-1 flex flex-col gap-2 p-6" elevation="flat">
-              <h3 className="text-lg font-bold text-[var(--sng-color-text-primary)]">
-                2. Single Source of Truth
-              </h3>
-              <p className="text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
-                지식은 위키(Wiki)에, 색상은 토큰(JSON)에. 파편화된 정보를 하나의
-                완벽한 출처에서 관리하고 각 플랫폼으로 배포합니다.
-              </p>
-            </Card>
-
-            <Card className="flex-1 flex flex-col gap-2 p-6" elevation="flat">
-              <h3 className="text-lg font-bold text-[var(--sng-color-text-primary)]">
-                3. AI-Native Workflow
-              </h3>
-              <p className="text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
-                에이전트(AI)가 이해하고 조작할 수 있는 명확한 마크다운 문서와
-                구조를 작성하여, 인간과 AI가 협업하는 미래형 워크플로우를
-                실험합니다.
-              </p>
-            </Card>
-          </div>
-        </section>
-
-        {/* 3. Ecosystem */}
+        {/* 2. Core Essay Spotlight: [[The Gardener]] */}
         <section className="flex flex-col gap-6">
-          <h2 className="text-[24px] md:text-[32px] font-bold text-[var(--sng-color-text-primary)]">
-            Ecosystem
-          </h2>
-          <div className="flex flex-col gap-4">
-            <LocalListItem
-              title="Blog"
-              description="현재 보고 계신 이 공간입니다. (Next.js 16)"
-            />
-            <LocalListItem
-              title="Design System"
-              description="W3C 표준 JSON 기반의 NPM 토큰 패키지입니다."
-            />
-            <LocalListItem
-              title="Garden (BI)"
-              description="개인 데이터를 시각화하는 대시보드입니다. (Svelte + Evidence)"
-            />
-            <LocalListItem
-              title="Wiki"
-              description="지식과 규칙을 담고 있는 내부 두뇌(Markdown)입니다."
-            />
+          <div className="flex items-center justify-between">
+            <h2
+              className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight"
+              style={{ color: 'var(--sng-color-text-primary)' }}
+            >
+              정원사 집필 철학 에세이
+            </h2>
+            <Badge variant="pill" color="info">
+              Evergreen
+            </Badge>
+          </div>
+
+          <Card
+            elevation="raised"
+            className="p-6 sm:p-8 md:p-10 flex flex-col gap-6 border transition-all duration-200"
+            style={{
+              backgroundColor: 'var(--sng-color-bg-surface)',
+              borderColor: 'var(--sng-color-border-default)',
+            }}
+          >
+            <div className="flex flex-col gap-3">
+              <div className="flex items-center gap-2 text-sm font-mono text-[var(--sng-color-brand-primary)]">
+                <span>[[The Gardener]]</span>
+                <span>•</span>
+                <span>정원사의 헌법</span>
+              </div>
+              <h3
+                className="text-2xl sm:text-3xl font-bold"
+                style={{ color: 'var(--sng-color-text-primary)' }}
+              >
+                The Gardener: 디지털 정원사의 철학과 집필 원칙
+              </h3>
+              <p
+                className="text-base sm:text-lg leading-relaxed"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                &ldquo;정원은 완성을 목표로 하지 않는다. 그것은 지속적인
+                보살핌과 변화의 과정 그 자체다.&rdquo; 완벽주의의 덫(Perfection
+                Trap)에서 벗어나, 생각의 씨앗(Seed)부터 상록수(Evergreen)에
+                이르는 생명주기와 위키링크 백링크를 통한 양방향 지식 네트워크의
+                멘탈 모델을 기술한 에세이입니다.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-[var(--sng-color-border-subtle)]">
+              <div className="flex flex-wrap gap-2">
+                <Badge variant="label">Philosophy</Badge>
+                <Badge variant="label">Writing</Badge>
+                <Badge variant="label">MDS</Badge>
+                <Badge variant="label">Backlinks</Badge>
+              </div>
+
+              <Link href="/notes/The-Gardener">
+                <Button
+                  variant="primary"
+                  size="md"
+                  className="flex items-center gap-2"
+                >
+                  <span>에세이 전문 읽기</span>
+                  <ArrowRight size={16} />
+                </Button>
+              </Link>
+            </div>
+          </Card>
+        </section>
+
+        {/* 3. 3대 핵심 철학 (Core Philosophy) */}
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-col gap-2">
+            <h2
+              className="text-2xl sm:text-3xl font-bold"
+              style={{ color: 'var(--sng-color-text-primary)' }}
+            >
+              Core Garden Philosophy
+            </h2>
+            <p className="text-base text-[var(--sng-color-text-secondary)]">
+              정원을 경작하며 지키는 세 가지 기본 원칙입니다.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card
+              elevation="flat"
+              className="p-6 flex flex-col gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-subtle)',
+              }}
+            >
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--sng-color-brand-primary)]"
+                style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
+              >
+                <Sprout size={20} />
+              </div>
+              <h3
+                className="text-lg font-bold"
+                style={{ color: 'var(--sng-color-text-primary)' }}
+              >
+                1. Thinking in Public
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                완벽해질 때까지 서랍 속에 사유를 숨겨두지 않습니다. 거친 생각의
+                씨앗(Seed)부터 세상과 호흡하며 비판과 피드백을 통해 튼튼한
+                상록수(Evergreen)로 키워나갑니다.
+              </p>
+            </Card>
+
+            <Card
+              elevation="flat"
+              className="p-6 flex flex-col gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-subtle)',
+              }}
+            >
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--sng-color-brand-primary)]"
+                style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
+              >
+                <Code2 size={20} />
+              </div>
+              <h3
+                className="text-lg font-bold"
+                style={{ color: 'var(--sng-color-text-primary)' }}
+              >
+                2. Everything as Code
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                디자인 토큰부터 인프라, 위키 역참조 그래프까지 모든 지식과
+                인터페이스를 투명하고 재현 가능한 코드로 선언합니다. 단 하나의
+                진실 공급원(SSOT) 원칙을 수호합니다.
+              </p>
+            </Card>
+
+            <Card
+              elevation="flat"
+              className="p-6 flex flex-col gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-subtle)',
+              }}
+            >
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center text-[var(--sng-color-brand-primary)]"
+                style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
+              >
+                <Network size={20} />
+              </div>
+              <h3
+                className="text-lg font-bold"
+                style={{ color: 'var(--sng-color-text-primary)' }}
+              >
+                3. Interconnected Knowledge
+              </h3>
+              <p
+                className="text-sm leading-relaxed"
+                style={{ color: 'var(--sng-color-text-secondary)' }}
+              >
+                고립된 글은 생명력을 잃습니다. 위키링크(`[[]]`)와 자동 백링크를
+                통해 디자인 시스템, 실제 프로젝트, 그리고 기술적 에세이가
+                거미줄처럼 양방향으로 연결되어 서로를 강화합니다.
+              </p>
+            </Card>
           </div>
         </section>
 
-        <hr className="mt-8 border-[var(--sng-color-border-default)]" />
+        {/* 4. Ecosystem & Cross-links (MDS, Portfolio, Garden, Wiki) */}
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-col gap-2">
+            <h2
+              className="text-2xl sm:text-3xl font-bold"
+              style={{ color: 'var(--sng-color-text-primary)' }}
+            >
+              Interconnected Ecosystem
+            </h2>
+            <p className="text-base text-[var(--sng-color-text-secondary)]">
+              소나기 스페이스를 구성하는 4대 축과 유기적 양방향 링크 체계입니다.
+            </p>
+          </div>
 
-        <p className="text-sm text-center text-[var(--sng-color-text-muted)] pb-12">
-          Built with 💙 by Mindulle & AI Agents.
-        </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* MDS */}
+            <Card
+              elevation="raised"
+              className="p-6 sm:p-8 flex flex-col justify-between gap-6 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <Badge variant="label">Design System</Badge>
+                  <span className="text-xs font-mono text-[var(--sng-color-text-muted)]">
+                    design.sonagi.space
+                  </span>
+                </div>
+                <h3
+                  className="text-xl font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  MDS (Mindulle Design System)
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  W3C 표준 JSON 기반의 NPM 토큰 패키지(`@mindulle/tokens`)와
+                  Tailwind CSS 기반 React 컴포넌트 시스템. 이 블로그의 모든
+                  시각적 의미론(Semantics)을 규정하는 원천입니다.
+                </p>
+              </div>
+
+              <a
+                href="https://design.sonagi.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="소나기 디자인 시스템 (새 창으로 열림)"
+              >
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full flex items-center justify-center gap-2"
+                >
+                  <span>MDS 공식 문서 둘러보기</span>
+                  <ExternalLink size={14} />
+                </Button>
+              </a>
+            </Card>
+
+            {/* Portfolio */}
+            <Card
+              elevation="raised"
+              className="p-6 sm:p-8 flex flex-col justify-between gap-6 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <Badge variant="label">Projects & Portfolio</Badge>
+                  <span className="text-xs font-mono text-[var(--sng-color-text-muted)]">
+                    /projects
+                  </span>
+                </div>
+                <h3
+                  className="text-xl font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  Portfolio & Artifacts
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  실제 사용자와 만나는 프로덕트 디자인과 소프트웨어 엔지니어링
+                  산출물. 화면 뒤에 숨은 사유의 과정과 아키텍처적 가설은 정원의
+                  노트들과 양방향으로 연결되어 있습니다.
+                </p>
+              </div>
+
+              <Link href="/projects">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full flex items-center justify-center gap-2"
+                >
+                  <span>프로젝트 아카이브 보기</span>
+                  <ArrowRight size={14} />
+                </Button>
+              </Link>
+            </Card>
+
+            {/* Digital Garden */}
+            <Card
+              elevation="raised"
+              className="p-6 sm:p-8 flex flex-col justify-between gap-6 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <Badge variant="label">Knowledge Base</Badge>
+                  <span className="text-xs font-mono text-[var(--sng-color-text-muted)]">
+                    /notes
+                  </span>
+                </div>
+                <h3
+                  className="text-xl font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  Digital Garden & Graph
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  카테고리별 필터와 위키 호버 팝오버, 지식 그래프가 결합된
+                  사유의 공간입니다. 각 노트를 넘나들며 생각의 맥락을 입체적으로
+                  탐색할 수 있습니다.
+                </p>
+              </div>
+
+              <Link href="/notes">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full flex items-center justify-center gap-2"
+                >
+                  <span>정원 탐색하기</span>
+                  <ArrowRight size={14} />
+                </Button>
+              </Link>
+            </Card>
+
+            {/* Blog Stream */}
+            <Card
+              elevation="raised"
+              className="p-6 sm:p-8 flex flex-col justify-between gap-6 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div className="flex flex-col gap-3">
+                <div className="flex items-center justify-between">
+                  <Badge variant="label">Editorial Articles</Badge>
+                  <span className="text-xs font-mono text-[var(--sng-color-text-muted)]">
+                    /blog
+                  </span>
+                </div>
+                <h3
+                  className="text-xl font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  Curated Articles
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  정원에서 검증된 상록수 글들과 구조화된 시리즈들을 아티클
+                  형태로 정제하여 발행하는 편집 공간입니다.
+                </p>
+              </div>
+
+              <Link href="/blog">
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="w-full flex items-center justify-center gap-2"
+                >
+                  <span>블로그 글 목록 보기</span>
+                  <ArrowRight size={14} />
+                </Button>
+              </Link>
+            </Card>
+          </div>
+        </section>
+
+        {/* 5. RSS Feed Subscribe Widget */}
+        <section className="flex flex-col gap-6">
+          <RssSubscribeWidget
+            title="정원 구독하기: 순수 RSS 피드"
+            description="알고리즘의 간섭 없이 정원의 새로운 씨앗(Seed)과 상록수(Evergreen) 에세이를 가장 신속하고 투명하게 받아보세요."
+          />
+        </section>
+
+        {/* 6. Footer Note */}
+        <div className="pt-8 border-t border-[var(--sng-color-border-subtle)] text-center">
+          <p className="text-sm text-[var(--sng-color-text-muted)]">
+            Built with 💙 by Mindulle & AI Agents. Governed by MDS Tokens.
+          </p>
+        </div>
       </div>
     </Container>
   );

@@ -3,7 +3,21 @@ import { getAllNotes, getNoteBySlug, getAllNoteSlugs } from './notes';
 import fs from 'fs';
 import path from 'path';
 
-vi.mock('fs');
+vi.mock('fs', () => {
+  const existsSync = vi.fn();
+  const readdirSync = vi.fn();
+  const readFileSync = vi.fn();
+  return {
+    default: {
+      existsSync,
+      readdirSync,
+      readFileSync,
+    },
+    existsSync,
+    readdirSync,
+    readFileSync,
+  };
+});
 vi.mock('../public/note-summaries.json', () => ({
   default: {
     'test-note-1': {

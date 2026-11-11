@@ -47,6 +47,7 @@
   --sng-color-bg-base: var(--sng-color-background-base);
   --sng-color-bg-surface: var(--sng-color-background-surface);
   --sng-color-bg-elevated: var(--sng-color-background-elevated);
+  --sng-color-bg-overlay: #f4f4f5;
   --sng-color-brand-logo: var(--sng-color-wordmark-dot);
 
   /* Badge 배경 — tokens 에는 `-light` 접미사만 있고 `-bg` 가 없음 */
@@ -57,6 +58,7 @@
 }
 
 [data-theme='dark'] {
+  --sng-color-bg-overlay: #1f2635;
   --sng-color-state-success-bg: #15291c;
   --sng-color-state-warning-bg: #332a12;
   --sng-color-state-error-bg: #3a1d1f;
@@ -134,6 +136,7 @@
   --color-bg-base: var(--sng-color-bg-base);
   --color-bg-surface: var(--sng-color-bg-surface);
   --color-bg-elevated: var(--sng-color-bg-elevated);
+  --color-bg-overlay: var(--sng-color-bg-overlay);
 
   --color-border-default: var(--sng-color-border-default);
   --color-border-subtle: var(--sng-color-border-subtle);

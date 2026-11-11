@@ -1,6 +1,7 @@
 import { getAllNotes } from '@/lib/notes';
 import { Container } from '@/components/ui/Container';
 import { BlogListClient } from '@/components/blog/BlogListClient';
+import { RssSubscribeWidget } from '@/components/blog';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -30,6 +31,10 @@ export default async function BlogPage() {
         </div>
 
         <BlogListClient posts={notes} categories={categories} />
+
+        <div className="mt-16 max-w-3xl mx-auto">
+          <RssSubscribeWidget />
+        </div>
       </Container>
     </div>
   );
