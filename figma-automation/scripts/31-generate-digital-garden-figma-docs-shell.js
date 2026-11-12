@@ -86,7 +86,7 @@ return new Promise(async (resolve) => {
       textPrimary: { r: 24 / 255, g: 24 / 255, b: 27 / 255 }, // #18181b
       textSecondary: { r: 82 / 255, g: 82 / 255, b: 91 / 255 }, // #52525b
       textMuted: { r: 113 / 255, g: 113 / 255, b: 122 / 255 }, // #71717a
-      brandPrimary: { r: 184 / 255, g: 106 / 255, b: 4 / 255 }, // #b86a04
+      brandPrimary: { r: 154 / 255, g: 88 / 255, b: 0 / 255 }, // #9a5800 (WCAG AA 5.1:1 compliant)
     };
 
     function bindFill(node, varName, fallbackColor) {
@@ -482,7 +482,7 @@ return new Promise(async (resolve) => {
     phGrid.layoutMode = 'HORIZONTAL';
     phGrid.primaryAxisSizingMode = 'FIXED';
     phGrid.counterAxisSizingMode = 'AUTO';
-    phGrid.itemSpacing = 20;
+    phGrid.itemSpacing = 24;
     phGrid.fills = [];
     phGrid.layoutAlign = 'STRETCH';
     philoSection.appendChild(phGrid);
@@ -513,7 +513,7 @@ return new Promise(async (resolve) => {
       card.layoutMode = 'VERTICAL';
       card.primaryAxisSizingMode = 'FIXED';
       card.counterAxisSizingMode = 'FIXED';
-      card.resize(346, 220);
+      card.resize(344, 220);
       card.paddingLeft = 24;
       card.paddingRight = 24;
       card.paddingTop = 24;
@@ -574,7 +574,7 @@ return new Promise(async (resolve) => {
     ecoHead.appendChild(ecoSub);
     ecoSection.appendChild(ecoHead);
 
-    const ecoGrid = createHugCol(20);
+    const ecoGrid = createHugCol(24);
     ecoGrid.layoutAlign = 'STRETCH';
     ecoSection.appendChild(ecoGrid);
 
@@ -582,7 +582,7 @@ return new Promise(async (resolve) => {
     row1.layoutMode = 'HORIZONTAL';
     row1.primaryAxisSizingMode = 'FIXED';
     row1.counterAxisSizingMode = 'AUTO';
-    row1.itemSpacing = 20;
+    row1.itemSpacing = 24;
     row1.fills = [];
     row1.layoutAlign = 'STRETCH';
 
@@ -590,7 +590,7 @@ return new Promise(async (resolve) => {
     row2.layoutMode = 'HORIZONTAL';
     row2.primaryAxisSizingMode = 'FIXED';
     row2.counterAxisSizingMode = 'AUTO';
-    row2.itemSpacing = 20;
+    row2.itemSpacing = 24;
     row2.fills = [];
     row2.layoutAlign = 'STRETCH';
 
@@ -634,7 +634,7 @@ return new Promise(async (resolve) => {
       card.layoutMode = 'VERTICAL';
       card.primaryAxisSizingMode = 'AUTO';
       card.counterAxisSizingMode = 'FIXED';
-      card.resize(530, 100);
+      card.resize(528, 100);
       card.primaryAxisAlignItems = 'SPACE_BETWEEN';
       card.paddingLeft = 24;
       card.paddingRight = 24;
@@ -989,7 +989,7 @@ return new Promise(async (resolve) => {
     gridRow.layoutMode = 'HORIZONTAL';
     gridRow.primaryAxisSizingMode = 'FIXED';
     gridRow.counterAxisSizingMode = 'AUTO';
-    gridRow.itemSpacing = 20;
+    gridRow.itemSpacing = 24;
     gridRow.fills = [];
     gridRow.layoutAlign = 'STRETCH';
 
@@ -1029,7 +1029,7 @@ return new Promise(async (resolve) => {
       nCard.layoutMode = 'VERTICAL';
       nCard.primaryAxisSizingMode = 'AUTO';
       nCard.counterAxisSizingMode = 'FIXED';
-      nCard.resize(346, 100);
+      nCard.resize(344, 100);
       nCard.primaryAxisAlignItems = 'SPACE_BETWEEN';
       nCard.paddingLeft = 24;
       nCard.paddingRight = 24;
@@ -1253,7 +1253,7 @@ return new Promise(async (resolve) => {
       row.primaryAxisSizingMode = 'FIXED';
       row.counterAxisSizingMode = 'AUTO';
       row.resize(1080, 104);
-      row.itemSpacing = 16;
+      row.itemSpacing = 24;
       row.layoutAlign = 'STRETCH';
       row.fills = [];
 
@@ -1271,7 +1271,7 @@ return new Promise(async (resolve) => {
         cell.paddingBottom = 20;
         cell.paddingLeft = 16;
         cell.paddingRight = 16;
-        cell.resize((1080 - 16 * 2) / 3, 104);
+        cell.resize(344, 104);
         cell.cornerRadius = 4;
         cell.layoutGrow = 1;
         bindFill(cell, 'bg/surface', CDark.bgSurface);
