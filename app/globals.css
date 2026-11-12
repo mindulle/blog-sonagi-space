@@ -189,27 +189,31 @@
 
 /* ─────────────────────────────────────────────────────────
    식물 표본실 물리적 텍스처 (한지 섬유 & 풍화된 암반 질감)
-   - 외부 래스터 파일 없이 순수 SVG 노이즈로 촉각적 깊이감 구현
+   - 초경량 심리스 타일링(Seamless WebP)으로 촉각적 깊이감 구현
 ───────────────────────────────────────────────────────── */
 .sng-texture-folio {
+  background-color: var(--sng-color-bg-surface);
   background-image:
     radial-gradient(
       ellipse at 50% 0%,
       rgba(154, 88, 0, 0.03) 0%,
       transparent 70%
     ),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.038'/%3E%3C/svg%3E");
+    url('/textures/hanji-mulberry-seamless-256.webp');
+  background-repeat: repeat;
 }
 
 [data-theme='dark'] .sng-texture-folio,
 .dark .sng-texture-folio {
+  background-color: var(--sng-color-bg-surface);
   background-image:
     radial-gradient(
       ellipse at 50% 0%,
       rgba(255, 200, 55, 0.04) 0%,
       transparent 70%
     ),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.048'/%3E%3C/svg%3E");
+    url('/textures/greystone-slate-seamless-256.webp');
+  background-repeat: repeat;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -217,11 +221,19 @@
 ───────────────────────────────────────────────────────── */
 body {
   background-color: var(--sng-color-bg-base);
+  background-image: url('/textures/hanji-mulberry-seamless-256.webp');
+  background-repeat: repeat;
   color: var(--sng-color-text-primary);
   font-family: var(--sng-font-sans);
   font-size: var(--sng-font-size-base);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+[data-theme='dark'] body,
+.dark body {
+  background-image: url('/textures/greystone-slate-seamless-256.webp');
+  background-repeat: repeat;
 }
 
 * {
