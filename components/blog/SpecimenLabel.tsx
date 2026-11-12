@@ -117,90 +117,88 @@ export function SpecimenLabel({
 
   // 2. Plate Variant (Horizontal Header Bar)
   if (variant === 'plate') {
-    const size = glyphSize || 48;
+    const size = glyphSize || 40;
     return (
       <div
-        className={`relative overflow-hidden p-3.5 sm:p-4 rounded-[4px] font-mono w-full sng-texture-folio ${className}`}
+        className={`relative overflow-hidden p-4 sm:p-5 rounded-[4px] font-mono w-full sng-texture-folio ${className}`}
         style={{
-          backgroundColor: 'var(--color-bg-surface)',
-          border: '2px solid var(--color-border-strong)',
+          backgroundColor: 'var(--sng-color-bg-surface)',
+          border: '1px solid var(--sng-color-border-default)',
+          borderLeft: '4px solid var(--sng-color-brand-primary)',
+          boxShadow: 'var(--sng-shadow-raised)',
         }}
       >
         {/* Top Washi Mounting Strip Accent */}
-        <div className="absolute -top-1 left-1/2 -translate-x-1/2 pointer-events-none">
+        <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 pointer-events-none">
           <WashiTapeStrip width={96} height={10} />
         </div>
 
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pt-1">
-          <div className="flex items-center gap-3 min-w-0 flex-1">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-center gap-3.5 min-w-0 flex-1">
             {showGlyph && (
               <div
-                className="flex items-center justify-center p-1.5 sm:p-2 rounded-[4px] shrink-0"
+                className="flex items-center justify-center p-2 rounded-[4px] shrink-0"
                 style={{
-                  backgroundColor: 'var(--color-bg-overlay)',
-                  border: '1px solid var(--color-border-subtle)',
+                  backgroundColor: 'var(--sng-color-bg-overlay)',
+                  border: '1px solid var(--sng-color-border-subtle)',
                 }}
               >
                 <GrowthGlyph
                   stage={canonicalStage}
                   size={size}
-                  strokeColor="var(--color-brand-primary)"
+                  strokeColor="var(--sng-color-brand-primary)"
                 />
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs tabular-nums">
+              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs tabular-nums mb-1">
                 <span
                   className="font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-[2px] shrink-0"
                   style={{
-                    backgroundColor: 'var(--color-bg-overlay)',
-                    color: 'var(--color-brand-primary)',
+                    backgroundColor: 'var(--sng-color-bg-overlay)',
+                    color: 'var(--sng-color-brand-primary)',
                   }}
                 >
                   {specimenNo}
                 </span>
                 <span
-                  className="truncate"
-                  style={{ color: 'var(--color-text-muted)' }}
+                  className="font-medium"
+                  style={{ color: 'var(--sng-color-text-muted)' }}
                 >
                   {stageDisplay}
                 </span>
               </div>
-              <div
-                className="text-xs sm:text-sm font-semibold tracking-tight mt-0.5 sm:mt-1 truncate"
-                style={{ color: 'var(--color-text-primary)' }}
-              >
+              <div className="text-sm sm:text-base font-bold tracking-tight text-[var(--sng-color-text-primary)] leading-snug">
                 {title}
               </div>
-              <div
-                className="text-[11px] sm:text-xs italic tracking-normal truncate"
-                style={{ color: 'var(--color-text-secondary)' }}
-              >
+              <div className="text-[11px] sm:text-xs italic tracking-normal mt-0.5 text-[var(--sng-color-text-secondary)]">
                 {scientificName}
               </div>
             </div>
           </div>
 
           <div
-            className="flex flex-row sm:flex-col justify-between sm:justify-start text-[11px] sm:text-xs sm:text-right tabular-nums pt-2 sm:pt-0 border-t sm:border-t-0 sm:border-l sm:pl-4 shrink-0 gap-1"
-            style={{ borderColor: 'var(--color-border-subtle)' }}
+            className="flex flex-row sm:flex-col justify-between sm:justify-start text-[11px] sm:text-xs sm:text-right tabular-nums pt-3 sm:pt-0 border-t sm:border-t-0 sm:border-l sm:pl-4 shrink-0 gap-1.5"
+            style={{ borderColor: 'var(--sng-color-border-subtle)' }}
           >
             <div>
-              <span style={{ color: 'var(--color-text-muted)' }}>
+              <span style={{ color: 'var(--sng-color-text-muted)' }}>
                 HABITAT:{' '}
               </span>
               <span
                 className="font-medium"
-                style={{ color: 'var(--color-text-secondary)' }}
+                style={{ color: 'var(--sng-color-text-secondary)' }}
               >
                 {habitat}
               </span>
             </div>
             <div>
-              <span style={{ color: 'var(--color-text-muted)' }}>DATE: </span>
+              <span style={{ color: 'var(--sng-color-text-muted)' }}>
+                HARVEST:{' '}
+              </span>
               <span
                 className="font-medium"
-                style={{ color: 'var(--color-text-secondary)' }}
+                style={{ color: 'var(--sng-color-text-secondary)' }}
               >
                 {harvestDate}
               </span>

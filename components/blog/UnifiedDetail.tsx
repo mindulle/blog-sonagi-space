@@ -13,7 +13,6 @@ import { CategoryLabel } from './CategoryLabel';
 import { MetadataToggle } from './MetadataToggle';
 import { SpecimenLabel } from './SpecimenLabel';
 import { SeriesNav } from './SeriesNav';
-import { SeriesTableOfContents } from './SeriesTableOfContents';
 
 import { extractHeadings } from '@/lib/headings';
 import { getSeriesContext } from '@/lib/series';
@@ -145,13 +144,6 @@ export function UnifiedDetail({
 
           <aside className="hidden lg:block lg:col-span-4">
             <div className="sticky top-24 space-y-8">
-              {seriesContext && (
-                <SeriesTableOfContents
-                  seriesContext={seriesContext}
-                  currentSlug={note.slug}
-                />
-              )}
-
               {headings.length > 0 && (
                 <div
                   className="p-4 border rounded-[var(--sng-radius-lg)]"

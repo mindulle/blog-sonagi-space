@@ -103,29 +103,48 @@ export function SeriesNav({
 
       {/* Footer / Buttons */}
       <div
-        className="flex justify-between items-center px-6 py-5 border-t gap-4 bg-[var(--sng-color-bg-surface)]"
+        className="grid grid-cols-1 sm:grid-cols-2 px-6 py-5 border-t gap-3 sm:gap-4 bg-[var(--sng-color-bg-surface)]"
         style={{ borderColor: 'var(--sng-color-border-subtle)' }}
       >
-        <div className="flex-1">
-          {prev && (
-            <Link href={`/notes/${prev.slug}`}>
+        <div>
+          {prev ? (
+            <Link href={`/notes/${prev.slug}`} className="block">
               <Button
                 variant="secondary"
                 className="w-full justify-center text-[15px] h-12"
               >
-                <span className="mr-2 opacity-50">←</span> 이전 글
+                <span className="mr-2 opacity-60">←</span> 이전 글
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/series" className="block">
+              <Button
+                variant="secondary"
+                className="w-full justify-center text-[15px] h-12"
+              >
+                시리즈 목록
               </Button>
             </Link>
           )}
         </div>
-        <div className="flex-1">
-          {next && (
-            <Link href={`/notes/${next.slug}`}>
+
+        <div>
+          {next ? (
+            <Link href={`/notes/${next.slug}`} className="block">
               <Button
-                variant="secondary"
-                className="w-full justify-center text-[15px] h-12 bg-[var(--sng-color-brand-primary)] text-white hover:opacity-90"
+                variant="primary"
+                className="w-full justify-center text-[15px] h-12"
               >
-                다음 글 <span className="ml-2 opacity-70">→</span>
+                다음 글 <span className="ml-2 opacity-80">→</span>
+              </Button>
+            </Link>
+          ) : (
+            <Link href="/series" className="block">
+              <Button
+                variant="primary"
+                className="w-full justify-center text-[15px] h-12"
+              >
+                전체 시리즈 목록 <span className="ml-2 opacity-80">→</span>
               </Button>
             </Link>
           )}
