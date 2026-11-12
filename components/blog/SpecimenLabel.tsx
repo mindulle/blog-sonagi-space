@@ -79,7 +79,7 @@ export function SpecimenLabel({
     const size = glyphSize || 24;
     return (
       <div
-        className={`inline-flex items-center gap-2 px-2.5 py-1 rounded-[4px] font-mono text-xs select-none ${className}`}
+        className={`inline-flex items-center gap-1.5 sm:gap-2 px-2.5 py-1 rounded-[4px] font-mono text-xs select-none max-w-full overflow-hidden ${className}`}
         style={{
           backgroundColor: 'var(--color-bg-surface)',
           border: '1px solid var(--color-border-default)',
@@ -91,17 +91,21 @@ export function SpecimenLabel({
             stage={canonicalStage}
             size={size}
             strokeColor="var(--color-brand-primary)"
+            className="shrink-0"
           />
         )}
-        <div className="flex items-center gap-1.5 tabular-nums">
+        <div className="flex items-center gap-1.5 tabular-nums truncate">
           <span
-            className="font-bold tracking-tight"
+            className="font-bold tracking-tight shrink-0"
             style={{ color: 'var(--color-brand-primary)' }}
           >
             {specimenNo}
           </span>
           <span style={{ color: 'var(--color-border-default)' }}>|</span>
-          <span style={{ color: 'var(--color-text-secondary)' }}>
+          <span
+            className="truncate"
+            style={{ color: 'var(--color-text-secondary)' }}
+          >
             {harvestDate}
           </span>
         </div>
@@ -114,7 +118,7 @@ export function SpecimenLabel({
     const size = glyphSize || 48;
     return (
       <div
-        className={`relative overflow-hidden p-4 rounded-[4px] font-mono ${className}`}
+        className={`relative overflow-hidden p-3.5 sm:p-4 rounded-[4px] font-mono w-full ${className}`}
         style={{
           backgroundColor: 'var(--color-bg-surface)',
           border: '2px solid var(--color-border-strong)',
@@ -122,7 +126,7 @@ export function SpecimenLabel({
       >
         {/* Top Washi Mounting Strip Accent */}
         <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-1.5 w-24 rounded-b-[2px]"
+          className="absolute top-0 left-1/2 -translate-x-1/2 h-1.5 w-20 sm:w-24 rounded-b-[2px]"
           style={{
             backgroundColor: 'var(--color-brand-primary)',
             opacity: 0.85,
@@ -130,11 +134,11 @@ export function SpecimenLabel({
           aria-hidden="true"
         />
 
-        <div className="flex flex-wrap items-center justify-between gap-4 pt-1">
-          <div className="flex items-center gap-3.5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pt-1">
+          <div className="flex items-center gap-3 min-w-0 flex-1">
             {showGlyph && (
               <div
-                className="flex items-center justify-center p-2 rounded-[4px]"
+                className="flex items-center justify-center p-1.5 sm:p-2 rounded-[4px] shrink-0"
                 style={{
                   backgroundColor: 'var(--color-bg-overlay)',
                   border: '1px solid var(--color-border-subtle)',
@@ -147,10 +151,10 @@ export function SpecimenLabel({
                 />
               </div>
             )}
-            <div>
-              <div className="flex items-center gap-2 text-xs tabular-nums">
+            <div className="min-w-0 flex-1">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-[11px] sm:text-xs tabular-nums">
                 <span
-                  className="font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-[2px]"
+                  className="font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-[2px] shrink-0"
                   style={{
                     backgroundColor: 'var(--color-bg-overlay)',
                     color: 'var(--color-brand-primary)',
@@ -158,18 +162,21 @@ export function SpecimenLabel({
                 >
                   {specimenNo}
                 </span>
-                <span style={{ color: 'var(--color-text-muted)' }}>
+                <span
+                  className="truncate"
+                  style={{ color: 'var(--color-text-muted)' }}
+                >
                   {stageDisplay}
                 </span>
               </div>
               <div
-                className="text-sm font-semibold tracking-tight mt-1"
+                className="text-xs sm:text-sm font-semibold tracking-tight mt-0.5 sm:mt-1 truncate"
                 style={{ color: 'var(--color-text-primary)' }}
               >
                 {title}
               </div>
               <div
-                className="text-xs italic tracking-normal"
+                className="text-[11px] sm:text-xs italic tracking-normal truncate"
                 style={{ color: 'var(--color-text-secondary)' }}
               >
                 {scientificName}
@@ -178,7 +185,7 @@ export function SpecimenLabel({
           </div>
 
           <div
-            className="flex flex-col text-xs text-right tabular-nums space-y-1 pl-4 border-l"
+            className="flex flex-row sm:flex-col justify-between sm:justify-start text-[11px] sm:text-xs sm:text-right tabular-nums pt-2 sm:pt-0 border-t sm:border-t-0 sm:border-l sm:pl-4 shrink-0 gap-1"
             style={{ borderColor: 'var(--color-border-subtle)' }}
           >
             <div>
@@ -211,7 +218,7 @@ export function SpecimenLabel({
   const size = glyphSize || 48;
   return (
     <section
-      className={`relative p-6 rounded-[4px] font-mono select-text transition-shadow ${className}`}
+      className={`relative p-4 sm:p-6 rounded-[4px] font-mono select-text transition-shadow w-full ${className}`}
       style={{
         backgroundColor: 'var(--color-bg-surface)',
         border: '2px solid var(--color-border-strong)', // The True 2px Stem (Gold Accent)
@@ -222,7 +229,7 @@ export function SpecimenLabel({
     >
       {/* Top Center Washi Paper Mount Tape (한지 마운트 띠 장식) */}
       <div
-        className="absolute -top-2.5 left-1/2 -translate-x-1/2 h-5 w-28 rounded-[2px] shadow-sm pointer-events-none"
+        className="absolute -top-2 sm:-top-2.5 left-1/2 -translate-x-1/2 h-4 sm:h-5 w-24 sm:w-28 rounded-[2px] shadow-sm pointer-events-none"
         style={{
           backgroundColor: 'var(--color-brand-primary)',
           opacity: 0.9,
@@ -233,24 +240,24 @@ export function SpecimenLabel({
 
       {/* Header: Specimen Identification & Botanical Seal */}
       <header
-        className="flex items-center justify-between pb-4 border-b"
+        className="flex items-start justify-between pb-3 sm:pb-4 border-b gap-3"
         style={{ borderColor: 'var(--color-border-subtle)' }}
       >
-        <div className="flex flex-col gap-1">
+        <div className="flex flex-col gap-1 min-w-0 flex-1">
           <span
-            className="text-[11px] font-bold tracking-widest uppercase"
+            className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase"
             style={{ color: 'var(--color-brand-primary)' }}
           >
             HERBARIUM SPECIMEN SHEET
           </span>
           <h3
-            className="text-base font-bold tracking-tight"
+            className="text-sm sm:text-base font-bold tracking-tight break-words"
             style={{ color: 'var(--color-text-primary)' }}
           >
             {title}
           </h3>
           <p
-            className="text-xs italic tracking-normal"
+            className="text-[11px] sm:text-xs italic tracking-normal truncate"
             style={{ color: 'var(--color-text-muted)' }}
           >
             {scientificName}
@@ -259,7 +266,7 @@ export function SpecimenLabel({
 
         {showGlyph && (
           <div
-            className="flex items-center justify-center w-14 h-14 rounded-[4px]"
+            className="flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-[4px] shrink-0"
             style={{
               backgroundColor: 'var(--color-bg-overlay)',
               border: '1px solid var(--color-border-subtle)',
@@ -275,16 +282,16 @@ export function SpecimenLabel({
       </header>
 
       {/* Structured Botanical Metadata Matrix (JetBrains Mono Tabular) */}
-      <div className="grid grid-cols-2 gap-y-3.5 gap-x-4 pt-4 text-xs tabular-nums">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 sm:gap-y-3.5 gap-x-4 pt-3 sm:pt-4 text-xs tabular-nums">
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[10px] uppercase tracking-wider font-semibold"
+            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             SPECIMEN NO.
           </span>
           <span
-            className="font-bold text-sm tracking-tight"
+            className="font-bold text-xs sm:text-sm tracking-tight"
             style={{ color: 'var(--color-brand-primary)' }}
           >
             {specimenNo}
@@ -293,13 +300,13 @@ export function SpecimenLabel({
 
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[10px] uppercase tracking-wider font-semibold"
+            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             HARVEST DATE
           </span>
           <span
-            className="font-medium"
+            className="font-medium text-xs sm:text-sm"
             style={{ color: 'var(--color-text-primary)' }}
           >
             {harvestDate}
@@ -308,13 +315,13 @@ export function SpecimenLabel({
 
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[10px] uppercase tracking-wider font-semibold"
+            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             GROWTH STAGE
           </span>
           <span
-            className="font-medium"
+            className="font-medium text-xs sm:text-sm"
             style={{ color: 'var(--color-text-primary)' }}
           >
             {stageDisplay}
@@ -323,13 +330,13 @@ export function SpecimenLabel({
 
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[10px] uppercase tracking-wider font-semibold"
+            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             HABITAT / MEDIUM
           </span>
           <span
-            className="font-medium"
+            className="font-medium text-xs sm:text-sm break-words"
             style={{ color: 'var(--color-text-primary)' }}
           >
             {habitat}
@@ -339,7 +346,7 @@ export function SpecimenLabel({
 
       {/* Footer: Curatorial Verification Bar */}
       <footer
-        className="mt-5 pt-3 flex items-center justify-between text-[11px] border-t"
+        className="mt-4 sm:mt-5 pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-0 text-[10px] sm:text-[11px] border-t"
         style={{ borderColor: 'var(--color-border-subtle)' }}
       >
         <div className="flex items-center gap-1.5">
@@ -352,7 +359,7 @@ export function SpecimenLabel({
           </span>
         </div>
         <div
-          className="text-[10px] uppercase tracking-wider"
+          className="text-[9px] sm:text-[10px] uppercase tracking-wider"
           style={{ color: 'var(--color-text-muted)' }}
         >
           MDS v0.1.0 • BOTANICAL SSOT

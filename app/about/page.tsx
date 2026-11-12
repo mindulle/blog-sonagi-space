@@ -151,17 +151,17 @@ export default function AboutPage() {
           </div>
 
           {/* 4단계 생장 선화 에칭 쇼케이스 그리드 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Stage I: Seed */}
             <div
-              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              className="p-4 sm:p-6 rounded-[4px] flex flex-col items-center text-center gap-3.5 sm:gap-4 border"
               style={{
                 backgroundColor: 'var(--sng-color-bg-surface)',
                 borderColor: 'var(--sng-color-border-default)',
               }}
             >
               <div
-                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-[4px] flex items-center justify-center p-2.5 sm:p-3"
                 style={{
                   backgroundColor: 'var(--sng-color-bg-overlay)',
                   border: '1px solid var(--sng-color-border-subtle)',
@@ -182,7 +182,7 @@ export default function AboutPage() {
                   Stage I • Seed
                 </span>
                 <h3
-                  className="text-base font-bold"
+                  className="text-sm sm:text-base font-bold"
                   style={{ color: 'var(--sng-color-text-primary)' }}
                 >
                   단단한 겨울 씨앗
@@ -199,14 +199,14 @@ export default function AboutPage() {
 
             {/* Stage II: Sprout */}
             <div
-              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              className="p-4 sm:p-6 rounded-[4px] flex flex-col items-center text-center gap-3.5 sm:gap-4 border"
               style={{
                 backgroundColor: 'var(--sng-color-bg-surface)',
                 borderColor: 'var(--sng-color-border-default)',
               }}
             >
               <div
-                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-[4px] flex items-center justify-center p-2.5 sm:p-3"
                 style={{
                   backgroundColor: 'var(--sng-color-bg-overlay)',
                   border: '1px solid var(--sng-color-border-subtle)',
@@ -227,7 +227,7 @@ export default function AboutPage() {
                   Stage II • Sprout
                 </span>
                 <h3
-                  className="text-base font-bold"
+                  className="text-sm sm:text-base font-bold"
                   style={{ color: 'var(--sng-color-text-primary)' }}
                 >
                   돌 틈의 여린 떡잎
@@ -243,14 +243,14 @@ export default function AboutPage() {
 
             {/* Stage III: Rosette */}
             <div
-              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              className="p-4 sm:p-6 rounded-[4px] flex flex-col items-center text-center gap-3.5 sm:gap-4 border"
               style={{
                 backgroundColor: 'var(--sng-color-bg-surface)',
                 borderColor: 'var(--sng-color-border-default)',
               }}
             >
               <div
-                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-[4px] flex items-center justify-center p-2.5 sm:p-3"
                 style={{
                   backgroundColor: 'var(--sng-color-bg-overlay)',
                   border: '1px solid var(--sng-color-border-subtle)',
@@ -271,7 +271,7 @@ export default function AboutPage() {
                   Stage III • Rosette
                 </span>
                 <h3
-                  className="text-base font-bold"
+                  className="text-sm sm:text-base font-bold"
                   style={{ color: 'var(--sng-color-text-primary)' }}
                 >
                   톱니형 민들레 본잎
@@ -288,14 +288,14 @@ export default function AboutPage() {
 
             {/* Stage IV: Pappus */}
             <div
-              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              className="p-4 sm:p-6 rounded-[4px] flex flex-col items-center text-center gap-3.5 sm:gap-4 border"
               style={{
                 backgroundColor: 'var(--sng-color-bg-surface)',
                 borderColor: 'var(--sng-color-border-default)',
               }}
             >
               <div
-                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                className="w-16 h-16 sm:w-20 sm:h-20 rounded-[4px] flex items-center justify-center p-2.5 sm:p-3"
                 style={{
                   backgroundColor: 'var(--sng-color-bg-overlay)',
                   border: '1px solid var(--sng-color-border-subtle)',
@@ -316,7 +316,7 @@ export default function AboutPage() {
                   Stage IV • Pappus
                 </span>
                 <h3
-                  className="text-base font-bold"
+                  className="text-sm sm:text-base font-bold"
                   style={{ color: 'var(--sng-color-text-primary)' }}
                 >
                   비상하는 황금 홀씨
@@ -358,13 +358,13 @@ export default function AboutPage() {
               />
 
               <div
-                className="p-5 rounded-[4px] border flex flex-col gap-3 font-mono text-xs"
+                className="p-4 sm:p-5 rounded-[4px] border flex flex-col gap-3 font-mono text-xs w-full"
                 style={{
                   backgroundColor: 'var(--sng-color-bg-surface)',
                   borderColor: 'var(--sng-color-border-default)',
                 }}
               >
-                <div className="flex items-center justify-between pb-2 border-b border-[var(--sng-color-border-subtle)]">
+                <div className="flex flex-wrap items-center justify-between gap-1 pb-2 border-b border-[var(--sng-color-border-subtle)]">
                   <span
                     className="font-bold tracking-wider"
                     style={{ color: 'var(--sng-color-brand-primary)' }}

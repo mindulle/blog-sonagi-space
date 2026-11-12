@@ -35,27 +35,27 @@ excerpt: '정원사(Gardener)로서의 집필 철학과 디지털 정원의 멘�
 > - **Process Over Output**: A living intellectual backbone connecting user-facing software artifacts (`/projects`) directly with the architectural hypotheses and design philosophy that birthed them.
 
 ```
-[Author vs. Gardener: Architectural Topology]
+[Topology: Stream vs. Garden]
 
-1. The Author's Chronological Stream (Linear & Ephemeral):
-   [Post 1] ───► [Post 2] ───► [Post 3] ───► (Archived into oblivion)
+1. Author's Chronological Stream:
+   [Post 1] ➔ [Post 2] ➔ [Archive]
 
-2. The Gardener's Topological Knowledge Network (Bi-directional & Living):
-        ┌─────────────────────────┐
-        │   🌱 Seed (Germination)  │
-        └────────────┬────────────┘
-                     ▼
-        ┌─────────────────────────┐
-        │   🌿 Sprout (Cotyledon) │◄────────┐
-        └────────────┬────────────┘         │
-                     ▼                      │
-        ┌─────────────────────────┐         │ (Backlink Cross-pollination)
-        │   🌲 Rosette (Serrated) │─────────┤
-        └────────────┬────────────┘         │
-                     ▼                      │
-        ┌─────────────────────────┐         │
-        │   ✨ Pappus (Airborne)   │─────────┘
-        └─────────────────────────┘
+2. Gardener's Living Network:
+      ┌───────────────────┐
+      │  🌱 Seed (수과)    │
+      └─────────┬─────────┘
+                ▼
+      ┌───────────────────┐
+      │  🌿 Sprout (떡잎)  │◄────┐
+      └─────────┬─────────┘     │
+                ▼               │ (Cross-
+      ┌───────────────────┐     │  pollination)
+      │  🌲 Rosette (본잎) │─────┤
+      └─────────┬─────────┘     │
+                ▼               │
+      ┌───────────────────┐     │
+      │  ✨ Pappus (홀씨)  │─────┘
+      └───────────────────┘
 ```
 
 ---
