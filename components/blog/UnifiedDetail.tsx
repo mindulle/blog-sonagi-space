@@ -11,6 +11,7 @@ import { ReadingProgress } from './ReadingProgress';
 import { GrowthBadge } from './GrowthBadge';
 import { CategoryLabel } from './CategoryLabel';
 import { MetadataToggle } from './MetadataToggle';
+import { SpecimenLabel } from './SpecimenLabel';
 import { SeriesNav } from './SeriesNav';
 import { SeriesTableOfContents } from './SeriesTableOfContents';
 
@@ -63,7 +64,7 @@ export function UnifiedDetail({
               {backLink}
 
               <div className="flex items-center gap-3 mb-4">
-                <GrowthBadge status={note.status} />
+                <GrowthBadge status={note.status} showGlyph />
                 {note.category && (
                   <CategoryLabel
                     category={note.category}
@@ -71,6 +72,20 @@ export function UnifiedDetail({
                   />
                 )}
               </div>
+
+              {!isBlogView && (
+                <div className="mb-6">
+                  <SpecimenLabel
+                    variant="plate"
+                    specimenNo={`SNG-${note.slug.slice(0, 8).toUpperCase()}`}
+                    harvestDate={note.publishedDate || note.created}
+                    habitat="Digital Garden / Crevice"
+                    stage={note.status}
+                    title={note.title}
+                    scientificName="Taraxacum platycarpum Dahlst."
+                  />
+                </div>
+              )}
 
               <h1
                 className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold"

@@ -57,7 +57,7 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
         <div className="flex flex-1 flex-col p-6">
           {(post.status || post.category) && (
             <div className="mb-3 flex items-center gap-2">
-              {post.status && <GrowthBadge status={post.status} />}
+              {post.status && <GrowthBadge status={post.status} showGlyph />}
               {post.category && <CategoryLabel category={post.category} />}
             </div>
           )}

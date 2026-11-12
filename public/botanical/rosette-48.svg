@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Ground Rock Fissure Line -->
+  <path d="M 6 43 L 24 41 L 42 43" pathLength="1" />
+  <!-- Central Leaf Midrib -->
+  <path d="M 24 41 L 24 5" pathLength="1" />
+  <!-- Left Runcinate Serrated Blade -->
+  <path d="M 24 5 L 17 11 L 20 13 L 14 20 L 18 22 L 12 30 L 17 32 L 11 38 L 24 41" pathLength="1" />
+  <!-- Right Runcinate Serrated Blade -->
+  <path d="M 24 5 L 31 11 L 28 13 L 34 20 L 30 22 L 36 30 L 31 32 L 37 38 L 24 41" pathLength="1" />
+  <!-- Lateral Venation to Tooth Apices -->
+  <path d="M 24 12 L 18 11" pathLength="1" />
+  <path d="M 24 12 L 30 11" pathLength="1" />
+  <path d="M 24 21 L 15 20" pathLength="1" />
+  <path d="M 24 21 L 33 20" pathLength="1" />
+  <path d="M 24 31 L 13 30" pathLength="1" />
+  <path d="M 24 31 L 35 30" pathLength="1" />
+  <!-- Basal Spreading Rosette Leaves -->
+  <path d="M 24 37 C 16 35 10 37 7 41 L 11 41" pathLength="1" />
+  <path d="M 24 37 C 32 35 38 37 41 41 L 37 41" pathLength="1" />
+</svg>

@@ -9,7 +9,11 @@ import {
 } from 'lucide-react';
 import { Button, Badge, Card } from '@/components/ui';
 import { Container } from '@/components/ui/Container';
-import { RssSubscribeWidget } from '@/components/blog';
+import {
+  RssSubscribeWidget,
+  GrowthGlyph,
+  SpecimenLabel,
+} from '@/components/blog';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -118,6 +122,288 @@ export default function AboutPage() {
               </Link>
             </div>
           </Card>
+        </section>
+
+        {/* 2.5. 돌 틈의 표본실 (The Herbarium in the Crevice) & 4단계 생장 선화 에칭 */}
+        <section className="flex flex-col gap-8">
+          <div className="flex flex-col gap-2">
+            <div className="flex items-center gap-2">
+              <Badge variant="pill" color="warning">
+                🌿 Botanical Herbarium
+              </Badge>
+              <Badge variant="label">MDS v0.1.0 SSOT</Badge>
+            </div>
+            <h2
+              className="text-2xl sm:text-3xl font-bold tracking-tight"
+              style={{ color: 'var(--sng-color-text-primary)' }}
+            >
+              돌 틈의 식물 표본실 (The Herbarium in the Crevice)
+            </h2>
+            <p
+              className="text-base leading-relaxed max-w-3xl"
+              style={{ color: 'var(--sng-color-text-secondary)' }}
+            >
+              척박한 겨울 회색돌(Greystone Dark) 틈새를 뚫고 피어나는 야생
+              민들레의 생명력. 단단한 씨앗(Seed)부터 세상으로 비상하는
+              홀씨(Pappus)에 이르는 4단계 생장 선화 에칭과 식물학 표본실 라벨
+              시스템을 통해 사유의 성숙 과정을 기록합니다.
+            </p>
+          </div>
+
+          {/* 4단계 생장 선화 에칭 쇼케이스 그리드 */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {/* Stage I: Seed */}
+            <div
+              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div
+                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                style={{
+                  backgroundColor: 'var(--sng-color-bg-overlay)',
+                  border: '1px solid var(--sng-color-border-subtle)',
+                }}
+              >
+                <GrowthGlyph
+                  stage="seed"
+                  size={48}
+                  strokeColor="var(--sng-color-brand-primary)"
+                  animated
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="font-mono text-xs font-bold tracking-wider uppercase"
+                  style={{ color: 'var(--sng-color-brand-primary)' }}
+                >
+                  Stage I • Seed
+                </span>
+                <h3
+                  className="text-base font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  단단한 겨울 씨앗
+                </h3>
+                <p
+                  className="text-xs leading-relaxed mt-1"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  긴 침묵과 휴면을 견디는 세로 능선(Ribs)의 수과. 생각의 원초적
+                  배아.
+                </p>
+              </div>
+            </div>
+
+            {/* Stage II: Sprout */}
+            <div
+              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div
+                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                style={{
+                  backgroundColor: 'var(--sng-color-bg-overlay)',
+                  border: '1px solid var(--sng-color-border-subtle)',
+                }}
+              >
+                <GrowthGlyph
+                  stage="sprout"
+                  size={48}
+                  strokeColor="var(--sng-color-brand-primary)"
+                  animated
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="font-mono text-xs font-bold tracking-wider uppercase"
+                  style={{ color: 'var(--sng-color-brand-primary)' }}
+                >
+                  Stage II • Sprout
+                </span>
+                <h3
+                  className="text-base font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  돌 틈의 여린 떡잎
+                </h3>
+                <p
+                  className="text-xs leading-relaxed mt-1"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  암반의 균열을 뚫고 솟아오른 둥근 떡잎 쌍과 중심 생장점의 태동.
+                </p>
+              </div>
+            </div>
+
+            {/* Stage III: Rosette */}
+            <div
+              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div
+                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                style={{
+                  backgroundColor: 'var(--sng-color-bg-overlay)',
+                  border: '1px solid var(--sng-color-border-subtle)',
+                }}
+              >
+                <GrowthGlyph
+                  stage="rosette"
+                  size={48}
+                  strokeColor="var(--sng-color-brand-primary)"
+                  animated
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="font-mono text-xs font-bold tracking-wider uppercase"
+                  style={{ color: 'var(--sng-color-brand-primary)' }}
+                >
+                  Stage III • Rosette
+                </span>
+                <h3
+                  className="text-base font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  톱니형 민들레 본잎
+                </h3>
+                <p
+                  className="text-xs leading-relaxed mt-1"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  비바람을 견디며 지면에 납작 엎드린 역방향 톱니
+                  잎(Dent-de-lion).
+                </p>
+              </div>
+            </div>
+
+            {/* Stage IV: Pappus */}
+            <div
+              className="p-6 rounded-[4px] flex flex-col items-center text-center gap-4 border"
+              style={{
+                backgroundColor: 'var(--sng-color-bg-surface)',
+                borderColor: 'var(--sng-color-border-default)',
+              }}
+            >
+              <div
+                className="w-20 h-20 rounded-[4px] flex items-center justify-center p-3"
+                style={{
+                  backgroundColor: 'var(--sng-color-bg-overlay)',
+                  border: '1px solid var(--sng-color-border-subtle)',
+                }}
+              >
+                <GrowthGlyph
+                  stage="pappus"
+                  size={48}
+                  strokeColor="var(--sng-color-brand-primary)"
+                  animated
+                />
+              </div>
+              <div className="flex flex-col gap-1">
+                <span
+                  className="font-mono text-xs font-bold tracking-wider uppercase"
+                  style={{ color: 'var(--sng-color-brand-primary)' }}
+                >
+                  Stage IV • Pappus
+                </span>
+                <h3
+                  className="text-base font-bold"
+                  style={{ color: 'var(--sng-color-text-primary)' }}
+                >
+                  비상하는 황금 홀씨
+                </h3>
+                <p
+                  className="text-xs leading-relaxed mt-1"
+                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                >
+                  낙하산 관모를 펼치고 대중의 사유 공간으로 비행하는 상록의
+                  지식.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 식물학 표본실 라벨 실물 시편 컴포넌트 */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start mt-4">
+            <div className="lg:col-span-5">
+              <SpecimenLabel
+                variant="card"
+                specimenNo="SNG-2026-001"
+                harvestDate="2026.11.12"
+                habitat="Cloudflare Workers"
+                stage="sprout"
+                title="돌 틈의 표본실 (The Herbarium)"
+                scientificName="Taraxacum platycarpum Dahlst."
+              />
+            </div>
+
+            <div className="lg:col-span-7 flex flex-col gap-4">
+              <SpecimenLabel
+                variant="plate"
+                specimenNo="SNG-2026-002"
+                harvestDate="2026.11.12"
+                habitat="Mindulle Design System"
+                stage="rosette"
+                title="MDS 조형 헌법: The True 2px Stem & 4px Radius"
+                scientificName="Taraxacum officinale Weber"
+              />
+
+              <div
+                className="p-5 rounded-[4px] border flex flex-col gap-3 font-mono text-xs"
+                style={{
+                  backgroundColor: 'var(--sng-color-bg-surface)',
+                  borderColor: 'var(--sng-color-border-default)',
+                }}
+              >
+                <div className="flex items-center justify-between pb-2 border-b border-[var(--sng-color-border-subtle)]">
+                  <span
+                    className="font-bold tracking-wider"
+                    style={{ color: 'var(--sng-color-brand-primary)' }}
+                  >
+                    HERBARIUM SPECIMEN TAG SEALS
+                  </span>
+                  <span style={{ color: 'var(--sng-color-text-muted)' }}>
+                    JetBrains Mono Tabular
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  <SpecimenLabel
+                    variant="tag"
+                    specimenNo="SNG-2026-SEED"
+                    stage="seed"
+                    harvestDate="2026.11.10"
+                  />
+                  <SpecimenLabel
+                    variant="tag"
+                    specimenNo="SNG-2026-SPRT"
+                    stage="sprout"
+                    harvestDate="2026.11.11"
+                  />
+                  <SpecimenLabel
+                    variant="tag"
+                    specimenNo="SNG-2026-ROST"
+                    stage="rosette"
+                    harvestDate="2026.11.12"
+                  />
+                  <SpecimenLabel
+                    variant="tag"
+                    specimenNo="SNG-2026-PAPP"
+                    stage="pappus"
+                    harvestDate="2026.11.12"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </section>
 
         {/* 3. 3대 핵심 철학 (Core Philosophy) */}

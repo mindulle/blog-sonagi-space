@@ -1,10 +1,14 @@
 'use client';
 
+import { GrowthBadge } from './GrowthBadge';
+import type { GrowthStage } from './GrowthGlyph';
+
 interface Note {
   slug: string;
   title: string;
   excerpt: string;
   tags: string[];
+  status?: GrowthStage;
 }
 
 export function NoteCard({ note }: { note: Note }) {
@@ -32,6 +36,15 @@ export function NoteCard({ note }: { note: Note }) {
           (e.currentTarget as HTMLElement).style.transform = 'none';
         }}
       >
+        <div className="flex items-center justify-between gap-2 mb-2">
+          <span
+            className="font-mono text-xs"
+            style={{ color: 'var(--sng-color-brand-primary)' }}
+          >
+            [[{note.slug}]]
+          </span>
+          {note.status && <GrowthBadge status={note.status} showGlyph />}
+        </div>
         <h2
           style={{
             fontSize: 'var(--text-lg)',

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Rock Fissure Crevice -->
+  <path d="M 3 21 L 9 19 L 12 21 L 15 19 L 21 21" pathLength="1" />
+  <path d="M 12 21 L 12 23" pathLength="1" />
+  <!-- Arching Stem -->
+  <path d="M 12 19 C 11.5 15 12.5 13 12 10" pathLength="1" />
+  <!-- Left Cotyledon Leaf -->
+  <path d="M 12 11 C 9 9 5 10 5 13 C 5 16 10 15 12 12" pathLength="1" />
+  <!-- Right Cotyledon Leaf -->
+  <path d="M 12 11 C 15 9 19 10 19 13 C 19 16 14 15 12 12" pathLength="1" />
+  <!-- Apical Budding Tip -->
+  <path d="M 12 9 L 12 5" pathLength="1" />
+</svg>

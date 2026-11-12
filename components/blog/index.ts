@@ -13,6 +13,10 @@ export { SearchResults } from './SearchResults';
 export { ReadingProgress } from './ReadingProgress';
 export { CodeBlock } from './CodeBlock';
 export { GrowthBadge } from './GrowthBadge';
+export { GrowthGlyph, normalizeStage } from './GrowthGlyph';
+export type { GrowthStage, GrowthGlyphProps } from './GrowthGlyph';
+export { SpecimenLabel } from './SpecimenLabel';
+export type { SpecimenLabelProps } from './SpecimenLabel';
 export { SeriesNav } from './SeriesNav';
 export { RssSubscribeWidget } from './RssSubscribeWidget';
 
