@@ -206,7 +206,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
           {/* 전체 표본 버튼 */}
           <button
             onClick={() => setSelectedStage(null)}
-            className="flex items-center justify-between p-2.5 rounded-[4px] border text-xs transition-all"
+            className="col-span-2 sm:col-span-1 flex items-center justify-between p-2.5 rounded-[4px] border text-xs transition-all"
             style={{
               backgroundColor:
                 selectedStage === null

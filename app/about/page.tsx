@@ -56,10 +56,10 @@ export default function AboutPage() {
         </svg>
       </div>
 
-      <Container className="max-w-[960px] mx-auto px-4 sm:px-6 md:px-8">
+      <Container className="max-w-[960px] mx-auto px-3 sm:px-6 md:px-8">
         {/* ─── 단 하나의 장중한 아카이벌 표본지 대장 (The Archival Monograph Folio) ─── */}
         <article
-          className="relative rounded-[4px] p-6 sm:p-10 md:p-16 border font-mono transition-shadow sng-texture-folio"
+          className="relative rounded-[4px] p-4 sm:p-8 md:p-14 border font-mono transition-shadow sng-texture-folio"
           style={{
             backgroundColor: 'var(--color-bg-surface)',
             borderColor: 'var(--color-border-strong)', // The True 2px Stem (Gold Accent)
@@ -137,9 +137,9 @@ export default function AboutPage() {
               </div>
 
               {/* 공식 표본실 음각 압인 씰 */}
-              <div className="shrink-0 flex items-center justify-center p-2 rounded-[4px]">
+              <div className="shrink-0 flex items-center justify-center p-2 rounded-[4px] self-center sm:self-auto">
                 <HerbariumSeal
-                  size={84}
+                  size={76}
                   registrationNo="HERB-001"
                   year="2026"
                 />
@@ -304,7 +304,7 @@ export default function AboutPage() {
                     단단한 겨울 씨앗
                   </span>
                 </div>
-                <div className="flex items-center gap-4 py-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 py-2">
                   <div
                     className="shrink-0 p-2 rounded-[2px]"
                     style={{ border: '1px solid var(--color-border-subtle)' }}
@@ -351,7 +351,7 @@ export default function AboutPage() {
                     돌 틈의 여린 떡잎
                   </span>
                 </div>
-                <div className="flex items-center gap-4 py-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 py-2">
                   <div
                     className="shrink-0 p-2 rounded-[2px]"
                     style={{ border: '1px solid var(--color-border-subtle)' }}
@@ -398,7 +398,7 @@ export default function AboutPage() {
                     톱니형 민들레 본잎
                   </span>
                 </div>
-                <div className="flex items-center gap-4 py-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 py-2">
                   <div
                     className="shrink-0 p-2 rounded-[2px]"
                     style={{ border: '1px solid var(--color-border-subtle)' }}
@@ -445,7 +445,7 @@ export default function AboutPage() {
                     비상하는 황금 홀씨
                   </span>
                 </div>
-                <div className="flex items-center gap-4 py-2">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 py-2">
                   <div
                     className="shrink-0 p-2 rounded-[2px]"
                     style={{ border: '1px solid var(--color-border-subtle)' }}
@@ -527,10 +527,10 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full sm:w-auto shrink-0">
               <a
                 href="mailto:mindulle@sonagi.space"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border transition-colors hover:border-[var(--color-brand-primary)]"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:px-3 sm:py-1.5 rounded-[4px] text-xs border transition-colors hover:border-[var(--color-brand-primary)] w-full sm:w-auto"
                 style={{
                   backgroundColor: 'var(--color-bg-overlay)',
                   borderColor: 'var(--color-border-subtle)',
@@ -543,7 +543,7 @@ export default function AboutPage() {
 
               <Link
                 href="/rss.xml"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border transition-colors hover:border-[var(--color-brand-primary)]"
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-2 sm:px-3 sm:py-1.5 rounded-[4px] text-xs border transition-colors hover:border-[var(--color-brand-primary)] w-full sm:w-auto"
                 style={{
                   backgroundColor: 'var(--color-bg-overlay)',
                   borderColor: 'var(--color-border-subtle)',
