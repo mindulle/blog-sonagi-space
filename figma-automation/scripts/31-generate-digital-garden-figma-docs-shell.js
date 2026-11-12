@@ -121,19 +121,19 @@ return new Promise(async (resolve) => {
     }
 
     // 3. Official Component Masters
-    const bSuccessPill = await figma.getNodeByIdAsync('198:1698');
-    const bSuccessLabel = await figma.getNodeByIdAsync('198:1700');
-    const bInfoPill = await figma.getNodeByIdAsync('198:1694');
-    const bInfoLabel = await figma.getNodeByIdAsync('198:1696');
-    const bWarningPill = await figma.getNodeByIdAsync('198:1702');
-    const bWarningLabel = await figma.getNodeByIdAsync('198:1704');
+    const bSuccessPill = await figma.getNodeByIdAsync('33:10');
+    const bSuccessLabel = await figma.getNodeByIdAsync('33:8');
+    const bInfoPill = await figma.getNodeByIdAsync('32:31');
+    const bInfoLabel = await figma.getNodeByIdAsync('33:8');
+    const bWarningPill = await figma.getNodeByIdAsync('33:14');
+    const bWarningLabel = await figma.getNodeByIdAsync('33:14');
 
-    const btnPriMd = await figma.getNodeByIdAsync('159:406');
-    const btnSecMd = await figma.getNodeByIdAsync('159:410');
-    const btnPriSm = await figma.getNodeByIdAsync('174:383');
-    const btnSecSm = await figma.getNodeByIdAsync('174:387');
+    const btnPriMd = await figma.getNodeByIdAsync('21:189');
+    const btnSecMd = await figma.getNodeByIdAsync('21:191');
+    const btnPriSm = await figma.getNodeByIdAsync('21:209');
+    const btnSecSm = await figma.getNodeByIdAsync('21:211');
 
-    const hpMaster = await figma.getNodeByIdAsync('225:4');
+    const hpMaster = await figma.getNodeByIdAsync('87:566');
 
     // Core icons are library-dependent, so resolve them by name at runtime rather
     // than baking session-specific node ids into this script. This also keeps the
@@ -258,13 +258,14 @@ return new Promise(async (resolve) => {
     let section = page.findOne(
       (n) =>
         n.type === 'SECTION' &&
-        n.name === 'BLOG-4 Digital Garden & The Gardener SSOT'
+        (n.name.includes('BLOG-4') || n.name.includes('BLOG-7'))
     );
     if (section) {
       section.remove();
     }
     section = figma.createSection();
-    section.name = 'BLOG-4 Digital Garden & The Gardener SSOT';
+    section.name =
+      'BLOG-7 Docs Shell Showcase (About, RSS, Garden, Core-icons)';
     section.x = 0;
     section.y = 0;
 
@@ -510,9 +511,9 @@ return new Promise(async (resolve) => {
     phCards.forEach((c) => {
       const card = figma.createFrame();
       card.layoutMode = 'VERTICAL';
-      card.primaryAxisSizingMode = 'AUTO';
+      card.primaryAxisSizingMode = 'FIXED';
       card.counterAxisSizingMode = 'FIXED';
-      card.resize(346, 100);
+      card.resize(346, 220);
       card.paddingLeft = 24;
       card.paddingRight = 24;
       card.paddingTop = 24;
@@ -1233,13 +1234,25 @@ return new Promise(async (resolve) => {
     bindFill(iconTitle, 'text/primary', CDark.textPrimary);
     iconCont.appendChild(iconTitle);
 
+    const iconGlyphs = new Map([
+      ['Arrow-right', '→'],
+      ['Arrow-left', '←'],
+      ['Check', '✓'],
+      ['Copy', '⎘'],
+      ['External-link', '↗'],
+      ['Link', '⚲'],
+      ['Menu', '☰'],
+      ['Rss', '((•))'],
+      ['Search', '⌕'],
+    ]);
+
     for (let rowIndex = 0; rowIndex < 3; rowIndex += 1) {
       const row = figma.createFrame();
       row.name = `Core Icon Grid Row ${rowIndex + 1}`;
       row.layoutMode = 'HORIZONTAL';
       row.primaryAxisSizingMode = 'FIXED';
       row.counterAxisSizingMode = 'AUTO';
-      row.resize(1080, 96);
+      row.resize(1080, 104);
       row.itemSpacing = 16;
       row.layoutAlign = 'STRETCH';
       row.fills = [];
@@ -1249,29 +1262,38 @@ return new Promise(async (resolve) => {
         const cell = figma.createFrame();
         cell.name = `Core Icon Cell • ${iconName}`;
         cell.layoutMode = 'VERTICAL';
-        cell.primaryAxisSizingMode = 'AUTO';
-        cell.counterAxisSizingMode = 'AUTO';
+        cell.primaryAxisSizingMode = 'FIXED';
+        cell.counterAxisSizingMode = 'FIXED';
+        cell.primaryAxisAlignItems = 'CENTER';
         cell.counterAxisAlignItems = 'CENTER';
-        cell.itemSpacing = 8;
-        cell.paddingTop = 16;
-        cell.paddingBottom = 16;
+        cell.itemSpacing = 10;
+        cell.paddingTop = 20;
+        cell.paddingBottom = 20;
         cell.paddingLeft = 16;
         cell.paddingRight = 16;
-        cell.resize((1080 - 16 * 2) / 3, 96);
+        cell.resize((1080 - 16 * 2) / 3, 104);
+        cell.cornerRadius = 4;
         cell.layoutGrow = 1;
         bindFill(cell, 'bg/surface', CDark.bgSurface);
-        bindStroke(cell, 'border/default', CDark.borderDefault, 1);
+        bindStroke(cell, 'border/default', CDark.borderDefault, 2);
 
         const master = findCoreIcon(iconName);
         if (master) {
           const instance = master.createInstance();
           instance.name = `Core Icon • ${iconName}`;
           cell.appendChild(instance);
+        } else {
+          const iconGlyph = figma.createText();
+          iconGlyph.fontName = F.mono;
+          iconGlyph.characters = iconGlyphs.get(iconName) || '•';
+          iconGlyph.fontSize = 20;
+          bindFill(iconGlyph, 'brand/primary', CDark.brandPrimary);
+          cell.appendChild(iconGlyph);
         }
         const label = figma.createText();
         label.fontName = F.mono;
         label.characters = iconName;
-        label.fontSize = 11;
+        label.fontSize = 12;
         bindFill(label, 'text/secondary', CDark.textSecondary);
         cell.appendChild(label);
         row.appendChild(cell);
