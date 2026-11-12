@@ -271,19 +271,30 @@
 ───────────────────────────────────────────────────────── */
 body {
   background-color: var(--sng-color-bg-base);
-  background-image: url('/textures/hanji-mulberry-seamless-256.webp');
-  background-repeat: repeat;
   color: var(--sng-color-text-primary);
   font-family: var(--sng-font-sans);
   font-size: var(--sng-font-size-base);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+  position: relative;
 }
 
-[data-theme='dark'] body,
-.dark body {
-  background-image: url('/textures/greystone-slate-seamless-256.webp');
+/* 은은한 앰비언트 한지/암반 질감 오버레이 (텍스트 가독성 최우선 확보) */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('/textures/hanji-mulberry-seamless-256.webp');
   background-repeat: repeat;
+  opacity: 0.18;
+}
+
+[data-theme='dark'] body::before,
+.dark body::before {
+  background-image: url('/textures/greystone-slate-seamless-256.webp');
+  opacity: 0.22;
 }
 
 * {
