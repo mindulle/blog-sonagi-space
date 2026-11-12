@@ -67,7 +67,8 @@
   --sng-color-brand-logo: var(--sng-color-wordmark-dot);
 }
 
-[data-theme='dark'] {
+[data-theme='dark'],
+.dark {
   /* Brand Tokens (Dark: Dandelion Amber) */
   --sng-color-brand-primary: #ffc837;
   --sng-color-brand-primary-hover: #e6b432;
@@ -96,6 +97,40 @@
   --sng-color-bg-base: var(--sng-color-background-base);
   --sng-color-bg-surface: var(--sng-color-background-surface);
   --sng-color-bg-elevated: var(--sng-color-background-elevated);
+}
+
+/* 시스템 다크모드 (prefers-color-scheme) 매핑 엄격 보장 — 외부 레거시 번들 덮어쓰기 원천 차단 */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    /* Brand Tokens (Dark: Dandelion Amber) */
+    --sng-color-brand-primary: #ffc837;
+    --sng-color-brand-primary-hover: #e6b432;
+    --sng-color-brand-accent: #ffd166;
+    --sng-color-brand-accent-hover: #ffc837;
+    --sng-color-brand-ink: #ffc837;
+
+    /* Background Tokens (Dark: Deep Obsidian & Elevated Surface) */
+    --sng-color-background-base: #12151d;
+    --sng-color-background-surface: #1b202c;
+    --sng-color-background-elevated: #242b3b;
+    --sng-color-bg-overlay: #1f2635;
+
+    /* Text & Border Tokens */
+    --sng-color-text-primary: #f1f5f9;
+    --sng-color-text-secondary: #94a3b8;
+    --sng-color-text-muted: #64748b;
+    --sng-color-text-disabled: #475569;
+    --sng-color-text-inverse: #12151d;
+    --sng-color-border-default: #2c3547;
+    --sng-color-border-subtle: #1f2635;
+    --sng-color-border-strong: #ffc837;
+
+    /* Aliases */
+    --sng-color-accent-default: var(--sng-color-brand-accent);
+    --sng-color-bg-base: var(--sng-color-background-base);
+    --sng-color-bg-surface: var(--sng-color-background-surface);
+    --sng-color-bg-elevated: var(--sng-color-background-elevated);
+  }
 }
 
 /* ─────────────────────────────────────────────────────────

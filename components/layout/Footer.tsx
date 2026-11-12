@@ -24,8 +24,9 @@ export function Footer() {
             >
               <Logo height={24} />
             </Link>
-            <p className="text-sm text-[var(--sng-color-text-secondary)]">
-              Next.js와 소나기 디자인 시스템으로 만든 개인 블로그입니다.
+            <p className="text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
+              Next.js와 민들레 디자인 시스템(MDS)으로 가꾸는 돌 틈의 식물
+              표본실이자 디지털 정원입니다.
             </p>
           </div>
 
@@ -41,6 +42,22 @@ export function Footer() {
                   className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
                 >
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/notes"
+                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                >
+                  Garden
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/series"
+                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                >
+                  Series
                 </Link>
               </li>
               <li>
@@ -64,7 +81,7 @@ export function Footer() {
                   href="https://design.sonagi.space"
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-label="소나기 디자인 시스템 (새 창으로 열림)"
+                  aria-label="민들레 디자인 시스템 (새 창으로 열림)"
                   className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
                 >
                   Design System
@@ -130,7 +147,8 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-sm text-[var(--sng-color-text-secondary)]">
-              © {currentYear} 소나기 블로그. All rights reserved.
+              © {currentYear} 소나기 스페이스 (Sonagi Space). All rights
+              reserved.
             </p>
             <p className="text-sm text-[var(--sng-color-text-secondary)]">
               Built with{' '}
@@ -147,10 +165,10 @@ export function Footer() {
                 href="https://design.sonagi.space"
                 target="_blank"
                 rel="noopener noreferrer"
-                aria-label="소나기 디자인 시스템 (새 창으로 열림)"
+                aria-label="민들레 디자인 시스템 (새 창으로 열림)"
                 className="hover:underline text-[var(--sng-color-brand-primary)]"
               >
-                소나기 Design System
+                민들레 Design System (MDS v0.1.0)
               </a>
             </p>
           </div>
