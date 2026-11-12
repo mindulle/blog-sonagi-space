@@ -22,6 +22,44 @@ excerpt: '정원사(Gardener)로서의 집필 철학과 디지털 정원의 멘�
 
 > "정원은 완성을 목표로 하지 않는다. 그것은 지속적인 보살핌과 변화의 과정 그 자체다."
 
+---
+
+### 🌐 Executive Abstract (For Global Readers & Clients)
+
+> **Core Thesis**: _The Gardener_ rejects the traditional publishing paradigm (The Perfection Trap) where writing remains hidden in draft folders until deemed "finished." Instead, it establishes an open **Topological Knowledge Network** that cultivates ideas in public from raw germinating seeds (_Seed_) to fully mature, airborne syntheses (_Pappus_).
+>
+> **System Architecture**:
+>
+> - **Everything as Code**: Automated bi-directional wikilink graph extraction (`scripts/generate-backlinks.mjs`), W3C design tokens (`@mindulle/tokens`), and deterministic React components (`@mindulle/ui`).
+> - **The True 2px Stem**: Visual design anchored in 2px dandelion gold etchings, 4px corner radii, and zero-compromise WCAG AAA contrast (Light: Warm Paper `#fbfbfa` vs Text `#18181b` = 14.8:1; Dark: Greystone `#12151d` vs Text `#f1f5f9` = 16.1:1).
+> - **Process Over Output**: A living intellectual backbone connecting user-facing software artifacts (`/projects`) directly with the architectural hypotheses and design philosophy that birthed them.
+
+```
+[Author vs. Gardener: Architectural Topology]
+
+1. The Author's Chronological Stream (Linear & Ephemeral):
+   [Post 1] ───► [Post 2] ───► [Post 3] ───► (Archived into oblivion)
+
+2. The Gardener's Topological Knowledge Network (Bi-directional & Living):
+        ┌─────────────────────────┐
+        │   🌱 Seed (Germination)  │
+        └────────────┬────────────┘
+                     ▼
+        ┌─────────────────────────┐
+        │   🌿 Sprout (Cotyledon) │◄────────┐
+        └────────────┬────────────┘         │
+                     ▼                      │
+        ┌─────────────────────────┐         │ (Backlink Cross-pollination)
+        │   🌲 Rosette (Serrated) │─────────┤
+        └────────────┬────────────┘         │
+                     ▼                      │
+        ┌─────────────────────────┐         │
+        │   ✨ Pappus (Airborne)   │─────────┘
+        └─────────────────────────┘
+```
+
+---
+
 우리가 글을 쓰고 지식을 축적하는 방식은 오랫동안 **시간순 스트림(Chronological Stream)**에 갇혀 있었습니다. 전통적인 블로그는 발행 일자를 기준으로 최신 글을 상단에 띄우고, 어제의 사유는 아카이브의 심연으로 밀어 넣습니다.
 
 하지만 인간의 사고는 시간 순서대로 작동하지 않습니다. 생각은 파편으로 싹터 다른 생각과 충돌하고, 서로의 양분을 흡수하며, 시간이 흐름에 따라 더 튼튼한 줄기로 자라납니다.
@@ -45,24 +83,29 @@ excerpt: '정원사(Gardener)로서의 집필 철학과 디지털 정원의 멘�
 
 ---
 
-## 2. 생각의 성장 단계: 3대 생명주기
+## 2. 생각의 성장 단계: 4단계 생장 선화 에칭과 표본실 생명주기
 
-이 정원의 모든 노트는 [[design-system-shape-color-semantics|디자인 시스템의 형태와 색상 의미론]]에 정의된 시맨틱 메타데이터를 따릅니다.
+이 정원의 모든 노트는 [[design-system-shape-color-semantics|디자인 시스템의 조형과 색상 의미론]] 및 **돌 틈의 표본실(The Herbarium in the Crevice)** 조형 규격을 따릅니다. 2px 단일 스트로크 선화 에칭으로 정의된 4단계 생명주기는 다음과 같습니다.
 
-1. 🌱 **씨앗 (Seed)**
-   - **상태:** 번뜩이는 아이디어, 원시적 메모, 거친 질문.
-   - **의미:** 아직 결론이 나지 않았지만 성장의 잠재력을 지닌 발상입니다.
-   - **원칙:** 완성도를 신경 쓰지 않고 거침없이 기록합니다.
+1. 🌱 **1단계: 단단한 겨울 씨앗 (Stage I • Seed)**
+   - **상태:** 번뜩이는 영감, 원초적 질문, 세로 능선(Ribs)의 단단한 껍질 속에 응축된 사유.
+   - **의미:** 아직 결론이 나지 않았지만 척박한 겨울을 견디고 싹을 틔울 잠재력을 지닌 발상입니다.
+   - **원칙:** 완성도를 신경 쓰지 않고 거침없이 기록(Thinking in Public)합니다.
 
-2. 🌿 **묘목 (Sapling)**
-   - **상태:** 레퍼런스가 붙고, 실험 코드가 추가되며 뼈대가 잡힌 생각.
-   - **의미:** 다른 노트들과 위키링크(`[[]]`)로 연결되기 시작하며 자양분을 흡수하는 단계입니다.
+2. 🌿 **2단계: 돌 틈의 여린 떡잎 (Stage II • Sprout)**
+   - **상태:** 암반의 균열을 뚫고 솟아오른 둥근 떡잎 쌍과 뼈대가 잡히기 시작한 생각.
+   - **의미:** 다른 노트들과 위키링크(`[[]]`)로 연결되며 레퍼런스와 실험 코드를 흡수하는 단계입니다.
    - **원칙:** 논리 구조를 세우고 실제 구현과 검증을 시도합니다.
 
-3. 🌲 **상록수 (Evergreen)**
-   - **상태:** 충분히 검증되고 성숙하여 언제 읽어도 가치를 제공하는 지식.
-   - **의미:** 지속적인 관리와 가지치기를 거쳐 정원의 단단한 기둥이 된 에세이와 아키텍처 문서입니다.
-   - **원칙:** 주기적으로 백링크를 점검하고, 새로운 기술 환경에 맞추어 생명력을 유지합니다.
+3. 🌲 **3단계: 톱니형 민들레 본잎 (Stage III • Rosette)**
+   - **상태:** 거센 비바람을 견디며 지면에 납작 엎드린 역방향 톱니 잎(Dent-de-lion).
+   - **의미:** 비판과 반론을 흡수하며 치열한 엔지니어링 검증을 마친 견고한 사유의 구조체입니다.
+   - **원칙:** 반박 불가능한 코드와 실증 증거를 결합하여 구조적 무결성을 증명합니다.
+
+4. ✨ **4단계: 비상하는 황금 홀씨 (Stage IV • Pappus)**
+   - **상태:** 둥근 낙하산 관모를 펼치고 대중의 사유 공간으로 비행하는 상록의 지식.
+   - **의미:** 충분히 숙성되어 다른 이들의 영감으로 교차 수분(Cross-pollination)되는 에버그린 에세이와 오픈소스 자산입니다.
+   - **원칙:** 정기적으로 백링크를 점검하고, 새로운 기술 생태계에 맞추어 지속적으로 보살핍니다.
 
 ---
 
