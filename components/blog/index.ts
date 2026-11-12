@@ -17,6 +17,8 @@ export { GrowthGlyph, normalizeStage } from './GrowthGlyph';
 export type { GrowthStage, GrowthGlyphProps } from './GrowthGlyph';
 export { SpecimenLabel } from './SpecimenLabel';
 export type { SpecimenLabelProps } from './SpecimenLabel';
+export { HerbariumTextureFilter, WashiTapeStrip } from './HerbariumTexture';
+export { HerbariumSeal } from './HerbariumSeal';
 export { SeriesNav } from './SeriesNav';
 export { RssSubscribeWidget } from './RssSubscribeWidget';
 

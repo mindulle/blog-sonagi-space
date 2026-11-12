@@ -1,40 +1,45 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Receptacle Stalk & Bracts -->
-  <path d="M 48 88 L 48 68" pathLength="1" />
-  <path d="M 42 70 C 44 67 52 67 54 70" pathLength="1" />
-  <path d="M 41 68 C 41 64 55 64 55 68 Z" pathLength="1" />
-  <!-- Involucral Bract Tips -->
-  <path d="M 43 72 L 40 76" pathLength="1" />
-  <path d="M 53 72 L 56 76" pathLength="1" />
-  <!-- Mature Radiating Pappus Parachute Rays -->
-  <path d="M 48 64 L 22 55" pathLength="1" />
-  <path d="M 48 64 L 27 42" pathLength="1" />
-  <path d="M 48 64 L 35 32" pathLength="1" />
-  <path d="M 48 64 L 42 26" pathLength="1" />
-  <path d="M 48 64 L 48 24" pathLength="1" />
-  <path d="M 48 64 L 54 26" pathLength="1" />
-  <path d="M 48 64 L 61 32" pathLength="1" />
-  <path d="M 48 64 L 69 42" pathLength="1" />
-  <path d="M 48 64 L 74 55" pathLength="1" />
-  <!-- Spherical Seedhead Filament Halo Arc -->
-  <path d="M 23 55 C 22 38 34 24 48 24 C 62 24 74 38 73 55" pathLength="1" />
-  <!-- Micro Starburst Hair Tips on Primary Rays -->
-  <path d="M 35 32 L 32 28" pathLength="1" />
-  <path d="M 42 26 L 40 21" pathLength="1" />
-  <path d="M 48 24 L 48 18" pathLength="1" />
-  <path d="M 54 26 L 56 21" pathLength="1" />
-  <path d="M 61 32 L 64 28" pathLength="1" />
-  <path d="M 27 42 L 23 39" pathLength="1" />
-  <path d="M 69 42 L 73 39" pathLength="1" />
-  <!-- Free Floating Airborne Dandelion Seed 1 (Ascending Right) -->
-  <path d="M 72 30 L 68 37" pathLength="1" />
-  <path d="M 72 30 L 78 20" pathLength="1" />
-  <path d="M 78 20 L 70 14" pathLength="1" />
-  <path d="M 78 20 L 78 11" pathLength="1" />
-  <path d="M 78 20 L 86 14" pathLength="1" />
-  <path d="M 78 20 L 84 18" pathLength="1" />
-  <path d="M 78 20 L 72 17" pathLength="1" />
-  <!-- Free Floating Airborne Seed 2 (Higher Apex) -->
+  <!-- Receptacle stem and reflexed involucral bracts (화탁과 젖혀진 총포편) -->
+  <path d="M 40 88 L 40 66" pathLength="1" />
+  <path d="M 34 67 C 34 62 46 62 46 67 Z" pathLength="1" />
+  <path d="M 35 70 L 30 76" pathLength="1" />
+  <path d="M 45 70 L 50 76" pathLength="1" />
+  <path d="M 37 72 L 34 77" pathLength="1" />
+  <path d="M 43 72 L 46 77" pathLength="1" />
+  <!-- Mature Radiating Seedhead Parachute Rays -->
+  <path d="M 40 62 L 14 52" pathLength="1" />
+  <path d="M 40 62 L 19 38" pathLength="1" />
+  <path d="M 40 62 L 28 28" pathLength="1" />
+  <path d="M 40 62 L 40 22" pathLength="1" />
+  <path d="M 40 62 L 52 27" pathLength="1" />
+  <path d="M 40 62 L 59 38" pathLength="1" />
+  <path d="M 40 62 L 62 52" pathLength="1" />
+  <!-- Spherical Seedhead Halo Arc (구형 솜털 윤곽) -->
+  <path d="M 15 52 C 14 34 26 22 41 22 C 54 22 62 34 61 52" pathLength="1" />
+  <!-- Micro starburst hair tips on primary rays -->
+  <path d="M 28 28 L 25 24" pathLength="1" />
+  <path d="M 40 22 L 40 16" pathLength="1" />
+  <path d="M 52 27 L 55 23" pathLength="1" />
+  <path d="M 19 38 L 15 35" pathLength="1" />
+  <path d="M 59 38 L 63 35" pathLength="1" />
+  <!-- Secondary inner plumule rays -->
+  <path d="M 40 62 L 23 45" pathLength="1" />
+  <path d="M 40 62 L 34 32" pathLength="1" />
+  <path d="M 40 62 L 46 32" pathLength="1" />
+  <path d="M 40 62 L 56 45" pathLength="1" />
+  <!-- Free Floating Airborne Dandelion Seed 1 (Ascending Diagonally Right) -->
+  <path d="M 66 32 L 62 40" pathLength="1" />
+  <path d="M 66 32 L 75 16" pathLength="1" />
+  <!-- Open Parachute Canopy of Seed 1 -->
+  <path d="M 75 16 L 61 9" pathLength="1" />
+  <path d="M 75 16 L 68 5" pathLength="1" />
+  <path d="M 75 16 L 76 4" pathLength="1" />
+  <path d="M 75 16 L 84 7" pathLength="1" />
+  <path d="M 75 16 L 88 13" pathLength="1" />
+  <path d="M 64 8 C 72 4 82 5 87 11" pathLength="1" />
+  <path d="M 69 7 L 70 3" pathLength="1" />
+  <path d="M 83 9 L 85 5" pathLength="1" />
+  <!-- Free Floating Airborne Seed 2 (Higher Drift at Apex) -->
   <path d="M 86 10 L 89 5" pathLength="1" />
   <path d="M 89 5 L 85 2" pathLength="1" />
   <path d="M 89 5 L 93 2" pathLength="1" />

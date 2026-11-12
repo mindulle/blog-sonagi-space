@@ -1,38 +1,47 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Rock Strata & Fissure Bed -->
-  <path d="M 16 86 L 36 80 L 48 82 L 60 80 L 80 86" pathLength="1" />
-  <path d="M 38 88 L 48 82 L 58 88" pathLength="1" />
-  <path d="M 48 82 L 48 91" pathLength="1" />
-  <path d="M 28 84 L 34 82" pathLength="1" />
-  <path d="M 68 84 L 62 82" pathLength="1" />
-  <!-- Dandelion Achene (Spindle Body) -->
-  <path d="M 48 48 C 40 54 40 70 48 78 C 56 70 56 54 48 48 Z" pathLength="1" />
-  <!-- Longitudinal Ribs -->
-  <path d="M 48 50 L 48 75" pathLength="1" />
-  <path d="M 44 53 C 42 60 42 68 46 75" pathLength="1" />
-  <path d="M 52 53 C 54 60 54 68 50 75" pathLength="1" />
-  <!-- Micro Spines on Achene Shoulder -->
-  <path d="M 43 54 L 39 51" pathLength="1" />
-  <path d="M 53 54 L 57 51" pathLength="1" />
-  <path d="M 44 60 L 40 58" pathLength="1" />
-  <path d="M 52 60 L 56 58" pathLength="1" />
-  <!-- Apical Collar Ring -->
-  <path d="M 44 48 L 52 48" pathLength="1" />
-  <!-- Slender Beak (Stalk) -->
-  <path d="M 48 48 L 48 22" pathLength="1" />
-  <!-- Crown Rays (Pappus Umbrella) -->
-  <path d="M 48 22 L 24 12" pathLength="1" />
-  <path d="M 48 22 L 32 8" pathLength="1" />
-  <path d="M 48 22 L 41 5" pathLength="1" />
-  <path d="M 48 22 L 48 4" pathLength="1" />
-  <path d="M 48 22 L 55 5" pathLength="1" />
-  <path d="M 48 22 L 64 8" pathLength="1" />
-  <path d="M 48 22 L 72 12" pathLength="1" />
-  <!-- Fine Plumose Lateral Hairs -->
-  <path d="M 30 15 L 32 11" pathLength="1" />
-  <path d="M 66 15 L 64 11" pathLength="1" />
-  <path d="M 37 12 L 40 9" pathLength="1" />
-  <path d="M 59 12 L 56 9" pathLength="1" />
-  <path d="M 44 10 L 46 7" pathLength="1" />
-  <path d="M 52 10 L 50 7" pathLength="1" />
+  <!-- Archival Rock Crevice Strata Bed -->
+  <path d="M 12 87 L 30 81 L 47 84 L 64 80 L 84 86" pathLength="1" />
+  <path d="M 47 84 L 48 93" pathLength="1" />
+  <path d="M 30 81 L 38 87" pathLength="1" />
+  <path d="M 64 80 L 58 86" pathLength="1" />
+  <path d="M 22 84 L 27 88" pathLength="1" />
+  <path d="M 74 83 L 69 88" pathLength="1" />
+  <!-- Dandelion Achene: Spindle body with fine botanical curvature -->
+  <path d="M 47.5 48 C 41 54 41 69 47.5 81 C 54 69 54 54 47.5 48 Z" pathLength="1" />
+  <!-- Muricate ascending spinules on achene upper shoulders (가시 돌기 군락) -->
+  <path d="M 43 52 L 36 48" pathLength="1" />
+  <path d="M 52 52 L 59 48" pathLength="1" />
+  <path d="M 42.5 57 L 37 54" pathLength="1" />
+  <path d="M 52.5 57 L 58 54" pathLength="1" />
+  <path d="M 43 62 L 38.5 60" pathLength="1" />
+  <path d="M 52 62 L 56.5 60" pathLength="1" />
+  <path d="M 44 67 L 40.5 66" pathLength="1" />
+  <path d="M 51 67 L 54.5 66" pathLength="1" />
+  <!-- Prominent longitudinal ribs (세로 능선 에칭) -->
+  <path d="M 47.5 50 L 47.5 78" pathLength="1" />
+  <path d="M 44.5 54 C 43 60 43.5 69 46 76" pathLength="1" />
+  <path d="M 50.5 54 C 52 60 51.5 69 49 76" pathLength="1" />
+  <path d="M 42 59 C 41.5 63 42 68 44 73" pathLength="1" />
+  <path d="M 53 59 C 53.5 63 53 68 51 73" pathLength="1" />
+  <!-- Apical conical collar ring -->
+  <path d="M 44 48 L 51 48" pathLength="1" />
+  <!-- Elongated fragile beak (rostrum) -->
+  <path d="M 47.5 48 C 47.2 36 48.5 28 48 20" pathLength="1" />
+  <!-- Multi-rayed botanical pappus umbrella rays -->
+  <path d="M 48 20 L 22 10" pathLength="1" />
+  <path d="M 48 20 L 31 6.5" pathLength="1" />
+  <path d="M 48 20 L 41 3.5" pathLength="1" />
+  <path d="M 48 20 L 48 2.5" pathLength="1" />
+  <path d="M 48 20 L 55 3.5" pathLength="1" />
+  <path d="M 48 20 L 65 6.5" pathLength="1" />
+  <path d="M 48 20 L 74 10" pathLength="1" />
+  <!-- Micro plumose lateral hairs on rays -->
+  <path d="M 28 12 L 29 8" pathLength="1" />
+  <path d="M 68 12 L 67 8" pathLength="1" />
+  <path d="M 37 8 L 39 5" pathLength="1" />
+  <path d="M 59 8 L 57 5" pathLength="1" />
+  <path d="M 45 6 L 46 3" pathLength="1" />
+  <path d="M 51 6 L 50 3" pathLength="1" />
+  <path d="M 33 13 L 34 10" pathLength="1" />
+  <path d="M 63 13 L 62 10" pathLength="1" />
 </svg>

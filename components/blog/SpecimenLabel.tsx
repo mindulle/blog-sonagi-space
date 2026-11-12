@@ -1,5 +1,7 @@
 import React from 'react';
 import { GrowthGlyph, GrowthStage, normalizeStage } from './GrowthGlyph';
+import { WashiTapeStrip } from './HerbariumTexture';
+import { HerbariumSeal } from './HerbariumSeal';
 
 export interface SpecimenLabelProps {
   /**
@@ -125,14 +127,9 @@ export function SpecimenLabel({
         }}
       >
         {/* Top Washi Mounting Strip Accent */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 h-1.5 w-20 sm:w-24 rounded-b-[2px]"
-          style={{
-            backgroundColor: 'var(--color-brand-primary)',
-            opacity: 0.85,
-          }}
-          aria-hidden="true"
-        />
+        <div className="absolute -top-1 left-1/2 -translate-x-1/2 pointer-events-none">
+          <WashiTapeStrip width={96} height={10} />
+        </div>
 
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 pt-1">
           <div className="flex items-center gap-3 min-w-0 flex-1">
@@ -227,14 +224,30 @@ export function SpecimenLabel({
       }}
       aria-label={`Botanical Specimen ${specimenNo}`}
     >
-      {/* Top Center Washi Paper Mount Tape (한지 마운트 띠 장식) */}
+      {/* Top Center Real Washi Paper Mount Tape */}
+      <div className="absolute -top-2.5 left-1/2 -translate-x-1/2 pointer-events-none">
+        <WashiTapeStrip width={112} height={16} />
+      </div>
+
+      {/* 4 Corner Archival Linen Mounting Tabs (표본지 사각 린넨 마운트 탭) */}
       <div
-        className="absolute -top-2 sm:-top-2.5 left-1/2 -translate-x-1/2 h-4 sm:h-5 w-24 sm:w-28 rounded-[2px] shadow-sm pointer-events-none"
-        style={{
-          backgroundColor: 'var(--color-brand-primary)',
-          opacity: 0.9,
-          border: '1px solid var(--color-border-strong)',
-        }}
+        className="absolute top-2 left-2 w-3.5 h-3.5 pointer-events-none opacity-40 border-t-2 border-l-2"
+        style={{ borderColor: 'var(--color-brand-primary)' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute top-2 right-2 w-3.5 h-3.5 pointer-events-none opacity-40 border-t-2 border-r-2"
+        style={{ borderColor: 'var(--color-brand-primary)' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-2 left-2 w-3.5 h-3.5 pointer-events-none opacity-40 border-b-2 border-l-2"
+        style={{ borderColor: 'var(--color-brand-primary)' }}
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-2 right-2 w-3.5 h-3.5 pointer-events-none opacity-40 border-b-2 border-r-2"
+        style={{ borderColor: 'var(--color-brand-primary)' }}
         aria-hidden="true"
       />
 
@@ -344,9 +357,9 @@ export function SpecimenLabel({
         </div>
       </div>
 
-      {/* Footer: Curatorial Verification Bar */}
+      {/* Footer: Curatorial Verification Bar with Embossed Seal */}
       <footer
-        className="mt-4 sm:mt-5 pt-3 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-1 sm:gap-0 text-[10px] sm:text-[11px] border-t"
+        className="mt-4 sm:mt-5 pt-3 flex items-center justify-between text-[10px] sm:text-[11px] border-t"
         style={{ borderColor: 'var(--color-border-subtle)' }}
       >
         <div className="flex items-center gap-1.5">
@@ -358,11 +371,14 @@ export function SpecimenLabel({
             {collector}
           </span>
         </div>
-        <div
-          className="text-[9px] sm:text-[10px] uppercase tracking-wider"
-          style={{ color: 'var(--color-text-muted)' }}
-        >
-          MDS v0.1.0 • BOTANICAL SSOT
+        <div className="flex items-center gap-2.5">
+          <span
+            className="text-[9px] sm:text-[10px] uppercase tracking-wider hidden sm:inline"
+            style={{ color: 'var(--color-text-muted)' }}
+          >
+            MDS v0.1.0 • BOTANICAL SSOT
+          </span>
+          <HerbariumSeal size={32} registrationNo={specimenNo.slice(0, 8)} />
         </div>
       </footer>
     </section>

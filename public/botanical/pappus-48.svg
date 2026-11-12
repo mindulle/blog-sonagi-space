@@ -1,25 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Dandelion Receptacle Stalk -->
-  <path d="M 24 44 L 24 35" pathLength="1" />
-  <path d="M 21 35 C 21 33 27 33 27 35 Z" pathLength="1" />
-  <!-- Radiating Pappus Umbrella Rays -->
-  <path d="M 24 33 L 12 28" pathLength="1" />
-  <path d="M 24 33 L 15 22" pathLength="1" />
-  <path d="M 24 33 L 20 17" pathLength="1" />
-  <path d="M 24 33 L 24 15" pathLength="1" />
-  <path d="M 24 33 L 28 17" pathLength="1" />
-  <path d="M 24 33 L 33 22" pathLength="1" />
-  <path d="M 24 33 L 36 28" pathLength="1" />
-  <!-- Outer Spherical Halo Ring Arc -->
-  <path d="M 13 28 C 12 20 18 15 24 15 C 30 15 36 20 35 28" pathLength="1" />
-  <!-- Micro Starburst Hair Tips -->
-  <path d="M 20 17 L 19 14" pathLength="1" />
-  <path d="M 24 15 L 24 12" pathLength="1" />
-  <path d="M 28 17 L 29 14" pathLength="1" />
-  <!-- Airborne Floating Seed Taking Flight -->
-  <path d="M 37 16 L 34 20" pathLength="1" />
-  <path d="M 37 16 L 41 11" pathLength="1" />
-  <path d="M 41 11 L 36 8" pathLength="1" />
-  <path d="M 41 11 L 41 6" pathLength="1" />
-  <path d="M 41 11 L 46 8" pathLength="1" />
+  <!-- Receptacle stem and involucral bracts (화탁 줄기와 총포편) -->
+  <path d="M 20 44 L 20 33" pathLength="1" />
+  <path d="M 17 33.5 C 17 31 23 31 23 33.5 Z" pathLength="1" />
+  <path d="M 17.5 35 L 15.5 38" pathLength="1" />
+  <path d="M 22.5 35 L 24.5 38" pathLength="1" />
+  <!-- Spherical Seedhead Radiating Parachute Rays -->
+  <path d="M 20 31 L 7 26" pathLength="1" />
+  <path d="M 20 31 L 9.5 19" pathLength="1" />
+  <path d="M 20 31 L 14.5 14" pathLength="1" />
+  <path d="M 20 31 L 20.5 11" pathLength="1" />
+  <path d="M 20 31 L 26.5 13.5" pathLength="1" />
+  <path d="M 20 31 L 30 19" pathLength="1" />
+  <path d="M 20 31 L 31.5 26" pathLength="1" />
+  <!-- Gossamer halo arc (구형 솜털 외곽 곡선) -->
+  <path d="M 8 26 C 7 17 14 11 22 11 C 27 11 31 16 31 26" pathLength="1" />
+  <!-- Micro starburst hair tips on rays -->
+  <path d="M 14.5 14 L 13.5 11.5" pathLength="1" />
+  <path d="M 20.5 11 L 20.5 8" pathLength="1" />
+  <path d="M 26.5 13.5 L 28 11" pathLength="1" />
+  <!-- Free Floating Airborne Seed (상공으로 비행 중인 독립 수과와 관모 우산) -->
+  <path d="M 33 16 L 30 21" pathLength="1" />
+  <path d="M 33 16 L 38 7.5" pathLength="1" />
+  <!-- Parachute Canopy of the Flying Seed -->
+  <path d="M 38 7.5 L 30.5 3.5" pathLength="1" />
+  <path d="M 38 7.5 L 34.5 1.5" pathLength="1" />
+  <path d="M 38 7.5 L 39 1" pathLength="1" />
+  <path d="M 38 7.5 L 43.5 2.5" pathLength="1" />
+  <path d="M 38 7.5 L 45 6" pathLength="1" />
+  <path d="M 32 3 C 36 1.5 42 2 44.5 5" pathLength="1" />
 </svg>

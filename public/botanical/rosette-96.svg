@@ -1,35 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Rock Ground Fissure Bed -->
-  <path d="M 12 86 L 48 83 L 84 86" pathLength="1" />
-  <path d="M 36 85 L 48 83 L 60 85" pathLength="1" />
-  <!-- Central Leaf Main Midrib -->
-  <path d="M 48 84 L 48 10" pathLength="1" />
-  <!-- Terminal Sagittal Lobe -->
-  <path d="M 48 10 L 40 18 L 44 21" pathLength="1" />
-  <path d="M 48 10 L 56 18 L 52 21" pathLength="1" />
-  <!-- Tier 1 Runcinate Teeth -->
-  <path d="M 44 21 L 34 29 L 39 32" pathLength="1" />
-  <path d="M 52 21 L 62 29 L 57 32" pathLength="1" />
-  <path d="M 48 24 L 37 28" pathLength="1" />
-  <path d="M 48 24 L 59 28" pathLength="1" />
-  <!-- Tier 2 Runcinate Teeth -->
-  <path d="M 39 32 L 28 42 L 34 45" pathLength="1" />
-  <path d="M 57 32 L 68 42 L 62 45" pathLength="1" />
-  <path d="M 48 37 L 31 41" pathLength="1" />
-  <path d="M 48 37 L 65 41" pathLength="1" />
-  <!-- Tier 3 Runcinate Teeth -->
-  <path d="M 34 45 L 24 58 L 31 61" pathLength="1" />
-  <path d="M 62 45 L 72 58 L 65 61" pathLength="1" />
-  <path d="M 48 51 L 27 57" pathLength="1" />
-  <path d="M 48 51 L 69 57" pathLength="1" />
-  <!-- Tier 4 Runcinate Teeth / Base -->
-  <path d="M 31 61 L 22 75 L 48 83" pathLength="1" />
-  <path d="M 65 61 L 74 75 L 48 83" pathLength="1" />
-  <path d="M 48 67 L 25 73" pathLength="1" />
-  <path d="M 48 67 L 71 73" pathLength="1" />
-  <!-- Lateral Spreading Rosette Ground Leaves -->
-  <path d="M 48 76 C 32 72 20 76 14 84 L 22 84" pathLength="1" />
-  <path d="M 48 76 C 64 72 76 76 82 84 L 74 84" pathLength="1" />
-  <path d="M 30 76 L 22 81" pathLength="1" />
-  <path d="M 66 76 L 74 81" pathLength="1" />
+  <!-- Natural Geological Stone Crevice Base -->
+  <path d="M 10 88 L 32 82 L 48 85 L 64 81 L 86 87" pathLength="1" />
+  <path d="M 48 85 L 48 94" pathLength="1" />
+  <path d="M 32 82 L 39 88" pathLength="1" />
+  <path d="M 64 81 L 58 87" pathLength="1" />
+  <!-- Central Fleshy Midrib (강인한 중심 주맥) -->
+  <path d="M 48 85 L 48 9" pathLength="1" />
+  <!-- Terminal Sagittal Spear Lobe (말단 창모양 엽편) -->
+  <path d="M 48 9 L 38 18 C 41 20 44 21.5 48 23 C 52 21.5 55 20 58 18 Z" pathLength="1" />
+  <path d="M 48 14 L 41 17" pathLength="1" />
+  <path d="M 48 14 L 55 17" pathLength="1" />
+  <!-- Tier 1 Runcinate Downward Lobes -->
+  <path d="M 48 23 L 33 29 L 41 32" pathLength="1" />
+  <path d="M 48 23 L 63 28.5 L 55 32" pathLength="1" />
+  <path d="M 48 27 L 35 29" pathLength="1" />
+  <path d="M 48 27 L 61 28.5" pathLength="1" />
+  <!-- Tier 2 Runcinate Downward Lobes -->
+  <path d="M 41 32 L 27 42 L 38 45" pathLength="1" />
+  <path d="M 55 32 L 69 41.5 L 58 45" pathLength="1" />
+  <path d="M 48 39 L 30 42" pathLength="1" />
+  <path d="M 48 39 L 66 41.5" pathLength="1" />
+  <!-- Tier 3 Runcinate Downward Lobes -->
+  <path d="M 38 45 L 22 58 L 35 62" pathLength="1" />
+  <path d="M 58 45 L 74 57.5 L 61 62" pathLength="1" />
+  <path d="M 48 53 L 26 57" pathLength="1" />
+  <path d="M 48 53 L 70 56.5" pathLength="1" />
+  <!-- Tier 4 Basal Runcinate Lobes -->
+  <path d="M 35 62 L 18 75 L 48 84" pathLength="1" />
+  <path d="M 61 62 L 78 74.5 L 48 84" pathLength="1" />
+  <path d="M 48 70 L 23 74" pathLength="1" />
+  <path d="M 48 70 L 73 73.5" pathLength="1" />
+  <!-- Lateral Spreading Rosette Ground Leaves (근생엽 로제트) -->
+  <path d="M 48 78 C 32 73 20 78 12 85 L 24 85" pathLength="1" />
+  <path d="M 48 78 C 64 73 76 78 84 85 L 72 85" pathLength="1" />
+  <path d="M 32 77 L 22 82" pathLength="1" />
+  <path d="M 64 77 L 74 82" pathLength="1" />
 </svg>

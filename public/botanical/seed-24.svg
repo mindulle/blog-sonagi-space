@@ -1,14 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-  <!-- Stone Crevice Bed -->
-  <path d="M 4 21 L 10 20 L 14 20 L 20 21" pathLength="1" />
-  <!-- Dandelion Achene (Body) -->
-  <path d="M 12 12 C 10 14 10 18 12 20 C 14 18 14 14 12 12 Z" pathLength="1" />
-  <!-- Central Rib -->
-  <path d="M 12 13 L 12 19" pathLength="1" />
-  <!-- Beak (Stalk) -->
-  <path d="M 12 12 L 12 6" pathLength="1" />
-  <!-- Pappus Ray Tips -->
-  <path d="M 12 6 L 7 3" pathLength="1" />
-  <path d="M 12 6 L 12 2" pathLength="1" />
-  <path d="M 12 6 L 17 3" pathLength="1" />
+  <!-- Rock crevice cleft bed -->
+  <path d="M 3 22 L 8 20.5 L 12 21.5 L 16 20 L 21 21.5" pathLength="1" />
+  <path d="M 12 21.5 L 12 23" pathLength="1" />
+  <!-- Slender achene body with organic taper -->
+  <path d="M 11.5 13 C 10 14.5 10.2 18 11.8 21 C 13.4 18 13.5 14.5 12.2 13 Z" pathLength="1" />
+  <!-- Spinule barbs on upper shoulder -->
+  <path d="M 10.6 14.8 L 9.2 13.6" pathLength="1" />
+  <path d="M 13.2 14.8 L 14.6 13.6" pathLength="1" />
+  <!-- Central longitudinal rib -->
+  <path d="M 11.8 14.5 L 11.8 19.5" pathLength="1" />
+  <!-- Slender wire beak (rostrum) -->
+  <path d="M 11.8 13 L 12 5.5" pathLength="1" />
+  <!-- Radiating pappus umbrella rays -->
+  <path d="M 12 5.5 L 6.5 2.5" pathLength="1" />
+  <path d="M 12 5.5 L 9.5 1.8" pathLength="1" />
+  <path d="M 12 5.5 L 12 1" pathLength="1" />
+  <path d="M 12 5.5 L 14.5 1.8" pathLength="1" />
+  <path d="M 12 5.5 L 17.5 2.5" pathLength="1" />
 </svg>
