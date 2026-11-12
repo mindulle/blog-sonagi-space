@@ -214,6 +214,47 @@ return new Promise(async (resolve) => {
     const btnPriSm = await figma.getNodeByIdAsync('21:209');
     const btnSecSm = await figma.getNodeByIdAsync('21:211');
 
+    // Resolve the published core icon masters by name at runtime. The node ids
+    // in this sync script are intentionally kept for the existing MDS controls,
+    // but icon masters can be re-published and receive new session ids.
+    const iconNameAliases = new Map([
+      ['External-link', ['External-link', 'External Link', 'Arrow-up-right']],
+      ['Rss', ['Rss', 'RSS']],
+    ]);
+
+    function findCoreIcon(name) {
+      const aliases = iconNameAliases.get(name) || [name];
+      return (
+        figma.root.findAll(
+          (n) =>
+            n.type === 'COMPONENT' &&
+            aliases.some(
+              (alias) =>
+                n.name === `❖ Icon/${alias}` ||
+                n.name === `Icon/${alias}` ||
+                n.name === alias
+            )
+        )[0] || null
+      );
+    }
+
+    function fillIconWrapper(wrapper, iconName) {
+      if (!wrapper || wrapper.type !== 'INSTANCE') return false;
+      const master = findCoreIcon(iconName);
+      const nested = wrapper.findAll((n) => n.type === 'INSTANCE')[0];
+      if (!master || !nested || typeof nested.swapComponent !== 'function') {
+        return false;
+      }
+      try {
+        nested.swapComponent(master);
+        nested.name = `Core Icon • ${iconName}`;
+        return true;
+      } catch (error) {
+        console.warn(`Could not fill Icon Wrapper with ${iconName}:`, error);
+        return false;
+      }
+    }
+
     function createBadge(label, color = 'info', variant = 'pill') {
       let master = bInfoPill;
       if (color === 'success') master = bSuccessPill;
@@ -243,6 +284,16 @@ return new Promise(async (resolve) => {
       if (icons.length >= 2) {
         icons[0].visible = icon === 'copy' || icon === 'rss';
         icons[1].visible = icon === 'arrow' || icon === 'ext';
+        const iconName =
+          icon === 'copy'
+            ? 'Copy'
+            : icon === 'rss'
+              ? 'Rss'
+              : icon === 'ext'
+                ? 'External-link'
+                : 'Arrow-right';
+        const active = icon === 'copy' || icon === 'rss' ? icons[0] : icons[1];
+        fillIconWrapper(active, iconName);
       }
       return inst;
     }

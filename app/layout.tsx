@@ -1,15 +1,30 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import {
+  Cormorant_Garamond,
+  JetBrains_Mono,
+  Noto_Serif_KR,
+} from 'next/font/google';
 import './globals.css';
 
-const geistSans = Geist({
-  variable: '--sng-font-geist-sans',
+const cormorantGaramond = Cormorant_Garamond({
+  variable: '--sng-font-cinematic',
   subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
 });
 
-const geistMono = Geist_Mono({
-  variable: '--sng-font-geist-mono',
+const jetbrainsMono = JetBrains_Mono({
+  variable: '--sng-font-mono',
   subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const notoSerifKR = Noto_Serif_KR({
+  variable: '--sng-font-serif-kr',
+  subsets: ['latin'],
+  weight: ['500', '600', '700'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -74,7 +89,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${cormorantGaramond.variable} ${jetbrainsMono.variable} ${notoSerifKR.variable} antialiased`}
       >
         <ThemeProvider
           attribute="data-theme"

@@ -13,6 +13,10 @@
  *    - 2-Column 허브 그리드: 정확히 530px 너비 균등 분할 (`(1080 - 20) / 2`)
  *    - RssSubscribeWidget 헤더: `titleCol`에 `layoutGrow = 1` 및 `des.layoutAlign = STRETCH` 부여로 세로 붕괴 완벽 차단.
  * 4. 1440px 뷰포트 내 1080px 중앙 정렬 에디토리얼 컨테이너 아키텍처.
+ * 5. 공식 Core Icon 컴포넌트를 버튼의 Icon Wrapper에 주입하고, 9개 아이콘
+ *    specimen을 3x3 고정 셀 그리드로 배치한다. 아이콘 수가 늘어나도 셀 폭은
+ *    부모 폭에서 gap을 제외해 자동 계산되므로 임의의 100x100 기본 프레임에
+ *    의존하지 않는다.
  */
 
 return new Promise(async (resolve) => {
@@ -131,6 +135,56 @@ return new Promise(async (resolve) => {
 
     const hpMaster = await figma.getNodeByIdAsync('225:4');
 
+    // Core icons are library-dependent, so resolve them by name at runtime rather
+    // than baking session-specific node ids into this script. This also keeps the
+    // specimen usable when the design-system library publishes another icon.
+    const coreIconNames = [
+      'Arrow-right',
+      'Arrow-left',
+      'Check',
+      'Copy',
+      'External-link',
+      'Link',
+      'Menu',
+      'Rss',
+      'Search',
+    ];
+    const iconNameAliases = new Map([
+      ['External-link', ['External-link', 'External Link', 'Arrow-up-right']],
+      ['Rss', ['Rss', 'RSS']],
+    ]);
+
+    function findCoreIcon(name) {
+      const aliases = iconNameAliases.get(name) || [name];
+      const nodes = figma.root.findAll(
+        (n) =>
+          n.type === 'COMPONENT' &&
+          aliases.some(
+            (alias) =>
+              n.name === `❖ Icon/${alias}` ||
+              n.name === `Icon/${alias}` ||
+              n.name === alias
+          )
+      );
+      return nodes[0] || null;
+    }
+
+    function fillIconWrapper(wrapper, iconName) {
+      if (!wrapper || wrapper.type !== 'INSTANCE') return false;
+      const master = findCoreIcon(iconName);
+      if (!master) return false;
+      const nested = wrapper.findAll((n) => n.type === 'INSTANCE')[0];
+      if (!nested || typeof nested.swapComponent !== 'function') return false;
+      try {
+        nested.swapComponent(master);
+        nested.name = `Core Icon • ${iconName}`;
+        return true;
+      } catch (error) {
+        console.warn(`Could not fill Icon Wrapper with ${iconName}:`, error);
+        return false;
+      }
+    }
+
     function createInstBadge(label, color = 'info', variant = 'pill') {
       let master = bInfoPill;
       if (color === 'success')
@@ -176,6 +230,16 @@ return new Promise(async (resolve) => {
       if (icons.length >= 2) {
         icons[0].visible = icon === 'copy' || icon === 'rss';
         icons[1].visible = icon === 'arrow' || icon === 'ext';
+        const iconName =
+          icon === 'copy'
+            ? 'Copy'
+            : icon === 'rss'
+              ? 'Rss'
+              : icon === 'ext'
+                ? 'External-link'
+                : 'Arrow-right';
+        const active = icon === 'copy' || icon === 'rss' ? icons[0] : icons[1];
+        fillIconWrapper(active, iconName);
       }
       return inst;
     }
@@ -1133,10 +1197,98 @@ return new Promise(async (resolve) => {
     popoverSection.appendChild(demoArea);
     gardenCont.appendChild(popoverSection);
 
+    // Core Icon Grid: a scalable 3x3 specimen, intentionally independent from
+    // the page cards. Each cell has an explicit width derived from the parent so
+    // adding a fourth row never reintroduces the historic 52px column collapse.
+    const iconFrame = figma.createFrame();
+    iconFrame.name = '04 /core-icons • Scalable 9 Icon Grid';
+    iconFrame.x = 4480;
+    iconFrame.y = 40;
+    iconFrame.resize(1440, 100);
+    iconFrame.layoutMode = 'VERTICAL';
+    iconFrame.primaryAxisSizingMode = 'AUTO';
+    iconFrame.counterAxisSizingMode = 'FIXED';
+    iconFrame.counterAxisAlignItems = 'CENTER';
+    iconFrame.paddingTop = 64;
+    iconFrame.paddingBottom = 80;
+    iconFrame.itemSpacing = 32;
+    bindFill(iconFrame, 'bg/base', CDark.bgBase);
+    if (colorColl && darkId)
+      iconFrame.setExplicitVariableModeForCollection(colorColl, darkId);
+
+    const iconCont = figma.createFrame();
+    iconCont.name = 'Container (max-w-[1080px] Core Icon Grid)';
+    iconCont.resize(1080, 100);
+    iconCont.layoutMode = 'VERTICAL';
+    iconCont.primaryAxisSizingMode = 'AUTO';
+    iconCont.counterAxisSizingMode = 'AUTO';
+    iconCont.itemSpacing = 20;
+    iconCont.fills = [];
+    iconFrame.appendChild(iconCont);
+
+    const iconTitle = figma.createText();
+    iconTitle.fontName = F.uiBold;
+    iconTitle.characters = 'Core Icons • 3×3 Scalable Grid';
+    iconTitle.fontSize = 24;
+    bindFill(iconTitle, 'text/primary', CDark.textPrimary);
+    iconCont.appendChild(iconTitle);
+
+    for (let rowIndex = 0; rowIndex < 3; rowIndex += 1) {
+      const row = figma.createFrame();
+      row.name = `Core Icon Grid Row ${rowIndex + 1}`;
+      row.layoutMode = 'HORIZONTAL';
+      row.primaryAxisSizingMode = 'FIXED';
+      row.counterAxisSizingMode = 'AUTO';
+      row.resize(1080, 96);
+      row.itemSpacing = 16;
+      row.layoutAlign = 'STRETCH';
+      row.fills = [];
+
+      for (let colIndex = 0; colIndex < 3; colIndex += 1) {
+        const iconName = coreIconNames[rowIndex * 3 + colIndex];
+        const cell = figma.createFrame();
+        cell.name = `Core Icon Cell • ${iconName}`;
+        cell.layoutMode = 'VERTICAL';
+        cell.primaryAxisSizingMode = 'AUTO';
+        cell.counterAxisSizingMode = 'AUTO';
+        cell.counterAxisAlignItems = 'CENTER';
+        cell.itemSpacing = 8;
+        cell.paddingTop = 16;
+        cell.paddingBottom = 16;
+        cell.paddingLeft = 16;
+        cell.paddingRight = 16;
+        cell.resize((1080 - 16 * 2) / 3, 96);
+        cell.layoutGrow = 1;
+        bindFill(cell, 'bg/surface', CDark.bgSurface);
+        bindStroke(cell, 'border/default', CDark.borderDefault, 1);
+
+        const master = findCoreIcon(iconName);
+        if (master) {
+          const instance = master.createInstance();
+          instance.name = `Core Icon • ${iconName}`;
+          cell.appendChild(instance);
+        }
+        const label = figma.createText();
+        label.fontName = F.mono;
+        label.characters = iconName;
+        label.fontSize = 11;
+        bindFill(label, 'text/secondary', CDark.textSecondary);
+        cell.appendChild(label);
+        row.appendChild(cell);
+      }
+      iconCont.appendChild(row);
+    }
+    section.appendChild(iconFrame);
+
     await figma.loadAllPagesAsync();
     const maxH =
-      Math.max(aboutFrame.height, rssFrame.height, gardenFrame.height) + 120;
-    section.resizeWithoutConstraints(4520, maxH);
+      Math.max(
+        aboutFrame.height,
+        rssFrame.height,
+        gardenFrame.height,
+        iconFrame.height
+      ) + 120;
+    section.resizeWithoutConstraints(6000, maxH);
     figma.viewport.scrollAndZoomIntoView([section]);
 
     console.log('✅ [BLOG-4 True Color SSOT] Completed!');
@@ -1147,6 +1299,7 @@ return new Promise(async (resolve) => {
         { name: aboutFrame.name, id: aboutFrame.id },
         { name: rssFrame.name, id: rssFrame.id },
         { name: gardenFrame.name, id: gardenFrame.id },
+        { name: iconFrame.name, id: iconFrame.id },
       ],
     });
   } catch (err) {

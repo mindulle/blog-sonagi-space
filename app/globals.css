@@ -1,3 +1,4 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css');
 @import 'tailwindcss';
 @import '@mindulle/tokens/css';
 
@@ -69,6 +70,15 @@
    블로그 커스텀 토큰 (카테고리, 구문 강조)
 ───────────────────────────────────────────────────────── */
 :root {
+  --sng-font-sans:
+    'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont,
+    system-ui, Roboto, sans-serif;
+  --sng-font-mono:
+    var(--sng-font-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --sng-font-cinematic:
+    var(--sng-font-cinematic), var(--sng-font-serif-kr), 'Cormorant Garamond',
+    'Noto Serif KR', Georgia, serif;
+
   /* Category (라이트모드) */
   --sng-color-cat-dev-bg: #dbeafe;
   --sng-color-cat-dev-text: #1d4ed8;
@@ -118,6 +128,10 @@
    Tailwind 테마 연결 (레이아웃 유틸리티용)
 ───────────────────────────────────────────────────────── */
 @theme inline {
+  --font-sans: var(--sng-font-sans);
+  --font-mono: var(--sng-font-mono);
+  --font-cinematic: var(--sng-font-cinematic);
+  --font-serif: var(--sng-font-cinematic);
   --sng-font-sans: var(--sng-font-sans);
   --sng-font-mono: var(--sng-font-mono);
 
