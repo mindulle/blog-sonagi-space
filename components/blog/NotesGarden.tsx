@@ -180,7 +180,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
     <div className="space-y-8 font-mono">
       {/* ─── TIER 1: 4단계 생장 선화 에칭 필터 (Botanical Stages) ─── */}
       <section
-        className="p-4 sm:p-5 rounded-[4px] border select-none"
+        className="p-4 sm:p-5 rounded-[4px] border select-none sng-texture-folio"
         style={{
           backgroundColor: 'var(--sng-color-bg-surface)',
           borderColor: 'var(--sng-color-border-default)',

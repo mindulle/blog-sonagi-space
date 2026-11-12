@@ -120,7 +120,7 @@ export function SpecimenLabel({
     const size = glyphSize || 48;
     return (
       <div
-        className={`relative overflow-hidden p-3.5 sm:p-4 rounded-[4px] font-mono w-full ${className}`}
+        className={`relative overflow-hidden p-3.5 sm:p-4 rounded-[4px] font-mono w-full sng-texture-folio ${className}`}
         style={{
           backgroundColor: 'var(--color-bg-surface)',
           border: '2px solid var(--color-border-strong)',
@@ -215,7 +215,7 @@ export function SpecimenLabel({
   const size = glyphSize || 48;
   return (
     <section
-      className={`relative p-4 sm:p-6 rounded-[4px] font-mono select-text transition-shadow w-full ${className}`}
+      className={`relative p-4 sm:p-6 rounded-[4px] font-mono select-text transition-shadow w-full sng-texture-folio ${className}`}
       style={{
         backgroundColor: 'var(--color-bg-surface)',
         border: '2px solid var(--color-border-strong)', // The True 2px Stem (Gold Accent)

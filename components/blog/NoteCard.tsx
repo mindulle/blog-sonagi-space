@@ -23,7 +23,7 @@ export function NoteCard({ note }: { note: Note }) {
       style={{ textDecoration: 'none' }}
     >
       <article
-        className="relative h-full flex flex-col justify-between p-5 rounded-[4px] border transition-all duration-200 font-mono"
+        className="relative h-full flex flex-col justify-between p-5 rounded-[4px] border transition-all duration-200 font-mono sng-texture-folio"
         style={{
           backgroundColor: 'var(--sng-color-bg-surface)',
           borderColor: 'var(--sng-color-border-default)',

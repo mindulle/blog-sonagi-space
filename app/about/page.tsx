@@ -59,7 +59,7 @@ export default function AboutPage() {
       <Container className="max-w-[960px] mx-auto px-4 sm:px-6 md:px-8">
         {/* ─── 단 하나의 장중한 아카이벌 표본지 대장 (The Archival Monograph Folio) ─── */}
         <article
-          className="relative rounded-[4px] p-6 sm:p-10 md:p-16 border font-mono transition-shadow"
+          className="relative rounded-[4px] p-6 sm:p-10 md:p-16 border font-mono transition-shadow sng-texture-folio"
           style={{
             backgroundColor: 'var(--color-bg-surface)',
             borderColor: 'var(--color-border-strong)', // The True 2px Stem (Gold Accent)
