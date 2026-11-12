@@ -662,3 +662,67 @@ a:hover {
 .sng-btn--outline:hover {
   background: var(--sng-color-bg-surface);
 }
+
+/* ─────────────────────────────────────────────────────────
+   [BLOG-11] 85% 골든스냅 덩굴 드로잉 모션 (존코바 텐션 곡선)
+   - cubic-bezier(0.15, 0.85, 0.35, 1.0)
+   - 85% 지점까지 폭발적 텐션 스냅 후 마지막 15% 부드러운 안착
+───────────────────────────────────────────────────────── */
+:root {
+  --sng-ease-golden-snap: cubic-bezier(0.15, 0.85, 0.35, 1);
+}
+
+@keyframes sng-vine-grow {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0.3;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    stroke-dashoffset: 60;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.sng-vine-drawing {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: sng-vine-grow 1.4s var(--sng-ease-golden-snap) forwards;
+}
+
+/* 유기적 지식 뿌리망(Rhizome Mesh) 펄스 이펙트 */
+@keyframes sng-rhizome-pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+.sng-rhizome-pulse {
+  animation: sng-rhizome-pulse 2.8s ease-in-out infinite;
+}
+
+/* 햅틱 인터랙티브 요소 터치 피드백 */
+.sng-haptic-card {
+  transition:
+    transform 0.25s var(--sng-ease-golden-snap),
+    box-shadow 0.25s var(--sng-ease-golden-snap);
+}
+
+.sng-haptic-card:hover {
+  transform: translateY(-2px);
+}
+
+.sng-haptic-card:active {
+  transform: translateY(0) scale(0.995);
+}

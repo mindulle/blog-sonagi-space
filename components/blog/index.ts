@@ -21,5 +21,6 @@ export { HerbariumTextureFilter, WashiTapeStrip } from './HerbariumTexture';
 export { HerbariumSeal } from './HerbariumSeal';
 export { SeriesNav } from './SeriesNav';
 export { RssSubscribeWidget } from './RssSubscribeWidget';
+export { VineFrame } from './VineFrame';
 
 export type { Heading } from './TableOfContents';

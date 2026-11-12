@@ -10,6 +10,7 @@ const ForceGraph2D = dynamic(() => import('react-force-graph-2d'), {
   ssr: false,
 });
 import { useRouter } from 'next/navigation';
+import { haptics } from '@/lib/haptics';
 
 interface Node {
   id: string;
@@ -96,6 +97,9 @@ export function WikiGraph({
 
   const handleNodeHover = useCallback(
     (node: Node | any | null) => {
+      if (node && node.id !== hoverNode?.id) {
+        haptics.playRootClick();
+      }
       setHoverNode(node || null);
 
       if (node && adjacencyList.has(node.id)) {
@@ -107,7 +111,140 @@ export function WikiGraph({
         setHighlightLinks(new Set());
       }
     },
-    [adjacencyList]
+    [adjacencyList, hoverNode]
+  );
+
+  // [BLOG-10] 지식의 뿌리망(Rhizome Mesh) 유기적 선화 렌더러
+  const getCurvature = useCallback((sourceId: string, targetId: string) => {
+    let hash = 0;
+    const str = sourceId + targetId;
+    for (let i = 0; i < str.length; i++) {
+      hash = (hash << 5) - hash + str.charCodeAt(i);
+      hash |= 0;
+    }
+    return ((Math.abs(hash) % 100) / 100 - 0.5) * 0.32;
+  }, []);
+
+  const drawRhizomeLink = useCallback(
+    (link: any, ctx: CanvasRenderingContext2D) => {
+      const start = link.source;
+      const end = link.target;
+      if (typeof start !== 'object' || typeof end !== 'object') return;
+      if (start.x === undefined || end.x === undefined) return;
+
+      const isHighlighted = highlightLinks.has(link);
+      const brandPrimary = getCssVar('--sng-color-brand-primary', '#3DA8CC');
+      const borderSubtle = getCssVar(
+        '--sng-color-border-subtle',
+        'rgba(168, 145, 120, 0.3)'
+      );
+
+      const dx = end.x - start.x;
+      const dy = end.y - start.y;
+      const dist = Math.sqrt(dx * dx + dy * dy);
+      if (dist === 0) return;
+
+      const curve = getCurvature(start.id, end.id);
+      const midX = (start.x + end.x) / 2 - (dy / dist) * (dist * curve);
+      const midY = (start.y + end.y) / 2 + (dx / dist) * (dist * curve);
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(start.x, start.y);
+      ctx.quadraticCurveTo(midX, midY, end.x, end.y);
+
+      if (isHighlighted) {
+        ctx.strokeStyle = brandPrimary;
+        ctx.lineWidth = 2.4;
+        ctx.shadowColor = brandPrimary;
+        ctx.shadowBlur = 6;
+        ctx.stroke();
+
+        // 뿌리를 따라 흐르는 수액/영양소 펄스 노드
+        const t = (Date.now() % 2400) / 2400;
+        const pulseX =
+          (1 - t) * (1 - t) * start.x + 2 * (1 - t) * t * midX + t * t * end.x;
+        const pulseY =
+          (1 - t) * (1 - t) * start.y + 2 * (1 - t) * t * midY + t * t * end.y;
+
+        ctx.beginPath();
+        ctx.arc(pulseX, pulseY, 2.2, 0, 2 * Math.PI);
+        ctx.fillStyle = '#ffffff';
+        ctx.fill();
+      } else {
+        ctx.strokeStyle = hoverNode
+          ? 'rgba(180, 160, 140, 0.12)'
+          : borderSubtle;
+        ctx.lineWidth = isLocal ? 1.4 : 0.8;
+        ctx.stroke();
+      }
+      ctx.restore();
+    },
+    [highlightLinks, hoverNode, isLocal, getCurvature]
+  );
+
+  const drawBotanicalNode = useCallback(
+    (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
+      if (node.x === undefined || node.y === undefined) return;
+
+      const isHovered = hoverNode && hoverNode.id === node.id;
+      const isNeighbor = highlightNodes.has(node.id);
+      const isDimmed = hoverNode && !isNeighbor && !isHovered;
+
+      const brandPrimary = getCssVar('--sng-color-brand-primary', '#3DA8CC');
+      const bgSurface = getCssVar('--sng-color-bg-surface', '#ffffff');
+      const baseRadius = (node.val || 1) * 2 + 2;
+
+      ctx.save();
+
+      if (isDimmed) {
+        ctx.globalAlpha = 0.2;
+      }
+
+      if (isHovered || isNeighbor) {
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, baseRadius + 4, 0, 2 * Math.PI);
+        ctx.fillStyle = brandPrimary;
+        ctx.globalAlpha = isHovered ? 0.35 : 0.18;
+        ctx.fill();
+        ctx.globalAlpha = isDimmed ? 0.2 : 1.0;
+      }
+
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, baseRadius, 0, 2 * Math.PI);
+      ctx.fillStyle = bgSurface;
+      ctx.fill();
+      ctx.lineWidth = isHovered ? 2.2 : 1.2;
+      ctx.strokeStyle =
+        isHovered || isNeighbor
+          ? brandPrimary
+          : node.visibility === 'private'
+            ? getCssVar('--sng-color-border-strong', '#8b949e')
+            : brandPrimary;
+      ctx.stroke();
+
+      ctx.beginPath();
+      ctx.arc(node.x, node.y, Math.max(1, baseRadius - 2), 0, 2 * Math.PI);
+      ctx.fillStyle =
+        isHovered || isNeighbor ? brandPrimary : 'rgba(148, 163, 184, 0.6)';
+      ctx.fill();
+
+      if (
+        (globalScale > 1.8 || isHovered || isNeighbor) &&
+        node.title &&
+        node.group !== 'dummy'
+      ) {
+        const fontSize = Math.max(11 / globalScale, 3.5);
+        ctx.font = `${fontSize}px var(--sng-font-sans, sans-serif)`;
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'top';
+        ctx.fillStyle = getCssVar('--sng-color-text-primary', '#1e1311');
+        ctx.fillText(node.title, node.x, node.y + baseRadius + 2.5);
+      }
+
+      ctx.restore();
+    },
+    [hoverNode, highlightNodes]
   );
 
   // 창 크기 변경 시 그래프 크기 조절
@@ -196,38 +333,16 @@ export function WikiGraph({
           height={dimensions.height}
           graphData={data}
           nodeLabel="" // We implement custom hover
-          nodeVal={(node: any) => node.val || 1} // 가중치에 따른 노드 크기 차별화
-          nodeRelSize={3} // 노드 기본 크기 축소 (기존 6 -> 3)
-          nodeColor={(node: Node | any) => {
-            // 더미 노드 색상
-            if (node.group === 'dummy') return 'rgba(148, 163, 184, 0.8)';
-
-            // 호버 상태일 때 이웃 노드가 아니면 투명하게(Dimming) 처리
-            if (
-              hoverNode &&
-              !highlightNodes.has(node.id) &&
-              node.id !== hoverNode.id
-            ) {
-              return 'rgba(200, 200, 200, 0.2)';
-            }
-
-            // 캔버스는 var(--)를 인식하지 못하므로 getCssVar 헬퍼 사용
-            return node.visibility === 'private'
-              ? getCssVar('--sng-color-border-strong', '#8b949e')
-              : getCssVar('--sng-color-brand-primary', '#3DA8CC');
-          }}
-          linkColor={(link: any) =>
-            highlightLinks.has(link)
-              ? getCssVar('--sng-color-brand-primary', '#3DA8CC')
-              : getCssVar('--sng-color-border-default', '#e5e7eb')
-          }
-          linkWidth={(link: any) =>
-            highlightLinks.has(link) || isLocal ? 2 : 0.5
-          }
+          nodeVal={(node: any) => node.val || 1}
+          nodeRelSize={3}
+          nodeCanvasObject={drawBotanicalNode}
+          nodeCanvasObjectMode={() => 'replace'}
+          linkCanvasObject={drawRhizomeLink}
+          linkCanvasObjectMode={() => 'replace'}
           onNodeHover={handleNodeHover}
           onNodeClick={(node: any) => {
-            // 더미 노드 처리 (링크 생략 알림)
             if (node.group === 'dummy') return;
+            haptics.playDewTap();
             router.push(isLocal ? `/notes/${node.id}` : `/notes/${node.id}`);
           }}
         />
