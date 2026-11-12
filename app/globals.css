@@ -31,21 +31,71 @@
  */
 
 /* ─────────────────────────────────────────────────────────
-   디자인 토큰 별칭 브릿지 (@mindulle/tokens 연동)
-   - 테마별 시맨틱 별칭 및 배경 오버레이 토큰 매핑
+   디자인 토큰 정본 바인딩 (MDS v0.1.0 Weathered Stone & Dandelion Amber)
+   - 외부 패키지 번들 캐시 왜곡을 방지하고 공식 정본 색상 엄격 보장
 ───────────────────────────────────────────────────────── */
-:root {
-  /* 별칭(alias) — 대상 토큰이 테마별로 정의되어 있어 자동으로 따라감 */
+:root,
+[data-theme='light'] {
+  /* Brand Tokens (Light: Bronze Gold) */
+  --sng-color-brand-primary: #b86a04;
+  --sng-color-brand-primary-hover: #9e5a03;
+  --sng-color-brand-accent: #eab308;
+  --sng-color-brand-accent-hover: #ca8a04;
+  --sng-color-brand-ink: #b86a04;
+
+  /* Background Tokens (Light: Weathered Paper & Pure Surface) */
+  --sng-color-background-base: #fbfbfa;
+  --sng-color-background-surface: #ffffff;
+  --sng-color-background-elevated: #ffffff;
+  --sng-color-bg-overlay: #f4f4f5;
+
+  /* Text & Border Tokens */
+  --sng-color-text-primary: #18181b;
+  --sng-color-text-secondary: #52525b;
+  --sng-color-text-muted: #71717a;
+  --sng-color-text-disabled: #a1a1aa;
+  --sng-color-text-inverse: #ffffff;
+  --sng-color-border-default: #e4e4e7;
+  --sng-color-border-subtle: #f4f4f5;
+  --sng-color-border-strong: #b86a04;
+
+  /* Aliases */
   --sng-color-accent-default: var(--sng-color-brand-accent);
   --sng-color-bg-base: var(--sng-color-background-base);
   --sng-color-bg-surface: var(--sng-color-background-surface);
   --sng-color-bg-elevated: var(--sng-color-background-elevated);
-  --sng-color-bg-overlay: #f4f4f5;
   --sng-color-brand-logo: var(--sng-color-wordmark-dot);
 }
 
 [data-theme='dark'] {
+  /* Brand Tokens (Dark: Dandelion Amber) */
+  --sng-color-brand-primary: #ffc837;
+  --sng-color-brand-primary-hover: #e6b432;
+  --sng-color-brand-accent: #ffd166;
+  --sng-color-brand-accent-hover: #ffc837;
+  --sng-color-brand-ink: #ffc837;
+
+  /* Background Tokens (Dark: Deep Obsidian & Elevated Surface) */
+  --sng-color-background-base: #12151d;
+  --sng-color-background-surface: #1b202c;
+  --sng-color-background-elevated: #242b3b;
   --sng-color-bg-overlay: #1f2635;
+
+  /* Text & Border Tokens */
+  --sng-color-text-primary: #f1f5f9;
+  --sng-color-text-secondary: #94a3b8;
+  --sng-color-text-muted: #64748b;
+  --sng-color-text-disabled: #475569;
+  --sng-color-text-inverse: #12151d;
+  --sng-color-border-default: #2c3547;
+  --sng-color-border-subtle: #1f2635;
+  --sng-color-border-strong: #ffc837;
+
+  /* Aliases */
+  --sng-color-accent-default: var(--sng-color-brand-accent);
+  --sng-color-bg-base: var(--sng-color-background-base);
+  --sng-color-bg-surface: var(--sng-color-background-surface);
+  --sng-color-bg-elevated: var(--sng-color-background-elevated);
 }
 
 /* ─────────────────────────────────────────────────────────
