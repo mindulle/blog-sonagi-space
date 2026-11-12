@@ -41,11 +41,14 @@ export function LocalGraph({ slug }: LocalGraphProps) {
 
         // 1. 현재 노트와 직간접적으로 연결된 링크 찾기 (1-hop)
         // D3 force-graph가 link 객체를 변이(mutate)시키므로 typeof 체크 필요
+        const isDummy = (id: string) =>
+          !id || id === '노트-이름' || id === '노트 이름';
         const relevantLinks = fullData.links.filter((link: any) => {
           const sourceId =
             typeof link.source === 'object' ? link.source.id : link.source;
           const targetId =
             typeof link.target === 'object' ? link.target.id : link.target;
+          if (isDummy(sourceId) || isDummy(targetId)) return false;
           return sourceId === slug || targetId === slug;
         });
 
@@ -132,7 +135,7 @@ export function LocalGraph({ slug }: LocalGraphProps) {
           </span>
         </div>
       ) : (
-        <WikiGraph data={data!} height={350} isLocal={true} />
+        <WikiGraph data={data!} height={350} isLocal={true} rootSlug={slug} />
       )}
     </div>
   );

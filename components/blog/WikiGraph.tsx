@@ -46,10 +46,12 @@ export function WikiGraph({
   data,
   height = 0,
   isLocal = false,
+  rootSlug = '',
 }: {
   data: GraphData;
   height?: number;
   isLocal?: boolean;
+  rootSlug?: string;
 }) {
   const fgRef = useRef<any>(null);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -193,7 +195,14 @@ export function WikiGraph({
 
       const brandPrimary = getCssVar('--sng-color-brand-primary', '#3DA8CC');
       const bgSurface = getCssVar('--sng-color-bg-surface', '#ffffff');
-      const baseRadius = (node.val || 1) * 2 + 2;
+      const isCenterNode =
+        isLocal &&
+        Boolean(rootSlug) &&
+        (node.id === rootSlug ||
+          node.id?.toLowerCase() === rootSlug.toLowerCase());
+      const baseRadius = isCenterNode
+        ? 5.5
+        : Math.max(2.5, (node.val || 1) * 1.5 + 1.5);
 
       ctx.save();
 
@@ -201,11 +210,11 @@ export function WikiGraph({
         ctx.globalAlpha = 0.2;
       }
 
-      if (isHovered || isNeighbor) {
+      if (isHovered || isNeighbor || isCenterNode) {
         ctx.beginPath();
         ctx.arc(node.x, node.y, baseRadius + 4, 0, 2 * Math.PI);
         ctx.fillStyle = brandPrimary;
-        ctx.globalAlpha = isHovered ? 0.35 : 0.18;
+        ctx.globalAlpha = isHovered || isCenterNode ? 0.35 : 0.18;
         ctx.fill();
         ctx.globalAlpha = isDimmed ? 0.2 : 1.0;
       }
@@ -214,9 +223,9 @@ export function WikiGraph({
       ctx.arc(node.x, node.y, baseRadius, 0, 2 * Math.PI);
       ctx.fillStyle = bgSurface;
       ctx.fill();
-      ctx.lineWidth = isHovered ? 2.2 : 1.2;
+      ctx.lineWidth = isHovered || isCenterNode ? 2.2 : 1.2;
       ctx.strokeStyle =
-        isHovered || isNeighbor
+        isHovered || isNeighbor || isCenterNode
           ? brandPrimary
           : node.visibility === 'private'
             ? getCssVar('--sng-color-border-strong', '#8b949e')
@@ -226,25 +235,82 @@ export function WikiGraph({
       ctx.beginPath();
       ctx.arc(node.x, node.y, Math.max(1, baseRadius - 2), 0, 2 * Math.PI);
       ctx.fillStyle =
-        isHovered || isNeighbor ? brandPrimary : 'rgba(148, 163, 184, 0.6)';
+        isHovered || isNeighbor || isCenterNode
+          ? brandPrimary
+          : 'rgba(148, 163, 184, 0.6)';
       ctx.fill();
 
       if (
-        (globalScale > 1.8 || isHovered || isNeighbor) &&
         node.title &&
-        node.group !== 'dummy'
+        node.group !== 'dummy' &&
+        node.id !== '노트-이름' &&
+        node.id !== '노트 이름'
       ) {
-        const fontSize = Math.max(11 / globalScale, 3.5);
-        ctx.font = `${fontSize}px var(--sng-font-sans, sans-serif)`;
-        ctx.textAlign = 'center';
-        ctx.textBaseline = 'top';
-        ctx.fillStyle = getCssVar('--sng-color-text-primary', '#1e1311');
-        ctx.fillText(node.title, node.x, node.y + baseRadius + 2.5);
+        // 로컬 그래프: 미호버 시 중심 노드만 라벨 표시하여 텍스트 충돌/겹침 100% 원천 방지
+        // 호버 시 해당 호버된 노드만 풀 타이틀과 골든 앰버 칩으로 선명하게 스포트라이트
+        const shouldShow = isLocal
+          ? isHovered || (isCenterNode && !hoverNode)
+          : isHovered || isNeighbor || globalScale > 1.8;
+
+        if (shouldShow) {
+          const fontSize = Math.max(11 / globalScale, 3.5);
+          ctx.font = `${isHovered || isCenterNode ? 'bold ' : ''}${fontSize}px var(--sng-font-sans, sans-serif)`;
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'top';
+
+          // 긴 텍스트 말줄임: 비호버 상태에서는 12자 이내로 콤팩트하게 표시하여 라벨 충돌 방지
+          let labelText = node.title;
+          if (isLocal && !isHovered && labelText.length > 12) {
+            labelText = labelText.slice(0, 11) + '…';
+          }
+
+          // 텍스트 가독성을 위한 반투명 배경 칩 (Pill Backdrop)
+          const textMetrics = ctx.measureText(labelText);
+          const textWidth = textMetrics.width;
+          const textHeight = fontSize * 1.25;
+          const textY = node.y + baseRadius + 4;
+          const padX = 5;
+          const padY = 2.5;
+
+          ctx.fillStyle = isHovered
+            ? getCssVar('--sng-color-bg-elevated', 'rgba(255,255,255,0.95)')
+            : 'color-mix(in srgb, var(--sng-color-bg-surface) 90%, transparent)';
+          ctx.beginPath();
+          if (ctx.roundRect) {
+            ctx.roundRect(
+              node.x - textWidth / 2 - padX,
+              textY - padY,
+              textWidth + padX * 2,
+              textHeight + padY * 2,
+              4
+            );
+          } else {
+            ctx.rect(
+              node.x - textWidth / 2 - padX,
+              textY - padY,
+              textWidth + padX * 2,
+              textHeight + padY * 2
+            );
+          }
+          ctx.fill();
+
+          if (isHovered || (isLocal && isCenterNode)) {
+            ctx.strokeStyle = brandPrimary;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+
+          ctx.fillStyle =
+            isHovered || (isLocal && isCenterNode)
+              ? brandPrimary
+              : getCssVar('--sng-color-text-primary', '#1e1311');
+          ctx.fillText(labelText, node.x, textY);
+        }
       }
 
       ctx.restore();
     },
-    [hoverNode, highlightNodes]
+    [hoverNode, highlightNodes, isLocal, rootSlug]
   );
 
   // 창 크기 변경 시 그래프 크기 조절
@@ -308,9 +374,14 @@ export function WikiGraph({
           .strength(0.05)
       );
     } else if (fgRef.current && isLocal) {
-      // 로컬 뷰에서는 군집 대신 중앙에 모이는 일반적인 포스 사용
-      fgRef.current.d3Force('charge')?.strength(-150);
-      fgRef.current.d3Force('link')?.distance(80);
+      // 로컬 뷰: 물리적 충돌 방지 및 넉넉한 반발력과 링크 거리 적용
+      fgRef.current.d3Force('charge')?.strength(-500);
+      fgRef.current.d3Force('link')?.distance(115);
+      fgRef.current.d3Force(
+        'collide',
+        d3.forceCollide().radius(45).iterations(3)
+      );
+      fgRef.current.d3ReheatSimulation();
     }
   }, [isLocal, data]);
 
@@ -335,6 +406,8 @@ export function WikiGraph({
           nodeLabel="" // We implement custom hover
           nodeVal={(node: any) => node.val || 1}
           nodeRelSize={3}
+          warmupTicks={50}
+          cooldownTicks={100}
           nodeCanvasObject={drawBotanicalNode}
           nodeCanvasObjectMode={() => 'replace'}
           linkCanvasObject={drawRhizomeLink}
