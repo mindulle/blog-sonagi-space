@@ -3,7 +3,9 @@ import { test, expect } from '@chromatic-com/playwright';
 test.describe('Wiki Hover Popover (Desktop)', () => {
   test('마우스를 올렸다 뗐다를 반복해도 여러 번 정상적으로 팝오버가 작동한다', async ({
     page,
+    isMobile,
   }) => {
+    test.skip(isMobile, '데스크톱 전용 호버 인터랙션 테스트입니다.');
     await page.goto('/notes/wikilink-test');
 
     // 참고: 디자인 시스템 리스킨(PR #33) 이후 정상 해석된 위키링크는
@@ -47,10 +49,7 @@ test.describe('Wiki Hover Popover (Mobile Smart Click)', () => {
     page,
     isMobile,
   }) => {
-    test.skip(
-      true,
-      '디자인 시스템 연동 후 모바일 스마트클릭 기능이 미지원 상태입니다.'
-    );
+    test.skip(!isMobile, '모바일 터치 디바이스 전용 테스트입니다.');
 
     await page.goto('/notes/wikilink-test');
 

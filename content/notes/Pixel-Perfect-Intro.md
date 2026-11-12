@@ -9,7 +9,7 @@ created: '2026-09-13'
 series: 픽셀 퍼펙트 UI 엔지니어링 가이드
 seriesOrder: 1
 published: true
-status: seed
+status: evergreen
 ---
 
 # 픽셀 퍼펙트의 새로운 정의: 눈대중에서 시스템으로

@@ -10,7 +10,7 @@ created: '2026-09-02'
 series: 픽셀 퍼펙트 UI 엔지니어링 가이드
 seriesOrder: 2
 published: true
-status: seed
+status: evergreen
 ---
 
 # UI Typography Criteria

@@ -11,7 +11,7 @@ created: '2026-09-13'
 series: 픽셀 퍼펙트 UI 엔지니어링 가이드
 seriesOrder: 3
 published: true
-status: seed
+status: evergreen
 ---
 
 # Figma 오토레이아웃과 CSS Flexbox 완벽 대응 가이드
