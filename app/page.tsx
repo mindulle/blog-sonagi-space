@@ -11,9 +11,7 @@ export default function Home() {
 
   return (
     <>
-      <HerbariumTextureFilter />
-
-      {/* Hero Section: 돌 틈의 식물 표본실 (The Herbarium in the Crevice) */}
+      {/* Hero Section: 민들레 정원 (Mindulle Garden) */}
       <section
         className="relative py-20 md:py-32 overflow-hidden"
         style={{
@@ -38,7 +36,7 @@ export default function Home() {
                 className="font-bold tracking-wider uppercase"
                 style={{ color: 'var(--sng-color-brand-primary)' }}
               >
-                HERBARIUM IN THE CREVICE • EST. 2026
+                MINDULLE GARDEN • EST. 2026
               </span>
             </div>
 
@@ -46,18 +44,18 @@ export default function Home() {
               className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 font-sans tracking-tight"
               style={{ color: 'var(--sng-color-text-primary)' }}
             >
-              돌 틈의 식물 표본실,
+              돌 틈에 뿌리내린 사유,
               <br />
-              자라나는 사유의 기록
+              가볍게 비상하는 기록
             </h1>
 
             <p
               className="text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed font-sans"
               style={{ color: 'var(--sng-color-text-secondary)' }}
             >
-              완결주의를 거부하고, 생각의 씨앗(Seed)부터 세상으로 비상하는
-              홀씨(Pappus)에 이르기까지 척박한 암반의 틈새에서 피어나는 유기적
-              지식 네트워크를 수집합니다.
+              완결주의를 거부하고, 생각의 씨앗(Seed)부터 세상과 나누며
+              키워나가는 메이커의 열린 사유(Thinking in Public)이자 담백한
+              지면입니다.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
@@ -67,7 +65,7 @@ export default function Home() {
                   size="lg"
                   className="w-full sm:w-auto px-7"
                 >
-                  <span>표본실 둘러보기</span>
+                  <span>정원 둘러보기</span>
                   <ArrowRight size={16} />
                 </Button>
               </Link>
@@ -77,7 +75,7 @@ export default function Home() {
                   size="lg"
                   className="w-full sm:w-auto px-7"
                 >
-                  <span>정원사의 헌법 읽기</span>
+                  <span>정원 이야기 읽기</span>
                 </Button>
               </Link>
             </div>
@@ -85,7 +83,7 @@ export default function Home() {
         </Container>
       </section>
 
-      {/* Recently Cultivated Specimens Section */}
+      {/* Recently Cultivated Garden Notes Section */}
       <section
         className="py-16 md:py-24"
         style={{ backgroundColor: 'var(--sng-color-bg-base)' }}
@@ -97,13 +95,13 @@ export default function Home() {
                 className="text-xs font-bold tracking-wider uppercase"
                 style={{ color: 'var(--sng-color-brand-primary)' }}
               >
-                RECENTLY HARVESTED SPECIMENS
+                RECENT DISPATCHES &amp; NOTES
               </span>
               <h2
                 className="text-2xl sm:text-3xl font-bold font-sans tracking-tight mt-1"
                 style={{ color: 'var(--sng-color-text-primary)' }}
               >
-                최근 기탁된 사유의 표본들
+                최근 가꾼 정원의 기록들
               </h2>
             </div>
 

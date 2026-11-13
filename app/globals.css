@@ -314,7 +314,7 @@ body {
   position: relative;
 }
 
-/* 은은한 앰비언트 한지/암반 질감 오버레이 (텍스트 가독성 최우선 확보) */
+/* 은은한 신문용지 미세 그레인 오버레이 (가독성을 100% 보장하는 2% 초미세 물성) */
 body::before {
   content: '';
   position: fixed;
@@ -323,13 +323,13 @@ body::before {
   z-index: 0;
   background-image: url('/textures/hanji-mulberry-seamless-256.webp');
   background-repeat: repeat;
-  opacity: 0.18;
+  opacity: 0.02;
 }
 
 [data-theme='dark'] body::before,
 .dark body::before {
   background-image: url('/textures/greystone-slate-seamless-256.webp');
-  opacity: 0.22;
+  opacity: 0.025;
 }
 
 * {
