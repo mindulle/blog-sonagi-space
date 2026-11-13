@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none">
+  <style>
+    :root {
+      --stem-color: #161616;
+      --seed-color: #D97706;
+      --ray-color: #D97706;
+      --halo-color: rgba(217, 119, 6, 0.12);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --stem-color: #F7EEEC;
+        --seed-color: #F59E0B;
+        --ray-color: #FBBF24;
+        --halo-color: rgba(245, 158, 11, 0.16);
+      }
+    }
+    .stem { stroke: var(--stem-color); }
+    .seed { fill: var(--seed-color); }
+    .ray { stroke: var(--ray-color); }
+    .halo { fill: var(--halo-color); }
+  </style>
+
+  <!-- Background Soft Aura (Subtle optical anchor) -->
+  <circle cx="32" cy="24" r="16" class="halo" />
+
+  <!-- 1. The True 2px Stem (Scaled 2.5px for 64px viewBox) -->
+  <line x1="32" y1="30" x2="32" y2="58" stroke-width="2.5" stroke-linecap="round" class="stem" />
+
+  <!-- 2. Asymmetric Sail Arc (Graceful Bézier curve) -->
+  <path d="M 12 30 C 12 14, 28 6, 52 18" stroke-width="2.5" stroke-linecap="round" class="stem" />
+
+  <!-- 3. Seed Orbit: 3 Directional Rays -->
+  <line x1="32" y1="24" x2="32" y2="12" stroke-width="2" stroke-linecap="round" class="ray" />
+  <line x1="32" y1="24" x2="43" y2="17" stroke-width="2" stroke-linecap="round" class="ray" />
+  <line x1="32" y1="24" x2="21" y2="17" stroke-width="2" stroke-linecap="round" class="ray" />
+
+  <!-- 4. Golden Seed Core (Outer edge & center disc) -->
+  <circle cx="32" cy="24" r="5.5" class="seed" />
+</svg>
