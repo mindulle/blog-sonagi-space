@@ -71,7 +71,7 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
 
           {post.excerpt && (
             <p
-              className="mb-4 line-clamp-2 flex-1 text-sm"
+              className="mb-4 line-clamp-2 leading-relaxed text-sm"
               style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               {post.excerpt}

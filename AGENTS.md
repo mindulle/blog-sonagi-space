@@ -107,7 +107,7 @@ import { Button } from '@mindulle/ui';
 
 ❌ 금지: 색상 관련 모든 클래스
          bg-*, text-{color}-*, border-{color}-*, ring-*, shadow-*
-         (단, shadow-[var(--shadow-*)] 형태는 허용)
+         (단, shadow-[var(--mds-shadow-raised)] 처럼 토큰 변수를 넘기는 형태는 허용)
 ```
 
 ---

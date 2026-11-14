@@ -305,6 +305,8 @@
    Base
 ───────────────────────────────────────────────────────── */
 body {
+  word-break: keep-all;
+  overflow-wrap: break-word;
   background-color: var(--mds-color-bg-base);
   color: var(--mds-color-text-primary);
   font-family: var(--mds-font-sans);
@@ -821,4 +823,28 @@ a:hover {
 
 .sng-haptic-card:active {
   transform: translateY(0) scale(0.995);
+}
+
+/* Korean keep-all typography enforcement */
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li,
+blockquote,
+figcaption,
+td,
+th {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+pre,
+code {
+  word-break: normal;
 }

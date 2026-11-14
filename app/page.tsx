@@ -13,7 +13,7 @@ export default function Home() {
     <>
       {/* Hero Section: 민들레 정원 (Mindulle Garden) */}
       <section
-        className="relative py-20 md:py-32 overflow-hidden"
+        className="relative py-12 md:py-16 overflow-hidden"
         style={{
           background:
             'linear-gradient(to bottom, var(--mds-color-bg-overlay), var(--mds-color-bg-base))',
@@ -59,7 +59,7 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
-              <Link href="/notes">
+              <Link href="/notes" className="w-full sm:w-auto">
                 <Button
                   variant="primary"
                   size="lg"
@@ -69,7 +69,7 @@ export default function Home() {
                   <ArrowRight size={16} />
                 </Button>
               </Link>
-              <Link href="/about">
+              <Link href="/about" className="w-full sm:w-auto">
                 <Button
                   variant="secondary"
                   size="lg"

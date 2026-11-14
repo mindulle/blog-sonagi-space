@@ -36,12 +36,12 @@ export function GazetteMasthead({
       </div>
 
       {/* 2. Top Editorial Meta Line */}
-      <div className="py-2.5 flex items-center justify-between text-[10px] md:text-xs tracking-widest uppercase font-mono text-[var(--mds-color-text-secondary)]">
+      <div className="py-2.5 flex flex-wrap items-center justify-between gap-1 text-[9px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-mono text-[var(--mds-color-text-secondary)]">
         <span className="font-semibold tabular-nums">
           {vol} • {issue}
         </span>
         <span
-          className="font-bold tracking-[0.25em] text-[var(--mds-color-text-primary)]"
+          className="font-bold tracking-[0.12em] sm:tracking-[0.25em] text-[var(--mds-color-text-primary)]"
           style={{ fontFamily: 'var(--font-cinematic, serif)' }}
         >
           M I N D U L L E &nbsp; A T E L I E R
@@ -87,7 +87,7 @@ export function GazetteMasthead({
           </svg>
 
           <h1
-            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.2em] sm:tracking-[0.28em] text-[var(--mds-color-text-primary)] uppercase"
+            className="text-xl sm:text-3xl md:text-4xl font-bold tracking-[0.12em] sm:tracking-[0.28em] text-[var(--mds-color-text-primary)] uppercase"
             style={{ fontFamily: 'var(--font-cinematic, serif)' }}
           >
             MINDULLE GARDEN

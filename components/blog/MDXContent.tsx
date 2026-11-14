@@ -113,11 +113,25 @@ const components = {
   },
 };
 
+function normalizeMarkdownForMdx(raw: string): string {
+  // 1) 페이지 상단 H1과 중복되는 본문 첫 줄 H1 제거
+  const text = raw.replace(/^\s*#\s+[^\n]+\n+/, '');
+  // 2) 코드 블록/인라인 코드 제외 구간에서 CommonMark 우측 경계 실패(**...**조사) 보정
+  const segments = text.split(/(```[\s\S]*?```|`[^`\n]+`)/g);
+  return segments
+    .map((seg, idx) => {
+      if (idx % 2 === 1) return seg;
+      return seg.replace(/\*\*([^\n*]+?)\*\*(?=[가-힣])/g, '<strong>$1</strong>');
+    })
+    .join('');
+}
+
 export function MDXContent({ content }: MDXContentProps) {
+  const normalizedContent = normalizeMarkdownForMdx(content);
   return (
     <article className="prose prose-neutral dark:prose-invert max-w-none">
       <MDXRemote
-        source={content}
+        source={normalizedContent}
         components={components}
         options={{
           mdxOptions: {

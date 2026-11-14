@@ -30,7 +30,7 @@ export default function AboutPage() {
       <Container className="max-w-[960px] mx-auto px-4 sm:px-6 md:px-8">
         {/* ─── 신문 브로드시트 대장 (The Broadsheet Folio) ─── */}
         <article
-          className="relative rounded-[4px] p-6 sm:p-10 md:p-14 border bg-[var(--mds-color-bg-surface)] border-[var(--mds-color-border-default)] shadow-sm"
+          className="relative p-6 sm:p-10 md:p-14 border-2 bg-[var(--mds-color-bg-surface)] border-[var(--mds-color-border-default)]"
           style={{
             borderWidth: '2px',
           }}
@@ -57,7 +57,7 @@ export default function AboutPage() {
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)]">
+                  <div className="p-4 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)]">
                     <span className="block text-[10px] font-mono uppercase tracking-wider text-[var(--mds-color-text-muted)] mb-1">
                       THE 85:15 RULE
                     </span>
@@ -145,7 +145,7 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-5 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
+              <div className="p-5 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
                   <Code2 size={18} />
                   <span className="text-xs font-bold uppercase font-mono">
@@ -158,7 +158,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="p-5 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
+              <div className="p-5 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
                   <Layers size={18} />
                   <span className="text-xs font-bold uppercase font-mono">
@@ -171,7 +171,7 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="p-5 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
+              <div className="p-5 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
                 <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
                   <BookOpen size={18} />
                   <span className="text-xs font-bold uppercase font-mono">
@@ -208,7 +208,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
               <a
                 href="mailto:mindulle@sonagi.space"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
               >
                 <Mail size={13} />
                 <span>메일 보내기</span>
@@ -218,7 +218,7 @@ export default function AboutPage() {
                 href="https://github.com/mindulle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
               >
                 <Github size={13} />
                 <span>GitHub</span>
@@ -226,7 +226,7 @@ export default function AboutPage() {
 
               <Link
                 href="/rss.xml"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
               >
                 <Rss size={13} />
                 <span>RSS 구독</span>
