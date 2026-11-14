@@ -10,7 +10,6 @@ import { ShareButtons } from './ShareButtons';
 import { ReadingProgress } from './ReadingProgress';
 import { GrowthBadge } from './GrowthBadge';
 import { CategoryLabel } from './CategoryLabel';
-import { MetadataToggle } from './MetadataToggle';
 import { SpecimenLabel } from './SpecimenLabel';
 import { SeriesNav } from './SeriesNav';
 
@@ -93,13 +92,14 @@ export function UnifiedDetail({
                 {note.title}
               </h1>
 
-              <div
-                className="flex items-center gap-4 text-sm"
-                style={{ color: 'var(--mds-color-text-secondary)' }}
-              >
-                {note.publishedDate && <span>{note.publishedDate}</span>}
-                <MetadataToggle created={note.created} />
-              </div>
+              {(note.publishedDate || note.created) && (
+                <div
+                  className="flex items-center gap-4 text-sm"
+                  style={{ color: 'var(--mds-color-text-secondary)' }}
+                >
+                  <span>{note.publishedDate || note.created}</span>
+                </div>
+              )}
             </header>
 
             <MDXContent content={note.rawContent} />
