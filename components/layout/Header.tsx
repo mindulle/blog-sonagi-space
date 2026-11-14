@@ -24,14 +24,14 @@ export function Header() {
       className="sticky top-0 z-50 w-full backdrop-blur-md transition-colors duration-200"
       style={{
         backgroundColor:
-          'color-mix(in srgb, var(--mds-color-bg-surface) 80%, transparent)',
+          'color-mix(in srgb, var(--mds-color-bg-surface) 96%, transparent)',
         borderBottom:
           'var(--mds-border-thin) solid var(--mds-color-border-default)',
       }}
     >
       {/* Desktop: px-8 (32px), Mobile: px-4 (16px) */}
       <div className="mx-auto px-4 md:px-8 max-w-[1440px]">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-14 md:h-16 items-center justify-between">
           {/* Logo */}
           <Link
             href="/"
