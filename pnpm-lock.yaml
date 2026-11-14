@@ -12,11 +12,11 @@ importers:
         specifier: ^3.1.1
         version: 3.1.1(@types/react@19.2.2)(react@19.2.0)
       '@mindulle/tokens':
-        specifier: ^1.14.0
-        version: 1.14.0
+        specifier: ^1.15.0
+        version: 1.15.0
       '@mindulle/ui':
-        specifier: ^1.8.2
-        version: 1.12.0(@mindulle/tokens@1.14.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^1.13.0
+        version: 1.13.0(@mindulle/tokens@1.15.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@next/mdx':
         specifier: ^16.0.0
         version: 16.0.0(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))
@@ -755,13 +755,13 @@ packages:
       '@types/react': '>=16'
       react: '>=16'
 
-  '@mindulle/tokens@1.14.0':
-    resolution: {integrity: sha512-hc1f1CyjfMnMNqlSjgwxCx+CvQekhpLyXC4aboS34L86eT/2vqr+rTto5s2ppWz0cunpdTW423++MDjsVdRDMw==, tarball: https://npm.pkg.github.com/download/@mindulle/tokens/1.14.0/9326862b7c39d4bce72c22d163e96a49b67d57bd}
+  '@mindulle/tokens@1.15.0':
+    resolution: {integrity: sha512-nkyJJXqZoV4QuXngsi7niDrLIiGrcp7C8FGHPl7xnO/S1aiiaRVIIq0PB8vKtSKF+i9He1aWF7cTEXBiNpmH+g==, tarball: https://npm.pkg.github.com/download/@mindulle/tokens/1.15.0/5abc23c22c3a2fd61a09c0c2d897678dd68eae94}
 
-  '@mindulle/ui@1.12.0':
-    resolution: {integrity: sha512-Uf6MnsZACEyg8Tgzm0IcqGdLeNxOfKkH8nhczDuSm8L58u8FXJf/D5FNAQ9Qr42AUqXv8MaAjIWDmtJtCWZDVw==, tarball: https://npm.pkg.github.com/download/@mindulle/ui/1.12.0/63dd68e60324b811b5cb69d9a0a34d8c6b0b3b10}
+  '@mindulle/ui@1.13.0':
+    resolution: {integrity: sha512-vP6kO69Sp84yn4tk6rQmoWwFSacT6qCxDXfNYzaydTAddtFDWO7Nx0Ib7seEhBWC1f9T+Z1bEZ2Rmf9vvm69Aw==, tarball: https://npm.pkg.github.com/download/@mindulle/ui/1.13.0/e3f7f8dbbd09c66ff89bc77b02280ca0c54529c2}
     peerDependencies:
-      '@mindulle/tokens': '>=1.11.0'
+      '@mindulle/tokens': ^1.15.0
       react: '>=18'
       react-dom: '>=18'
 
@@ -4700,11 +4700,11 @@ snapshots:
       '@types/react': 19.2.2
       react: 19.2.0
 
-  '@mindulle/tokens@1.14.0': {}
+  '@mindulle/tokens@1.15.0': {}
 
-  '@mindulle/ui@1.12.0(@mindulle/tokens@1.14.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@mindulle/ui@1.13.0(@mindulle/tokens@1.15.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@mindulle/tokens': 1.14.0
+      '@mindulle/tokens': 1.15.0
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
 
