@@ -122,10 +122,10 @@ export function SpecimenLabel({
       <div
         className={`relative overflow-hidden p-4 sm:p-5 rounded-[4px] font-mono w-full sng-texture-folio ${className}`}
         style={{
-          backgroundColor: 'var(--sng-color-bg-surface)',
-          border: '1px solid var(--sng-color-border-default)',
-          borderLeft: '4px solid var(--sng-color-brand-primary)',
-          boxShadow: 'var(--sng-shadow-raised)',
+          backgroundColor: 'var(--mds-color-bg-surface)',
+          border: '1px solid var(--mds-color-border-default)',
+          borderLeft: '4px solid var(--mds-color-brand-primary)',
+          boxShadow: 'var(--mds-shadow-raised)',
         }}
       >
         {/* Top Washi Mounting Strip Accent */}
@@ -139,14 +139,14 @@ export function SpecimenLabel({
               <div
                 className="flex items-center justify-center p-2 rounded-[4px] shrink-0"
                 style={{
-                  backgroundColor: 'var(--sng-color-bg-overlay)',
-                  border: '1px solid var(--sng-color-border-subtle)',
+                  backgroundColor: 'var(--mds-color-bg-overlay)',
+                  border: '1px solid var(--mds-color-border-subtle)',
                 }}
               >
                 <GrowthGlyph
                   stage={canonicalStage}
                   size={size}
-                  strokeColor="var(--sng-color-brand-primary)"
+                  strokeColor="var(--mds-color-brand-primary)"
                 />
               </div>
             )}
@@ -155,23 +155,23 @@ export function SpecimenLabel({
                 <span
                   className="font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-[2px] shrink-0"
                   style={{
-                    backgroundColor: 'var(--sng-color-bg-overlay)',
-                    color: 'var(--sng-color-brand-primary)',
+                    backgroundColor: 'var(--mds-color-bg-overlay)',
+                    color: 'var(--mds-color-brand-primary)',
                   }}
                 >
                   {specimenNo}
                 </span>
                 <span
                   className="font-medium"
-                  style={{ color: 'var(--sng-color-text-muted)' }}
+                  style={{ color: 'var(--mds-color-text-muted)' }}
                 >
                   {stageDisplay}
                 </span>
               </div>
-              <div className="text-sm sm:text-base font-bold tracking-tight text-[var(--sng-color-text-primary)] leading-snug">
+              <div className="text-sm sm:text-base font-bold tracking-tight text-[var(--mds-color-text-primary)] leading-snug">
                 {title}
               </div>
-              <div className="text-[11px] sm:text-xs italic tracking-normal mt-0.5 text-[var(--sng-color-text-secondary)]">
+              <div className="text-[11px] sm:text-xs italic tracking-normal mt-0.5 text-[var(--mds-color-text-secondary)]">
                 {scientificName}
               </div>
             </div>
@@ -179,26 +179,26 @@ export function SpecimenLabel({
 
           <div
             className="flex flex-row sm:flex-col justify-between sm:justify-start text-[11px] sm:text-xs sm:text-right tabular-nums pt-3 sm:pt-0 border-t sm:border-t-0 sm:border-l sm:pl-4 shrink-0 gap-1.5"
-            style={{ borderColor: 'var(--sng-color-border-subtle)' }}
+            style={{ borderColor: 'var(--mds-color-border-subtle)' }}
           >
             <div>
-              <span style={{ color: 'var(--sng-color-text-muted)' }}>
+              <span style={{ color: 'var(--mds-color-text-muted)' }}>
                 HABITAT:{' '}
               </span>
               <span
                 className="font-medium"
-                style={{ color: 'var(--sng-color-text-secondary)' }}
+                style={{ color: 'var(--mds-color-text-secondary)' }}
               >
                 {habitat}
               </span>
             </div>
             <div>
-              <span style={{ color: 'var(--sng-color-text-muted)' }}>
+              <span style={{ color: 'var(--mds-color-text-muted)' }}>
                 HARVEST:{' '}
               </span>
               <span
                 className="font-medium"
-                style={{ color: 'var(--sng-color-text-secondary)' }}
+                style={{ color: 'var(--mds-color-text-secondary)' }}
               >
                 {harvestDate}
               </span>

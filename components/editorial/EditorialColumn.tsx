@@ -37,12 +37,12 @@ export function EditorialColumn({
       <div className="w-full min-w-0">{children}</div>
       <div className="hidden md:flex items-stretch gap-8 w-full">
         <HairlineRule vertical />
-        <aside className="w-full text-xs sm:text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
+        <aside className="w-full text-xs sm:text-sm text-[var(--mds-color-text-secondary)] leading-relaxed">
           {aside}
         </aside>
       </div>
       {/* Mobile aside fallback */}
-      <aside className="md:hidden w-full pt-4 border-t border-[var(--sng-color-border-default)] text-xs text-[var(--sng-color-text-secondary)]">
+      <aside className="md:hidden w-full pt-4 border-t border-[var(--mds-color-border-default)] text-xs text-[var(--mds-color-text-secondary)]">
         {aside}
       </aside>
     </div>

@@ -63,8 +63,8 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
           )}
 
           <h3
-            className="mb-2 line-clamp-2 font-semibold transition-colors group-hover:text-[var(--sng-color-brand-primary)]"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            className="mb-2 line-clamp-2 font-semibold transition-colors group-hover:text-[var(--mds-color-brand-primary)]"
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             {post.title}
           </h3>
@@ -72,7 +72,7 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
           {post.excerpt && (
             <p
               className="mb-4 line-clamp-2 flex-1 text-sm"
-              style={{ color: 'var(--sng-color-text-secondary)' }}
+              style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               {post.excerpt}
             </p>
@@ -81,7 +81,7 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
           {hasMeta && (
             <div
               className="mt-auto flex items-center gap-3 text-xs"
-              style={{ color: 'var(--sng-color-text-muted)' }}
+              style={{ color: 'var(--mds-color-text-muted)' }}
             >
               {post.dateLabel && (
                 <span className="flex items-center gap-1">

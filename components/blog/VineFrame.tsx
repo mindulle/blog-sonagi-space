@@ -22,7 +22,7 @@ export function VineFrame({
   variant = 'divider',
   strokeColor,
 }: VineFrameProps) {
-  const color = strokeColor || 'var(--sng-color-brand-primary, #d97706)';
+  const color = strokeColor || 'var(--mds-color-brand-primary, #d97706)';
 
   if (variant === 'corner') {
     return (
@@ -82,7 +82,7 @@ export function VineFrame({
           cx="300"
           cy="8"
           r="3"
-          fill="var(--sng-color-bg-surface)"
+          fill="var(--mds-color-bg-surface)"
           stroke={color}
           strokeWidth="1.5"
         />

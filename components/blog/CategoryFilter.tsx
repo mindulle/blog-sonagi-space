@@ -30,13 +30,13 @@ export function CategoryFilter({
         className={cn(
           'rounded-full px-4 py-2 text-sm font-medium transition-colors',
           selectedCategory === null
-            ? 'text-[var(--sng-color-text-inverse)]'
-            : 'text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-text-primary)]'
+            ? 'text-[var(--mds-color-text-inverse)]'
+            : 'text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-text-primary)]'
         )}
         style={
           selectedCategory === null
-            ? { backgroundColor: 'var(--sng-color-brand-primary)' }
-            : { backgroundColor: 'var(--sng-color-bg-overlay)' }
+            ? { backgroundColor: 'var(--mds-color-brand-primary)' }
+            : { backgroundColor: 'var(--mds-color-bg-overlay)' }
         }
       >
         전체
@@ -50,13 +50,13 @@ export function CategoryFilter({
           className={cn(
             'rounded-full px-4 py-2 text-sm font-medium transition-colors',
             selectedCategory === category
-              ? 'text-[var(--sng-color-text-inverse)]'
-              : 'text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-text-primary)]'
+              ? 'text-[var(--mds-color-text-inverse)]'
+              : 'text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-text-primary)]'
           )}
           style={
             selectedCategory === category
-              ? { backgroundColor: 'var(--sng-color-brand-primary)' }
-              : { backgroundColor: 'var(--sng-color-bg-overlay)' }
+              ? { backgroundColor: 'var(--mds-color-brand-primary)' }
+              : { backgroundColor: 'var(--mds-color-bg-overlay)' }
           }
         >
           {categoryLabels[category] || category}

@@ -25,30 +25,30 @@ export function NoteCard({ note }: { note: Note }) {
       <article
         className="relative h-full flex flex-col justify-between p-5 rounded-[4px] border transition-all duration-200 font-mono sng-texture-folio"
         style={{
-          backgroundColor: 'var(--sng-color-bg-surface)',
-          borderColor: 'var(--sng-color-border-default)',
+          backgroundColor: 'var(--mds-color-bg-surface)',
+          borderColor: 'var(--mds-color-border-default)',
           borderWidth: '2px', // The True 2px Stem (SSOT)
         }}
         onMouseEnter={(e) => {
           (e.currentTarget as HTMLElement).style.borderColor =
-            'var(--sng-color-brand-primary)';
+            'var(--mds-color-brand-primary)';
           (e.currentTarget as HTMLElement).style.transform = 'translateY(-2px)';
           (e.currentTarget as HTMLElement).style.boxShadow =
-            'var(--sng-shadow-raised, 0 8px 24px -4px rgba(0, 0, 0, 0.12))';
+            'var(--mds-shadow-raised, 0 8px 24px -4px rgba(0, 0, 0, 0.12))';
         }}
         onMouseLeave={(e) => {
           (e.currentTarget as HTMLElement).style.borderColor =
-            'var(--sng-color-border-default)';
+            'var(--mds-color-border-default)';
           (e.currentTarget as HTMLElement).style.transform = 'none';
           (e.currentTarget as HTMLElement).style.boxShadow = 'none';
         }}
       >
         <div>
           {/* Header: Specimen Slug & Botanical Growth Stage */}
-          <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--sng-color-border-subtle)]">
+          <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--mds-color-border-subtle)]">
             <span
               className="text-xs font-bold tracking-tight truncate"
-              style={{ color: 'var(--sng-color-brand-primary)' }}
+              style={{ color: 'var(--mds-color-brand-primary)' }}
             >
               [[{note.slug}]]
             </span>
@@ -61,8 +61,8 @@ export function NoteCard({ note }: { note: Note }) {
 
           {/* Title */}
           <h2
-            className="text-base font-bold font-sans tracking-tight mb-2 line-clamp-2 transition-colors group-hover:text-[var(--sng-color-brand-primary)]"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            className="text-base font-bold font-sans tracking-tight mb-2 line-clamp-2 transition-colors group-hover:text-[var(--mds-color-brand-primary)]"
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             {note.title}
           </h2>
@@ -71,7 +71,7 @@ export function NoteCard({ note }: { note: Note }) {
           {note.excerpt && (
             <p
               className="text-xs font-sans leading-relaxed line-clamp-2 mb-4"
-              style={{ color: 'var(--sng-color-text-secondary)' }}
+              style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               {note.excerpt}
             </p>
@@ -81,7 +81,7 @@ export function NoteCard({ note }: { note: Note }) {
         {/* Footer: Tags & Harvest Date */}
         <div
           className="pt-3 mt-auto flex flex-wrap items-center justify-between gap-2 border-t text-[11px]"
-          style={{ borderColor: 'var(--sng-color-border-subtle)' }}
+          style={{ borderColor: 'var(--mds-color-border-subtle)' }}
         >
           {note.tags && note.tags.length > 0 ? (
             <div className="flex flex-wrap items-center gap-1.5 max-w-[70%]">
@@ -90,9 +90,9 @@ export function NoteCard({ note }: { note: Note }) {
                   key={tag}
                   className="px-1.5 py-0.5 rounded-[2px] truncate"
                   style={{
-                    backgroundColor: 'var(--sng-color-bg-overlay)',
-                    color: 'var(--sng-color-text-muted)',
-                    border: '1px solid var(--sng-color-border-subtle)',
+                    backgroundColor: 'var(--mds-color-bg-overlay)',
+                    color: 'var(--mds-color-text-muted)',
+                    border: '1px solid var(--mds-color-border-subtle)',
                   }}
                 >
                   #{tag}
@@ -106,7 +106,7 @@ export function NoteCard({ note }: { note: Note }) {
           {dateStr && (
             <span
               className="tabular-nums shrink-0"
-              style={{ color: 'var(--sng-color-text-muted)' }}
+              style={{ color: 'var(--mds-color-text-muted)' }}
             >
               {dateStr}
             </span>

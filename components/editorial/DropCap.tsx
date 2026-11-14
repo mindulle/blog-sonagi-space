@@ -15,7 +15,7 @@ export function DropCap({ letter, className = '', children }: DropCapProps) {
   return (
     <div className={`relative leading-relaxed ${className}`}>
       <span
-        className="float-left text-4xl sm:text-5xl leading-none font-bold mr-3 mt-1 select-none text-[var(--sng-color-brand-primary)]"
+        className="float-left text-4xl sm:text-5xl leading-none font-bold mr-3 mt-1 select-none text-[var(--mds-color-brand-primary)]"
         style={{
           fontFamily: 'var(--font-cinematic, serif)',
         }}

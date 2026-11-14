@@ -10,8 +10,8 @@ export function Footer() {
     <footer
       className="border-t"
       style={{
-        backgroundColor: 'var(--sng-color-bg-overlay)',
-        borderColor: 'var(--sng-color-border-default)',
+        backgroundColor: 'var(--mds-color-bg-overlay)',
+        borderColor: 'var(--mds-color-border-default)',
       }}
     >
       <Container>
@@ -20,11 +20,11 @@ export function Footer() {
           <div className="space-y-4">
             <Link
               href="/"
-              className="flex items-center space-x-2 font-bold text-lg transition-colors text-[var(--sng-color-text-primary)] hover:text-[var(--sng-color-brand-primary)]"
+              className="flex items-center space-x-2 font-bold text-lg transition-colors text-[var(--mds-color-text-primary)] hover:text-[var(--mds-color-brand-primary)]"
             >
               <Logo height={24} />
             </Link>
-            <p className="text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
+            <p className="text-sm text-[var(--mds-color-text-secondary)] leading-relaxed">
               Next.js와 민들레 디자인 시스템(MDS)으로 가꾸는 메이커의 열린
               사유이자 담백한 신문지 에디토리얼 지면입니다.
             </p>
@@ -32,14 +32,14 @@ export function Footer() {
 
           {/* 네비게이션 */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-sm text-[var(--sng-color-text-primary)]">
+            <h3 className="font-semibold text-sm text-[var(--mds-color-text-primary)]">
               Navigation
             </h3>
             <ul className="space-y-2">
               <li>
                 <Link
                   href="/blog"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   Blog
                 </Link>
@@ -47,7 +47,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/notes"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   Garden
                 </Link>
@@ -55,7 +55,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/series"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   Series
                 </Link>
@@ -63,7 +63,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/projects"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   Projects
                 </Link>
@@ -71,7 +71,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   About
                 </Link>
@@ -82,7 +82,7 @@ export function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="민들레 디자인 시스템 (새 창으로 열림)"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   Design System
                 </a>
@@ -90,7 +90,7 @@ export function Footer() {
               <li>
                 <Link
                   href="/privacy"
-                  className="text-sm transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
                 >
                   Privacy Policy
                 </Link>
@@ -100,7 +100,7 @@ export function Footer() {
 
           {/* 소셜 링크 */}
           <div className="space-y-4">
-            <h3 className="font-semibold text-sm text-[var(--sng-color-text-primary)]">
+            <h3 className="font-semibold text-sm text-[var(--mds-color-text-primary)]">
               Connect
             </h3>
             <div className="flex space-x-4">
@@ -109,7 +109,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="GitHub"
-                className="transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
               >
                 <Github className="w-5 h-5" />
               </a>
@@ -118,21 +118,21 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Twitter"
-                className="transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
               >
                 <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="/rss.xml"
                 aria-label="RSS Feed (/rss.xml)"
-                className="transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
               >
                 <Rss className="w-5 h-5" />
               </a>
               <a
                 href="mailto:hello@example.com"
                 aria-label="Email"
-                className="transition-colors text-[var(--sng-color-text-secondary)] hover:text-[var(--sng-color-brand-primary)]"
+                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
               >
                 <Mail className="w-5 h-5" />
               </a>
@@ -143,20 +143,20 @@ export function Footer() {
         {/* 하단 저작권 */}
         <div
           className="py-6 border-t"
-          style={{ borderColor: 'var(--sng-color-border-default)' }}
+          style={{ borderColor: 'var(--mds-color-border-default)' }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-sm text-[var(--sng-color-text-secondary)]">
+            <p className="text-sm text-[var(--mds-color-text-secondary)]">
               © {currentYear} 소나기 스페이스 (Sonagi Space). All rights
               reserved.
             </p>
-            <p className="text-sm text-[var(--sng-color-text-secondary)]">
+            <p className="text-sm text-[var(--mds-color-text-secondary)]">
               Built with{' '}
               <a
                 href="https://nextjs.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-[var(--sng-color-brand-primary)]"
+                className="hover:underline text-[var(--mds-color-brand-primary)]"
               >
                 Next.js
               </a>{' '}
@@ -166,7 +166,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="민들레 디자인 시스템 (새 창으로 열림)"
-                className="hover:underline text-[var(--sng-color-brand-primary)]"
+                className="hover:underline text-[var(--mds-color-brand-primary)]"
               >
                 민들레 Design System (MDS v0.1.0)
               </a>

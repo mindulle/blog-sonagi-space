@@ -25,7 +25,7 @@
  * Sonagi Design System — globals.css
  * 
  * 규칙:
- * 1. 색상은 반드시 CSS 변수(--sng-color-*)로만 참조. Tailwind 색상 클래스(bg-blue-500 등) 사용 금지.
+ * 1. 색상은 반드시 CSS 변수(--mds-color-*)로만 참조. Tailwind 색상 클래스(bg-blue-500 등) 사용 금지.
  * 2. 레이아웃(flex, grid, gap, p, m 등) Tailwind 유틸리티는 허용.
  * 3. 다크모드는 [data-theme="dark"] 기반 (html 요소에 적용).
  */
@@ -37,99 +37,99 @@
 :root,
 [data-theme='light'] {
   /* Brand Tokens (Light: Bronze Gold) */
-  --sng-color-brand-primary: #b86a04;
-  --sng-color-brand-primary-hover: #9e5a03;
-  --sng-color-brand-accent: #eab308;
-  --sng-color-brand-accent-hover: #ca8a04;
-  --sng-color-brand-ink: #b86a04;
+  --mds-color-brand-primary: #b86a04;
+  --mds-color-brand-primary-hover: #9e5a03;
+  --mds-color-brand-accent: #eab308;
+  --mds-color-brand-accent-hover: #ca8a04;
+  --mds-color-brand-ink: #b86a04;
 
   /* Background Tokens (Light: Weathered Paper & Pure Surface) */
-  --sng-color-background-base: #fbfbfa;
-  --sng-color-background-surface: #ffffff;
-  --sng-color-background-elevated: #ffffff;
-  --sng-color-bg-overlay: #f4f4f5;
+  --mds-color-background-base: #fbfbfa;
+  --mds-color-background-surface: #ffffff;
+  --mds-color-background-elevated: #ffffff;
+  --mds-color-bg-overlay: #f4f4f5;
 
   /* Text & Border Tokens */
-  --sng-color-text-primary: #18181b;
-  --sng-color-text-secondary: #52525b;
-  --sng-color-text-muted: #71717a;
-  --sng-color-text-disabled: #a1a1aa;
-  --sng-color-text-inverse: #ffffff;
-  --sng-color-border-default: #e4e4e7;
-  --sng-color-border-subtle: #f4f4f5;
-  --sng-color-border-strong: #b86a04;
+  --mds-color-text-primary: #18181b;
+  --mds-color-text-secondary: #52525b;
+  --mds-color-text-muted: #71717a;
+  --mds-color-text-disabled: #a1a1aa;
+  --mds-color-text-inverse: #ffffff;
+  --mds-color-border-default: #e4e4e7;
+  --mds-color-border-subtle: #f4f4f5;
+  --mds-color-border-strong: #b86a04;
 
   /* Aliases */
-  --sng-color-accent-default: var(--sng-color-brand-accent);
-  --sng-color-bg-base: var(--sng-color-background-base);
-  --sng-color-bg-surface: var(--sng-color-background-surface);
-  --sng-color-bg-elevated: var(--sng-color-background-elevated);
-  --sng-color-brand-logo: var(--sng-color-wordmark-dot);
+  --mds-color-accent-default: var(--mds-color-brand-accent);
+  --mds-color-bg-base: var(--mds-color-background-base);
+  --mds-color-bg-surface: var(--mds-color-background-surface);
+  --mds-color-bg-elevated: var(--mds-color-background-elevated);
+  --mds-color-brand-logo: var(--mds-color-wordmark-dot);
 }
 
 [data-theme='dark'],
 .dark {
   /* Brand Tokens (Dark: Dandelion Amber) */
-  --sng-color-brand-primary: #ffc837;
-  --sng-color-brand-primary-hover: #e6b432;
-  --sng-color-brand-accent: #ffd166;
-  --sng-color-brand-accent-hover: #ffc837;
-  --sng-color-brand-ink: #ffc837;
+  --mds-color-brand-primary: #ffc837;
+  --mds-color-brand-primary-hover: #e6b432;
+  --mds-color-brand-accent: #ffd166;
+  --mds-color-brand-accent-hover: #ffc837;
+  --mds-color-brand-ink: #ffc837;
 
   /* Background Tokens (Dark: Deep Obsidian & Elevated Surface) */
-  --sng-color-background-base: #12151d;
-  --sng-color-background-surface: #1b202c;
-  --sng-color-background-elevated: #242b3b;
-  --sng-color-bg-overlay: #1f2635;
+  --mds-color-background-base: #12151d;
+  --mds-color-background-surface: #1b202c;
+  --mds-color-background-elevated: #242b3b;
+  --mds-color-bg-overlay: #1f2635;
 
   /* Text & Border Tokens */
-  --sng-color-text-primary: #f1f5f9;
-  --sng-color-text-secondary: #94a3b8;
-  --sng-color-text-muted: #64748b;
-  --sng-color-text-disabled: #475569;
-  --sng-color-text-inverse: #12151d;
-  --sng-color-border-default: #2c3547;
-  --sng-color-border-subtle: #1f2635;
-  --sng-color-border-strong: #ffc837;
+  --mds-color-text-primary: #f1f5f9;
+  --mds-color-text-secondary: #94a3b8;
+  --mds-color-text-muted: #64748b;
+  --mds-color-text-disabled: #475569;
+  --mds-color-text-inverse: #12151d;
+  --mds-color-border-default: #2c3547;
+  --mds-color-border-subtle: #1f2635;
+  --mds-color-border-strong: #ffc837;
 
   /* Aliases */
-  --sng-color-accent-default: var(--sng-color-brand-accent);
-  --sng-color-bg-base: var(--sng-color-background-base);
-  --sng-color-bg-surface: var(--sng-color-background-surface);
-  --sng-color-bg-elevated: var(--sng-color-background-elevated);
+  --mds-color-accent-default: var(--mds-color-brand-accent);
+  --mds-color-bg-base: var(--mds-color-background-base);
+  --mds-color-bg-surface: var(--mds-color-background-surface);
+  --mds-color-bg-elevated: var(--mds-color-background-elevated);
 }
 
 /* 시스템 다크모드 (prefers-color-scheme) 매핑 엄격 보장 — 외부 레거시 번들 덮어쓰기 원천 차단 */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {
     /* Brand Tokens (Dark: Dandelion Amber) */
-    --sng-color-brand-primary: #ffc837;
-    --sng-color-brand-primary-hover: #e6b432;
-    --sng-color-brand-accent: #ffd166;
-    --sng-color-brand-accent-hover: #ffc837;
-    --sng-color-brand-ink: #ffc837;
+    --mds-color-brand-primary: #ffc837;
+    --mds-color-brand-primary-hover: #e6b432;
+    --mds-color-brand-accent: #ffd166;
+    --mds-color-brand-accent-hover: #ffc837;
+    --mds-color-brand-ink: #ffc837;
 
     /* Background Tokens (Dark: Deep Obsidian & Elevated Surface) */
-    --sng-color-background-base: #12151d;
-    --sng-color-background-surface: #1b202c;
-    --sng-color-background-elevated: #242b3b;
-    --sng-color-bg-overlay: #1f2635;
+    --mds-color-background-base: #12151d;
+    --mds-color-background-surface: #1b202c;
+    --mds-color-background-elevated: #242b3b;
+    --mds-color-bg-overlay: #1f2635;
 
     /* Text & Border Tokens */
-    --sng-color-text-primary: #f1f5f9;
-    --sng-color-text-secondary: #94a3b8;
-    --sng-color-text-muted: #64748b;
-    --sng-color-text-disabled: #475569;
-    --sng-color-text-inverse: #12151d;
-    --sng-color-border-default: #2c3547;
-    --sng-color-border-subtle: #1f2635;
-    --sng-color-border-strong: #ffc837;
+    --mds-color-text-primary: #f1f5f9;
+    --mds-color-text-secondary: #94a3b8;
+    --mds-color-text-muted: #64748b;
+    --mds-color-text-disabled: #475569;
+    --mds-color-text-inverse: #12151d;
+    --mds-color-border-default: #2c3547;
+    --mds-color-border-subtle: #1f2635;
+    --mds-color-border-strong: #ffc837;
 
     /* Aliases */
-    --sng-color-accent-default: var(--sng-color-brand-accent);
-    --sng-color-bg-base: var(--sng-color-background-base);
-    --sng-color-bg-surface: var(--sng-color-background-surface);
-    --sng-color-bg-elevated: var(--sng-color-background-elevated);
+    --mds-color-accent-default: var(--mds-color-brand-accent);
+    --mds-color-bg-base: var(--mds-color-background-base);
+    --mds-color-bg-surface: var(--mds-color-background-surface);
+    --mds-color-bg-elevated: var(--mds-color-background-elevated);
   }
 }
 
@@ -137,70 +137,70 @@
    블로그 커스텀 토큰 (카테고리, 구문 강조)
 ───────────────────────────────────────────────────────── */
 :root {
-  --sng-font-sans:
+  --mds-font-sans:
     'Pretendard Variable', 'Pretendard', -apple-system, BlinkMacSystemFont,
     system-ui, Roboto, sans-serif;
-  --sng-font-mono:
-    var(--sng-font-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
-  --sng-font-cinematic:
-    var(--sng-font-cinematic), var(--sng-font-serif-kr), 'Cormorant Garamond',
+  --mds-font-mono:
+    var(--mds-font-mono), 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --mds-font-cinematic:
+    var(--mds-font-cinematic), var(--mds-font-serif-kr), 'Cormorant Garamond',
     'Noto Serif KR', Georgia, serif;
 
   /* Category (라이트모드) */
-  --sng-color-cat-dev-bg: #dbeafe;
-  --sng-color-cat-dev-text: #1d4ed8;
-  --sng-color-cat-design-bg: #ede9fe;
-  --sng-color-cat-design-text: #7c3aed;
-  --sng-color-cat-essay-bg: #dcfce7;
-  --sng-color-cat-essay-text: #15803d;
-  --sng-color-cat-project-bg: #ffedd5;
-  --sng-color-cat-project-text: #c2410c;
+  --mds-color-cat-dev-bg: #dbeafe;
+  --mds-color-cat-dev-text: #1d4ed8;
+  --mds-color-cat-design-bg: #ede9fe;
+  --mds-color-cat-design-text: #7c3aed;
+  --mds-color-cat-essay-bg: #dcfce7;
+  --mds-color-cat-essay-text: #15803d;
+  --mds-color-cat-project-bg: #ffedd5;
+  --mds-color-cat-project-text: #c2410c;
 
   /* Syntax Highlighting (Light) */
-  --sng-color-syntax-bg: var(--sng-color-bg-base);
-  --sng-color-syntax-text: #24292f;
-  --sng-color-syntax-comment: #6e7781;
-  --sng-color-syntax-keyword: #cf222e;
-  --sng-color-syntax-string: #0a3069;
-  --sng-color-syntax-function: #8250df;
-  --sng-color-syntax-number: #0550ae;
-  --sng-color-syntax-operator: #24292f;
-  --sng-color-syntax-class: #953800;
+  --mds-color-syntax-bg: var(--mds-color-bg-base);
+  --mds-color-syntax-text: #24292f;
+  --mds-color-syntax-comment: #6e7781;
+  --mds-color-syntax-keyword: #cf222e;
+  --mds-color-syntax-string: #0a3069;
+  --mds-color-syntax-function: #8250df;
+  --mds-color-syntax-number: #0550ae;
+  --mds-color-syntax-operator: #24292f;
+  --mds-color-syntax-class: #953800;
 }
 
 [data-theme='dark'] {
   /* Category (다크모드) */
-  --sng-color-cat-dev-bg: #1e3a5f;
-  --sng-color-cat-dev-text: #93c5fd;
-  --sng-color-cat-design-bg: #3b1f6b;
-  --sng-color-cat-design-text: #c4b5fd;
-  --sng-color-cat-essay-bg: #14532d;
-  --sng-color-cat-essay-text: #86efac;
-  --sng-color-cat-project-bg: #7c2d12;
-  --sng-color-cat-project-text: #fdba74;
+  --mds-color-cat-dev-bg: #1e3a5f;
+  --mds-color-cat-dev-text: #93c5fd;
+  --mds-color-cat-design-bg: #3b1f6b;
+  --mds-color-cat-design-text: #c4b5fd;
+  --mds-color-cat-essay-bg: #14532d;
+  --mds-color-cat-essay-text: #86efac;
+  --mds-color-cat-project-bg: #7c2d12;
+  --mds-color-cat-project-text: #fdba74;
 
   /* Syntax Highlighting (Dark) */
-  --sng-color-syntax-bg: var(--sng-color-bg-surface);
-  --sng-color-syntax-text: #c9d1d9;
-  --sng-color-syntax-comment: #8b949e;
-  --sng-color-syntax-keyword: #ff7b72;
-  --sng-color-syntax-string: #a5d6ff;
-  --sng-color-syntax-function: #d2a8ff;
-  --sng-color-syntax-number: #79c0ff;
-  --sng-color-syntax-operator: #c9d1d9;
-  --sng-color-syntax-class: #ffa657;
+  --mds-color-syntax-bg: var(--mds-color-bg-surface);
+  --mds-color-syntax-text: #c9d1d9;
+  --mds-color-syntax-comment: #8b949e;
+  --mds-color-syntax-keyword: #ff7b72;
+  --mds-color-syntax-string: #a5d6ff;
+  --mds-color-syntax-function: #d2a8ff;
+  --mds-color-syntax-number: #79c0ff;
+  --mds-color-syntax-operator: #c9d1d9;
+  --mds-color-syntax-class: #ffa657;
 }
 
 /* ─────────────────────────────────────────────────────────
    Tailwind 테마 연결 (레이아웃 유틸리티용)
 ───────────────────────────────────────────────────────── */
 @theme inline {
-  --font-sans: var(--sng-font-sans);
-  --font-mono: var(--sng-font-mono);
-  --font-cinematic: var(--sng-font-cinematic);
-  --font-serif: var(--sng-font-cinematic);
-  --sng-font-sans: var(--sng-font-sans);
-  --sng-font-mono: var(--sng-font-mono);
+  --font-sans: var(--mds-font-sans);
+  --font-mono: var(--mds-font-mono);
+  --font-cinematic: var(--mds-font-cinematic);
+  --font-serif: var(--mds-font-cinematic);
+  --mds-font-sans: var(--mds-font-sans);
+  --mds-font-mono: var(--mds-font-mono);
 
   /* ───────────────────────────────────────────────────────
      @mindulle/ui 색상 브릿지
@@ -214,35 +214,35 @@
      `@theme inline` 을 사용하므로 유틸리티가 var() 를 그대로 참조하고,
      따라서 다크모드 전환도 자동으로 따라간다.
   ─────────────────────────────────────────────────────── */
-  --color-bg-base: var(--sng-color-bg-base);
-  --color-bg-surface: var(--sng-color-bg-surface);
-  --color-bg-elevated: var(--sng-color-bg-elevated);
-  --color-bg-overlay: var(--sng-color-bg-overlay);
+  --color-bg-base: var(--mds-color-bg-base);
+  --color-bg-surface: var(--mds-color-bg-surface);
+  --color-bg-elevated: var(--mds-color-bg-elevated);
+  --color-bg-overlay: var(--mds-color-bg-overlay);
 
-  --color-border-default: var(--sng-color-border-default);
-  --color-border-subtle: var(--sng-color-border-subtle);
-  --color-border-strong: var(--sng-color-border-strong);
+  --color-border-default: var(--mds-color-border-default);
+  --color-border-subtle: var(--mds-color-border-subtle);
+  --color-border-strong: var(--mds-color-border-strong);
 
-  --color-brand-primary: var(--sng-color-brand-primary);
-  --color-brand-primary-hover: var(--sng-color-brand-primary-hover);
-  --color-brand-accent: var(--sng-color-brand-accent);
-  --color-primary: var(--sng-color-brand-primary);
-  --color-accent: var(--sng-color-brand-accent);
+  --color-brand-primary: var(--mds-color-brand-primary);
+  --color-brand-primary-hover: var(--mds-color-brand-primary-hover);
+  --color-brand-accent: var(--mds-color-brand-accent);
+  --color-primary: var(--mds-color-brand-primary);
+  --color-accent: var(--mds-color-brand-accent);
 
-  --color-text-primary: var(--sng-color-text-primary);
-  --color-text-secondary: var(--sng-color-text-secondary);
-  --color-text-muted: var(--sng-color-text-muted);
-  --color-text-disabled: var(--sng-color-text-disabled);
-  --color-text-inverse: var(--sng-color-text-inverse);
+  --color-text-primary: var(--mds-color-text-primary);
+  --color-text-secondary: var(--mds-color-text-secondary);
+  --color-text-muted: var(--mds-color-text-muted);
+  --color-text-disabled: var(--mds-color-text-disabled);
+  --color-text-inverse: var(--mds-color-text-inverse);
 
-  --color-state-success: var(--sng-color-state-success);
-  --color-state-success-bg: var(--sng-color-state-success-bg);
-  --color-state-warning: var(--sng-color-state-warning);
-  --color-state-warning-bg: var(--sng-color-state-warning-bg);
-  --color-state-error: var(--sng-color-state-error);
-  --color-state-error-bg: var(--sng-color-state-error-bg);
-  --color-state-info: var(--sng-color-state-info);
-  --color-state-info-bg: var(--sng-color-state-info-bg);
+  --color-state-success: var(--mds-color-state-success);
+  --color-state-success-bg: var(--mds-color-state-success-bg);
+  --color-state-warning: var(--mds-color-state-warning);
+  --color-state-warning-bg: var(--mds-color-state-warning-bg);
+  --color-state-error: var(--mds-color-state-error);
+  --color-state-error-bg: var(--mds-color-state-error-bg);
+  --color-state-info: var(--mds-color-state-info);
+  --color-state-info-bg: var(--mds-color-state-info-bg);
 
   /* ───────────────────────────────────────────────────────
      radius 스케일 브릿지
@@ -257,12 +257,12 @@
      아울러 `rounded-sm` / `rounded-md` 등이 Tailwind 자체 기본값이 아니라
      디자인 토큰을 따르도록 스케일 전체를 매핑한다.
   ─────────────────────────────────────────────────────── */
-  --radius-sm: var(--sng-radius-sm);
-  --radius-base: var(--sng-radius-base);
-  --radius-md: var(--sng-radius-md);
-  --radius-lg: var(--sng-radius-lg);
-  --radius-xl: var(--sng-radius-xl);
-  --radius-full: var(--sng-radius-full);
+  --radius-sm: var(--mds-radius-sm);
+  --radius-base: var(--mds-radius-base);
+  --radius-md: var(--mds-radius-md);
+  --radius-lg: var(--mds-radius-lg);
+  --radius-xl: var(--mds-radius-xl);
+  --radius-full: var(--mds-radius-full);
 }
 
 /*
@@ -277,7 +277,7 @@
    - 초경량 심리스 타일링(Seamless WebP)으로 촉각적 깊이감 구현
 ───────────────────────────────────────────────────────── */
 .sng-texture-folio {
-  background-color: var(--sng-color-bg-surface);
+  background-color: var(--mds-color-bg-surface);
   background-image:
     radial-gradient(
       ellipse at 50% 0%,
@@ -290,7 +290,7 @@
 
 [data-theme='dark'] .sng-texture-folio,
 .dark .sng-texture-folio {
-  background-color: var(--sng-color-bg-surface);
+  background-color: var(--mds-color-bg-surface);
   background-image:
     radial-gradient(
       ellipse at 50% 0%,
@@ -305,10 +305,10 @@
    Base
 ───────────────────────────────────────────────────────── */
 body {
-  background-color: var(--sng-color-bg-base);
-  color: var(--sng-color-text-primary);
-  font-family: var(--sng-font-sans);
-  font-size: var(--sng-font-size-base);
+  background-color: var(--mds-color-bg-base);
+  color: var(--mds-color-text-primary);
+  font-family: var(--mds-font-sans);
+  font-size: var(--mds-font-size-base);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   position: relative;
@@ -337,13 +337,13 @@ body::before {
 }
 
 a {
-  color: var(--sng-color-brand-primary);
+  color: var(--mds-color-brand-primary);
   text-decoration: none;
-  transition: color var(--sng-duration-base) var(--sng-ease-default);
+  transition: color var(--mds-duration-base) var(--mds-ease-default);
 }
 
 a:hover {
-  color: var(--sng-color-brand-primary-hover);
+  color: var(--mds-color-brand-primary-hover);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -351,9 +351,9 @@ a:hover {
 ───────────────────────────────────────────────────────── */
 .prose {
   max-width: 65ch;
-  font-size: var(--sng-font-size-lg);
+  font-size: var(--mds-font-size-lg);
   line-height: 1.75;
-  color: var(--sng-color-text-primary);
+  color: var(--mds-color-text-primary);
 }
 
 .prose > * + * {
@@ -366,16 +366,16 @@ a:hover {
 }
 
 .prose a {
-  color: var(--sng-color-brand-primary);
+  color: var(--mds-color-brand-primary);
   text-decoration: underline;
-  text-decoration-color: var(--sng-color-border-default);
+  text-decoration-color: var(--mds-color-border-default);
   text-underline-offset: 2px;
   font-weight: 500;
 }
 
 .prose a:hover {
-  color: var(--sng-color-brand-primary-hover);
-  text-decoration-color: var(--sng-color-brand-primary);
+  color: var(--mds-color-brand-primary-hover);
+  text-decoration-color: var(--mds-color-brand-primary);
 }
 
 /* 위키링크 (WikiLink / Backlink / HoverPreview) 전용 고유 스타일 */
@@ -384,21 +384,21 @@ a:hover {
 .prose a.wikilink,
 .prose a[class*='wikilink'],
 .wikilink {
-  color: var(--sng-color-brand-primary, #1991b9) !important;
+  color: var(--mds-color-brand-primary, #1991b9) !important;
   background-color: var(
-    --sng-color-state-info-bg,
+    --mds-color-state-info-bg,
     rgba(232, 241, 248, 0.7)
   ) !important;
-  border-bottom: 2px solid var(--sng-color-brand-primary, #1991b9) !important;
+  border-bottom: 2px solid var(--mds-color-brand-primary, #1991b9) !important;
   padding: 2px 6px !important;
   margin: 0 2px !important;
-  border-radius: var(--sng-radius-sm, 4px) !important;
+  border-radius: var(--mds-radius-sm, 4px) !important;
   font-weight: 600 !important;
   text-decoration: none !important;
   display: inline-flex !important;
   align-items: center !important;
   gap: 3px !important;
-  transition: all var(--sng-duration-base, 150ms) var(--sng-ease-default, ease) !important;
+  transition: all var(--mds-duration-base, 150ms) var(--mds-ease-default, ease) !important;
 }
 
 .sng-wikilink::before,
@@ -413,10 +413,10 @@ a:hover {
 .prose a.wikilink:hover,
 .wikilink:hover {
   color: #ffffff !important;
-  background-color: var(--sng-color-brand-primary, #1991b9) !important;
+  background-color: var(--mds-color-brand-primary, #1991b9) !important;
   border-bottom-color: transparent !important;
   box-shadow: var(
-    --sng-shadow-raised,
+    --mds-shadow-raised,
     0 2px 8px rgba(25, 145, 185, 0.25)
   ) !important;
   transform: translateY(-1px) !important;
@@ -424,7 +424,7 @@ a:hover {
 
 .prose a.wikilink.broken,
 .wikilink.broken {
-  color: var(--sng-color-text-muted);
+  color: var(--mds-color-text-muted);
   text-decoration: dashed underline !important;
   background-color: transparent;
   opacity: 0.7;
@@ -439,11 +439,11 @@ a:hover {
   z-index: 500;
   width: 280px;
   padding: 12px 16px;
-  background-color: var(--sng-color-bg-elevated, #ffffff);
-  color: var(--sng-color-text-primary, #1e1311);
-  border: 1px solid var(--sng-color-border-default, #9d8986);
-  border-radius: var(--sng-radius-md, 8px);
-  box-shadow: var(--sng-shadow-floating, 0 4px 16px rgba(0, 0, 0, 0.15));
+  background-color: var(--mds-color-bg-elevated, #ffffff);
+  color: var(--mds-color-text-primary, #1e1311);
+  border: 1px solid var(--mds-color-border-default, #9d8986);
+  border-radius: var(--mds-radius-md, 8px);
+  box-shadow: var(--mds-shadow-floating, 0 4px 16px rgba(0, 0, 0, 0.15));
   font-size: 0.875rem;
   line-height: 1.5;
   pointer-events: none;
@@ -453,13 +453,13 @@ a:hover {
 .sng-wikilink-preview__title {
   display: block;
   font-weight: 700;
-  color: var(--sng-color-brand-primary, #1991b9);
+  color: var(--mds-color-brand-primary, #1991b9);
   margin-bottom: 4px;
 }
 
 .sng-wikilink-preview__excerpt {
   display: block;
-  color: var(--sng-color-text-secondary, #614f4b);
+  color: var(--mds-color-text-secondary, #614f4b);
   font-size: 0.8125rem;
 }
 
@@ -476,7 +476,7 @@ a:hover {
 
 .prose strong {
   font-weight: 600;
-  color: var(--sng-color-text-primary);
+  color: var(--mds-color-text-primary);
 }
 
 .prose em {
@@ -484,19 +484,19 @@ a:hover {
 }
 
 .prose code {
-  background: var(--sng-color-bg-overlay);
-  color: var(--sng-color-brand-primary);
+  background: var(--mds-color-bg-overlay);
+  color: var(--mds-color-brand-primary);
   padding: 0.2em 0.4em;
-  border-radius: var(--sng-radius-sm);
+  border-radius: var(--mds-radius-sm);
   font-size: 0.875em;
   font-weight: 500;
-  font-family: var(--sng-font-mono);
+  font-family: var(--mds-font-mono);
 }
 
 .prose pre {
-  background: var(--sng-color-bg-surface);
-  border: var(--sng-border-thin) solid var(--sng-color-border-default);
-  border-radius: var(--sng-radius-md);
+  background: var(--mds-color-bg-surface);
+  border: var(--mds-border-thin) solid var(--mds-color-border-default);
+  border-radius: var(--mds-radius-md);
   padding: 1.5rem;
   overflow-x: auto;
   margin-top: 2em;
@@ -507,19 +507,19 @@ a:hover {
 .prose pre code {
   background: transparent;
   padding: 0;
-  color: var(--sng-color-text-primary);
+  color: var(--mds-color-text-primary);
   font-size: 0.875em;
   font-weight: 400;
 }
 
 .prose blockquote {
-  border-left: var(--sng-border-base) solid var(--sng-color-brand-primary);
+  border-left: var(--mds-border-base) solid var(--mds-color-brand-primary);
   padding: 0.5rem 1.5rem;
   font-style: italic;
-  color: var(--sng-color-text-secondary);
-  background: var(--sng-color-bg-overlay);
+  color: var(--mds-color-text-secondary);
+  background: var(--mds-color-bg-overlay);
   margin: 2em 0;
-  border-radius: 0 var(--sng-radius-sm) var(--sng-radius-sm) 0;
+  border-radius: 0 var(--mds-radius-sm) var(--mds-radius-sm) 0;
 }
 
 .prose ul,
@@ -543,7 +543,7 @@ a:hover {
 }
 
 .prose img {
-  border-radius: var(--sng-radius-md);
+  border-radius: var(--mds-radius-md);
   margin-top: 2em;
   margin-bottom: 2em;
   width: 100%;
@@ -553,7 +553,7 @@ a:hover {
 .prose figcaption {
   text-align: center;
   font-size: 0.875em;
-  color: var(--sng-color-text-muted);
+  color: var(--mds-color-text-muted);
   margin-top: 0.75em;
 }
 
@@ -567,7 +567,7 @@ a:hover {
   line-height: 1.25;
   margin-top: 2em;
   margin-bottom: 1em;
-  color: var(--sng-color-text-primary);
+  color: var(--mds-color-text-primary);
   scroll-margin-top: 5rem;
 }
 
@@ -595,7 +595,7 @@ a:hover {
 
 .prose hr {
   border: none;
-  border-top: var(--sng-border-thin) solid var(--sng-color-border-default);
+  border-top: var(--mds-border-thin) solid var(--mds-color-border-default);
   margin: 3em 0;
 }
 
@@ -606,41 +606,41 @@ a:hover {
 }
 
 .prose thead {
-  border-bottom: var(--sng-border-base) solid var(--sng-color-border-default);
+  border-bottom: var(--mds-border-base) solid var(--mds-color-border-default);
 }
 
 .prose th {
   padding: 0.75rem;
   text-align: left;
   font-weight: 600;
-  color: var(--sng-color-text-primary);
+  color: var(--mds-color-text-primary);
 }
 
 .prose td {
   padding: 0.75rem;
-  border-bottom: var(--sng-border-thin) solid var(--sng-color-border-subtle);
-  color: var(--sng-color-text-secondary);
+  border-bottom: var(--mds-border-thin) solid var(--mds-color-border-subtle);
+  color: var(--mds-color-text-secondary);
 }
 
 /* ─────────────────────────────────────────────────────────
    코드 하이라이팅 (highlight.js)
 ───────────────────────────────────────────────────────── */
 .hljs {
-  background: var(--sng-color-syntax-bg) !important;
-  color: var(--sng-color-syntax-text);
+  background: var(--mds-color-syntax-bg) !important;
+  color: var(--mds-color-syntax-text);
   padding: 1.5rem;
-  border-radius: var(--sng-radius-md);
+  border-radius: var(--mds-radius-md);
   overflow-x: auto;
 }
 .hljs-comment,
 .hljs-quote {
-  color: var(--sng-color-syntax-comment);
+  color: var(--mds-color-syntax-comment);
   font-style: italic;
 }
 .hljs-keyword,
 .hljs-selector-tag,
 .hljs-subst {
-  color: var(--sng-color-syntax-keyword);
+  color: var(--mds-color-syntax-keyword);
   font-weight: 500;
 }
 .hljs-string,
@@ -648,12 +648,12 @@ a:hover {
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-  color: var(--sng-color-syntax-string);
+  color: var(--mds-color-syntax-string);
 }
 .hljs-title,
 .hljs-section,
 .hljs-name {
-  color: var(--sng-color-syntax-function);
+  color: var(--mds-color-syntax-function);
   font-weight: 500;
 }
 .hljs-number,
@@ -661,19 +661,19 @@ a:hover {
 .hljs-type,
 .hljs-built_in,
 .hljs-template-variable {
-  color: var(--sng-color-syntax-number);
+  color: var(--mds-color-syntax-number);
 }
 .hljs-class .hljs-title,
 .hljs-title.class_ {
-  color: var(--sng-color-syntax-class);
+  color: var(--mds-color-syntax-class);
 }
 .hljs-operator,
 .hljs-punctuation {
-  color: var(--sng-color-syntax-operator);
+  color: var(--mds-color-syntax-operator);
 }
 .hljs-meta,
 .hljs-deletion {
-  color: var(--sng-color-syntax-keyword);
+  color: var(--mds-color-syntax-keyword);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -699,15 +699,15 @@ a:hover {
   align-items: center;
   gap: 4px;
   padding: 4px 8px;
-  font-size: var(--sng-font-size-xs, 0.75rem);
+  font-size: var(--mds-font-size-xs, 0.75rem);
   font-weight: 500;
   border-radius: 4px;
   background: linear-gradient(
     135deg,
-    var(--sng-color-brand-primary),
-    var(--sng-color-brand-logo)
+    var(--mds-color-brand-primary),
+    var(--mds-color-brand-logo)
   );
-  color: var(--sng-color-bg-base);
+  color: var(--mds-color-bg-base);
 }
 
 .sng-badge {
@@ -717,23 +717,23 @@ a:hover {
   font-size: 0.75rem;
   font-weight: 500;
   border-radius: 999px;
-  border: 1px solid var(--sng-color-border-subtle);
+  border: 1px solid var(--mds-color-border-subtle);
 }
 .sng-badge--info {
-  background: var(--sng-color-state-info-bg);
-  color: var(--sng-color-state-info);
+  background: var(--mds-color-state-info-bg);
+  color: var(--mds-color-state-info);
 }
 .sng-badge--success {
-  background: var(--sng-color-state-success-bg);
-  color: var(--sng-color-state-success);
+  background: var(--mds-color-state-success-bg);
+  color: var(--mds-color-state-success);
 }
 .sng-badge--warning {
-  background: var(--sng-color-state-warning-bg);
-  color: var(--sng-color-state-warning);
+  background: var(--mds-color-state-warning-bg);
+  color: var(--mds-color-state-warning);
 }
 .sng-badge--error {
-  background: var(--sng-color-state-error-bg);
-  color: var(--sng-color-state-error);
+  background: var(--mds-color-state-error-bg);
+  color: var(--mds-color-state-error);
 }
 
 .sng-btn {
@@ -745,18 +745,18 @@ a:hover {
   transition: all 0.2s;
 }
 .sng-btn--primary {
-  background: var(--sng-color-brand-primary);
+  background: var(--mds-color-brand-primary);
   color: white;
 }
 .sng-btn--primary:hover {
-  background: var(--sng-color-brand-primary-hover);
+  background: var(--mds-color-brand-primary-hover);
 }
 .sng-btn--outline {
-  border: 1px solid var(--sng-color-border-strong);
-  color: var(--sng-color-text-primary);
+  border: 1px solid var(--mds-color-border-strong);
+  color: var(--mds-color-text-primary);
 }
 .sng-btn--outline:hover {
-  background: var(--sng-color-bg-surface);
+  background: var(--mds-color-bg-surface);
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -765,7 +765,7 @@ a:hover {
    - 85% 지점까지 폭발적 텐션 스냅 후 마지막 15% 부드러운 안착
 ───────────────────────────────────────────────────────── */
 :root {
-  --sng-ease-golden-snap: cubic-bezier(0.15, 0.85, 0.35, 1);
+  --mds-ease-golden-snap: cubic-bezier(0.15, 0.85, 0.35, 1);
 }
 
 @keyframes sng-vine-grow {
@@ -788,7 +788,7 @@ a:hover {
 .sng-vine-drawing {
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: sng-vine-grow 1.4s var(--sng-ease-golden-snap) forwards;
+  animation: sng-vine-grow 1.4s var(--mds-ease-golden-snap) forwards;
 }
 
 /* 유기적 지식 뿌리망(Rhizome Mesh) 펄스 이펙트 */
@@ -811,8 +811,8 @@ a:hover {
 /* 햅틱 인터랙티브 요소 터치 피드백 */
 .sng-haptic-card {
   transition:
-    transform 0.25s var(--sng-ease-golden-snap),
-    box-shadow 0.25s var(--sng-ease-golden-snap);
+    transform 0.25s var(--mds-ease-golden-snap),
+    box-shadow 0.25s var(--mds-ease-golden-snap);
 }
 
 .sng-haptic-card:hover {

@@ -38,7 +38,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       <div className="max-w-3xl mx-auto">
         <h1
           className="text-4xl font-bold mb-8"
-          style={{ color: 'var(--sng-color-text-primary)' }}
+          style={{ color: 'var(--mds-color-text-primary)' }}
         >
           Search
         </h1>
@@ -53,24 +53,24 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
                   <div
                     key={i}
                     className="p-6 border rounded-lg animate-pulse"
-                    style={{ borderColor: 'var(--sng-color-border-default)' }}
+                    style={{ borderColor: 'var(--mds-color-border-default)' }}
                   >
                     <div
                       className="h-6 rounded w-3/4 mb-3"
                       style={{
-                        backgroundColor: 'var(--sng-color-border-default)',
+                        backgroundColor: 'var(--mds-color-border-default)',
                       }}
                     ></div>
                     <div
                       className="h-4 rounded w-full mb-2"
                       style={{
-                        backgroundColor: 'var(--sng-color-border-default)',
+                        backgroundColor: 'var(--mds-color-border-default)',
                       }}
                     ></div>
                     <div
                       className="h-4 rounded w-2/3"
                       style={{
-                        backgroundColor: 'var(--sng-color-border-default)',
+                        backgroundColor: 'var(--mds-color-border-default)',
                       }}
                     ></div>
                   </div>
@@ -86,7 +86,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           <div className="text-center py-12">
             <p
               className="text-lg"
-              style={{ color: 'var(--sng-color-text-secondary)' }}
+              style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               Enter a search query to find posts
             </p>

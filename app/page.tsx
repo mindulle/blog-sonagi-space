@@ -16,7 +16,7 @@ export default function Home() {
         className="relative py-20 md:py-32 overflow-hidden"
         style={{
           background:
-            'linear-gradient(to bottom, var(--sng-color-bg-overlay), var(--sng-color-bg-base))',
+            'linear-gradient(to bottom, var(--mds-color-bg-overlay), var(--mds-color-bg-base))',
         }}
       >
         <Container>
@@ -24,17 +24,17 @@ export default function Home() {
             <div
               className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] text-xs mb-6 border select-none"
               style={{
-                backgroundColor: 'var(--sng-color-bg-surface)',
-                borderColor: 'var(--sng-color-border-subtle)',
+                backgroundColor: 'var(--mds-color-bg-surface)',
+                borderColor: 'var(--mds-color-border-subtle)',
               }}
             >
               <span
                 className="w-2 h-2 rounded-full"
-                style={{ backgroundColor: 'var(--sng-color-brand-primary)' }}
+                style={{ backgroundColor: 'var(--mds-color-brand-primary)' }}
               />
               <span
                 className="font-bold tracking-wider uppercase"
-                style={{ color: 'var(--sng-color-brand-primary)' }}
+                style={{ color: 'var(--mds-color-brand-primary)' }}
               >
                 MINDULLE GARDEN • EST. 2026
               </span>
@@ -42,7 +42,7 @@ export default function Home() {
 
             <h1
               className="text-3xl sm:text-4xl md:text-6xl font-bold mb-6 font-sans tracking-tight"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               돌 틈에 뿌리내린 사유,
               <br />
@@ -51,7 +51,7 @@ export default function Home() {
 
             <p
               className="text-base sm:text-lg md:text-xl mb-8 max-w-2xl mx-auto leading-relaxed font-sans"
-              style={{ color: 'var(--sng-color-text-secondary)' }}
+              style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               완결주의를 거부하고, 생각의 씨앗(Seed)부터 세상과 나누며
               키워나가는 메이커의 열린 사유(Thinking in Public)이자 담백한
@@ -86,20 +86,20 @@ export default function Home() {
       {/* Recently Cultivated Garden Notes Section */}
       <section
         className="py-16 md:py-24"
-        style={{ backgroundColor: 'var(--sng-color-bg-base)' }}
+        style={{ backgroundColor: 'var(--mds-color-bg-base)' }}
       >
         <Container>
           <div className="max-w-5xl mx-auto font-mono">
             <div className="text-center mb-12">
               <span
                 className="text-xs font-bold tracking-wider uppercase"
-                style={{ color: 'var(--sng-color-brand-primary)' }}
+                style={{ color: 'var(--mds-color-brand-primary)' }}
               >
                 RECENT DISPATCHES &amp; NOTES
               </span>
               <h2
                 className="text-2xl sm:text-3xl font-bold font-sans tracking-tight mt-1"
-                style={{ color: 'var(--sng-color-text-primary)' }}
+                style={{ color: 'var(--mds-color-text-primary)' }}
               >
                 최근 가꾼 정원의 기록들
               </h2>
@@ -130,7 +130,7 @@ export default function Home() {
             ) : (
               <p
                 className="text-center text-sm"
-                style={{ color: 'var(--sng-color-text-secondary)' }}
+                style={{ color: 'var(--mds-color-text-secondary)' }}
               >
                 아직 심어진 씨앗이 없습니다. 곧 첫 글이 자라날 예정이에요.
               </p>

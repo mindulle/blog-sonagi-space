@@ -25,32 +25,32 @@ export function SeriesNav({
 }: SeriesNavProps) {
   return (
     <div
-      className="flex flex-col rounded-[var(--sng-radius-xl)] overflow-hidden"
+      className="flex flex-col rounded-[var(--mds-radius-xl)] overflow-hidden"
       style={{
-        backgroundColor: 'var(--sng-color-bg-elevated)',
-        border: '1px solid var(--sng-color-border-default)',
-        boxShadow: 'var(--sng-shadow-sm)',
+        backgroundColor: 'var(--mds-color-bg-elevated)',
+        border: '1px solid var(--mds-color-border-default)',
+        boxShadow: 'var(--mds-shadow-sm)',
       }}
     >
       {/* Header */}
       <div
         className="px-6 pt-6 pb-4 border-b"
-        style={{ borderColor: 'var(--sng-color-border-subtle)' }}
+        style={{ borderColor: 'var(--mds-color-border-subtle)' }}
       >
         <div
           className="text-[12px] font-bold tracking-wider mb-2"
-          style={{ color: 'var(--sng-color-brand-primary)' }}
+          style={{ color: 'var(--mds-color-brand-primary)' }}
         >
           SERIES
         </div>
         <h3
           className="text-xl font-bold leading-tight"
-          style={{ color: 'var(--sng-color-text-primary)' }}
+          style={{ color: 'var(--mds-color-text-primary)' }}
         >
           {series}
           <span
             className="ml-2 text-sm font-normal"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             ({seriesOrder}/{total})
           </span>
@@ -69,17 +69,17 @@ export function SeriesNav({
                   className={`flex items-start gap-3 p-3 rounded-xl text-[15px] transition-colors ${
                     isActive
                       ? 'font-bold'
-                      : 'hover:bg-[var(--sng-color-bg-overlay)]'
+                      : 'hover:bg-[var(--mds-color-bg-overlay)]'
                   }`}
                   style={{
                     color: isActive
-                      ? 'var(--sng-color-text-primary)'
-                      : 'var(--sng-color-text-secondary)',
+                      ? 'var(--mds-color-text-primary)'
+                      : 'var(--mds-color-text-secondary)',
                     backgroundColor: isActive
-                      ? 'var(--sng-color-bg-surface)'
+                      ? 'var(--mds-color-bg-surface)'
                       : 'transparent',
                     border: isActive
-                      ? '1px solid var(--sng-color-border-subtle)'
+                      ? '1px solid var(--mds-color-border-subtle)'
                       : '1px solid transparent',
                   }}
                 >
@@ -87,8 +87,8 @@ export function SeriesNav({
                     className="shrink-0 font-medium opacity-80"
                     style={{
                       color: isActive
-                        ? 'var(--sng-color-brand-primary)'
-                        : 'var(--sng-color-text-muted)',
+                        ? 'var(--mds-color-brand-primary)'
+                        : 'var(--mds-color-text-muted)',
                     }}
                   >
                     {idx + 1}.
@@ -103,8 +103,8 @@ export function SeriesNav({
 
       {/* Footer / Buttons */}
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 px-6 py-5 border-t gap-3 sm:gap-4 bg-[var(--sng-color-bg-surface)]"
-        style={{ borderColor: 'var(--sng-color-border-subtle)' }}
+        className="grid grid-cols-1 sm:grid-cols-2 px-6 py-5 border-t gap-3 sm:gap-4 bg-[var(--mds-color-bg-surface)]"
+        style={{ borderColor: 'var(--mds-color-border-subtle)' }}
       >
         <div>
           {prev ? (

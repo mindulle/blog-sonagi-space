@@ -26,9 +26,9 @@ export function MetadataToggle({
         <div
           className="absolute top-full left-0 mt-2 w-64 p-4 rounded-lg shadow-lg z-50 text-sm"
           style={{
-            backgroundColor: 'var(--sng-color-bg-elevated)',
-            border: '1px solid var(--sng-color-border-default)',
-            color: 'var(--sng-color-text-primary)',
+            backgroundColor: 'var(--mds-color-bg-elevated)',
+            border: '1px solid var(--mds-color-border-default)',
+            color: 'var(--mds-color-text-primary)',
           }}
         >
           <div className="flex flex-col gap-2">

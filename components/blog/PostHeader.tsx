@@ -12,7 +12,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
   return (
     <header className="mb-12">
       {showCoverImage && post.coverImage && (
-        <div className="relative w-full mb-8 overflow-hidden aspect-video rounded-[var(--sng-radius-lg)]">
+        <div className="relative w-full mb-8 overflow-hidden aspect-video rounded-[var(--mds-radius-lg)]">
           <Image
             src={post.coverImage}
             alt={post.title}
@@ -29,7 +29,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
 
       <h1
         className="mb-4 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl"
-        style={{ color: 'var(--sng-color-text-primary)' }}
+        style={{ color: 'var(--mds-color-text-primary)' }}
       >
         {post.title}
       </h1>
@@ -41,30 +41,30 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
       <details className="group">
         <summary
           className="inline-flex items-center gap-2 text-sm font-medium cursor-pointer"
-          style={{ color: 'var(--sng-color-text-secondary)' }}
+          style={{ color: 'var(--mds-color-text-secondary)' }}
         >
           <span className="transition-transform group-open:rotate-90">▶</span>
           포스트 정보 보기
         </summary>
 
         <div
-          className="flex flex-col gap-4 mt-4 p-4 border rounded-[var(--sng-radius-md)]"
+          className="flex flex-col gap-4 mt-4 p-4 border rounded-[var(--mds-radius-md)]"
           style={{
-            backgroundColor: 'var(--sng-color-bg-surface)',
-            borderColor: 'var(--sng-color-border-subtle)',
+            backgroundColor: 'var(--mds-color-bg-surface)',
+            borderColor: 'var(--mds-color-border-subtle)',
           }}
         >
           {post.description && (
             <div className="flex flex-col gap-1">
               <span
                 className="text-xs"
-                style={{ color: 'var(--sng-color-text-muted)' }}
+                style={{ color: 'var(--mds-color-text-muted)' }}
               >
                 요약
               </span>
               <p
                 className="m-0 text-sm"
-                style={{ color: 'var(--sng-color-text-secondary)' }}
+                style={{ color: 'var(--mds-color-text-secondary)' }}
               >
                 {post.description}
               </p>
@@ -73,7 +73,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
 
           <div
             className="flex flex-wrap items-center gap-4 text-sm"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             <div className="flex items-center gap-1.5">
               <Calendar size={16} aria-hidden="true" />
@@ -86,7 +86,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
               </time>
             </div>
 
-            <span style={{ color: 'var(--sng-color-text-muted)' }}>·</span>
+            <span style={{ color: 'var(--mds-color-text-muted)' }}>·</span>
 
             <div className="flex items-center gap-1.5">
               <Clock size={16} aria-hidden="true" />
@@ -95,7 +95,7 @@ export function PostHeader({ post, showCoverImage = true }: PostHeaderProps) {
 
             {post.author && (
               <>
-                <span style={{ color: 'var(--sng-color-text-muted)' }}>·</span>
+                <span style={{ color: 'var(--mds-color-text-muted)' }}>·</span>
                 <div className="flex items-center gap-1.5">
                   <User size={16} aria-hidden="true" />
                   <span>{post.author}</span>

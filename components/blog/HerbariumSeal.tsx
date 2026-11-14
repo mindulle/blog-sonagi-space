@@ -59,7 +59,7 @@ export function HerbariumSeal({
         fill="currentColor"
         stroke="none"
         fontSize={6.5}
-        fontFamily="var(--sng-font-mono, monospace)"
+        fontFamily="var(--mds-font-mono, monospace)"
         fontWeight="bold"
         letterSpacing="0.18em"
       >
@@ -73,7 +73,7 @@ export function HerbariumSeal({
         fill="currentColor"
         stroke="none"
         fontSize={6}
-        fontFamily="var(--sng-font-mono, monospace)"
+        fontFamily="var(--mds-font-mono, monospace)"
         fontWeight="bold"
         letterSpacing="0.15em"
       >
@@ -88,7 +88,7 @@ export function HerbariumSeal({
         fill="currentColor"
         stroke="none"
         fontSize={5}
-        fontFamily="var(--sng-font-mono, monospace)"
+        fontFamily="var(--mds-font-mono, monospace)"
         opacity={0.8}
         letterSpacing="0.1em"
       >
@@ -102,7 +102,7 @@ export function HerbariumSeal({
         fill="currentColor"
         stroke="none"
         fontSize={5}
-        fontFamily="var(--sng-font-mono, monospace)"
+        fontFamily="var(--mds-font-mono, monospace)"
         opacity={0.8}
         letterSpacing="0.1em"
       >

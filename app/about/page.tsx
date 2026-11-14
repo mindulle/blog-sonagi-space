@@ -30,7 +30,7 @@ export default function AboutPage() {
       <Container className="max-w-[960px] mx-auto px-4 sm:px-6 md:px-8">
         {/* ─── 신문 브로드시트 대장 (The Broadsheet Folio) ─── */}
         <article
-          className="relative rounded-[4px] p-6 sm:p-10 md:p-14 border bg-[var(--sng-color-bg-surface)] border-[var(--sng-color-border-default)] shadow-sm"
+          className="relative rounded-[4px] p-6 sm:p-10 md:p-14 border bg-[var(--mds-color-bg-surface)] border-[var(--mds-color-border-default)] shadow-sm"
           style={{
             borderWidth: '2px',
           }}
@@ -46,48 +46,48 @@ export default function AboutPage() {
                 <div className="space-y-6 pt-1">
                   <div>
                     <h3
-                      className="text-xs font-bold uppercase tracking-widest text-[var(--sng-color-brand-primary)] mb-2"
+                      className="text-xs font-bold uppercase tracking-widest text-[var(--mds-color-brand-primary)] mb-2"
                       style={{ fontFamily: 'var(--font-cinematic, serif)' }}
                     >
                       ATELIER ARCHITECTURE
                     </h3>
-                    <p className="text-xs text-[var(--sng-color-text-secondary)] leading-relaxed">
+                    <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
                       소나기 공방은 소프트웨어 엔지니어링과 아날로그
                       에디토리얼의 교차점에서 실전 프로덕트를 짓습니다.
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-[4px] border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)]">
-                    <span className="block text-[10px] font-mono uppercase tracking-wider text-[var(--sng-color-text-muted)] mb-1">
+                  <div className="p-4 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)]">
+                    <span className="block text-[10px] font-mono uppercase tracking-wider text-[var(--mds-color-text-muted)] mb-1">
                       THE 85:15 RULE
                     </span>
-                    <p className="text-xs font-medium text-[var(--sng-color-text-primary)] leading-normal">
+                    <p className="text-xs font-medium text-[var(--mds-color-text-primary)] leading-normal">
                       85% 신문 조판 그리드와 15% 보태니컬 펜 선화의 균형.
                     </p>
                   </div>
 
                   <div className="space-y-2 text-xs font-mono">
-                    <div className="flex justify-between py-1 border-b border-[var(--sng-color-border-default)]">
-                      <span className="text-[var(--sng-color-text-muted)]">
+                    <div className="flex justify-between py-1 border-b border-[var(--mds-color-border-default)]">
+                      <span className="text-[var(--mds-color-text-muted)]">
                         FOUNDATION
                       </span>
-                      <span className="font-semibold text-[var(--sng-color-text-primary)]">
+                      <span className="font-semibold text-[var(--mds-color-text-primary)]">
                         The True 2px Stem
                       </span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-[var(--sng-color-border-default)]">
-                      <span className="text-[var(--sng-color-text-muted)]">
+                    <div className="flex justify-between py-1 border-b border-[var(--mds-color-border-default)]">
+                      <span className="text-[var(--mds-color-text-muted)]">
                         PALETTE
                       </span>
-                      <span className="font-semibold text-[var(--sng-color-text-primary)]">
+                      <span className="font-semibold text-[var(--mds-color-text-primary)]">
                         Ink &amp; Newsprint
                       </span>
                     </div>
-                    <div className="flex justify-between py-1 border-b border-[var(--sng-color-border-default)]">
-                      <span className="text-[var(--sng-color-text-muted)]">
+                    <div className="flex justify-between py-1 border-b border-[var(--mds-color-border-default)]">
+                      <span className="text-[var(--mds-color-text-muted)]">
                         SYSTEM
                       </span>
-                      <span className="font-semibold text-[var(--sng-color-brand-primary)]">
+                      <span className="font-semibold text-[var(--mds-color-brand-primary)]">
                         MDS v0.1.0
                       </span>
                     </div>
@@ -95,7 +95,7 @@ export default function AboutPage() {
                 </div>
               }
             >
-              <div className="space-y-5 text-sm sm:text-base leading-relaxed text-[var(--sng-color-text-secondary)] font-sans">
+              <div className="space-y-5 text-sm sm:text-base leading-relaxed text-[var(--mds-color-text-secondary)] font-sans">
                 <DropCap letter="정">
                   <p>
                     원은 완성을 목표로 하지 않습니다. 그것은 지속적인 보살핌과
@@ -112,7 +112,7 @@ export default function AboutPage() {
                   거부합니다. 온실이 아닌 척박한 바위 틈에서도 꿋꿋이 자라나는
                   야생 민들레처럼, 거친 생각의 씨앗(Seed)부터 세상과 나누며
                   비판과 검증을 통해 단단한 지식으로 키워나가는{' '}
-                  <strong className="text-[var(--sng-color-text-primary)]">
+                  <strong className="text-[var(--mds-color-text-primary)]">
                     열린 사유(Thinking in Public)
                   </strong>
                   의 지면입니다.
@@ -133,11 +133,11 @@ export default function AboutPage() {
           {/* 3. 메이커 철학 & 도구 체계 (Atelier Pillars) */}
           <section className="space-y-6">
             <div className="flex flex-col gap-1">
-              <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--sng-color-brand-primary)] font-mono">
+              <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--mds-color-brand-primary)] font-mono">
                 MAKER PILLARS &amp; TOOLCHAIN
               </span>
               <h2
-                className="text-lg sm:text-xl font-bold tracking-tight text-[var(--sng-color-text-primary)]"
+                className="text-lg sm:text-xl font-bold tracking-tight text-[var(--mds-color-text-primary)]"
                 style={{ fontFamily: 'var(--font-cinematic, serif)' }}
               >
                 도구는 단단하게, 사유는 자유롭게
@@ -145,40 +145,40 @@ export default function AboutPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-5 rounded-[4px] border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)] flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--sng-color-brand-primary)]">
+              <div className="p-5 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
                   <Code2 size={18} />
                   <span className="text-xs font-bold uppercase font-mono">
                     Everything as Code
                   </span>
                 </div>
-                <p className="text-xs text-[var(--sng-color-text-secondary)] leading-relaxed">
+                <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
                   디자인 토큰부터 인프라, 위키 문서까지 모든 지적 자산을 코드로
                   정의하고 버전 관리합니다.
                 </p>
               </div>
 
-              <div className="p-5 rounded-[4px] border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)] flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--sng-color-brand-primary)]">
+              <div className="p-5 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
                   <Layers size={18} />
                   <span className="text-xs font-bold uppercase font-mono">
                     True 2px Stem
                   </span>
                 </div>
-                <p className="text-xs text-[var(--sng-color-text-secondary)] leading-relaxed">
+                <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
                   모호한 그림자와 장식을 배제하고, 선명한 2px 실선과 단단한
                   경계로 UI와 타이포그래피 공간을 규정합니다.
                 </p>
               </div>
 
-              <div className="p-5 rounded-[4px] border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)] flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--sng-color-brand-primary)]">
+              <div className="p-5 rounded-[4px] border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
+                <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
                   <BookOpen size={18} />
                   <span className="text-xs font-bold uppercase font-mono">
                     Ink on Newsprint
                   </span>
                 </div>
-                <p className="text-xs text-[var(--sng-color-text-secondary)] leading-relaxed">
+                <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
                   스크린에서도 갓 인쇄된 신문 지면의 촉각성과 깊은 먹색 잉크의
                   가독성을 최우선으로 지켜냅니다.
                 </p>
@@ -193,14 +193,14 @@ export default function AboutPage() {
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span
-                  className="w-2 h-2 rounded-full animate-pulse bg-[var(--sng-color-brand-primary)]"
+                  className="w-2 h-2 rounded-full animate-pulse bg-[var(--mds-color-brand-primary)]"
                   aria-hidden="true"
                 />
-                <span className="text-xs font-bold text-[var(--sng-color-brand-primary)] font-mono">
+                <span className="text-xs font-bold text-[var(--mds-color-brand-primary)] font-mono">
                   GARDENER IS ACTIVE IN THE ATELIER
                 </span>
               </div>
-              <p className="text-xs text-[var(--sng-color-text-muted)]">
+              <p className="text-xs text-[var(--mds-color-text-muted)]">
                 정원의 사유에 대한 대화, 기술 교류, 질문은 언제나 열려 있습니다.
               </p>
             </div>
@@ -208,7 +208,7 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
               <a
                 href="mailto:mindulle@sonagi.space"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)] text-[var(--sng-color-text-primary)] hover:border-[var(--sng-color-brand-primary)] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
               >
                 <Mail size={13} />
                 <span>메일 보내기</span>
@@ -218,7 +218,7 @@ export default function AboutPage() {
                 href="https://github.com/mindulle"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)] text-[var(--sng-color-text-primary)] hover:border-[var(--sng-color-brand-primary)] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
               >
                 <Github size={13} />
                 <span>GitHub</span>
@@ -226,7 +226,7 @@ export default function AboutPage() {
 
               <Link
                 href="/rss.xml"
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--sng-color-border-default)] bg-[var(--sng-color-bg-base)] text-[var(--sng-color-text-primary)] hover:border-[var(--sng-color-brand-primary)] transition-colors"
+                className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] text-[var(--mds-color-text-primary)] hover:border-[var(--mds-color-brand-primary)] transition-colors"
               >
                 <Rss size={13} />
                 <span>RSS 구독</span>

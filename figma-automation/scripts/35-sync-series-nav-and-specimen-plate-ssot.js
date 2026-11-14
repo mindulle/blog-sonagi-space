@@ -13,7 +13,7 @@
  *    - Dual Mode: Light Mode (Warm Paper / Bronze Gold #b86a04) & Dark Mode (Deep Obsidian / Amber Gold #ffc837)
  *    - Eradicates empty <div class="flex-1"></div> glitch.
  * 2. SpecimenLabel (Plate Variant) Component:
- *    - The True 4px Left Stem (border-left: 4px solid var(--sng-color-brand-primary))
+ *    - The True 4px Left Stem (border-left: 4px solid var(--mds-color-brand-primary))
  *    - Top Washi tape strip accent (96x10)
  *    - Clear taxonomy, accession number (SNG-xxxx), and collection metadata
  * 3. Desktop Sidebar Clean Layout (No duplicate Series TOC):

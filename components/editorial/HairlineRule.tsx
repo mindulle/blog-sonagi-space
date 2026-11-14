@@ -23,7 +23,7 @@ export function HairlineRule({
   if (vertical) {
     return (
       <div
-        className={`inline-block self-stretch w-[1px] bg-[var(--sng-color-border-default)] ${className}`}
+        className={`inline-block self-stretch w-[1px] bg-[var(--mds-color-border-default)] ${className}`}
         style={style}
         aria-hidden="true"
       />
@@ -39,11 +39,11 @@ export function HairlineRule({
       >
         <div
           className={`w-full ${thick ? 'h-[2px]' : 'h-[1px]'}`}
-          style={{ backgroundColor: 'var(--sng-color-text-primary)' }}
+          style={{ backgroundColor: 'var(--mds-color-text-primary)' }}
         />
         <div
           className="w-full h-[1px]"
-          style={{ backgroundColor: 'var(--sng-color-border-default)' }}
+          style={{ backgroundColor: 'var(--mds-color-border-default)' }}
         />
       </div>
     );
@@ -55,8 +55,8 @@ export function HairlineRule({
       style={{
         height: thick ? '2px' : '1px',
         backgroundColor: thick
-          ? 'var(--sng-color-text-primary)'
-          : 'var(--sng-color-border-default)',
+          ? 'var(--mds-color-text-primary)'
+          : 'var(--mds-color-border-default)',
         ...style,
       }}
       aria-hidden="true"

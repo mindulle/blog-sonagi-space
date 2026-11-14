@@ -106,8 +106,8 @@ export function WikiLinkPreview({ children, slug, href, fetchNote }: Props) {
         data-slug={slug}
         onTouchEnd={handleTouchEnd}
         onClick={handleClick}
-        className="font-medium underline decoration-[var(--sng-color-border-subtle)] underline-offset-2 hover:decoration-[var(--sng-color-brand-primary)] transition-colors"
-        style={{ color: 'var(--sng-color-brand-primary)' }}
+        className="font-medium underline decoration-[var(--mds-color-border-subtle)] underline-offset-2 hover:decoration-[var(--mds-color-brand-primary)] transition-colors"
+        style={{ color: 'var(--mds-color-brand-primary)' }}
       >
         {children}
       </a>
@@ -117,16 +117,16 @@ export function WikiLinkPreview({ children, slug, href, fetchNote }: Props) {
           role="tooltip"
           className="absolute z-[500] bottom-full mb-2 left-1/2 -translate-x-1/2 w-80 p-4 flex flex-col gap-2 rounded-xl pointer-events-none transition-all duration-200"
           style={{
-            backgroundColor: 'var(--sng-color-bg-elevated)',
-            border: '1px solid var(--sng-color-border-subtle)',
+            backgroundColor: 'var(--mds-color-bg-elevated)',
+            border: '1px solid var(--mds-color-border-subtle)',
             boxShadow:
-              'var(--sng-shadow-raised, 0 8px 24px -4px rgba(0, 0, 0, 0.12))',
+              'var(--mds-shadow-raised, 0 8px 24px -4px rgba(0, 0, 0, 0.12))',
           }}
         >
           {loading ? (
             <span
               className="text-sm animate-pulse"
-              style={{ color: 'var(--sng-color-text-muted)' }}
+              style={{ color: 'var(--mds-color-text-muted)' }}
             >
               불러오는 중...
             </span>
@@ -134,20 +134,20 @@ export function WikiLinkPreview({ children, slug, href, fetchNote }: Props) {
             <>
               <div
                 className="flex items-center gap-1.5 text-xs font-mono"
-                style={{ color: 'var(--sng-color-brand-primary)' }}
+                style={{ color: 'var(--mds-color-brand-primary)' }}
               >
                 <span>[[{slug}]]</span>
               </div>
               <div
                 className="font-semibold text-sm line-clamp-1"
-                style={{ color: 'var(--sng-color-text-primary)' }}
+                style={{ color: 'var(--mds-color-text-primary)' }}
               >
                 {preview.title}
               </div>
               {preview.excerpt && (
                 <div
                   className="text-xs line-clamp-2 leading-relaxed"
-                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                  style={{ color: 'var(--mds-color-text-secondary)' }}
                 >
                   {preview.excerpt}
                 </div>

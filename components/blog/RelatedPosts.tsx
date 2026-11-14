@@ -53,7 +53,7 @@ export function RelatedPosts({
     <section>
       <h2
         className="text-2xl font-bold mb-6"
-        style={{ color: 'var(--sng-color-text-primary)' }}
+        style={{ color: 'var(--mds-color-text-primary)' }}
       >
         Related Posts
       </h2>

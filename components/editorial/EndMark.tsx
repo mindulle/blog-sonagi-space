@@ -13,7 +13,7 @@ export interface EndMarkProps {
 export function EndMark({ className = '', size = 18 }: EndMarkProps) {
   return (
     <span
-      className={`inline-flex items-center justify-center align-middle ml-2 text-[var(--sng-color-brand-primary)] select-none ${className}`}
+      className={`inline-flex items-center justify-center align-middle ml-2 text-[var(--mds-color-brand-primary)] select-none ${className}`}
       aria-hidden="true"
     >
       <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor">

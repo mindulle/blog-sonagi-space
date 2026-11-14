@@ -24,9 +24,9 @@ export function Header() {
       className="sticky top-0 z-50 w-full backdrop-blur-md transition-colors duration-200"
       style={{
         backgroundColor:
-          'color-mix(in srgb, var(--sng-color-bg-surface) 80%, transparent)',
+          'color-mix(in srgb, var(--mds-color-bg-surface) 80%, transparent)',
         borderBottom:
-          'var(--sng-border-thin) solid var(--sng-color-border-default)',
+          'var(--mds-border-thin) solid var(--mds-color-border-default)',
       }}
     >
       {/* Desktop: px-8 (32px), Mobile: px-4 (16px) */}
@@ -36,7 +36,7 @@ export function Header() {
           <Link
             href="/"
             onClick={() => setIsMobileMenuOpen(false)}
-            className="flex items-center transition-opacity hover:opacity-80 text-[var(--sng-color-text-primary)]"
+            className="flex items-center transition-opacity hover:opacity-80 text-[var(--mds-color-text-primary)]"
           >
             <Logo height={28} />
           </Link>
@@ -53,8 +53,8 @@ export function Header() {
                     color:
                       pathname === item.href ||
                       (pathname?.startsWith(item.href) && item.href !== '/')
-                        ? 'var(--sng-color-text-primary)'
-                        : 'var(--sng-color-text-muted)',
+                        ? 'var(--mds-color-text-primary)'
+                        : 'var(--mds-color-text-muted)',
                   }}
                 >
                   {item.name}
@@ -68,7 +68,7 @@ export function Header() {
                 <Button
                   variant="secondary"
                   aria-label="Search"
-                  className="!p-2 text-[var(--sng-color-icon-muted)] hover:text-[var(--sng-color-text-primary)] bg-transparent border-transparent"
+                  className="!p-2 text-[var(--mds-color-icon-muted)] hover:text-[var(--mds-color-text-primary)] bg-transparent border-transparent"
                 >
                   <Search size={20} />
                 </Button>
@@ -80,7 +80,7 @@ export function Header() {
                 variant="secondary"
                 aria-label="Menu"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden !p-2 text-[var(--sng-color-icon-muted)] hover:text-[var(--sng-color-text-primary)] bg-transparent border-transparent"
+                className="md:hidden !p-2 text-[var(--mds-color-icon-muted)] hover:text-[var(--mds-color-text-primary)] bg-transparent border-transparent"
               >
                 {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
               </Button>
@@ -95,10 +95,10 @@ export function Header() {
           className="md:hidden absolute top-[64px] left-0 w-full backdrop-blur-xl"
           style={{
             backgroundColor:
-              'color-mix(in srgb, var(--sng-color-bg-surface) 95%, transparent)',
+              'color-mix(in srgb, var(--mds-color-bg-surface) 95%, transparent)',
             borderBottom:
-              'var(--sng-border-thin) solid var(--sng-color-border-default)',
-            boxShadow: 'var(--sng-shadow-sm)',
+              'var(--mds-border-thin) solid var(--mds-color-border-default)',
+            boxShadow: 'var(--mds-shadow-sm)',
           }}
         >
           <nav className="flex flex-col py-4 px-6 gap-2">
@@ -114,10 +114,10 @@ export function Header() {
                   className="text-lg font-medium transition-colors p-3 rounded-lg"
                   style={{
                     color: isActive
-                      ? 'var(--sng-color-text-primary)'
-                      : 'var(--sng-color-text-secondary)',
+                      ? 'var(--mds-color-text-primary)'
+                      : 'var(--mds-color-text-secondary)',
                     backgroundColor: isActive
-                      ? 'var(--sng-color-bg-elevated)'
+                      ? 'var(--mds-color-bg-elevated)'
                       : 'transparent',
                   }}
                 >

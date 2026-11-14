@@ -117,20 +117,20 @@ export function LocalGraph({ slug }: LocalGraphProps) {
 
   return (
     <div className="mt-12 mb-8 relative">
-      <h3 className="text-xl font-bold text-[var(--sng-color-text-primary)] mb-4">
+      <h3 className="text-xl font-bold text-[var(--mds-color-text-primary)] mb-4">
         Interactive Local Graph
       </h3>
-      <div className="text-sm text-[var(--sng-color-text-secondary)] mb-4">
+      <div className="text-sm text-[var(--mds-color-text-secondary)] mb-4">
         이 지식과 연결된 인접 문서들의 생태계입니다. 마우스를 올려 요약을
         확인하세요.
       </div>
 
       {isLoading ? (
         <div
-          className="w-full flex items-center justify-center border-2 border-[var(--sng-color-border-default)] rounded-[var(--sng-radius-lg)] bg-[var(--sng-color-bg-surface)] animate-pulse"
+          className="w-full flex items-center justify-center border-2 border-[var(--mds-color-border-default)] rounded-[var(--mds-radius-lg)] bg-[var(--mds-color-bg-surface)] animate-pulse"
           style={{ height: 350 }}
         >
-          <span className="text-[var(--sng-color-text-muted)] font-medium text-sm">
+          <span className="text-[var(--mds-color-text-muted)] font-medium text-sm">
             그래프 데이터를 불러오는 중...
           </span>
         </div>

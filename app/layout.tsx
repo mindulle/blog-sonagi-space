@@ -7,21 +7,21 @@ import {
 import './globals.css';
 
 const cormorantGaramond = Cormorant_Garamond({
-  variable: '--sng-font-cinematic',
+  variable: '--mds-font-cinematic',
   subsets: ['latin'],
   weight: ['400', '600', '700'],
   display: 'swap',
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  variable: '--sng-font-mono',
+  variable: '--mds-font-mono',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
   display: 'swap',
 });
 
 const notoSerifKR = Noto_Serif_KR({
-  variable: '--sng-font-serif-kr',
+  variable: '--mds-font-serif-kr',
   subsets: ['latin'],
   weight: ['500', '600', '700'],
   display: 'swap',

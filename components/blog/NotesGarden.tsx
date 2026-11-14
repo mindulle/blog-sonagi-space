@@ -182,21 +182,21 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
       <section
         className="p-4 sm:p-5 rounded-[4px] border select-none sng-texture-folio"
         style={{
-          backgroundColor: 'var(--sng-color-bg-surface)',
-          borderColor: 'var(--sng-color-border-default)',
+          backgroundColor: 'var(--mds-color-bg-surface)',
+          borderColor: 'var(--mds-color-border-default)',
         }}
         aria-label="Botanical Growth Stage Filter"
       >
-        <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--sng-color-border-subtle)]">
+        <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--mds-color-border-subtle)]">
           <span
             className="text-[11px] font-bold tracking-wider uppercase"
-            style={{ color: 'var(--sng-color-brand-primary)' }}
+            style={{ color: 'var(--mds-color-brand-primary)' }}
           >
             STAGE FILTER • 생장 단계별 표본 서랍
           </span>
           <span
             className="text-[11px] tabular-nums"
-            style={{ color: 'var(--sng-color-text-muted)' }}
+            style={{ color: 'var(--mds-color-text-muted)' }}
           >
             {filteredNotes.length} / {initialNotes.length} 표본
           </span>
@@ -210,24 +210,24 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
             style={{
               backgroundColor:
                 selectedStage === null
-                  ? 'var(--sng-color-bg-overlay)'
+                  ? 'var(--mds-color-bg-overlay)'
                   : 'transparent',
               borderColor:
                 selectedStage === null
-                  ? 'var(--sng-color-brand-primary)'
-                  : 'var(--sng-color-border-subtle)',
+                  ? 'var(--mds-color-brand-primary)'
+                  : 'var(--mds-color-border-subtle)',
               color:
                 selectedStage === null
-                  ? 'var(--sng-color-brand-primary)'
-                  : 'var(--sng-color-text-secondary)',
+                  ? 'var(--mds-color-brand-primary)'
+                  : 'var(--mds-color-text-secondary)',
             }}
           >
             <span className="font-semibold">전체 표본</span>
             <span
               className="text-[10px] px-1.5 py-0.5 rounded-[2px]"
               style={{
-                backgroundColor: 'var(--sng-color-bg-overlay)',
-                color: 'var(--sng-color-text-muted)',
+                backgroundColor: 'var(--mds-color-bg-overlay)',
+                color: 'var(--mds-color-text-muted)',
               }}
             >
               {stageCounts.all}
@@ -244,14 +244,14 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
                 className="flex items-center justify-between p-2.5 rounded-[4px] border text-xs transition-all"
                 style={{
                   backgroundColor: isActive
-                    ? 'var(--sng-color-bg-overlay)'
+                    ? 'var(--mds-color-bg-overlay)'
                     : 'transparent',
                   borderColor: isActive
-                    ? 'var(--sng-color-brand-primary)'
-                    : 'var(--sng-color-border-subtle)',
+                    ? 'var(--mds-color-brand-primary)'
+                    : 'var(--mds-color-border-subtle)',
                   color: isActive
-                    ? 'var(--sng-color-brand-primary)'
-                    : 'var(--sng-color-text-secondary)',
+                    ? 'var(--mds-color-brand-primary)'
+                    : 'var(--mds-color-text-secondary)',
                 }}
               >
                 <div className="flex items-center gap-2">
@@ -260,7 +260,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
                     size={16}
                     strokeColor={
                       isActive
-                        ? 'var(--sng-color-brand-primary)'
+                        ? 'var(--mds-color-brand-primary)'
                         : 'currentColor'
                     }
                   />
@@ -269,8 +269,8 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
                 <span
                   className="text-[10px] px-1.5 py-0.5 rounded-[2px]"
                   style={{
-                    backgroundColor: 'var(--sng-color-bg-overlay)',
-                    color: 'var(--sng-color-text-muted)',
+                    backgroundColor: 'var(--mds-color-bg-overlay)',
+                    color: 'var(--mds-color-text-muted)',
                   }}
                 >
                   {stageCounts[st.id] || 0}
@@ -282,7 +282,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
       </section>
 
       {/* ─── TIER 2: 도메인 분류 탭 & 검색 바 ─── */}
-      <section className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-2 border-b border-[var(--sng-color-border-subtle)]">
+      <section className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 pb-2 border-b border-[var(--mds-color-border-subtle)]">
         {/* 도메인 필터 알약 탭 */}
         <div className="flex flex-wrap items-center gap-1.5 text-xs">
           <button
@@ -291,16 +291,16 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
             style={{
               backgroundColor:
                 selectedDomain === null
-                  ? 'var(--sng-color-bg-overlay)'
+                  ? 'var(--mds-color-bg-overlay)'
                   : 'transparent',
               borderColor:
                 selectedDomain === null
-                  ? 'var(--sng-color-brand-primary)'
-                  : 'var(--sng-color-border-subtle)',
+                  ? 'var(--mds-color-brand-primary)'
+                  : 'var(--mds-color-border-subtle)',
               color:
                 selectedDomain === null
-                  ? 'var(--sng-color-brand-primary)'
-                  : 'var(--sng-color-text-muted)',
+                  ? 'var(--mds-color-brand-primary)'
+                  : 'var(--mds-color-text-muted)',
             }}
           >
             All Fields
@@ -317,14 +317,14 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
                 className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] border transition-colors"
                 style={{
                   backgroundColor: isDomActive
-                    ? 'var(--sng-color-bg-overlay)'
+                    ? 'var(--mds-color-bg-overlay)'
                     : 'transparent',
                   borderColor: isDomActive
-                    ? 'var(--sng-color-brand-primary)'
-                    : 'var(--sng-color-border-subtle)',
+                    ? 'var(--mds-color-brand-primary)'
+                    : 'var(--mds-color-border-subtle)',
                   color: isDomActive
-                    ? 'var(--sng-color-brand-primary)'
-                    : 'var(--sng-color-text-secondary)',
+                    ? 'var(--mds-color-brand-primary)'
+                    : 'var(--mds-color-text-secondary)',
                 }}
               >
                 <span>{dom.nameEn}</span>
@@ -339,7 +339,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
           <Search
             size={14}
             className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
-            style={{ color: 'var(--sng-color-text-muted)' }}
+            style={{ color: 'var(--mds-color-text-muted)' }}
           />
           <input
             type="text"
@@ -348,17 +348,17 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full pl-8 pr-3 py-1.5 rounded-[4px] text-xs border outline-none transition-colors"
             style={{
-              backgroundColor: 'var(--sng-color-bg-surface)',
-              borderColor: 'var(--sng-color-border-default)',
-              color: 'var(--sng-color-text-primary)',
+              backgroundColor: 'var(--mds-color-bg-surface)',
+              borderColor: 'var(--mds-color-border-default)',
+              color: 'var(--mds-color-text-primary)',
             }}
             onFocus={(e) =>
               (e.currentTarget.style.borderColor =
-                'var(--sng-color-brand-primary)')
+                'var(--mds-color-brand-primary)')
             }
             onBlur={(e) =>
               (e.currentTarget.style.borderColor =
-                'var(--sng-color-border-default)')
+                'var(--mds-color-border-default)')
             }
           />
         </div>
@@ -369,13 +369,13 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
         <div
           className="p-12 text-center rounded-[4px] border border-dashed text-xs space-y-2"
           style={{
-            borderColor: 'var(--sng-color-border-default)',
-            color: 'var(--sng-color-text-muted)',
+            borderColor: 'var(--mds-color-border-default)',
+            color: 'var(--mds-color-text-muted)',
           }}
         >
           <div
             className="text-sm font-semibold"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             조건에 일치하는 표본이 표본 서랍에 없습니다.
           </div>

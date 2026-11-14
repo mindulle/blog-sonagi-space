@@ -27,9 +27,9 @@ interface UnifiedDetailProps {
 }
 
 const surfaceCardStyle = {
-  backgroundColor: 'var(--sng-color-bg-surface)',
-  borderColor: 'var(--sng-color-border-default)',
-  boxShadow: 'var(--sng-shadow-raised)',
+  backgroundColor: 'var(--mds-color-bg-surface)',
+  borderColor: 'var(--mds-color-border-default)',
+  boxShadow: 'var(--mds-shadow-raised)',
 };
 
 export function UnifiedDetail({
@@ -47,7 +47,7 @@ export function UnifiedDetail({
     <Link
       href={isBlogView ? '/blog' : '/notes'}
       className="inline-flex items-center gap-1 mb-4 text-sm"
-      style={{ color: 'var(--sng-color-text-secondary)' }}
+      style={{ color: 'var(--mds-color-text-secondary)' }}
     >
       ← {isBlogView ? 'Blog' : 'Notes'}
     </Link>
@@ -88,14 +88,14 @@ export function UnifiedDetail({
 
               <h1
                 className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold"
-                style={{ color: 'var(--sng-color-text-primary)' }}
+                style={{ color: 'var(--mds-color-text-primary)' }}
               >
                 {note.title}
               </h1>
 
               <div
                 className="flex items-center gap-4 text-sm"
-                style={{ color: 'var(--sng-color-text-secondary)' }}
+                style={{ color: 'var(--mds-color-text-secondary)' }}
               >
                 {note.publishedDate && <span>{note.publishedDate}</span>}
                 <MetadataToggle created={note.created} />
@@ -129,11 +129,11 @@ export function UnifiedDetail({
             {isBlogView && (
               <div
                 className="mt-12 pt-8 border-t"
-                style={{ borderColor: 'var(--sng-color-border-default)' }}
+                style={{ borderColor: 'var(--mds-color-border-default)' }}
               >
                 <h3
                   className="text-lg font-semibold mb-4"
-                  style={{ color: 'var(--sng-color-text-primary)' }}
+                  style={{ color: 'var(--mds-color-text-primary)' }}
                 >
                   Share this post
                 </h3>
@@ -146,7 +146,7 @@ export function UnifiedDetail({
             <div className="sticky top-24 space-y-8">
               {headings.length > 0 && (
                 <div
-                  className="p-4 border rounded-[var(--sng-radius-lg)]"
+                  className="p-4 border rounded-[var(--mds-radius-lg)]"
                   style={surfaceCardStyle}
                 >
                   <TableOfContents headings={headings} />
@@ -159,12 +159,12 @@ export function UnifiedDetail({
 
               {/* Related Posts & Tags */}
               <div
-                className="p-4 border rounded-[var(--sng-radius-lg)]"
+                className="p-4 border rounded-[var(--mds-radius-lg)]"
                 style={surfaceCardStyle}
               >
                 <h3
                   className="mb-4 text-sm font-medium"
-                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                  style={{ color: 'var(--mds-color-text-secondary)' }}
                 >
                   관련 태그
                 </h3>

@@ -11,31 +11,31 @@ interface Props {
 export function SeriesTableOfContents({ seriesContext, currentSlug }: Props) {
   return (
     <div
-      className="flex flex-col border rounded-[var(--sng-radius-lg)] overflow-hidden"
+      className="flex flex-col border rounded-[var(--mds-radius-lg)] overflow-hidden"
       style={{
-        backgroundColor: 'var(--sng-color-bg-surface)',
-        borderColor: 'var(--sng-color-border-default)',
-        boxShadow: 'var(--sng-shadow-raised)',
+        backgroundColor: 'var(--mds-color-bg-surface)',
+        borderColor: 'var(--mds-color-border-default)',
+        boxShadow: 'var(--mds-shadow-raised)',
       }}
     >
       <div
         className="p-4 border-b"
-        style={{ borderColor: 'var(--sng-color-border-subtle)' }}
+        style={{ borderColor: 'var(--mds-color-border-subtle)' }}
       >
         <div
           className="text-[11px] font-bold tracking-wider mb-1"
-          style={{ color: 'var(--sng-color-text-muted)' }}
+          style={{ color: 'var(--mds-color-text-muted)' }}
         >
           SERIES
         </div>
         <h3
           className="font-bold text-[14px] leading-snug"
-          style={{ color: 'var(--sng-color-text-primary)' }}
+          style={{ color: 'var(--mds-color-text-primary)' }}
         >
           {seriesContext.series}
           <span
             className="ml-2 font-normal text-xs"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             ({seriesContext.seriesOrder}/{seriesContext.total})
           </span>
@@ -51,14 +51,14 @@ export function SeriesTableOfContents({ seriesContext, currentSlug }: Props) {
                 className={`flex items-start gap-2 p-2 rounded-md text-sm transition-colors ${
                   isActive
                     ? 'font-bold'
-                    : 'hover:bg-[var(--sng-color-bg-overlay)]'
+                    : 'hover:bg-[var(--mds-color-bg-overlay)]'
                 }`}
                 style={{
                   color: isActive
-                    ? 'var(--sng-color-brand-primary)'
-                    : 'var(--sng-color-text-secondary)',
+                    ? 'var(--mds-color-brand-primary)'
+                    : 'var(--mds-color-text-secondary)',
                   backgroundColor: isActive
-                    ? 'var(--sng-color-bg-elevated)'
+                    ? 'var(--mds-color-bg-elevated)'
                     : 'transparent',
                 }}
               >
@@ -66,8 +66,8 @@ export function SeriesTableOfContents({ seriesContext, currentSlug }: Props) {
                   className="shrink-0 font-medium opacity-60"
                   style={{
                     color: isActive
-                      ? 'var(--sng-color-brand-primary)'
-                      : 'var(--sng-color-text-muted)',
+                      ? 'var(--mds-color-brand-primary)'
+                      : 'var(--mds-color-text-muted)',
                   }}
                 >
                   {idx + 1}.

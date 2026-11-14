@@ -44,7 +44,7 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
     <div className={cn('flex items-center gap-2', className)}>
       <span
         className="text-sm font-medium"
-        style={{ color: 'var(--sng-color-text-secondary)' }}
+        style={{ color: 'var(--mds-color-text-secondary)' }}
       >
         공유하기
       </span>
@@ -54,8 +54,8 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
         onClick={handleShareTwitter}
         className={iconBtnBase}
         style={{
-          borderColor: 'var(--sng-color-border-default)',
-          color: 'var(--sng-color-text-secondary)',
+          borderColor: 'var(--mds-color-border-default)',
+          color: 'var(--mds-color-text-secondary)',
         }}
         aria-label="Twitter에 공유"
       >
@@ -67,8 +67,8 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
         onClick={handleShareFacebook}
         className={iconBtnBase}
         style={{
-          borderColor: 'var(--sng-color-border-default)',
-          color: 'var(--sng-color-text-secondary)',
+          borderColor: 'var(--mds-color-border-default)',
+          color: 'var(--mds-color-text-secondary)',
         }}
         aria-label="Facebook에 공유"
       >
@@ -82,13 +82,13 @@ export function ShareButtons({ title, url, className }: ShareButtonsProps) {
         style={
           copied
             ? {
-                borderColor: 'var(--sng-color-brand-primary)',
-                backgroundColor: 'var(--sng-color-brand-primary)',
-                color: 'var(--sng-color-text-inverse)',
+                borderColor: 'var(--mds-color-brand-primary)',
+                backgroundColor: 'var(--mds-color-brand-primary)',
+                color: 'var(--mds-color-text-inverse)',
               }
             : {
-                borderColor: 'var(--sng-color-border-default)',
-                color: 'var(--sng-color-text-secondary)',
+                borderColor: 'var(--mds-color-border-default)',
+                color: 'var(--mds-color-text-secondary)',
               }
         }
         aria-label="링크 복사"

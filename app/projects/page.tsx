@@ -29,19 +29,19 @@ export default function ProjectsPage() {
 
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             Projects & Ecosystem
           </h1>
           <p
             className="text-base sm:text-lg max-w-2xl leading-relaxed"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             소나기 세계관에서 설계되고 운영되는 프로덕트들입니다. 모든 산출물은{' '}
             <Link
               href="/notes/The-Gardener"
               className="underline font-semibold hover:opacity-80"
-              style={{ color: 'var(--sng-color-brand-primary)' }}
+              style={{ color: 'var(--mds-color-brand-primary)' }}
             >
               [[The Gardener]]
             </Link>
@@ -51,7 +51,7 @@ export default function ProjectsPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="underline font-semibold hover:opacity-80 inline-flex items-center gap-0.5"
-              style={{ color: 'var(--sng-color-brand-primary)' }}
+              style={{ color: 'var(--mds-color-brand-primary)' }}
             >
               <span>MDS (디자인 시스템)</span>
               <ExternalLink size={12} />
@@ -70,23 +70,23 @@ export default function ProjectsPage() {
             >
               <Card
                 className="h-full p-6 transition-all duration-200 hover:shadow-lg hover:-translate-y-1 flex flex-col"
-                style={{ borderColor: 'var(--sng-color-border-default)' }}
+                style={{ borderColor: 'var(--mds-color-border-default)' }}
               >
                 <div
                   className="aspect-video rounded-lg mb-6 flex items-center justify-center text-5xl"
-                  style={{ backgroundColor: 'var(--sng-color-bg-overlay)' }}
+                  style={{ backgroundColor: 'var(--mds-color-bg-overlay)' }}
                 >
                   📦
                 </div>
                 <h3
-                  className="text-xl font-semibold mb-3 transition-colors group-hover:text-[var(--sng-color-brand-primary)]"
-                  style={{ color: 'var(--sng-color-text-primary)' }}
+                  className="text-xl font-semibold mb-3 transition-colors group-hover:text-[var(--mds-color-brand-primary)]"
+                  style={{ color: 'var(--mds-color-text-primary)' }}
                 >
                   {project.title}
                 </h3>
                 <p
                   className="mb-6 text-sm leading-relaxed"
-                  style={{ color: 'var(--sng-color-text-secondary)' }}
+                  style={{ color: 'var(--mds-color-text-secondary)' }}
                 >
                   {project.excerpt}
                 </p>
@@ -107,20 +107,20 @@ export default function ProjectsPage() {
           elevation="raised"
           className="p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border"
           style={{
-            backgroundColor: 'var(--sng-color-bg-surface)',
-            borderColor: 'var(--sng-color-border-default)',
+            backgroundColor: 'var(--mds-color-bg-surface)',
+            borderColor: 'var(--mds-color-border-default)',
           }}
         >
           <div className="flex flex-col gap-2 max-w-xl">
             <h3
               className="text-lg font-bold"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               프로젝트 뒤에 숨은 사유의 과정이 궁금하신가요?
             </h3>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: 'var(--sng-color-text-secondary)' }}
+              style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               프로덕트의 아키텍처적 가설과 실패, 그리고 시각적 규칙은 디지털
               정원과 MDS(Mindulle Design System)에 모두 공개되어 있습니다.

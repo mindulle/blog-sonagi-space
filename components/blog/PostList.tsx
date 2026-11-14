@@ -8,7 +8,7 @@ interface PostListProps {
 export function PostList({ posts }: PostListProps) {
   if (posts.length === 0) {
     return (
-      <div className="py-12 text-center text-[var(--sng-color-text-secondary)]">
+      <div className="py-12 text-center text-[var(--mds-color-text-secondary)]">
         작성된 포스트가 없습니다.
       </div>
     );

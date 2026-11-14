@@ -42,28 +42,28 @@ export default async function SeriesDetailPage({ params }: Props) {
       <div className="max-w-4xl mx-auto">
         {/* 시리즈 헤더 */}
         <div
-          className="mb-16 p-8 md:p-12 rounded-[var(--sng-radius-2xl)]"
+          className="mb-16 p-8 md:p-12 rounded-[var(--mds-radius-2xl)]"
           style={{
             background:
-              'linear-gradient(135deg, var(--sng-color-bg-overlay), var(--sng-color-bg-elevated))',
-            border: '1px solid var(--sng-color-border-subtle)',
+              'linear-gradient(135deg, var(--mds-color-bg-overlay), var(--mds-color-bg-elevated))',
+            border: '1px solid var(--mds-color-border-subtle)',
           }}
         >
           <div
             className="text-sm font-bold tracking-widest mb-4 uppercase"
-            style={{ color: 'var(--sng-color-brand-primary)' }}
+            style={{ color: 'var(--mds-color-brand-primary)' }}
           >
             Series
           </div>
           <h1
             className="text-4xl md:text-5xl font-extrabold mb-6"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             {series}
           </h1>
           <p
             className="text-lg md:text-xl mb-8"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             총 {total}편으로 이루어진 연재물입니다. 아래 목록에서 1편부터
             차례대로 정주행할 수 있습니다.
@@ -72,7 +72,7 @@ export default async function SeriesDetailPage({ params }: Props) {
           <Link href={firstPostUrl}>
             <Button
               size="lg"
-              className="bg-[var(--sng-color-brand-primary)] text-white font-bold px-8"
+              className="bg-[var(--mds-color-brand-primary)] text-white font-bold px-8"
             >
               1편부터 정주행 시작하기 ▶
             </Button>
@@ -83,7 +83,7 @@ export default async function SeriesDetailPage({ params }: Props) {
         <div className="flex flex-col gap-6">
           <h2
             className="text-2xl font-bold mb-4"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             에피소드 목록
           </h2>
@@ -93,19 +93,19 @@ export default async function SeriesDetailPage({ params }: Props) {
               <Link
                 key={entry.slug}
                 href={`/notes/${entry.slug}`}
-                className="group flex flex-col md:flex-row gap-4 md:gap-6 p-6 rounded-[var(--sng-radius-xl)] transition-all hover:-translate-y-1 hover:shadow-lg"
+                className="group flex flex-col md:flex-row gap-4 md:gap-6 p-6 rounded-[var(--mds-radius-xl)] transition-all hover:-translate-y-1 hover:shadow-lg"
                 style={{
-                  backgroundColor: 'var(--sng-color-bg-surface)',
-                  border: '1px solid var(--sng-color-border-default)',
+                  backgroundColor: 'var(--mds-color-bg-surface)',
+                  border: '1px solid var(--mds-color-border-default)',
                 }}
               >
                 {/* 썸네일 (번호 표시) */}
                 <div
-                  className="w-full md:w-32 aspect-video md:aspect-square flex-shrink-0 flex items-center justify-center rounded-[var(--sng-radius-lg)] text-3xl font-extrabold"
+                  className="w-full md:w-32 aspect-video md:aspect-square flex-shrink-0 flex items-center justify-center rounded-[var(--mds-radius-lg)] text-3xl font-extrabold"
                   style={{
-                    backgroundColor: 'var(--sng-color-bg-overlay)',
-                    color: 'var(--sng-color-text-muted)',
-                    border: '1px solid var(--sng-color-border-subtle)',
+                    backgroundColor: 'var(--mds-color-bg-overlay)',
+                    color: 'var(--mds-color-text-muted)',
+                    border: '1px solid var(--mds-color-border-subtle)',
                   }}
                 >
                   {idx + 1}
@@ -115,13 +115,13 @@ export default async function SeriesDetailPage({ params }: Props) {
                 <div className="flex flex-col justify-center">
                   <div
                     className="text-sm font-semibold mb-2"
-                    style={{ color: 'var(--sng-color-brand-primary)' }}
+                    style={{ color: 'var(--mds-color-brand-primary)' }}
                   >
                     EPISODE {idx + 1}
                   </div>
                   <h3
                     className="text-xl md:text-2xl font-bold mb-2 group-hover:underline"
-                    style={{ color: 'var(--sng-color-text-primary)' }}
+                    style={{ color: 'var(--mds-color-text-primary)' }}
                   >
                     {entry.title}
                   </h3>

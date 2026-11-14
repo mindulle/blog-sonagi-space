@@ -18,30 +18,30 @@ export default function SeriesIndexPage() {
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] font-mono text-xs mb-3 border select-none"
             style={{
-              backgroundColor: 'var(--sng-color-bg-surface)',
-              borderColor: 'var(--sng-color-border-subtle)',
+              backgroundColor: 'var(--mds-color-bg-surface)',
+              borderColor: 'var(--mds-color-border-subtle)',
             }}
           >
             <span
               className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: 'var(--sng-color-brand-primary)' }}
+              style={{ backgroundColor: 'var(--mds-color-brand-primary)' }}
             />
             <span
               className="font-bold tracking-wider uppercase"
-              style={{ color: 'var(--sng-color-brand-primary)' }}
+              style={{ color: 'var(--mds-color-brand-primary)' }}
             >
               CURATED ESSAYS &amp; SERIES
             </span>
           </div>
           <h1
             className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 tracking-tight"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             연재 기획 (Series)
           </h1>
           <p
             className="text-base sm:text-lg max-w-2xl leading-relaxed"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             하나의 주제로 깊고 길게 이어지는 사유와 엔지니어링의 연작들을
             모아봅니다.
@@ -58,8 +58,8 @@ export default function SeriesIndexPage() {
                 <Card
                   className="flex flex-col h-full overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
                   style={{
-                    backgroundColor: 'var(--sng-color-bg-surface)',
-                    borderColor: 'var(--sng-color-border-default)',
+                    backgroundColor: 'var(--mds-color-bg-surface)',
+                    borderColor: 'var(--mds-color-border-default)',
                   }}
                 >
                   {/* 커버 이미지 영역 (Netflix Style) */}
@@ -67,8 +67,8 @@ export default function SeriesIndexPage() {
                     className="relative w-full aspect-video p-6 flex flex-col justify-end"
                     style={{
                       background:
-                        'linear-gradient(135deg, var(--sng-color-bg-overlay), var(--sng-color-bg-elevated))',
-                      borderBottom: '1px solid var(--sng-color-border-subtle)',
+                        'linear-gradient(135deg, var(--mds-color-bg-overlay), var(--mds-color-bg-elevated))',
+                      borderBottom: '1px solid var(--mds-color-border-subtle)',
                     }}
                   >
                     {/* 상단 뱃지 (총 N편) */}
@@ -76,17 +76,17 @@ export default function SeriesIndexPage() {
                       className="absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded-full backdrop-blur-md"
                       style={{
                         backgroundColor:
-                          'color-mix(in srgb, var(--sng-color-bg-surface) 80%, transparent)',
-                        color: 'var(--sng-color-text-primary)',
-                        border: '1px solid var(--sng-color-border-subtle)',
+                          'color-mix(in srgb, var(--mds-color-bg-surface) 80%, transparent)',
+                        color: 'var(--mds-color-text-primary)',
+                        border: '1px solid var(--mds-color-border-subtle)',
                       }}
                     >
                       총 {s.total}편
                     </div>
 
                     <h2
-                      className="text-2xl font-extrabold leading-snug drop-shadow-sm transition-colors group-hover:text-[var(--sng-color-brand-primary)]"
-                      style={{ color: 'var(--sng-color-text-primary)' }}
+                      className="text-2xl font-extrabold leading-snug drop-shadow-sm transition-colors group-hover:text-[var(--mds-color-brand-primary)]"
+                      style={{ color: 'var(--mds-color-text-primary)' }}
                     >
                       {s.series}
                     </h2>
@@ -96,7 +96,7 @@ export default function SeriesIndexPage() {
                   <div className="p-5 flex-1 flex flex-col justify-between">
                     <p
                       className="text-sm line-clamp-3 mb-4"
-                      style={{ color: 'var(--sng-color-text-secondary)' }}
+                      style={{ color: 'var(--mds-color-text-secondary)' }}
                     >
                       {/* TODO: 나중에 요약문을 추가할 수 있습니다. */}이
                       시리즈는 총 {s.total}개의 파트로 구성되어 있습니다.
@@ -104,7 +104,7 @@ export default function SeriesIndexPage() {
                     </p>
                     <div
                       className="text-sm font-semibold flex items-center gap-2 transition-opacity opacity-70 group-hover:opacity-100"
-                      style={{ color: 'var(--sng-color-brand-primary)' }}
+                      style={{ color: 'var(--mds-color-brand-primary)' }}
                     >
                       정주행 시작하기 <span>→</span>
                     </div>

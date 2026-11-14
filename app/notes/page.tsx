@@ -26,36 +26,36 @@ export default async function NotesPage() {
         <div
           className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] font-mono text-xs mb-4 border select-none"
           style={{
-            backgroundColor: 'var(--sng-color-bg-surface)',
-            borderColor: 'var(--sng-color-border-subtle)',
+            backgroundColor: 'var(--mds-color-bg-surface)',
+            borderColor: 'var(--mds-color-border-subtle)',
           }}
         >
           <span
             className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: 'var(--sng-color-brand-primary)' }}
+            style={{ backgroundColor: 'var(--mds-color-brand-primary)' }}
           />
           <span
             className="font-bold tracking-wider"
-            style={{ color: 'var(--sng-color-brand-primary)' }}
+            style={{ color: 'var(--mds-color-brand-primary)' }}
           >
             MINDULLE GARDEN ARCHIVE
           </span>
-          <span style={{ color: 'var(--sng-color-border-default)' }}>|</span>
-          <span style={{ color: 'var(--sng-color-text-muted)' }}>
+          <span style={{ color: 'var(--mds-color-border-default)' }}>|</span>
+          <span style={{ color: 'var(--mds-color-text-muted)' }}>
             총 {allNotes.length}개의 노트
           </span>
         </div>
 
         <h1
           className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3"
-          style={{ color: 'var(--sng-color-text-primary)' }}
+          style={{ color: 'var(--mds-color-text-primary)' }}
         >
           지식의 정원 (Digital Garden)
         </h1>
 
         <p
           className="text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-4"
-          style={{ color: 'var(--sng-color-text-secondary)' }}
+          style={{ color: 'var(--mds-color-text-secondary)' }}
         >
           돌 틈에서도 단단히 뿌리내리는 생각의 씨앗(Seed)부터 세상으로 비상하는
           홀씨(Pappus)에 이르는 유기적 지식 네트워크를 탐색합니다.
@@ -65,7 +65,7 @@ export default async function NotesPage() {
           <Link
             href="/notes/The-Gardener"
             className="text-xs sm:text-sm font-mono font-medium hover:underline inline-flex items-center gap-1.5 transition-colors"
-            style={{ color: 'var(--sng-color-brand-primary)' }}
+            style={{ color: 'var(--mds-color-brand-primary)' }}
           >
             <span>[[The Gardener]]: 정원사의 사유 읽기</span>
             <span>→</span>

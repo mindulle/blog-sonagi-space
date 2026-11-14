@@ -34,9 +34,9 @@ export function MobileTOC({ headings }: { headings: Heading[] }) {
         className="fixed bottom-6 right-6 w-14 h-14 p-0 rounded-full flex items-center justify-center transition-transform hover:scale-105 active:scale-95"
         style={{
           zIndex: 40,
-          boxShadow: 'var(--sng-shadow-floating)',
-          backgroundColor: 'var(--sng-color-brand-primary)',
-          color: 'var(--sng-color-text-inverse)',
+          boxShadow: 'var(--mds-shadow-floating)',
+          backgroundColor: 'var(--mds-color-brand-primary)',
+          color: 'var(--mds-color-text-inverse)',
         }}
       >
         <List size={24} />
@@ -70,8 +70,8 @@ export function MobileTOC({ headings }: { headings: Heading[] }) {
               className="fixed bottom-0 left-0 right-0 w-full max-h-[80vh] flex flex-col rounded-t-3xl overflow-hidden"
               style={{
                 zIndex: 51,
-                backgroundColor: 'var(--sng-color-bg-base)',
-                boxShadow: 'var(--sng-shadow-floating)',
+                backgroundColor: 'var(--mds-color-bg-base)',
+                boxShadow: 'var(--mds-shadow-floating)',
               }}
             >
               {/* Drag Handle */}
@@ -79,17 +79,17 @@ export function MobileTOC({ headings }: { headings: Heading[] }) {
                 className="w-full py-4 flex justify-center items-center cursor-pointer"
                 onClick={() => setIsOpen(false)}
               >
-                <div className="w-12 h-1.5 rounded-full bg-[var(--sng-color-border-default)]" />
+                <div className="w-12 h-1.5 rounded-full bg-[var(--mds-color-border-default)]" />
               </div>
 
-              <div className="px-6 pb-4 flex items-center justify-between border-b border-[var(--sng-color-border-subtle)]">
-                <h3 className="text-xl font-bold text-[var(--sng-color-text-primary)]">
+              <div className="px-6 pb-4 flex items-center justify-between border-b border-[var(--mds-color-border-subtle)]">
+                <h3 className="text-xl font-bold text-[var(--mds-color-text-primary)]">
                   목차
                 </h3>
                 <Button
                   variant="secondary"
                   onClick={() => setIsOpen(false)}
-                  className="!p-2 text-[var(--sng-color-icon-muted)] bg-transparent border-transparent"
+                  className="!p-2 text-[var(--mds-color-icon-muted)] bg-transparent border-transparent"
                 >
                   <X size={20} />
                 </Button>

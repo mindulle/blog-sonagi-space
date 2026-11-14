@@ -119,7 +119,7 @@ excerpt: '정원사(Gardener)로서의 집필 철학과 디지털 정원의 멘�
 
 ### ② MDS (Mindulle Design System) 와의 교차 수분
 
-글과 디자인은 분리되지 않습니다. [소나기 디자인 시스템 (MDS)](https://design.sonagi.space)은 W3C 표준 디자인 토큰을 기반으로 정원의 모든 시각적 의미를 조율합니다. [[sonagi-design-system-blog|디자인 시스템 구축기]]와 [[Design-Token-Variables|디자인 토큰]]에서 설명하듯, CSS 변수(`var(--sng-color-*)`)를 통한 일관된 인터페이스가 글의 몰입감을 극대화합니다.
+글과 디자인은 분리되지 않습니다. [소나기 디자인 시스템 (MDS)](https://design.sonagi.space)은 W3C 표준 디자인 토큰을 기반으로 정원의 모든 시각적 의미를 조율합니다. [[sonagi-design-system-blog|디자인 시스템 구축기]]와 [[Design-Token-Variables|디자인 토큰]]에서 설명하듯, CSS 변수(`var(--mds-color-*)`)를 통한 일관된 인터페이스가 글의 몰입감을 극대화합니다.
 
 ### ③ 유기적 양방향 링크 (Wikilinks & Backlinks)
 

@@ -27,21 +27,21 @@ export function GazetteMasthead({
       <div className="w-full flex flex-col gap-[3px]" aria-hidden="true">
         <div
           className="w-full h-[2px]"
-          style={{ backgroundColor: 'var(--sng-color-text-primary)' }}
+          style={{ backgroundColor: 'var(--mds-color-text-primary)' }}
         />
         <div
           className="w-full h-[1px]"
-          style={{ backgroundColor: 'var(--sng-color-border-default)' }}
+          style={{ backgroundColor: 'var(--mds-color-border-default)' }}
         />
       </div>
 
       {/* 2. Top Editorial Meta Line */}
-      <div className="py-2.5 flex items-center justify-between text-[10px] md:text-xs tracking-widest uppercase font-mono text-[var(--sng-color-text-secondary)]">
+      <div className="py-2.5 flex items-center justify-between text-[10px] md:text-xs tracking-widest uppercase font-mono text-[var(--mds-color-text-secondary)]">
         <span className="font-semibold tabular-nums">
           {vol} • {issue}
         </span>
         <span
-          className="font-bold tracking-[0.25em] text-[var(--sng-color-text-primary)]"
+          className="font-bold tracking-[0.25em] text-[var(--mds-color-text-primary)]"
           style={{ fontFamily: 'var(--font-cinematic, serif)' }}
         >
           M I N D U L L E &nbsp; A T E L I E R
@@ -52,7 +52,7 @@ export function GazetteMasthead({
       {/* 3. Sub-divider below meta */}
       <div
         className="w-full h-[1px]"
-        style={{ backgroundColor: 'var(--sng-color-border-default)' }}
+        style={{ backgroundColor: 'var(--mds-color-border-default)' }}
         aria-hidden="true"
       />
 
@@ -65,7 +65,7 @@ export function GazetteMasthead({
             height="20"
             viewBox="0 0 32 32"
             fill="none"
-            className="text-[var(--sng-color-brand-primary)]"
+            className="text-[var(--mds-color-brand-primary)]"
             aria-hidden="true"
           >
             <line
@@ -87,7 +87,7 @@ export function GazetteMasthead({
           </svg>
 
           <h1
-            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.2em] sm:tracking-[0.28em] text-[var(--sng-color-text-primary)] uppercase"
+            className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.2em] sm:tracking-[0.28em] text-[var(--mds-color-text-primary)] uppercase"
             style={{ fontFamily: 'var(--font-cinematic, serif)' }}
           >
             MINDULLE GARDEN
@@ -95,13 +95,13 @@ export function GazetteMasthead({
         </div>
 
         {/* Korean Subtitle */}
-        <p className="text-xs sm:text-sm font-semibold tracking-[0.35em] text-[var(--sng-color-text-secondary)] font-sans">
+        <p className="text-xs sm:text-sm font-semibold tracking-[0.35em] text-[var(--mds-color-text-secondary)] font-sans">
           민 들 레 정 원
         </p>
 
         {/* Philosophy Deck (Serif Italic) */}
         <p
-          className="text-xs sm:text-sm italic tracking-normal text-[var(--sng-color-text-muted)] mt-1 max-w-[540px]"
+          className="text-xs sm:text-sm italic tracking-normal text-[var(--mds-color-text-muted)] mt-1 max-w-[540px]"
           style={{ fontFamily: 'var(--font-cinematic, serif)' }}
         >
           &ldquo;돌 틈에 단단히 뿌리내리고, 가볍게 사유하는 정원사의 지면&rdquo;
@@ -112,11 +112,11 @@ export function GazetteMasthead({
       <div className="w-full flex flex-col gap-[3px]" aria-hidden="true">
         <div
           className="w-full h-[1px]"
-          style={{ backgroundColor: 'var(--sng-color-border-default)' }}
+          style={{ backgroundColor: 'var(--mds-color-border-default)' }}
         />
         <div
           className="w-full h-[2px]"
-          style={{ backgroundColor: 'var(--sng-color-text-primary)' }}
+          style={{ backgroundColor: 'var(--mds-color-text-primary)' }}
         />
       </div>
     </header>

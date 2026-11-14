@@ -23,30 +23,30 @@ export default async function BlogPage() {
           <div
             className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] font-mono text-xs mb-3 border select-none"
             style={{
-              backgroundColor: 'var(--sng-color-bg-surface)',
-              borderColor: 'var(--sng-color-border-subtle)',
+              backgroundColor: 'var(--mds-color-bg-surface)',
+              borderColor: 'var(--mds-color-border-subtle)',
             }}
           >
             <span
               className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: 'var(--sng-color-brand-primary)' }}
+              style={{ backgroundColor: 'var(--mds-color-brand-primary)' }}
             />
             <span
               className="font-bold tracking-wider uppercase"
-              style={{ color: 'var(--sng-color-brand-primary)' }}
+              style={{ color: 'var(--mds-color-brand-primary)' }}
             >
               DISPATCHES &amp; ARTICLES
             </span>
           </div>
           <h1
             className="mb-3 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             기록과 지면
           </h1>
           <p
             className="mx-auto max-w-2xl text-base sm:text-lg"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             정원에서 무르익은 사유와 기술적 통찰을 정돈하여 발행하는 에디토리얼
             아티클입니다.

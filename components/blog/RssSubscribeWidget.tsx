@@ -56,16 +56,16 @@ export function RssSubscribeWidget({
       <div
         className={`flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl border ${className}`}
         style={{
-          backgroundColor: 'var(--sng-color-bg-surface)',
-          borderColor: 'var(--sng-color-border-default)',
+          backgroundColor: 'var(--mds-color-bg-surface)',
+          borderColor: 'var(--mds-color-border-default)',
         }}
       >
         <div className="flex items-center gap-3">
           <div
             className="flex items-center justify-center w-9 h-9 rounded-lg"
             style={{
-              backgroundColor: 'var(--sng-color-bg-overlay)',
-              color: 'var(--sng-color-brand-primary)',
+              backgroundColor: 'var(--mds-color-bg-overlay)',
+              color: 'var(--mds-color-brand-primary)',
             }}
           >
             <Rss size={18} />
@@ -73,13 +73,13 @@ export function RssSubscribeWidget({
           <div>
             <div
               className="text-sm font-semibold"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               RSS Feed
             </div>
             <div
               className="text-xs font-mono select-all"
-              style={{ color: 'var(--sng-color-text-muted)' }}
+              style={{ color: 'var(--mds-color-text-muted)' }}
             >
               {feedUrl}
             </div>
@@ -98,7 +98,7 @@ export function RssSubscribeWidget({
               <>
                 <Check
                   size={14}
-                  style={{ color: 'var(--sng-color-state-success)' }}
+                  style={{ color: 'var(--mds-color-state-success)' }}
                 />
                 <span>복사됨!</span>
               </>
@@ -134,8 +134,8 @@ export function RssSubscribeWidget({
       elevation="raised"
       className={`p-6 sm:p-8 flex flex-col gap-6 ${className}`}
       style={{
-        backgroundColor: 'var(--sng-color-bg-surface)',
-        borderColor: 'var(--sng-color-border-default)',
+        backgroundColor: 'var(--mds-color-bg-surface)',
+        borderColor: 'var(--mds-color-border-default)',
       }}
     >
       {/* Header */}
@@ -144,8 +144,8 @@ export function RssSubscribeWidget({
           <div
             className="flex items-center justify-center w-12 h-12 rounded-xl shrink-0"
             style={{
-              backgroundColor: 'var(--sng-color-bg-overlay)',
-              color: 'var(--sng-color-brand-primary)',
+              backgroundColor: 'var(--mds-color-bg-overlay)',
+              color: 'var(--mds-color-brand-primary)',
             }}
           >
             <Rss size={24} />
@@ -154,7 +154,7 @@ export function RssSubscribeWidget({
             <div className="flex items-center gap-2">
               <h3
                 className="text-lg sm:text-xl font-bold tracking-tight"
-                style={{ color: 'var(--sng-color-text-primary)' }}
+                style={{ color: 'var(--mds-color-text-primary)' }}
               >
                 {title}
               </h3>
@@ -164,7 +164,7 @@ export function RssSubscribeWidget({
             </div>
             <p
               className="text-sm leading-relaxed"
-              style={{ color: 'var(--sng-color-text-secondary)' }}
+              style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               {description}
             </p>
@@ -176,20 +176,20 @@ export function RssSubscribeWidget({
       <div
         className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2.5 sm:p-2 rounded-xl border"
         style={{
-          backgroundColor: 'var(--sng-color-bg-base)',
-          borderColor: 'var(--sng-color-border-subtle)',
+          backgroundColor: 'var(--mds-color-bg-base)',
+          borderColor: 'var(--mds-color-border-subtle)',
         }}
       >
         <div className="flex items-center gap-2 px-3 py-1.5 overflow-hidden">
           <span
             className="text-xs font-medium uppercase shrink-0"
-            style={{ color: 'var(--sng-color-text-muted)' }}
+            style={{ color: 'var(--mds-color-text-muted)' }}
           >
             Feed
           </span>
           <span
             className="text-xs sm:text-sm font-mono truncate select-all"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             {feedUrl}
           </span>
@@ -207,7 +207,7 @@ export function RssSubscribeWidget({
               <>
                 <Check
                   size={16}
-                  style={{ color: 'var(--sng-color-state-success)' }}
+                  style={{ color: 'var(--mds-color-state-success)' }}
                 />
                 <span>복사 완료!</span>
               </>
@@ -241,8 +241,8 @@ export function RssSubscribeWidget({
       <div
         className="flex flex-wrap items-center gap-2 pt-2 border-t text-xs"
         style={{
-          borderColor: 'var(--sng-color-border-subtle)',
-          color: 'var(--sng-color-text-muted)',
+          borderColor: 'var(--mds-color-border-subtle)',
+          color: 'var(--mds-color-text-muted)',
         }}
       >
         <span>지원 리더기:</span>

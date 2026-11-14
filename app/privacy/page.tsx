@@ -14,25 +14,25 @@ export default function PrivacyPage() {
       <div className="max-w-3xl mx-auto">
         <h1
           className="text-4xl font-bold mb-4"
-          style={{ color: 'var(--sng-color-text-primary)' }}
+          style={{ color: 'var(--mds-color-text-primary)' }}
         >
           개인정보처리방침 (Privacy Policy)
         </h1>
         <p
           className="text-sm mb-8"
-          style={{ color: 'var(--sng-color-text-muted)' }}
+          style={{ color: 'var(--mds-color-text-muted)' }}
         >
           최종 수정일: {lastUpdated}
         </p>
 
         <div
           className="prose dark:prose-invert max-w-none space-y-8"
-          style={{ color: 'var(--sng-color-text-secondary)' }}
+          style={{ color: 'var(--mds-color-text-secondary)' }}
         >
           <section>
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               1. 수집하는 개인정보 항목
             </h2>
@@ -49,7 +49,7 @@ export default function PrivacyPage() {
           <section>
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               2. 개인정보의 수집 및 이용 목적
             </h2>
@@ -64,7 +64,7 @@ export default function PrivacyPage() {
           <section>
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               3. 개인정보의 보유 및 이용 기간
             </h2>
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
           <section>
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               4. 쿠키(Cookie)의 운용 및 거부
             </h2>
@@ -98,7 +98,7 @@ export default function PrivacyPage() {
           <section>
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               5. 제3자 서비스 및 API 이용
             </h2>
@@ -113,7 +113,7 @@ export default function PrivacyPage() {
           <section>
             <h2
               className="text-2xl font-bold mb-4"
-              style={{ color: 'var(--sng-color-text-primary)' }}
+              style={{ color: 'var(--mds-color-text-primary)' }}
             >
               6. 문의처
             </h2>
@@ -126,7 +126,7 @@ export default function PrivacyPage() {
               <a
                 href="mailto:hello@sonagi.space"
                 className="hover:underline"
-                style={{ color: 'var(--sng-color-brand-primary)' }}
+                style={{ color: 'var(--mds-color-brand-primary)' }}
               >
                 hello@sonagi.space
               </a>

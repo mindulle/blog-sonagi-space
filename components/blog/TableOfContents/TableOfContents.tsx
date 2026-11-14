@@ -60,7 +60,7 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
       <div className="space-y-2">
         <h3
           className="font-semibold text-sm mb-4"
-          style={{ color: 'var(--sng-color-text-primary)' }}
+          style={{ color: 'var(--mds-color-text-primary)' }}
         >
           Table of Contents
         </h3>
@@ -78,10 +78,10 @@ export function TableOfContents({ headings, className }: TableOfContentsProps) {
                   className="block py-1 pl-3 border-l-2 transition-colors"
                   style={{
                     color: isActive
-                      ? 'var(--sng-color-brand-primary)'
-                      : 'var(--sng-color-text-muted)',
+                      ? 'var(--mds-color-brand-primary)'
+                      : 'var(--mds-color-text-muted)',
                     borderLeftColor: isActive
-                      ? 'var(--sng-color-brand-primary)'
+                      ? 'var(--mds-color-brand-primary)'
                       : 'transparent',
                     fontWeight: isActive ? 600 : 400,
                   }}

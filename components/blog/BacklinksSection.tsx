@@ -23,9 +23,9 @@ function BacklinkCard({ link }: { link: Backlink }) {
       href={`/notes/${link.sourceSlug}`}
       style={{
         display: 'block',
-        padding: 'var(--sng-spacing-4)',
-        border: `2px solid ${isHovered ? 'var(--sng-color-brand-primary)' : 'var(--sng-color-border-default)'}`,
-        borderRadius: 'var(--sng-radius-md)',
+        padding: 'var(--mds-spacing-4)',
+        border: `2px solid ${isHovered ? 'var(--mds-color-brand-primary)' : 'var(--mds-color-border-default)'}`,
+        borderRadius: 'var(--mds-radius-md)',
         textDecoration: 'none',
         transition: 'border-color 0.15s, transform 0.15s',
         transform: isHovered ? 'translate(-2px, -2px)' : 'none',
@@ -37,8 +37,8 @@ function BacklinkCard({ link }: { link: Backlink }) {
         style={{
           display: 'block',
           fontWeight: '600',
-          color: 'var(--sng-color-text-primary)',
-          marginBottom: 'var(--sng-spacing-2)',
+          color: 'var(--mds-color-text-primary)',
+          marginBottom: 'var(--mds-spacing-2)',
         }}
       >
         {link.sourceTitle || 'Untitled'}
@@ -47,8 +47,8 @@ function BacklinkCard({ link }: { link: Backlink }) {
         style={
           {
             display: '-webkit-box',
-            fontSize: 'var(--sng-font-size-sm)',
-            color: 'var(--sng-color-text-secondary)',
+            fontSize: 'var(--mds-font-size-sm)',
+            color: 'var(--mds-color-text-secondary)',
             lineHeight: '1.5',
             overflow: 'hidden',
             WebkitLineClamp: 2,
@@ -87,9 +87,9 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
   return (
     <section
       style={{
-        marginTop: 'var(--sng-spacing-12)',
-        paddingTop: 'var(--sng-spacing-8)',
-        borderTop: '2px solid var(--sng-color-border-default)',
+        marginTop: 'var(--mds-spacing-12)',
+        paddingTop: 'var(--mds-spacing-8)',
+        borderTop: '2px solid var(--mds-color-border-default)',
       }}
     >
       <div
@@ -97,17 +97,17 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          marginBottom: 'var(--sng-spacing-4)',
+          marginBottom: 'var(--mds-spacing-4)',
         }}
       >
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <h3
             style={{
-              fontSize: 'var(--sng-font-size-sm)',
+              fontSize: 'var(--mds-font-size-sm)',
               fontWeight: '600',
               textTransform: 'uppercase',
               letterSpacing: '0.05em',
-              color: 'var(--sng-color-text-secondary)',
+              color: 'var(--mds-color-text-secondary)',
               margin: 0,
             }}
           >
@@ -115,10 +115,10 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
           </h3>
           <span
             style={{
-              fontSize: 'var(--sng-font-size-xs)',
+              fontSize: 'var(--mds-font-size-xs)',
               fontWeight: '600',
-              color: 'var(--sng-color-text-muted)',
-              background: 'var(--sng-color-bg-overlay)',
+              color: 'var(--mds-color-text-muted)',
+              background: 'var(--mds-color-bg-overlay)',
               padding: '2px 8px',
               borderRadius: '999px',
             }}
@@ -135,11 +135,11 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
             onChange={(e) => setSearchQuery(e.target.value)}
             style={{
               padding: '4px 12px',
-              fontSize: 'var(--sng-font-size-sm)',
-              borderRadius: 'var(--sng-radius-md)',
-              border: `1px solid ${isInputFocused ? 'var(--sng-color-brand-primary)' : 'var(--sng-color-border-default)'}`,
-              background: 'var(--sng-color-bg-surface)',
-              color: 'var(--sng-color-text-primary)',
+              fontSize: 'var(--mds-font-size-sm)',
+              borderRadius: 'var(--mds-radius-md)',
+              border: `1px solid ${isInputFocused ? 'var(--mds-color-brand-primary)' : 'var(--mds-color-border-default)'}`,
+              background: 'var(--mds-color-bg-surface)',
+              color: 'var(--mds-color-text-primary)',
               outline: 'none',
               width: '200px',
             }}
@@ -152,12 +152,12 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
       {filteredBacklinks.length === 0 ? (
         <div
           style={{
-            padding: 'var(--sng-spacing-8)',
+            padding: 'var(--mds-spacing-8)',
             textAlign: 'center',
-            color: 'var(--sng-color-text-muted)',
-            fontSize: 'var(--sng-font-size-sm)',
-            border: '1px dashed var(--sng-color-border-default)',
-            borderRadius: 'var(--sng-radius-md)',
+            color: 'var(--mds-color-text-muted)',
+            fontSize: 'var(--mds-font-size-sm)',
+            border: '1px dashed var(--mds-color-border-default)',
+            borderRadius: 'var(--mds-radius-md)',
           }}
         >
           검색 결과가 없습니다.
@@ -167,7 +167,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-            gap: 'var(--sng-spacing-4)',
+            gap: 'var(--mds-spacing-4)',
           }}
         >
           {visibleBacklinks.map((link) => (
@@ -177,7 +177,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
       )}
 
       {hasMore && !isExpanded && (
-        <div style={{ marginTop: 'var(--sng-spacing-6)', textAlign: 'center' }}>
+        <div style={{ marginTop: 'var(--mds-spacing-6)', textAlign: 'center' }}>
           <Button variant="secondary" onClick={() => setIsExpanded(true)}>
             + {filteredBacklinks.length - INITIAL_LIMIT}개의 백링크 더 보기
           </Button>

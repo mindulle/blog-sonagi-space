@@ -135,9 +135,9 @@ export function WikiGraph({
       if (start.x === undefined || end.x === undefined) return;
 
       const isHighlighted = highlightLinks.has(link);
-      const brandPrimary = getCssVar('--sng-color-brand-primary', '#3DA8CC');
+      const brandPrimary = getCssVar('--mds-color-brand-primary', '#3DA8CC');
       const borderSubtle = getCssVar(
-        '--sng-color-border-subtle',
+        '--mds-color-border-subtle',
         'rgba(168, 145, 120, 0.3)'
       );
 
@@ -193,8 +193,8 @@ export function WikiGraph({
       const isNeighbor = highlightNodes.has(node.id);
       const isDimmed = hoverNode && !isNeighbor && !isHovered;
 
-      const brandPrimary = getCssVar('--sng-color-brand-primary', '#3DA8CC');
-      const bgSurface = getCssVar('--sng-color-bg-surface', '#ffffff');
+      const brandPrimary = getCssVar('--mds-color-brand-primary', '#3DA8CC');
+      const bgSurface = getCssVar('--mds-color-bg-surface', '#ffffff');
       const isCenterNode =
         isLocal &&
         Boolean(rootSlug) &&
@@ -228,7 +228,7 @@ export function WikiGraph({
         isHovered || isNeighbor || isCenterNode
           ? brandPrimary
           : node.visibility === 'private'
-            ? getCssVar('--sng-color-border-strong', '#8b949e')
+            ? getCssVar('--mds-color-border-strong', '#8b949e')
             : brandPrimary;
       ctx.stroke();
 
@@ -254,7 +254,7 @@ export function WikiGraph({
 
         if (shouldShow) {
           const fontSize = Math.max(11 / globalScale, 3.5);
-          ctx.font = `${isHovered || isCenterNode ? 'bold ' : ''}${fontSize}px var(--sng-font-sans, sans-serif)`;
+          ctx.font = `${isHovered || isCenterNode ? 'bold ' : ''}${fontSize}px var(--mds-font-sans, sans-serif)`;
           ctx.textAlign = 'center';
           ctx.textBaseline = 'top';
 
@@ -273,8 +273,8 @@ export function WikiGraph({
           const padY = 2.5;
 
           ctx.fillStyle = isHovered
-            ? getCssVar('--sng-color-bg-elevated', 'rgba(255,255,255,0.95)')
-            : 'color-mix(in srgb, var(--sng-color-bg-surface) 90%, transparent)';
+            ? getCssVar('--mds-color-bg-elevated', 'rgba(255,255,255,0.95)')
+            : 'color-mix(in srgb, var(--mds-color-bg-surface) 90%, transparent)';
           ctx.beginPath();
           if (ctx.roundRect) {
             ctx.roundRect(
@@ -303,7 +303,7 @@ export function WikiGraph({
           ctx.fillStyle =
             isHovered || (isLocal && isCenterNode)
               ? brandPrimary
-              : getCssVar('--sng-color-text-primary', '#1e1311');
+              : getCssVar('--mds-color-text-primary', '#1e1311');
           ctx.fillText(labelText, node.x, textY);
         }
       }
@@ -391,10 +391,10 @@ export function WikiGraph({
       style={{
         position: 'relative',
         width: '100%',
-        borderRadius: 'var(--sng-radius-lg)',
+        borderRadius: 'var(--mds-radius-lg)',
         overflow: 'hidden',
-        border: '2px solid var(--sng-color-border)',
-        backgroundColor: 'var(--sng-color-bg-surface)',
+        border: '2px solid var(--mds-color-border)',
+        backgroundColor: 'var(--mds-color-bg-surface)',
       }}
     >
       {dimensions.width > 0 && (
@@ -424,23 +424,23 @@ export function WikiGraph({
       {/* 툴팁 오버레이 */}
       {hoverNode && hoverNode.group !== 'dummy' && (
         <div
-          className="absolute z-10 p-4 border rounded-[var(--sng-radius-lg)] pointer-events-none transition-opacity duration-200"
+          className="absolute z-10 p-4 border rounded-[var(--mds-radius-lg)] pointer-events-none transition-opacity duration-200"
           style={{
             left: 16,
             top: 16,
             maxWidth: '300px',
-            backgroundColor: 'var(--sng-color-bg-elevated)',
-            borderColor: 'var(--sng-color-border-subtle)',
-            boxShadow: 'var(--sng-shadow-raised)',
+            backgroundColor: 'var(--mds-color-bg-elevated)',
+            borderColor: 'var(--mds-color-border-subtle)',
+            boxShadow: 'var(--mds-shadow-raised)',
           }}
         >
           <div className="flex items-center gap-2 mb-2">
             <span
               className="px-2 py-0.5 text-xs font-semibold rounded-full"
               style={{
-                backgroundColor: 'var(--sng-color-bg-base)',
-                color: 'var(--sng-color-text-secondary)',
-                border: '1px solid var(--sng-color-border-default)',
+                backgroundColor: 'var(--mds-color-bg-base)',
+                color: 'var(--mds-color-text-secondary)',
+                border: '1px solid var(--mds-color-border-default)',
               }}
             >
               {hoverNode.group || 'note'}
@@ -450,8 +450,8 @@ export function WikiGraph({
               style={{
                 color:
                   hoverNode.visibility === 'public'
-                    ? 'var(--sng-color-state-success)'
-                    : 'var(--sng-color-state-warning)',
+                    ? 'var(--mds-color-state-success)'
+                    : 'var(--mds-color-state-warning)',
               }}
             >
               {hoverNode.visibility === 'public' ? 'Published' : 'Private'}
@@ -459,13 +459,13 @@ export function WikiGraph({
           </div>
           <h4
             className="text-sm font-bold mb-1 line-clamp-2"
-            style={{ color: 'var(--sng-color-text-primary)' }}
+            style={{ color: 'var(--mds-color-text-primary)' }}
           >
             {hoverNode.title}
           </h4>
           <p
             className="text-xs line-clamp-3 leading-relaxed"
-            style={{ color: 'var(--sng-color-text-secondary)' }}
+            style={{ color: 'var(--mds-color-text-secondary)' }}
           >
             {hoverNode.summary || 'Summary not available.'}
           </p>
