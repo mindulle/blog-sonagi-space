@@ -25,8 +25,8 @@ export function Footer() {
               <Logo height={24} />
             </Link>
             <p className="text-sm text-[var(--sng-color-text-secondary)] leading-relaxed">
-              Next.js와 민들레 디자인 시스템(MDS)으로 가꾸는 돌 틈의 식물
-              표본실이자 디지털 정원입니다.
+              Next.js와 민들레 디자인 시스템(MDS)으로 가꾸는 메이커의 열린
+              사유이자 담백한 신문지 에디토리얼 지면입니다.
             </p>
           </div>
 

@@ -32,18 +32,19 @@ export const metadata: Metadata = {
     process.env.NEXT_PUBLIC_SITE_URL || 'https://blog.sonagi.space'
   ),
   title: {
-    default: '소나기 블로그',
-    template: '%s | 소나기 블로그',
+    default: '민들레 정원 • Mindulle Garden',
+    template: '%s | 민들레 정원',
   },
   description:
-    '소나기 블로그는 최신 웹 개발 기술, UI/UX 디자인, 그리고 소나기 디자인 시스템을 활용한 프로젝트 사례를 공유하는 기술 블로그 및 포트폴리오 사이트입니다.',
+    '민들레 디자인 시스템(MDS)과 함께 가꾸는 메이커의 열린 사유(Thinking in Public)이자 담백한 신문지(Broadsheet) 에디토리얼 지면입니다.',
   keywords: [
-    '블로그',
+    '민들레정원',
+    '디지털가든',
     'Next.js',
     '소나기',
     '개발',
-    '디자인',
-    '프론트엔드',
+    '디자인시스템',
+    'MDS',
     '포트폴리오',
   ],
   authors: [{ name: 'Sonagi Developer', url: 'https://blog.sonagi.space' }],
@@ -51,24 +52,24 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'ko_KR',
     url: 'https://blog.sonagi.space',
-    siteName: '소나기 블로그',
-    title: '소나기 블로그',
+    siteName: '민들레 정원 • Mindulle Garden',
+    title: '민들레 정원 • Mindulle Garden',
     description:
-      '웹 개발과 디자인 시스템, 그리고 기술적인 통찰력을 공유하는 소나기 블로그입니다.',
+      '민들레 디자인 시스템(MDS)과 함께 가꾸는 메이커의 열린 사유이자 담백한 신문지 에디토리얼 지면입니다.',
     images: [
       {
         url: '/og-image.png',
         width: 1200,
         height: 630,
-        alt: '소나기 블로그 대표 이미지',
+        alt: '민들레 정원 대표 이미지',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '소나기 블로그',
+    title: '민들레 정원 • Mindulle Garden',
     description:
-      '웹 개발과 디자인 시스템, 그리고 기술적인 통찰력을 공유하는 소나기 블로그입니다.',
+      '민들레 디자인 시스템(MDS)과 함께 가꾸는 메이커의 열린 사유이자 담백한 신문지 에디토리얼 지면입니다.',
     images: ['/og-image.png'],
   },
 };

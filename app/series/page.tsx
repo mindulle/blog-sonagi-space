@@ -4,28 +4,47 @@ import Link from 'next/link';
 import { Card } from '@/components/ui';
 
 export const metadata = {
-  title: 'Series',
-  description: '주제별로 엮은 연재물들을 모아봅니다.',
+  title: '연재 기획 • Series',
+  description: '하나의 주제로 깊고 길게 이어지는 사유의 연작들을 모아봅니다.',
 };
 
 export default function SeriesIndexPage() {
   const seriesList = getAllSeries();
 
   return (
-    <Container className="py-20">
+    <Container className="py-16 md:py-20">
       <div className="max-w-5xl mx-auto">
-        <div className="mb-12">
+        <div className="mb-12 text-center md:text-left">
+          <div
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] font-mono text-xs mb-3 border select-none"
+            style={{
+              backgroundColor: 'var(--sng-color-bg-surface)',
+              borderColor: 'var(--sng-color-border-subtle)',
+            }}
+          >
+            <span
+              className="w-2 h-2 rounded-full"
+              style={{ backgroundColor: 'var(--sng-color-brand-primary)' }}
+            />
+            <span
+              className="font-bold tracking-wider uppercase"
+              style={{ color: 'var(--sng-color-brand-primary)' }}
+            >
+              CURATED ESSAYS &amp; SERIES
+            </span>
+          </div>
           <h1
-            className="text-4xl font-bold mb-4"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 tracking-tight"
             style={{ color: 'var(--sng-color-text-primary)' }}
           >
-            Series
+            연재 기획 (Series)
           </h1>
           <p
-            className="text-lg"
+            className="text-base sm:text-lg max-w-2xl leading-relaxed"
             style={{ color: 'var(--sng-color-text-secondary)' }}
           >
-            하나의 주제로 길게 이어지는 생각의 흐름들을 모아봅니다.
+            하나의 주제로 깊고 길게 이어지는 사유와 엔지니어링의 연작들을
+            모아봅니다.
           </p>
         </div>
 
