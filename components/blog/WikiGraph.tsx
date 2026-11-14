@@ -253,8 +253,9 @@ export function WikiGraph({
           : isHovered || isNeighbor || globalScale > 1.8;
 
         if (shouldShow) {
-          const fontSize = Math.max(11 / globalScale, 3.5);
-          ctx.font = `${isHovered || isCenterNode ? 'bold ' : ''}${fontSize}px var(--mds-font-sans, sans-serif)`;
+          const safeScale = Math.max(globalScale, 0.5);
+          const fontSize = Math.max(11 / safeScale, 3.5);
+          ctx.font = `${isHovered || isCenterNode ? 'bold ' : ''}${fontSize}px Pretendard, Inter, system-ui, sans-serif`;
           ctx.textAlign = 'center';
           ctx.textBaseline = 'top';
 
@@ -268,13 +269,16 @@ export function WikiGraph({
           const textMetrics = ctx.measureText(labelText);
           const textWidth = textMetrics.width;
           const textHeight = fontSize * 1.25;
-          const textY = node.y + baseRadius + 4;
-          const padX = 5;
-          const padY = 2.5;
+          const textY = node.y + baseRadius + 4 / safeScale;
+          const padX = 5 / safeScale;
+          const padY = 2.5 / safeScale;
+          const pillRadius = 4 / safeScale;
 
+          ctx.save();
+          ctx.globalAlpha = isHovered ? 0.96 : 0.9;
           ctx.fillStyle = isHovered
-            ? getCssVar('--mds-color-bg-elevated', 'rgba(255,255,255,0.95)')
-            : 'color-mix(in srgb, var(--mds-color-bg-surface) 90%, transparent)';
+            ? getCssVar('--mds-color-bg-elevated', '#ffffff')
+            : getCssVar('--mds-color-bg-surface', '#ffffff');
           ctx.beginPath();
           if (ctx.roundRect) {
             ctx.roundRect(
@@ -282,7 +286,7 @@ export function WikiGraph({
               textY - padY,
               textWidth + padX * 2,
               textHeight + padY * 2,
-              4
+              pillRadius
             );
           } else {
             ctx.rect(
@@ -293,10 +297,11 @@ export function WikiGraph({
             );
           }
           ctx.fill();
+          ctx.restore();
 
           if (isHovered || (isLocal && isCenterNode)) {
             ctx.strokeStyle = brandPrimary;
-            ctx.lineWidth = 1;
+            ctx.lineWidth = 1 / safeScale;
             ctx.stroke();
           }
 
