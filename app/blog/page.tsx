@@ -2,6 +2,7 @@ import { getAllNotes } from '@/lib/notes';
 import { Container } from '@/components/ui/Container';
 import { BlogListClient } from '@/components/blog/BlogListClient';
 import { RssSubscribeWidget } from '@/components/blog';
+import { HairlineRule } from '@/components/editorial';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -21,7 +22,7 @@ export default async function BlogPage() {
       <Container>
         <div className="mb-12 text-center">
           <div
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] font-mono text-xs mb-3 border select-none"
+            className="inline-flex items-center gap-2 px-3 py-1 font-mono text-xs mb-3 border select-none"
             style={{
               backgroundColor: 'var(--mds-color-bg-surface)',
               borderColor: 'var(--mds-color-border-subtle)',
@@ -51,6 +52,7 @@ export default async function BlogPage() {
             정원에서 무르익은 사유와 기술적 통찰을 정돈하여 발행하는 에디토리얼
             아티클입니다.
           </p>
+          <HairlineRule thick className="mt-8" />
         </div>
 
         <BlogListClient posts={notes} categories={categories} />

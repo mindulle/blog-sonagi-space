@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card } from '@/components/ui';
 import { Calendar, Clock } from 'lucide-react';
 import { GrowthBadge } from './GrowthBadge';
 import { CategoryLabel } from './CategoryLabel';
@@ -38,10 +37,12 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
 
   return (
     <Link href={href} className="group block h-full">
-      <Card
-        elevation="raised"
-        clickable
-        className="h-full flex flex-col overflow-hidden"
+      <article
+        className="h-full flex flex-col overflow-hidden border-2 transition-colors group-hover:border-[var(--mds-color-brand-primary)]"
+        style={{
+          backgroundColor: 'var(--mds-color-bg-surface)',
+          borderColor: 'var(--mds-color-border-default)',
+        }}
       >
         {post.coverImage && (
           <div className="relative aspect-video overflow-hidden">
@@ -80,7 +81,7 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
 
           {hasMeta && (
             <div
-              className="mt-auto flex items-center gap-3 text-xs"
+              className="mt-auto pt-3 border-t flex items-center gap-3 text-xs border-[var(--mds-color-border-default)]"
               style={{ color: 'var(--mds-color-text-muted)' }}
             >
               {post.dateLabel && (
@@ -98,7 +99,7 @@ export function PostPreviewCard({ post, href }: PostPreviewCardProps) {
             </div>
           )}
         </div>
-      </Card>
+      </article>
     </Link>
   );
 }

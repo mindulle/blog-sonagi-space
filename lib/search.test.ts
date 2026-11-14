@@ -12,18 +12,27 @@ const mockPosts: SearchablePost[] = [
     title: 'React Hooks Deep Dive',
     description: 'Understanding useEffect and useState',
     tags: ['react', 'javascript'],
+    date: '2026-01-01',
+    category: 'design',
+    readingTime: 5,
   },
   {
     slug: 'nextjs-seo',
     title: 'Next.js SEO Guide',
     description: 'How to optimize Next.js for search engines',
     tags: ['nextjs', 'seo'],
+    date: '2026-01-02',
+    category: 'design',
+    readingTime: 4,
   },
   {
     slug: 'css-grid',
     title: 'CSS Grid Layouts',
     description: 'A comprehensive guide to CSS Grid',
     tags: ['css', 'design'],
+    date: '2026-01-03',
+    category: 'design',
+    readingTime: 3,
   },
 ];
 

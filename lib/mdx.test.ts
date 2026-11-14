@@ -35,7 +35,7 @@ describe('MDX Utility', () => {
       vi.mocked(fs.readdirSync).mockReturnValue([
         'post1.mdx',
         'post2.mdx',
-      ] as unknown as string[]);
+      ] as unknown as ReturnType<typeof fs.readdirSync>);
       vi.mocked(fs.readFileSync).mockImplementation((path) => {
         if (path.toString().includes('post1')) {
           return '---\ntitle: Post 1\ndate: 2023-01-01\ncategory: tech\n---\nContent 1';
