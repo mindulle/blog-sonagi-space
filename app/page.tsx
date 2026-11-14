@@ -4,6 +4,7 @@ import { ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { PostPreviewCard } from '@/components/blog/PostPreviewCard';
 import { HerbariumTextureFilter } from '@/components/blog/HerbariumTexture';
+import { HairlineRule } from '@/components/editorial';
 import { getAllNotes } from '@/lib/notes';
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
         <Container>
           <div className="max-w-3xl mx-auto text-center font-mono">
             <div
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] text-xs mb-6 border select-none"
+              className="inline-flex items-center gap-2 px-3 py-1 text-xs mb-6 border select-none"
               style={{
                 backgroundColor: 'var(--mds-color-bg-surface)',
                 borderColor: 'var(--mds-color-border-subtle)',
@@ -83,9 +84,15 @@ export default function Home() {
         </Container>
       </section>
 
+      <Container>
+        <div className="max-w-5xl mx-auto">
+          <HairlineRule thick />
+        </div>
+      </Container>
+
       {/* Recently Cultivated Garden Notes Section */}
       <section
-        className="py-16 md:py-24"
+        className="py-12 md:py-16"
         style={{ backgroundColor: 'var(--mds-color-bg-base)' }}
       >
         <Container>
