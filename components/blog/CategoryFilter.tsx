@@ -23,41 +23,47 @@ export function CategoryFilter({
   className,
 }: CategoryFilterProps) {
   return (
-    <div className={cn('flex flex-wrap items-center gap-2', className)}>
-      {/* 전체 버튼 */}
+    <div className={cn('flex flex-wrap items-center gap-2 font-mono', className)}>
       <button
         onClick={() => onSelectCategory(null)}
-        className={cn(
-          'rounded-full px-4 py-2 text-sm font-medium transition-colors',
-          selectedCategory === null
-            ? 'text-[var(--mds-color-text-inverse)]'
-            : 'text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-text-primary)]'
-        )}
-        style={
-          selectedCategory === null
-            ? { backgroundColor: 'var(--mds-color-brand-primary)' }
-            : { backgroundColor: 'var(--mds-color-bg-overlay)' }
-        }
+        className="px-3 py-1.5 text-xs tracking-wider uppercase border transition-colors"
+        style={{
+          backgroundColor:
+            selectedCategory === null
+              ? 'var(--mds-color-bg-overlay)'
+              : 'transparent',
+          borderColor:
+            selectedCategory === null
+              ? 'var(--mds-color-brand-primary)'
+              : 'var(--mds-color-border-subtle)',
+          color:
+            selectedCategory === null
+              ? 'var(--mds-color-brand-primary)'
+              : 'var(--mds-color-text-secondary)',
+        }}
       >
         전체
       </button>
 
-      {/* 카테고리 버튼들 */}
       {categories.map((category) => (
         <button
           key={category}
           onClick={() => onSelectCategory(category)}
-          className={cn(
-            'rounded-full px-4 py-2 text-sm font-medium transition-colors',
-            selectedCategory === category
-              ? 'text-[var(--mds-color-text-inverse)]'
-              : 'text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-text-primary)]'
-          )}
-          style={
-            selectedCategory === category
-              ? { backgroundColor: 'var(--mds-color-brand-primary)' }
-              : { backgroundColor: 'var(--mds-color-bg-overlay)' }
-          }
+          className="px-3 py-1.5 text-xs tracking-wider uppercase border transition-colors"
+          style={{
+            backgroundColor:
+              selectedCategory === category
+                ? 'var(--mds-color-bg-overlay)'
+                : 'transparent',
+            borderColor:
+              selectedCategory === category
+                ? 'var(--mds-color-brand-primary)'
+                : 'var(--mds-color-border-subtle)',
+            color:
+              selectedCategory === category
+                ? 'var(--mds-color-brand-primary)'
+                : 'var(--mds-color-text-secondary)',
+          }}
         >
           {categoryLabels[category] || category}
         </button>

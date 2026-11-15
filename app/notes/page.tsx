@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { getAllNotes } from '@/lib/notes';
 import { NotesGarden } from '@/components/blog/NotesGarden';
 import { RssSubscribeWidget } from '@/components/blog';
-import { HerbariumTextureFilter } from '@/components/blog/HerbariumTexture';
+import { EndMark } from '@/components/editorial';
 
 export const metadata = {
   title: '민들레 정원 • Digital Garden',
@@ -15,68 +15,63 @@ export default async function NotesPage() {
 
   return (
     <main
-      className="relative overflow-hidden py-10 sm:py-16 px-4 sm:px-6 select-text"
+      className="relative overflow-hidden py-8 sm:py-12 px-4 sm:px-6 select-text"
       style={{
         maxWidth: '1080px',
         margin: '0 auto',
       }}
     >
-      {/* 헤더: 민들레 정원 아카이브 타이틀 */}
-      <header className="mb-10 sm:mb-14 text-center">
+      {/* 헤더: 에디토리얼 판권 바 + 타이틀 */}
+      <header className="mb-10 sm:mb-12">
         <div
-          className="inline-flex items-center gap-2 px-3 py-1 rounded-[4px] font-mono text-xs mb-4 border select-none"
+          className="flex flex-wrap items-center justify-between gap-2 py-2.5 mb-8 border-y font-mono text-[10px] tracking-[0.22em] uppercase"
           style={{
-            backgroundColor: 'var(--mds-color-bg-surface)',
             borderColor: 'var(--mds-color-border-subtle)',
+            color: 'var(--mds-color-text-secondary)',
           }}
         >
-          <span
-            className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: 'var(--mds-color-brand-primary)' }}
-          />
-          <span
-            className="font-bold tracking-wider"
-            style={{ color: 'var(--mds-color-brand-primary)' }}
-          >
-            MINDULLE GARDEN ARCHIVE
-          </span>
-          <span style={{ color: 'var(--mds-color-border-default)' }}>|</span>
-          <span style={{ color: 'var(--mds-color-text-muted)' }}>
-            총 {allNotes.length}개의 노트
+          <span>DIGITAL GARDEN ARCHIVE</span>
+          <span style={{ color: 'var(--mds-color-brand-primary)' }}>
+            TOTAL {allNotes.length} NOTES
           </span>
         </div>
 
-        <h1
-          className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3"
-          style={{ color: 'var(--mds-color-text-primary)' }}
-        >
-          지식의 정원 (Digital Garden)
-        </h1>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+          <div>
+            <h1
+              className="text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight mb-3 keep-all"
+              style={{ color: 'var(--mds-color-text-primary)' }}
+            >
+              지식의 정원 (Digital Garden)
+            </h1>
+            <p
+              className="text-sm sm:text-base max-w-2xl leading-relaxed font-sans keep-all"
+              style={{ color: 'var(--mds-color-text-secondary)' }}
+            >
+              돌 틈에서도 단단히 뿌리내리는 생각의 씨앗(Seed)부터 세상으로
+              비상하는 홀씨(Pappus)에 이르는 유기적 지식 네트워크를 탐색합니다.
+            </p>
+          </div>
 
-        <p
-          className="text-sm sm:text-base max-w-xl mx-auto leading-relaxed mb-4"
-          style={{ color: 'var(--mds-color-text-secondary)' }}
-        >
-          돌 틈에서도 단단히 뿌리내리는 생각의 씨앗(Seed)부터 세상으로 비상하는
-          홀씨(Pappus)에 이르는 유기적 지식 네트워크를 탐색합니다.
-        </p>
-
-        <div className="flex justify-center items-center gap-2">
           <Link
             href="/notes/The-Gardener"
-            className="text-xs sm:text-sm font-mono font-medium hover:underline inline-flex items-center gap-1.5 transition-colors"
+            className="shrink-0 text-xs font-mono font-semibold hover:underline inline-flex items-center gap-1.5 transition-colors"
             style={{ color: 'var(--mds-color-brand-primary)' }}
           >
-            <span>[[The Gardener]]: 정원사의 사유 읽기</span>
+            <span>[[The Gardener]]: 정원사의 사유</span>
             <span>→</span>
           </Link>
         </div>
       </header>
 
-      {/* 식물 표본 서랍 및 다층 필터링 정원 컴포넌트 */}
+      {/* 필터 및 1px 헤어라인 목록 */}
       <NotesGarden initialNotes={allNotes} />
 
-      <div className="mt-20">
+      <div className="mt-14">
+        <EndMark />
+      </div>
+
+      <div className="mt-12">
         <RssSubscribeWidget
           variant="compact"
           title="정원 구독: 순수 RSS 피드"

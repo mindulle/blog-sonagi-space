@@ -6,9 +6,7 @@ import type { Backlink } from './BacklinksSection';
 import { CollapsibleSection } from './CollapsibleSection';
 import { ShareButtons } from './ShareButtons';
 import { ReadingProgress } from './ReadingProgress';
-import { GrowthBadge } from './GrowthBadge';
-import { CategoryLabel } from './CategoryLabel';
-import { SpecimenLabel } from './SpecimenLabel';
+import { GrowthGlyph, normalizeStage } from './GrowthGlyph';
 import { SeriesNav } from './SeriesNav';
 import { HairlineRule, EndMark } from '@/components/editorial';
 
@@ -48,32 +46,38 @@ export function UnifiedDetail({
             ← {isBlogView ? 'Blog' : 'Notes'}
           </Link>
 
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <GrowthBadge status={note.status} showGlyph />
+          <div className="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
+            {note.status && (
+              <span
+                className="inline-flex items-center gap-1.5 font-bold tracking-[0.16em] uppercase"
+                style={{ color: 'var(--mds-color-brand-primary)' }}
+              >
+                <GrowthGlyph
+                  stage={normalizeStage(note.status)}
+                  size={13}
+                  strokeColor="var(--mds-color-brand-primary)"
+                />
+                <span>{normalizeStage(note.status)}</span>
+              </span>
+            )}
             {note.category && (
-              <CategoryLabel
-                category={note.category}
+              <Link
                 href={`/notes?category=${note.category}`}
-              />
+                className="uppercase tracking-wider hover:underline"
+                style={{ color: 'var(--mds-color-text-secondary)' }}
+              >
+                · {note.category}
+              </Link>
             )}
             {note.tags.slice(0, 3).map((tag) => (
-              <CategoryLabel key={tag} category={tag} />
+              <span
+                key={tag}
+                style={{ color: 'var(--mds-color-text-muted)' }}
+              >
+                #{tag}
+              </span>
             ))}
           </div>
-
-          {!isBlogView && (
-            <div className="mb-6">
-              <SpecimenLabel
-                variant="plate"
-                specimenNo={`SNG-${note.slug.slice(0, 8).toUpperCase()}`}
-                harvestDate={note.publishedDate || note.created}
-                habitat="Digital Garden / Crevice"
-                stage={note.status}
-                title={note.title}
-                scientificName="Taraxacum platycarpum Dahlst."
-              />
-            </div>
-          )}
 
           <h1
             className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold"
