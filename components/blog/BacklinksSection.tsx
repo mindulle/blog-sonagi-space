@@ -11,6 +11,7 @@ export interface Backlink {
 
 interface BacklinksSectionProps {
   backlinks: Backlink[];
+  embedded?: boolean;
 }
 
 const INITIAL_LIMIT = 10;
@@ -62,7 +63,7 @@ function BacklinkCard({ link }: { link: Backlink }) {
   );
 }
 
-export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
+export function BacklinksSection({ backlinks, embedded = false }: BacklinksSectionProps) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [isInputFocused, setIsInputFocused] = useState(false);
@@ -86,12 +87,17 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
 
   return (
     <section
-      style={{
-        marginTop: 'var(--mds-spacing-12)',
-        paddingTop: 'var(--mds-spacing-8)',
-        borderTop: '2px solid var(--mds-color-border-default)',
-      }}
+      style={
+        embedded
+          ? undefined
+          : {
+              marginTop: 'var(--mds-spacing-12)',
+              paddingTop: 'var(--mds-spacing-8)',
+              borderTop: '2px solid var(--mds-color-border-default)',
+            }
+      }
     >
+      {(!embedded || backlinks.length > 30) && (
       <div
         style={{
           display: 'flex',
@@ -148,6 +154,7 @@ export function BacklinksSection({ backlinks }: BacklinksSectionProps) {
           />
         )}
       </div>
+      )}
 
       {filteredBacklinks.length === 0 ? (
         <div
