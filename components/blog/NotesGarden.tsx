@@ -180,7 +180,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
     <div className="space-y-8 font-mono">
       {/* ─── TIER 1: 4단계 생장 선화 에칭 필터 (Botanical Stages) ─── */}
       <section
-        className="p-4 sm:p-5 rounded-[4px] border select-none sng-texture-folio"
+        className="p-4 sm:p-5 border select-none"
         style={{
           backgroundColor: 'var(--mds-color-bg-surface)',
           borderColor: 'var(--mds-color-border-default)',
@@ -206,7 +206,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
           {/* 전체 표본 버튼 */}
           <button
             onClick={() => setSelectedStage(null)}
-            className="col-span-2 sm:col-span-1 flex items-center justify-between p-2.5 rounded-[4px] border text-xs transition-all"
+            className="col-span-2 sm:col-span-1 flex items-center justify-between p-2.5 border text-xs transition-all"
             style={{
               backgroundColor:
                 selectedStage === null
@@ -224,7 +224,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
           >
             <span className="font-semibold">전체 표본</span>
             <span
-              className="text-[10px] px-1.5 py-0.5 rounded-[2px]"
+              className="text-[10px] px-1.5 py-0.5 "
               style={{
                 backgroundColor: 'var(--mds-color-bg-overlay)',
                 color: 'var(--mds-color-text-muted)',
@@ -241,7 +241,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
               <button
                 key={st.id}
                 onClick={() => setSelectedStage(isActive ? null : st.id)}
-                className="flex items-center justify-between p-2.5 rounded-[4px] border text-xs transition-all"
+                className="flex items-center justify-between p-2.5 border text-xs transition-all"
                 style={{
                   backgroundColor: isActive
                     ? 'var(--mds-color-bg-overlay)'
@@ -267,7 +267,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
                   <span className="font-semibold">{st.nameEn}</span>
                 </div>
                 <span
-                  className="text-[10px] px-1.5 py-0.5 rounded-[2px]"
+                  className="text-[10px] px-1.5 py-0.5 "
                   style={{
                     backgroundColor: 'var(--mds-color-bg-overlay)',
                     color: 'var(--mds-color-text-muted)',
@@ -287,7 +287,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
         <div className="flex flex-wrap items-center gap-1.5 text-xs">
           <button
             onClick={() => setSelectedDomain(null)}
-            className="px-2.5 py-1 rounded-[4px] border transition-colors"
+            className="px-2.5 py-1 border transition-colors"
             style={{
               backgroundColor:
                 selectedDomain === null
@@ -314,7 +314,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
               <button
                 key={dom.id}
                 onClick={() => setSelectedDomain(isDomActive ? null : dom.id)}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-[4px] border transition-colors"
+                className="inline-flex items-center gap-1.5 px-2.5 py-1 border transition-colors"
                 style={{
                   backgroundColor: isDomActive
                     ? 'var(--mds-color-bg-overlay)'
@@ -346,7 +346,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
             placeholder="Search specimen docket..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-8 pr-3 py-1.5 rounded-[4px] text-xs border outline-none transition-colors"
+            className="w-full pl-8 pr-3 py-1.5 text-xs border outline-none transition-colors"
             style={{
               backgroundColor: 'var(--mds-color-bg-surface)',
               borderColor: 'var(--mds-color-border-default)',
@@ -367,7 +367,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
       {/* ─── TIER 3: 채집된 표본 목록 (Specimen Dockets) ─── */}
       {filteredNotes.length === 0 ? (
         <div
-          className="p-12 text-center rounded-[4px] border border-dashed text-xs space-y-2"
+          className="p-12 text-center border border-dashed text-xs space-y-2"
           style={{
             borderColor: 'var(--mds-color-border-default)',
             color: 'var(--mds-color-text-muted)',
@@ -382,7 +382,7 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
           <p>선택된 생장 단계나 도메인 필터를 해제해 보세요.</p>
         </div>
       ) : (
-        <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 list-none p-0 m-0">
+        <ul className="border-t list-none p-0 m-0" style={{ borderColor: "var(--mds-color-border-subtle)" }}>
           {filteredNotes.map((note) => (
             <li key={note.slug}>
               <NoteCard note={note} />

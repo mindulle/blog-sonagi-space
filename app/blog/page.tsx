@@ -2,7 +2,7 @@ import { getAllNotes } from '@/lib/notes';
 import { Container } from '@/components/ui/Container';
 import { BlogListClient } from '@/components/blog/BlogListClient';
 import { RssSubscribeWidget } from '@/components/blog';
-import { HairlineRule } from '@/components/editorial';
+import { EndMark, HairlineRule } from '@/components/editorial';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -18,47 +18,48 @@ export default async function BlogPage() {
   ) as string[];
 
   return (
-    <div className="py-12">
+    <div className="py-8 sm:py-12">
       <Container>
-        <div className="mb-12 text-center">
+        <div className="max-w-5xl mx-auto">
           <div
-            className="inline-flex items-center gap-2 px-3 py-1 font-mono text-xs mb-3 border select-none"
+            className="flex flex-wrap items-center justify-between gap-2 py-2.5 mb-8 border-y font-mono text-[10px] tracking-[0.22em] uppercase"
             style={{
-              backgroundColor: 'var(--mds-color-bg-surface)',
               borderColor: 'var(--mds-color-border-subtle)',
+              color: 'var(--mds-color-text-secondary)',
             }}
           >
-            <span
-              className="w-2 h-2 rounded-full"
-              style={{ backgroundColor: 'var(--mds-color-brand-primary)' }}
-            />
-            <span
-              className="font-bold tracking-wider uppercase"
-              style={{ color: 'var(--mds-color-brand-primary)' }}
-            >
-              DISPATCHES &amp; ARTICLES
+            <span>DISPATCHES &amp; ARTICLES</span>
+            <span style={{ color: 'var(--mds-color-brand-primary)' }}>
+              TOTAL {notes.length} ARTICLES
             </span>
           </div>
-          <h1
-            className="mb-3 text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight"
-            style={{ color: 'var(--mds-color-text-primary)' }}
-          >
-            기록과 지면
-          </h1>
-          <p
-            className="mx-auto max-w-2xl text-base sm:text-lg"
-            style={{ color: 'var(--mds-color-text-secondary)' }}
-          >
-            정원에서 무르익은 사유와 기술적 통찰을 정돈하여 발행하는 에디토리얼
-            아티클입니다.
-          </p>
-          <HairlineRule thick className="mt-8" />
-        </div>
 
-        <BlogListClient posts={notes} categories={categories} />
+          <div className="mb-8">
+            <h1
+              className="mb-3 text-3xl sm:text-4xl md:text-5xl font-serif font-bold tracking-tight keep-all"
+              style={{ color: 'var(--mds-color-text-primary)' }}
+            >
+              기록과 지면
+            </h1>
+            <p
+              className="max-w-2xl text-base sm:text-lg font-sans keep-all"
+              style={{ color: 'var(--mds-color-text-secondary)' }}
+            >
+              정원에서 무르익은 사유와 기술적 통찰을 정돈하여 발행하는
+              에디토리얼 아티클입니다.
+            </p>
+            <HairlineRule thick className="mt-8" />
+          </div>
 
-        <div className="mt-16 max-w-3xl mx-auto">
-          <RssSubscribeWidget />
+          <BlogListClient posts={notes} categories={categories} />
+
+          <div className="mt-14">
+            <EndMark />
+          </div>
+
+          <div className="mt-12 max-w-3xl mx-auto">
+            <RssSubscribeWidget />
+          </div>
         </div>
       </Container>
     </div>
