@@ -61,6 +61,15 @@ interface CustomAnchorProps extends React.AnchorHTMLAttributes<HTMLAnchorElement
 }
 
 const components = {
+  h2: ({ children, className = '', style, ...rest }: React.HTMLAttributes<HTMLHeadingElement>) => (
+    <h2
+      {...rest}
+      className={`pb-2 border-b border-[var(--mds-color-border-default)] ${className}`}
+      style={{ fontFamily: 'var(--font-cinematic, serif)', ...style }}
+    >
+      {children}
+    </h2>
+  ),
   a: (props: CustomAnchorProps) => {
     const { href, className, 'data-slug': dataSlug, children, ...rest } = props;
 
