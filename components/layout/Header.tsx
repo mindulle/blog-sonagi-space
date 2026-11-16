@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
 import { Button, MobileHeader, TopBar } from '@mindulle/ui';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -26,18 +26,8 @@ const translucentSurfaceStyle = {
 export function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const mobileContainerRef = useRef<HTMLDivElement>(null);
 
   const menuLabel = isMobileMenuOpen ? '메뉴 닫기' : '메뉴 열기';
-
-  useEffect(() => {
-    const menuButton = mobileContainerRef.current?.querySelector(
-      `button[aria-label="${menuLabel}"]`
-    );
-    if (menuButton) {
-      menuButton.setAttribute('aria-expanded', String(isMobileMenuOpen));
-    }
-  }, [isMobileMenuOpen, menuLabel]);
 
   const isRouteActive = (href: string) =>
     pathname === href || (pathname?.startsWith(href) && href !== '/');
@@ -101,14 +91,12 @@ export function Header() {
         style={translucentSurfaceStyle}
       />
 
-      <div
-        ref={mobileContainerRef}
-        className="md:hidden sticky top-0 z-50 w-full"
-      >
+      <div className="md:hidden sticky top-0 z-50 w-full">
         <MobileHeader
           title={brand}
           onMenuClick={() => setIsMobileMenuOpen((prev) => !prev)}
           menuLabel={menuLabel}
+          menuExpanded={isMobileMenuOpen}
           actions={actions}
           className="backdrop-blur-md transition-colors duration-200"
           style={translucentSurfaceStyle}

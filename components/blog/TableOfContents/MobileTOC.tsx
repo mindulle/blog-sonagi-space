@@ -100,6 +100,7 @@ export function MobileTOC({ headings }: { headings: Heading[] }) {
                 <TableOfContents
                   headings={headings}
                   className="!static !block !max-h-none"
+                  onSelect={() => setIsOpen(false)}
                 />
               </div>
             </motion.div>
