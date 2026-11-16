@@ -15,8 +15,8 @@ importers:
         specifier: ^1.19.0
         version: 1.19.0
       '@mindulle/ui':
-        specifier: ^2.1.0
-        version: 2.1.0(@mindulle/tokens@1.19.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        specifier: ^2.1.1
+        version: 2.1.1(@mindulle/tokens@1.19.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@next/mdx':
         specifier: ^16.0.0
         version: 16.0.0(@mdx-js/react@3.1.1(@types/react@19.2.2)(react@19.2.0))
@@ -758,8 +758,8 @@ packages:
   '@mindulle/tokens@1.19.0':
     resolution: {integrity: sha512-iYi2AhQi2U3NZx5yJpLgASwaP+m/oB1hZM/KCIukJp6XSzUNEdSEIHqwFq94WjJc+yJvS54a2sLON0LGDnWbFw==, tarball: https://npm.pkg.github.com/download/@mindulle/tokens/1.19.0/c95404a1da824fb8ba1ccc7af179c5822533c2a7}
 
-  '@mindulle/ui@2.1.0':
-    resolution: {integrity: sha512-bLfzvhESGDAUqK54gFQWnqD+H8we751U74WfCz0qf9Hab+J4P7o1659s5GauPlkPcy9T/HiE4F797T2SpmSOVQ==, tarball: https://npm.pkg.github.com/download/@mindulle/ui/2.1.0/4a77e19883208d8c60e911d0c08de1b0d08f1a3c}
+  '@mindulle/ui@2.1.1':
+    resolution: {integrity: sha512-soUQkjhmdd6PWO8Sx/4VrOMPGabLL6PYpn6FUA1h4tQU8Ux9XK+obo/1vEK3EvfRommWaDz1pNSecC5M0wdZAg==, tarball: https://npm.pkg.github.com/download/@mindulle/ui/2.1.1/d918fbac027ee72e77ed00bbd6f4d6d49f93f88b}
     peerDependencies:
       '@mindulle/tokens': ^1.19.0
       react: '>=18'
@@ -4702,7 +4702,7 @@ snapshots:
 
   '@mindulle/tokens@1.19.0': {}
 
-  '@mindulle/ui@2.1.0(@mindulle/tokens@1.19.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@mindulle/ui@2.1.1(@mindulle/tokens@1.19.0)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
       '@mindulle/tokens': 1.19.0
       react: 19.2.0
