@@ -1,6 +1,10 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import {
+  TableOfContents as DsTableOfContents,
+  useActiveSection,
+  type TocItem,
+} from '@mindulle/ui';
 import { cn } from '@/lib/utils';
 
 export type Heading = {
@@ -12,87 +16,45 @@ export type Heading = {
 type TableOfContentsProps = {
   headings: Heading[];
   className?: string;
+  onSelect?: (id: string) => void;
 };
 
-export function TableOfContents({ headings, className }: TableOfContentsProps) {
-  const [activeId, setActiveId] = useState<string>('');
+export function TableOfContents({
+  headings,
+  className,
+  onSelect,
+}: TableOfContentsProps) {
+  const ids = headings.map((h) => h.id);
+  const activeId = useActiveSection(ids);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
-          }
-        });
-      },
-      { rootMargin: '0% 0% -80% 0%', threshold: 0.5 }
-    );
+  if (headings.length === 0) return null;
 
-    const headingElements = headings
-      .map(({ id }) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+  const items: TocItem[] = headings.map((h) => ({
+    id: h.id,
+    label: h.text,
+    depth: Math.max(0, h.level - 2),
+  }));
 
-    headingElements.forEach((el) => observer.observe(el));
-    return () => headingElements.forEach((el) => observer.unobserve(el));
-  }, [headings]);
-
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
+  const handleSelect = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       const offsetPosition =
         element.getBoundingClientRect().top + window.pageYOffset - 80;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     }
+    onSelect?.(id);
   };
 
-  if (headings.length === 0) return null;
-
   return (
-    <nav
+    <DsTableOfContents
+      title="Table of Contents"
+      items={items}
+      activeId={activeId ?? undefined}
+      onSelect={handleSelect}
       className={cn(
         'sticky top-24 hidden lg:block max-h-[calc(100vh-8rem)] overflow-y-auto',
         className
       )}
-      aria-label="Table of contents"
-    >
-      <div className="space-y-2">
-        <h3
-          className="font-semibold text-sm mb-4"
-          style={{ color: 'var(--mds-color-text-primary)' }}
-        >
-          Table of Contents
-        </h3>
-        <ul className="space-y-1 text-sm">
-          {headings.map((heading) => {
-            const isActive = activeId === heading.id;
-            return (
-              <li
-                key={heading.id}
-                style={{ paddingLeft: `${(heading.level - 2) * 12}px` }}
-              >
-                <a
-                  href={`#${heading.id}`}
-                  onClick={(e) => handleClick(e, heading.id)}
-                  className="block py-1 pl-3 border-l-2 transition-colors"
-                  style={{
-                    color: isActive
-                      ? 'var(--mds-color-brand-primary)'
-                      : 'var(--mds-color-text-muted)',
-                    borderLeftColor: isActive
-                      ? 'var(--mds-color-brand-primary)'
-                      : 'transparent',
-                    fontWeight: isActive ? 600 : 400,
-                  }}
-                >
-                  {heading.text}
-                </a>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
-    </nav>
+    />
   );
 }
