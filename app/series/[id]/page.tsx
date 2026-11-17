@@ -94,7 +94,7 @@ export default async function SeriesDetailPage({ params }: Props) {
             className="inline-flex items-center gap-2 px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
             style={{
               backgroundColor: 'var(--mds-color-text-primary)',
-              color: 'var(--mds-color-bg-primary)',
+              color: 'var(--mds-color-text-inverse)',
             }}
           >
             <span>1편부터 정주행 시작하기</span>

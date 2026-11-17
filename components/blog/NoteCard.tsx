@@ -32,7 +32,7 @@ export function NoteCard({ note }: { note: Note }) {
       className="group flex flex-col justify-between h-full p-5 border rounded-none transition-colors hover:bg-[var(--mds-color-bg-surface)] select-text"
       style={{
         borderColor: 'var(--mds-color-border-default)',
-        backgroundColor: 'var(--mds-color-bg-primary)',
+        backgroundColor: 'var(--mds-color-bg-base)',
         textDecoration: 'none',
       }}
     >
