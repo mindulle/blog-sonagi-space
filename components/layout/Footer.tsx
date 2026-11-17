@@ -147,8 +147,7 @@ export function Footer() {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
             <p className="text-sm text-[var(--mds-color-text-secondary)]">
-              © {currentYear} 소나기 스페이스 (Sonagi Space). All rights
-              reserved.
+              © {currentYear} MINDULLE GARDEN. All rights reserved.
             </p>
             <p className="text-sm text-[var(--mds-color-text-secondary)]">
               Built with{' '}
