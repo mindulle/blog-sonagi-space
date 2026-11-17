@@ -25,11 +25,10 @@ export function SeriesNav({
 }: SeriesNavProps) {
   return (
     <div
-      className="flex flex-col rounded-[var(--mds-radius-xl)] overflow-hidden"
+      className="flex flex-col rounded-none overflow-hidden"
       style={{
-        backgroundColor: 'var(--mds-color-bg-elevated)',
+        backgroundColor: 'var(--mds-color-bg-surface)',
         border: '1px solid var(--mds-color-border-default)',
-        boxShadow: 'var(--mds-shadow-sm)',
       }}
     >
       {/* Header */}
@@ -37,15 +36,26 @@ export function SeriesNav({
         className="px-6 pt-6 pb-4 border-b"
         style={{ borderColor: 'var(--mds-color-border-subtle)' }}
       >
-        <div
-          className="text-[12px] font-bold tracking-wider mb-2"
-          style={{ color: 'var(--mds-color-brand-primary)' }}
-        >
-          SERIES
+        <div className="flex items-center justify-between gap-2 font-mono text-xs tracking-wider mb-2">
+          <span
+            className="font-bold uppercase"
+            style={{ color: 'var(--mds-color-brand-primary)' }}
+          >
+            SERIES • 연재 목차
+          </span>
+          <span
+            className="tabular-nums"
+            style={{ color: 'var(--mds-color-text-muted)' }}
+          >
+            {seriesOrder} OF {total}
+          </span>
         </div>
         <h3
           className="text-xl font-bold leading-tight"
-          style={{ color: 'var(--mds-color-text-primary)' }}
+          style={{
+            color: 'var(--mds-color-text-primary)',
+            fontFamily: 'var(--font-cinematic, serif)',
+          }}
         >
           {series}
           <span
