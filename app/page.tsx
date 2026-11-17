@@ -318,8 +318,10 @@ export default function Home() {
               </p>
             )}
 
-            <div className="mt-12">
-              <EndMark />
+            <div className="mt-12 flex items-center gap-4">
+              <HairlineRule className="flex-1 my-0" />
+              <EndMark className="ml-0" />
+              <HairlineRule className="flex-1 my-0" />
             </div>
           </div>
         </Container>
