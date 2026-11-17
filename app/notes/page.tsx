@@ -16,6 +16,7 @@ export default async function NotesPage({
 }) {
   const resolved = searchParams ? await searchParams : {};
   const initialTag = resolved.tag ?? null;
+  const initialCategory = resolved.category ?? null;
   const allNotes = getAllNotes();
 
   return (
@@ -70,7 +71,7 @@ export default async function NotesPage({
       </header>
 
       {/* 필터 및 1px 헤어라인 목록 */}
-      <NotesGarden initialNotes={allNotes} initialTag={initialTag} />
+      <NotesGarden initialNotes={allNotes} initialTag={initialTag} initialCategory={initialCategory} />
 
       <div className="mt-14">
         <EndMark />

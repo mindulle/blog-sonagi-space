@@ -81,7 +81,7 @@ export function SearchResults({
         {results.map((post) => (
           <Link
             key={post.slug}
-            href={`/blog/${post.slug}`}
+            href={(post as { published?: boolean }).published === false ? `/notes/${post.slug}` : `/blog/${post.slug}`}
             className="block group"
           >
             <Card clickable>
