@@ -1,7 +1,6 @@
 import { getAllNotes } from '@/lib/notes';
 import { Container } from '@/components/ui/Container';
 import { BlogListClient } from '@/components/blog/BlogListClient';
-import { RssSubscribeWidget } from '@/components/blog';
 import { EndMark, HairlineRule } from '@/components/editorial';
 import type { Metadata } from 'next';
 
@@ -59,9 +58,6 @@ export default async function BlogPage() {
             <HairlineRule className="flex-1 my-0" />
           </div>
 
-          <div className="mt-12 max-w-3xl mx-auto">
-            <RssSubscribeWidget />
-          </div>
         </div>
       </Container>
     </div>

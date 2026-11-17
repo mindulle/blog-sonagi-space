@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { getAllNotes } from '@/lib/notes';
 import { NotesGarden } from '@/components/blog/NotesGarden';
-import { RssSubscribeWidget } from '@/components/blog';
 import { EndMark } from '@/components/editorial';
 
 export const metadata = {
@@ -77,13 +76,6 @@ export default async function NotesPage({
         <EndMark />
       </div>
 
-      <div className="mt-12">
-        <RssSubscribeWidget
-          variant="compact"
-          title="정원 구독: 순수 RSS 피드"
-          description="새로운 생각의 씨앗(Seed)과 노트가 자라날 때 알고리즘 없이 바로 받아보세요."
-        />
-      </div>
     </main>
   );
 }
