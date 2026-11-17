@@ -54,7 +54,7 @@ export function RssSubscribeWidget({
   if (variant === 'compact') {
     return (
       <div
-        className={`flex flex-wrap items-center justify-between gap-3 p-4 rounded-xl border ${className}`}
+        className={`flex flex-wrap items-center justify-between gap-3 p-4 rounded-sm border ${className}`}
         style={{
           backgroundColor: 'var(--mds-color-bg-surface)',
           borderColor: 'var(--mds-color-border-default)',
@@ -142,7 +142,7 @@ export function RssSubscribeWidget({
       <div className="flex items-start justify-between gap-4">
         <div className="flex items-start gap-3.5">
           <div
-            className="flex items-center justify-center w-12 h-12 rounded-xl shrink-0"
+            className="flex items-center justify-center w-12 h-12 rounded-sm shrink-0"
             style={{
               backgroundColor: 'var(--mds-color-bg-overlay)',
               color: 'var(--mds-color-brand-primary)',
@@ -153,12 +153,12 @@ export function RssSubscribeWidget({
           <div className="flex flex-col gap-1">
             <div className="flex items-center gap-2">
               <h3
-                className="text-lg sm:text-xl font-bold tracking-tight"
+                className="text-lg sm:text-xl font-serif font-bold tracking-tight"
                 style={{ color: 'var(--mds-color-text-primary)' }}
               >
                 {title}
               </h3>
-              <Badge variant="pill" color="info">
+              <Badge variant="label" color="warning">
                 RSS 2.0
               </Badge>
             </div>
@@ -174,7 +174,7 @@ export function RssSubscribeWidget({
 
       {/* Feed URL Box & Action Buttons */}
       <div
-        className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2.5 sm:p-2 rounded-xl border"
+        className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 p-2.5 sm:p-2 rounded-sm border"
         style={{
           backgroundColor: 'var(--mds-color-bg-base)',
           borderColor: 'var(--mds-color-border-subtle)',

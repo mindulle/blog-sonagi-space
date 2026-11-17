@@ -53,8 +53,10 @@ export default async function BlogPage() {
 
           <BlogListClient posts={notes} categories={categories} />
 
-          <div className="mt-14">
-            <EndMark />
+          <div className="mt-14 flex items-center gap-4">
+            <HairlineRule className="flex-1 my-0" />
+            <EndMark className="ml-0" />
+            <HairlineRule className="flex-1 my-0" />
           </div>
 
           <div className="mt-12 max-w-3xl mx-auto">

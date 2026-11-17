@@ -45,6 +45,7 @@ function extractExcerpt(content: string, maxLength = 150): string {
     content
       .replace(/^---[\s\S]*?---\n/, '') // frontmatter 제거
       .replace(/#+\s.*\n/g, '') // 헤딩 제거
+      .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, alias) => (alias || target).replace(/_/g, ' '))
       .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, '$2') // 위키링크 → alias 또는 제거
       .replace(/\*\*([^*]+)\*\*/g, '$1') // 볼드 마크다운 기호 제거
       .replace(/\*([^*]+)\*/g, '$1') // 이탤릭 마크다운 기호 제거
