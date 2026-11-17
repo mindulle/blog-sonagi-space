@@ -6,6 +6,29 @@ import { Calendar, Clock } from 'lucide-react';
 import { CategoryBadge } from '../CategoryBadge';
 import type { Post } from '@/types/blog';
 
+function renderHighlightedText(text: string, query: string) {
+  const trimmed = query.trim();
+  if (!trimmed) return text;
+  const escaped = trimmed.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const parts = text.split(new RegExp(`(${escaped})`, 'gi'));
+  return parts.map((part, idx) =>
+    part.toLowerCase() === trimmed.toLowerCase() ? (
+      <mark
+        key={idx}
+        className="px-0.5 font-semibold"
+        style={{
+          backgroundColor: 'color-mix(in srgb, var(--mds-color-brand-primary) 22%, transparent)',
+          color: 'var(--mds-color-text-primary)',
+        }}
+      >
+        {part}
+      </mark>
+    ) : (
+      part
+    )
+  );
+}
+
 type SearchResultsProps = {
   results: Post[];
   query: string;
@@ -64,13 +87,13 @@ export function SearchResults({
             <Card clickable>
               <div className="flex items-start justify-between gap-4 mb-3">
                 <h2 className="text-xl font-semibold transition-colors line-clamp-2 text-[var(--mds-color-text-primary)] group-hover:text-[var(--mds-color-brand-primary)]">
-                  {post.title}
+                  {renderHighlightedText(post.title, query)}
                 </h2>
                 <CategoryBadge category={post.category} />
               </div>
 
               <p className="mb-4 line-clamp-2 text-[var(--mds-color-text-secondary)]">
-                {post.description}
+                {renderHighlightedText(post.description, query)}
               </p>
 
               <div className="flex items-center gap-4 text-sm text-[var(--mds-color-text-muted)]">

@@ -49,7 +49,7 @@ export function NoteCard({ note }: { note: Note }) {
             )}
             {stage && (
               <span
-                className="inline-flex items-center gap-1 text-[10px] font-bold tracking-[0.16em] uppercase"
+                className="inline-flex items-center gap-1 text-xs font-bold tracking-[0.16em] uppercase"
                 style={{ color: 'var(--mds-color-brand-primary)' }}
               >
                 <GrowthGlyph
@@ -62,7 +62,7 @@ export function NoteCard({ note }: { note: Note }) {
             )}
           </div>
           <span
-            className="text-[11px] truncate"
+            className="text-xs truncate"
             style={{ color: 'var(--mds-color-text-muted)' }}
           >
             [[{note.slug}]]
@@ -88,7 +88,7 @@ export function NoteCard({ note }: { note: Note }) {
         </div>
 
         {/* 우측: 태그 + 이동 화살표 */}
-        <div className="md:col-span-2 flex items-center justify-between md:justify-end gap-3 font-mono text-[11px]">
+        <div className="md:col-span-2 flex items-center justify-between md:justify-end gap-3 font-mono text-xs">
           {note.tags && note.tags.length > 0 && (
             <span
               className="truncate"

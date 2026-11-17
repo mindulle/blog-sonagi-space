@@ -8,6 +8,7 @@ import type { Note } from '@/lib/notes';
 
 interface NotesGardenProps {
   initialNotes: Note[];
+  initialTag?: string | null;
 }
 
 interface DomainCategory {
@@ -91,8 +92,9 @@ const BOTANICAL_STAGES: Array<{
   { id: 'pappus', nameKo: '비상 홀씨', nameEn: 'Pappus' },
 ];
 
-export function NotesGarden({ initialNotes }: NotesGardenProps) {
+export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProps) {
   const [selectedStage, setSelectedStage] = useState<string | null>(null);
+  const [selectedTag, setSelectedTag] = useState<string | null>(initialTag);
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -139,6 +141,10 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
     if (!initialNotes) return [];
     return initialNotes.filter((note) => {
       // 생장 단계 필터
+      if (selectedTag) {
+        const hasTag = note.tags?.some((t) => t.toLowerCase() === selectedTag.toLowerCase());
+        if (!hasTag) return false;
+      }
       if (selectedStage) {
         const canonical = normalizeStage(note.status);
         if (canonical !== selectedStage) return false;
@@ -174,10 +180,32 @@ export function NotesGarden({ initialNotes }: NotesGardenProps) {
 
       return true;
     });
-  }, [initialNotes, selectedStage, selectedDomain, searchQuery]);
+  }, [initialNotes, selectedTag, selectedStage, selectedDomain, searchQuery]);
 
   return (
     <div className="space-y-8 font-mono">
+      {selectedTag && (
+        <div
+          className="mb-4 flex items-center justify-between px-3 py-2 border font-mono text-xs"
+          style={{
+            backgroundColor: 'var(--mds-color-bg-surface)',
+            borderColor: 'var(--mds-color-border-default)',
+            color: 'var(--mds-color-text-secondary)',
+          }}
+        >
+          <span>
+            TAG FILTER: <strong style={{ color: 'var(--mds-color-brand-primary)' }}>#{selectedTag}</strong>
+          </span>
+          <button
+            type="button"
+            onClick={() => setSelectedTag(null)}
+            className="underline hover:opacity-80"
+          >
+            필터 해제 ×
+          </button>
+        </div>
+      )}
+
       {/* ─── TIER 1: 4단계 생장 선화 에칭 필터 (Botanical Stages) ─── */}
       <section
         className="p-4 sm:p-5 border select-none"

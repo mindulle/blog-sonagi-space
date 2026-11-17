@@ -23,7 +23,7 @@ export function SeriesTableOfContents({ seriesContext, currentSlug }: Props) {
         style={{ borderColor: 'var(--mds-color-border-subtle)' }}
       >
         <div
-          className="text-[11px] font-bold tracking-wider mb-1"
+          className="text-xs font-bold tracking-wider mb-1"
           style={{ color: 'var(--mds-color-text-muted)' }}
         >
           SERIES

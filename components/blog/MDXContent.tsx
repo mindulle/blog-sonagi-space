@@ -105,17 +105,16 @@ const components = {
       const isBroken = className.includes('broken');
       const slug = dataSlug || href || '';
 
-      // 끊어진 링크는 HoverPreview 없이 단순 렌더링
+      // 미승격(broken) 위키링크는 404 이동 대신 점선 밑줄 평문으로 폴백
       if (isBroken) {
         return (
-          <Link
-            href={`/notes/${slug}`}
-            className={className}
+          <span
+            className="underline decoration-dotted underline-offset-4 cursor-help text-[var(--mds-color-text-secondary)]"
+            title="아직 공개되지 않은 노트입니다"
             data-slug={dataSlug}
-            {...rest}
           >
             {children}
-          </Link>
+          </span>
         );
       }
 

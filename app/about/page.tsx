@@ -58,7 +58,7 @@ export default function AboutPage() {
                   </div>
 
                   <div className="p-4 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)]">
-                    <span className="block text-[10px] font-mono uppercase tracking-wider text-[var(--mds-color-text-muted)] mb-1">
+                    <span className="block text-xs font-mono uppercase tracking-wider text-[var(--mds-color-text-muted)] mb-1">
                       THE 85:15 RULE
                     </span>
                     <p className="text-xs font-medium text-[var(--mds-color-text-primary)] leading-normal">
@@ -133,7 +133,7 @@ export default function AboutPage() {
           {/* 3. 메이커 철학 & 도구 체계 (Atelier Pillars) */}
           <section className="space-y-6">
             <div className="flex flex-col gap-1">
-              <span className="text-[10px] font-bold tracking-widest uppercase text-[var(--mds-color-brand-primary)] font-mono">
+              <span className="text-xs font-bold tracking-widest uppercase text-[var(--mds-color-brand-primary)] font-mono">
                 MAKER PILLARS &amp; TOOLCHAIN
               </span>
               <h2

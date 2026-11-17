@@ -877,3 +877,25 @@ code {
 .editorial-article blockquote p::after {
   content: none;
 }
+
+/* BLOG #36: Broadsheet Footnotes */
+.editorial-article .footnotes {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--mds-color-border-default);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--mds-color-text-secondary);
+}
+
+.editorial-article .footnotes ol {
+  padding-left: 1.25rem;
+}
+
+.editorial-article a[data-footnote-ref] {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75em;
+  color: var(--mds-color-brand-primary);
+  text-decoration: none;
+  padding: 0 2px;
+}

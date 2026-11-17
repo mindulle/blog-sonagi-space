@@ -122,7 +122,7 @@ export default function Home() {
                 {/* Left 2/3 (8 cols): Lead Story + 2-Column Sub-Dispatches */}
                 <div className="lg:col-span-8 lg:pr-8 flex flex-col justify-between">
                   <div>
-                    <div className="flex flex-wrap items-center gap-3 font-mono text-[11px] tracking-[0.18em] uppercase mb-3">
+                    <div className="flex flex-wrap items-center gap-3 font-mono text-xs tracking-[0.18em] uppercase mb-3">
                       <span
                         className="font-bold"
                         style={{ color: 'var(--mds-color-brand-primary)' }}
@@ -196,7 +196,7 @@ export default function Home() {
                             className="group block"
                           >
                             <div
-                              className="font-mono text-[10px] tracking-[0.16em] uppercase mb-1.5"
+                              className="font-mono text-xs tracking-[0.16em] uppercase mb-1.5"
                               style={{
                                 color: 'var(--mds-color-text-secondary)',
                               }}
@@ -226,7 +226,7 @@ export default function Home() {
                 >
                   <div>
                     <div
-                      className="font-mono text-[11px] font-bold tracking-[0.18em] uppercase pb-3 border-b"
+                      className="font-mono text-xs font-bold tracking-[0.18em] uppercase pb-3 border-b"
                       style={{
                         color: 'var(--mds-color-brand-primary)',
                         borderColor: 'var(--mds-color-border-subtle)',
@@ -255,7 +255,7 @@ export default function Home() {
                             }}
                           >
                             <div
-                              className="font-mono text-[10px] tracking-[0.14em] uppercase mb-1"
+                              className="font-mono text-xs tracking-[0.14em] uppercase mb-1"
                               style={{
                                 color: 'var(--mds-color-text-secondary)',
                               }}
@@ -283,7 +283,7 @@ export default function Home() {
                   >
                     <DandelionSpotIllustration />
                     <span
-                      className="mt-2 text-[10px] font-mono tracking-[0.22em] uppercase"
+                      className="mt-2 text-xs font-mono tracking-[0.22em] uppercase"
                       style={{ color: 'var(--mds-color-text-secondary)' }}
                     >
                       FIG. 01 — SEED DISPERSAL

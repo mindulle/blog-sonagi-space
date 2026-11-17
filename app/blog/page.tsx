@@ -22,7 +22,7 @@ export default async function BlogPage() {
       <Container>
         <div className="max-w-5xl mx-auto">
           <div
-            className="flex flex-wrap items-center justify-between gap-2 py-2.5 mb-8 border-y font-mono text-[10px] tracking-[0.22em] uppercase"
+            className="flex flex-wrap items-center justify-between gap-2 py-2.5 mb-8 border-y font-mono text-xs tracking-[0.22em] uppercase"
             style={{
               borderColor: 'var(--mds-color-border-subtle)',
               color: 'var(--mds-color-text-secondary)',
