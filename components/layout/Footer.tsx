@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Github, Twitter, Rss, Mail } from 'lucide-react';
+import { Rss } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Logo } from '@/components/ui/Logo';
 
@@ -15,151 +15,71 @@ export function Footer() {
       }}
     >
       <Container>
-        <div className="py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* 브랜드 & 설명 */}
-          <div className="space-y-4">
-            <Link
-              href="/"
-              className="flex items-center space-x-2 font-bold text-lg transition-colors text-[var(--mds-color-text-primary)] hover:text-[var(--mds-color-brand-primary)]"
+        <div className="py-8 flex flex-col gap-5">
+          {/* 상단 콜로폰: 브랜드 + 유틸리티 인라인 링크 */}
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+              <Link
+                href="/"
+                aria-label="MINDULLE GARDEN 홈"
+                className="inline-flex items-center transition-opacity hover:opacity-80 text-[var(--mds-color-text-primary)]"
+              >
+                <Logo height={22} />
+              </Link>
+              <span className="hidden sm:inline text-[var(--mds-color-border-default)]" aria-hidden="true">
+                |
+              </span>
+              <p className="text-xs text-[var(--mds-color-text-secondary)]">
+                민들레 디자인 시스템(MDS)으로 조판한 메이커의 열린 신문 지면입니다.
+              </p>
+            </div>
+
+            <nav
+              aria-label="푸터 유틸리티 링크"
+              className="flex flex-wrap items-center gap-x-5 gap-y-2 font-mono text-xs uppercase tracking-wider"
             >
-              <Logo height={24} />
-            </Link>
-            <p className="text-sm text-[var(--mds-color-text-secondary)] leading-relaxed">
-              Next.js와 민들레 디자인 시스템(MDS)으로 가꾸는 메이커의 열린
-              사유이자 담백한 신문지 에디토리얼 지면입니다.
-            </p>
-          </div>
-
-          {/* 네비게이션 */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-sm text-[var(--mds-color-text-primary)]">
-              Navigation
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/blog"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/notes"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  Garden
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/series"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  Series
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/projects"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  Projects
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <a
-                  href="https://design.sonagi.space"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="민들레 디자인 시스템 (새 창으로 열림)"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  Design System
-                </a>
-              </li>
-              <li>
-                <Link
-                  href="/privacy"
-                  className="text-sm transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-                >
-                  Privacy Policy
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* 소셜 링크 */}
-          <div className="space-y-4">
-            <h3 className="font-semibold text-sm text-[var(--mds-color-text-primary)]">
-              Connect
-            </h3>
-            <div className="flex space-x-4">
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-              >
-                <Github className="w-5 h-5" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter"
-                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
-              >
-                <Twitter className="w-5 h-5" />
-              </a>
               <a
                 href="/rss.xml"
-                aria-label="RSS Feed (/rss.xml)"
-                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
+                className="inline-flex items-center gap-1.5 transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
               >
-                <Rss className="w-5 h-5" />
+                <Rss className="w-3.5 h-3.5" aria-hidden="true" />
+                <span>RSS</span>
               </a>
               <a
-                href="mailto:hello@example.com"
-                aria-label="Email"
+                href="https://design.sonagi.space"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="민들레 디자인 시스템 (새 창으로 열림)"
                 className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
               >
-                <Mail className="w-5 h-5" />
+                Design System
               </a>
-            </div>
+              <Link
+                href="/privacy"
+                className="transition-colors text-[var(--mds-color-text-secondary)] hover:text-[var(--mds-color-brand-primary)]"
+              >
+                Privacy
+              </Link>
+            </nav>
           </div>
-        </div>
 
-        {/* 하단 저작권 */}
-        <div
-          className="py-6 border-t"
-          style={{ borderColor: 'var(--mds-color-border-default)' }}
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
-            <p className="text-sm text-[var(--mds-color-text-secondary)]">
-              © {currentYear} MINDULLE GARDEN. All rights reserved.
-            </p>
-            <p className="text-sm text-[var(--mds-color-text-secondary)]">
-              Built with{' '}
+          {/* 하단 판권 바 */}
+          <div
+            className="pt-4 border-t flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 text-xs text-[var(--mds-color-text-muted)]"
+            style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+          >
+            <p>© {currentYear} MINDULLE GARDEN. All rights reserved.</p>
+            <p>
+              Typeset with{' '}
               <a
                 href="https://nextjs.org"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline text-[var(--mds-color-brand-primary)]"
+                className="hover:underline text-[var(--mds-color-text-secondary)]"
               >
                 Next.js
               </a>{' '}
-              and{' '}
+              &amp;{' '}
               <a
                 href="https://design.sonagi.space"
                 target="_blank"
@@ -167,7 +87,7 @@ export function Footer() {
                 aria-label="민들레 디자인 시스템 (새 창으로 열림)"
                 className="hover:underline text-[var(--mds-color-brand-primary)]"
               >
-                민들레 Design System (MDS v0.1.0)
+                MDS v0.1.0
               </a>
             </p>
           </div>
