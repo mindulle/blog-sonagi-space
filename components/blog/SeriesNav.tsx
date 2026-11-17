@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from '@/components/ui';
 import Link from 'next/link';
 import type { SeriesEntry } from '@/lib/series';
 
@@ -33,10 +32,10 @@ export function SeriesNav({
     >
       {/* Header */}
       <div
-        className="px-6 pt-6 pb-4 border-b"
+        className="px-5 py-4 border-b"
         style={{ borderColor: 'var(--mds-color-border-subtle)' }}
       >
-        <div className="flex items-center justify-between gap-2 font-mono text-xs tracking-wider mb-2">
+        <div className="flex items-center justify-between gap-2 font-mono text-xs tracking-wider mb-1.5">
           <span
             className="font-bold uppercase"
             style={{ color: 'var(--mds-color-brand-primary)' }}
@@ -58,27 +57,24 @@ export function SeriesNav({
           }}
         >
           {series}
-          <span
-            className="ml-2 text-sm font-normal"
-            style={{ color: 'var(--mds-color-text-secondary)' }}
-          >
-            ({seriesOrder}/{total})
-          </span>
         </h3>
       </div>
 
       {/* List of Entries */}
-      <div className="p-4">
-        <ul className="flex flex-col gap-1.5 max-h-[360px] overflow-y-auto scrollbar-thin px-2">
+      <div className="px-4 py-2">
+        <ul className="divide-y max-h-[360px] overflow-y-auto scrollbar-thin" style={{ borderColor: 'var(--mds-color-border-subtle)' }}>
           {entries.map((entry, idx) => {
             const isActive = entry.slug === currentSlug;
             return (
-              <li key={entry.slug}>
+              <li
+                key={entry.slug}
+                style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+              >
                 <Link
                   href={`/notes/${entry.slug}`}
-                  className={`flex items-start gap-3 p-3 rounded-xl text-[15px] transition-colors ${
+                  className={`flex items-baseline gap-3 px-3 py-2.5 rounded-none text-sm transition-colors ${
                     isActive
-                      ? 'font-bold'
+                      ? 'font-bold border-l-2'
                       : 'hover:bg-[var(--mds-color-bg-overlay)]'
                   }`}
                   style={{
@@ -86,22 +82,22 @@ export function SeriesNav({
                       ? 'var(--mds-color-text-primary)'
                       : 'var(--mds-color-text-secondary)',
                     backgroundColor: isActive
-                      ? 'var(--mds-color-bg-surface)'
+                      ? 'var(--mds-color-bg-overlay)'
                       : 'transparent',
-                    border: isActive
-                      ? '1px solid var(--mds-color-border-subtle)'
-                      : '1px solid transparent',
+                    borderLeftColor: isActive
+                      ? 'var(--mds-color-brand-primary)'
+                      : 'transparent',
                   }}
                 >
                   <span
-                    className="shrink-0 font-medium opacity-80"
+                    className="font-mono text-xs font-bold tabular-nums shrink-0"
                     style={{
                       color: isActive
                         ? 'var(--mds-color-brand-primary)'
                         : 'var(--mds-color-text-muted)',
                     }}
                   >
-                    {idx + 1}.
+                    {String(idx + 1).padStart(2, '0')}
                   </span>
                   <span className="leading-snug">{entry.title}</span>
                 </Link>
@@ -113,52 +109,33 @@ export function SeriesNav({
 
       {/* Footer / Buttons */}
       <div
-        className="grid grid-cols-1 sm:grid-cols-2 px-6 py-5 border-t gap-3 sm:gap-4 bg-[var(--mds-color-bg-surface)]"
-        style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+        className="grid grid-cols-1 sm:grid-cols-2 px-5 py-4 border-t gap-3"
+        style={{
+          borderColor: 'var(--mds-color-border-subtle)',
+          backgroundColor: 'var(--mds-color-bg-primary)',
+        }}
       >
-        <div>
-          {prev ? (
-            <Link href={`/notes/${prev.slug}`} className="block">
-              <Button
-                variant="secondary"
-                className="w-full justify-center text-[15px] h-12"
-              >
-                <span className="mr-2 opacity-60">←</span> 이전 글
-              </Button>
-            </Link>
-          ) : (
-            <Link href="/series" className="block">
-              <Button
-                variant="secondary"
-                className="w-full justify-center text-[15px] h-12"
-              >
-                시리즈 목록
-              </Button>
-            </Link>
-          )}
-        </div>
+        <Link
+          href={prev ? `/notes/${prev.slug}` : '/series'}
+          className="flex items-center justify-center px-4 py-2.5 border rounded-none font-mono text-xs font-medium uppercase tracking-wider transition-colors hover:bg-[var(--mds-color-bg-surface)]"
+          style={{
+            borderColor: 'var(--mds-color-border-default)',
+            color: 'var(--mds-color-text-primary)',
+          }}
+        >
+          {prev ? '← 이전 글' : '시리즈 목록'}
+        </Link>
 
-        <div>
-          {next ? (
-            <Link href={`/notes/${next.slug}`} className="block">
-              <Button
-                variant="primary"
-                className="w-full justify-center text-[15px] h-12"
-              >
-                다음 글 <span className="ml-2 opacity-80">→</span>
-              </Button>
-            </Link>
-          ) : (
-            <Link href="/series" className="block">
-              <Button
-                variant="primary"
-                className="w-full justify-center text-[15px] h-12"
-              >
-                전체 시리즈 목록 <span className="ml-2 opacity-80">→</span>
-              </Button>
-            </Link>
-          )}
-        </div>
+        <Link
+          href={next ? `/notes/${next.slug}` : '/series'}
+          className="flex items-center justify-center px-4 py-2.5 rounded-none font-mono text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
+          style={{
+            backgroundColor: 'var(--mds-color-text-primary)',
+            color: 'var(--mds-color-bg-primary)',
+          }}
+        >
+          {next ? '다음 글 →' : '전체 시리즈 목록 →'}
+        </Link>
       </div>
     </div>
   );
