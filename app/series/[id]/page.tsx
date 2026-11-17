@@ -1,8 +1,8 @@
 import { getAllSeries } from '@/lib/series';
 import { Container } from '@/components/ui/Container';
+import { HairlineRule } from '@/components/editorial';
 import Link from 'next/link';
-import { Button } from '@/components/ui';
-import { PostPreviewCard } from '@/components/blog/PostPreviewCard';
+import { ArrowRight } from 'lucide-react';
 
 interface Props {
   params: Promise<{ id: string }>;
@@ -11,7 +11,7 @@ interface Props {
 export async function generateStaticParams() {
   const seriesList = getAllSeries();
   return seriesList.map((s) => ({
-    id: s.series, // Next.js automatically encodes/decodes URI components
+    id: s.series,
   }));
 }
 
@@ -25,112 +25,125 @@ export default async function SeriesDetailPage({ params }: Props) {
   if (!seriesData) {
     return (
       <Container className="py-20 text-center">
-        <h1 className="text-3xl font-bold mb-6">시리즈를 찾을 수 없습니다.</h1>
-        <Link href="/series">
-          <Button variant="secondary">목록으로 돌아가기</Button>
+        <h1
+          className="text-3xl font-bold mb-6"
+          style={{
+            color: 'var(--mds-color-text-primary)',
+            fontFamily: 'var(--font-cinematic, serif)',
+          }}
+        >
+          시리즈를 찾을 수 없습니다.
+        </h1>
+        <Link
+          href="/series"
+          className="inline-flex items-center gap-2 px-4 py-2 border font-mono text-xs uppercase tracking-wider transition-colors hover:bg-[var(--mds-color-bg-surface)]"
+          style={{
+            borderColor: 'var(--mds-color-border-default)',
+            color: 'var(--mds-color-text-primary)',
+          }}
+        >
+          ← 목록으로 돌아가기
         </Link>
       </Container>
     );
   }
 
-  // entries are already sorted by seriesOrder in lib/series.ts
   const { series, total, entries } = seriesData;
   const firstPostUrl = entries.length > 0 ? `/notes/${entries[0].slug}` : '#';
 
   return (
-    <Container className="py-16 md:py-24">
-      <div className="max-w-4xl mx-auto">
+    <Container className="py-12 md:py-16">
+      <div className="max-w-5xl mx-auto">
         {/* 시리즈 헤더 */}
-        <div
-          className="mb-16 p-8 md:p-12 rounded-[var(--mds-radius-2xl)]"
-          style={{
-            background:
-              'linear-gradient(135deg, var(--mds-color-bg-overlay), var(--mds-color-bg-elevated))',
-            border: '1px solid var(--mds-color-border-subtle)',
-          }}
-        >
-          <div
-            className="text-sm font-bold tracking-widest mb-4 uppercase"
-            style={{ color: 'var(--mds-color-brand-primary)' }}
-          >
-            Series
+        <header className="mb-10">
+          <div className="flex flex-col gap-[3px] mb-5" aria-hidden="true">
+            <div
+              className="w-full h-[2px]"
+              style={{ backgroundColor: 'var(--mds-color-text-primary)' }}
+            />
+            <div
+              className="w-full h-[1px]"
+              style={{ backgroundColor: 'var(--mds-color-border-default)' }}
+            />
           </div>
+
+          <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs uppercase tracking-widest text-[var(--mds-color-text-secondary)] mb-4">
+            <Link
+              href="/series"
+              className="hover:text-[var(--mds-color-brand-primary)] transition-colors"
+            >
+              ← SERIES
+            </Link>
+            <span className="font-semibold text-[var(--mds-color-brand-primary)] tabular-nums">
+              SPECIAL ISSUE • TOTAL {total} EPISODES
+            </span>
+          </div>
+
           <h1
-            className="text-4xl md:text-5xl font-extrabold mb-6"
-            style={{ color: 'var(--mds-color-text-primary)' }}
+            className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-3 text-[var(--mds-color-text-primary)] break-keep"
+            style={{ fontFamily: 'var(--font-cinematic, serif)' }}
           >
             {series}
           </h1>
-          <p
-            className="text-lg md:text-xl mb-8"
-            style={{ color: 'var(--mds-color-text-secondary)' }}
-          >
-            총 {total}편으로 이루어진 연재물입니다. 아래 목록에서 1편부터
-            차례대로 정주행할 수 있습니다.
+          <p className="text-sm sm:text-base max-w-2xl leading-relaxed text-[var(--mds-color-text-secondary)] mb-6">
+            총 {total}편으로 이루어진 연재물입니다. 아래 목록에서 1편부터 차례대로 정주행할 수 있습니다.
           </p>
 
-          <Link href={firstPostUrl}>
-            <Button
-              size="lg"
-              className="bg-[var(--mds-color-brand-primary)] text-white font-bold px-8"
-            >
-              1편부터 정주행 시작하기 ▶
-            </Button>
-          </Link>
-        </div>
-
-        {/* 에피소드 리스트 */}
-        <div className="flex flex-col gap-6">
-          <h2
-            className="text-2xl font-bold mb-4"
-            style={{ color: 'var(--mds-color-text-primary)' }}
+          <Link
+            href={firstPostUrl}
+            className="inline-flex items-center gap-2 px-4 py-2.5 font-mono text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
+            style={{
+              backgroundColor: 'var(--mds-color-text-primary)',
+              color: 'var(--mds-color-bg-primary)',
+            }}
           >
-            에피소드 목록
-          </h2>
+            <span>1편부터 정주행 시작하기</span>
+            <ArrowRight size={14} />
+          </Link>
 
-          <div className="grid grid-cols-1 gap-4">
+          <HairlineRule className="mt-8" />
+        </header>
+
+        {/* 에피소드 리스트 (1px 헤어라인 색인형) */}
+        <section aria-label="에피소드 목록">
+          <div className="font-mono text-xs uppercase tracking-widest text-[var(--mds-color-text-muted)] mb-2">
+            EPISODES • 에피소드 목록
+          </div>
+
+          <div
+            className="divide-y border-b"
+            style={{ borderColor: 'var(--mds-color-border-default)' }}
+          >
             {entries.map((entry, idx) => (
               <Link
                 key={entry.slug}
                 href={`/notes/${entry.slug}`}
-                className="group flex flex-col md:flex-row gap-4 md:gap-6 p-6 rounded-[var(--mds-radius-xl)] transition-all hover:-translate-y-1 hover:shadow-lg"
-                style={{
-                  backgroundColor: 'var(--mds-color-bg-surface)',
-                  border: '1px solid var(--mds-color-border-default)',
-                }}
+                className="group flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-6 py-5 transition-colors hover:bg-[var(--mds-color-bg-surface)] px-2 -mx-2"
+                style={{ borderColor: 'var(--mds-color-border-subtle)' }}
               >
-                {/* 썸네일 (번호 표시) */}
-                <div
-                  className="w-full md:w-32 aspect-video md:aspect-square flex-shrink-0 flex items-center justify-center rounded-[var(--mds-radius-lg)] text-3xl font-extrabold"
-                  style={{
-                    backgroundColor: 'var(--mds-color-bg-overlay)',
-                    color: 'var(--mds-color-text-muted)',
-                    border: '1px solid var(--mds-color-border-subtle)',
-                  }}
-                >
-                  {idx + 1}
-                </div>
-
-                {/* 텍스트 영역 */}
-                <div className="flex flex-col justify-center">
-                  <div
-                    className="text-sm font-semibold mb-2"
+                <div className="flex items-baseline gap-4">
+                  <span
+                    className="font-mono text-xs font-bold tabular-nums shrink-0"
                     style={{ color: 'var(--mds-color-brand-primary)' }}
                   >
-                    EPISODE {idx + 1}
-                  </div>
-                  <h3
-                    className="text-xl md:text-2xl font-bold mb-2 group-hover:underline"
-                    style={{ color: 'var(--mds-color-text-primary)' }}
-                  >
+                    {String(idx + 1).padStart(2, '0')}
+                  </span>
+                  <h2 className="text-lg sm:text-xl font-bold text-[var(--mds-color-text-primary)] group-hover:text-[var(--mds-color-brand-primary)] transition-colors break-keep">
                     {entry.title}
-                  </h3>
-                  {/* excerpt 데이터를 가져오려면 lib/series.ts 업데이트가 필요하지만 일단 생략 */}
+                  </h2>
                 </div>
+
+                <span className="inline-flex items-center gap-1.5 font-mono text-xs text-[var(--mds-color-text-muted)] group-hover:text-[var(--mds-color-brand-primary)] shrink-0 pl-8 sm:pl-0">
+                  <span>READ</span>
+                  <ArrowRight
+                    size={14}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </span>
               </Link>
             ))}
           </div>
-        </div>
+        </section>
       </div>
     </Container>
   );
