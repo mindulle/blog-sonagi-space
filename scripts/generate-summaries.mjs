@@ -26,7 +26,7 @@ function extractExcerpt(content, maxLength = 150) {
     .replace(/`([^`]+)`/g, '$1')
     .trim()
     .split('\n')
-    .find((line) => line.trim().length > 0) ?? '';
+    .find((line) => line.trim().length > 0 && !line.trim().startsWith('📚') && !line.trim().startsWith('시리즈:')) ?? '';
 
   return firstParagraph.length > maxLength
     ? firstParagraph.slice(0, maxLength) + '...'

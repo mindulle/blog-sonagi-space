@@ -52,7 +52,7 @@ function extractExcerpt(content: string, maxLength = 150): string {
       .replace(/`([^`]+)`/g, '$1') // 인라인 코드 백틱 제거
       .trim()
       .split('\n')
-      .find((line) => line.trim().length > 0) ?? '';
+      .find((line) => line.trim().length > 0 && !line.trim().startsWith('>') && !line.trim().startsWith('📚')) ?? '';
 
   return firstParagraph.length > maxLength
     ? firstParagraph.slice(0, maxLength) + '...'
