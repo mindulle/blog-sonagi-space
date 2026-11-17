@@ -1,13 +1,5 @@
 import Link from 'next/link';
-import {
-  ArrowRight,
-  Mail,
-  Rss,
-  Github,
-  Code2,
-  Layers,
-  BookOpen,
-} from 'lucide-react';
+import { ArrowUpRight, Mail, Rss, Github } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import {
   GazetteMasthead,
@@ -21,8 +13,43 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: '민들레 정원 이야기 • About Mindulle Garden',
   description:
-    '민들레 정원(Mindulle Garden)의 기록. 척박한 바위 틈에서도 단단히 뿌리내리는 야생 민들레처럼, 활판 인쇄의 담백한 지면 위에 메이커의 사유와 도구들을 기록합니다.',
+    '민들레 정원(Mindulle Garden)의 기록. 척박한 바위 틈에서도 단단히 뿌리내리는 야생 민들레처럼, 활판 인쇄의 담백한 지면 위에 메이커의 사유와 작업 연감을 기록합니다.',
 };
+
+const ECOSYSTEM_WORKS = [
+  {
+    no: '01',
+    name: 'Mindulle Atelier',
+    role: '겨울에서 봄으로 이어지는 3D 시네마틱 포트폴리오 쇼릴',
+    href: 'https://sonagi.space',
+    label: 'sonagi.space',
+    external: true,
+  },
+  {
+    no: '02',
+    name: 'Mindulle Design System',
+    role: 'W3C 디자인 토큰 기반 리액트 UI 컴포넌트 및 조형 규격(SSOT)',
+    href: 'https://design.sonagi.space',
+    label: 'design.sonagi.space',
+    external: true,
+  },
+  {
+    no: '03',
+    name: 'Mindulle Garden',
+    role: 'Next.js + MDX 디지털 가든 및 신문지 에디토리얼 지면',
+    href: '/notes',
+    label: '현재 지면 · /notes',
+    external: false,
+  },
+  {
+    no: '04',
+    name: 'Sonagi Draw',
+    role: '실시간 협업 화이트보드 및 AI 에이전트 드로잉 브릿지',
+    href: 'https://draw.sonagi.space',
+    label: 'draw.sonagi.space',
+    external: true,
+  },
+];
 
 export default function AboutPage() {
   return (
@@ -130,59 +157,69 @@ export default function AboutPage() {
 
           <HairlineRule thick className="my-10" />
 
-          {/* 3. 메이커 철학 & 도구 체계 (Atelier Pillars) */}
-          <section className="space-y-6">
+          {/* 3. 생태계 & 작업 연감 (Works & Ecosystem Index) */}
+          <section className="space-y-4" aria-label="소나기 공방 주요 작업 연감">
             <div className="flex flex-col gap-1">
               <span className="text-xs font-bold tracking-widest uppercase text-[var(--mds-color-brand-primary)] font-mono">
-                MAKER PILLARS &amp; TOOLCHAIN
+                WORKS &amp; ECOSYSTEM INDEX
               </span>
               <h2
                 className="text-lg sm:text-xl font-bold tracking-tight text-[var(--mds-color-text-primary)]"
                 style={{ fontFamily: 'var(--font-cinematic, serif)' }}
               >
-                도구는 단단하게, 사유는 자유롭게
+                소나기 공방에서 짓고 있는 공간들
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="p-5 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
-                  <Code2 size={18} />
-                  <span className="text-xs font-bold uppercase font-mono">
-                    Everything as Code
-                  </span>
-                </div>
-                <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
-                  디자인 토큰부터 인프라, 위키 문서까지 모든 지적 자산을 코드로
-                  정의하고 버전 관리합니다.
-                </p>
-              </div>
+            <div
+              className="divide-y border-t border-b"
+              style={{ borderColor: 'var(--mds-color-border-default)' }}
+            >
+              {ECOSYSTEM_WORKS.map((work) => {
+                const rowContent = (
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-6 py-4 px-2 -mx-2 transition-colors group-hover:bg-[var(--mds-color-bg-base)]">
+                    <div className="flex items-baseline gap-4 min-w-0">
+                      <span className="font-mono text-xs font-bold tabular-nums text-[var(--mds-color-brand-primary)] shrink-0">
+                        {work.no}
+                      </span>
+                      <div className="min-w-0">
+                        <div className="text-sm sm:text-base font-bold text-[var(--mds-color-text-primary)] group-hover:text-[var(--mds-color-brand-primary)] transition-colors">
+                          {work.name}
+                        </div>
+                        <p className="text-xs sm:text-sm text-[var(--mds-color-text-secondary)] mt-0.5 break-keep">
+                          {work.role}
+                        </p>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center gap-1 font-mono text-xs text-[var(--mds-color-text-muted)] group-hover:text-[var(--mds-color-brand-primary)] shrink-0 pl-8 sm:pl-0">
+                      <span>{work.label}</span>
+                      <ArrowUpRight size={13} />
+                    </span>
+                  </div>
+                );
 
-              <div className="p-5 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
-                  <Layers size={18} />
-                  <span className="text-xs font-bold uppercase font-mono">
-                    True 2px Stem
-                  </span>
-                </div>
-                <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
-                  모호한 그림자와 장식을 배제하고, 선명한 2px 실선과 단단한
-                  경계로 UI와 타이포그래피 공간을 규정합니다.
-                </p>
-              </div>
-
-              <div className="p-5 border border-[var(--mds-color-border-default)] bg-[var(--mds-color-bg-base)] flex flex-col gap-2">
-                <div className="flex items-center gap-2 text-[var(--mds-color-brand-primary)]">
-                  <BookOpen size={18} />
-                  <span className="text-xs font-bold uppercase font-mono">
-                    Ink on Newsprint
-                  </span>
-                </div>
-                <p className="text-xs text-[var(--mds-color-text-secondary)] leading-relaxed">
-                  스크린에서도 갓 인쇄된 신문 지면의 촉각성과 깊은 먹색 잉크의
-                  가독성을 최우선으로 지켜냅니다.
-                </p>
-              </div>
+                return work.external ? (
+                  <a
+                    key={work.no}
+                    href={work.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group block"
+                    style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+                  >
+                    {rowContent}
+                  </a>
+                ) : (
+                  <Link
+                    key={work.no}
+                    href={work.href}
+                    className="group block"
+                    style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+                  >
+                    {rowContent}
+                  </Link>
+                );
+              })}
             </div>
           </section>
 
@@ -193,7 +230,7 @@ export default function AboutPage() {
             <div className="flex flex-col gap-1">
               <div className="flex items-center gap-2">
                 <span
-                  className="w-2 h-2 rounded-full animate-pulse bg-[var(--mds-color-brand-primary)]"
+                  className="w-2 h-2 rounded-none bg-[var(--mds-color-brand-primary)]"
                   aria-hidden="true"
                 />
                 <span className="text-xs font-bold text-[var(--mds-color-brand-primary)] font-mono">
