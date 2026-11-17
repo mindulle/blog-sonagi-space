@@ -128,10 +128,10 @@ export function SeriesNav({
 
         <Link
           href={next ? `/notes/${next.slug}` : '/series'}
-          className="flex items-center justify-center px-4 py-2.5 rounded-none font-mono text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
+          className="flex items-center justify-center px-4 py-2.5 border rounded-none font-mono text-xs font-bold uppercase tracking-wider transition-colors hover:bg-[var(--mds-color-bg-overlay)]"
           style={{
-            backgroundColor: 'var(--mds-color-text-primary)',
-            color: 'var(--mds-color-text-inverse)',
+            borderColor: 'var(--mds-color-brand-primary)',
+            color: 'var(--mds-color-brand-primary)',
           }}
         >
           {next ? '다음 글 →' : '전체 시리즈 목록 →'}

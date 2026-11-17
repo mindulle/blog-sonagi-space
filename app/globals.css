@@ -491,7 +491,7 @@ a:hover {
   background: var(--mds-color-bg-overlay);
   color: var(--mds-color-brand-primary);
   padding: 0.2em 0.4em;
-  border-radius: var(--mds-radius-sm);
+  border-radius: 0;
   font-size: 0.875em;
   font-weight: 500;
   font-family: var(--mds-font-mono);
@@ -500,8 +500,8 @@ a:hover {
 .prose pre {
   background: var(--mds-color-bg-surface);
   border: var(--mds-border-thin) solid var(--mds-color-border-default);
-  border-radius: var(--mds-radius-md);
-  padding: 1.5rem;
+  border-radius: 0;
+  padding: 1.125rem 1.25rem;
   overflow-x: auto;
   margin-top: 2em;
   margin-bottom: 2em;
