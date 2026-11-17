@@ -36,7 +36,7 @@ export function GazetteMasthead({
       </div>
 
       {/* 2. Top Editorial Meta Line */}
-      <div className="py-2.5 flex flex-wrap items-center justify-between gap-1 text-[9px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-mono text-[var(--mds-color-text-secondary)]">
+      <div className="py-2.5 flex flex-wrap items-center justify-between gap-1 text-xs tracking-wider sm:tracking-widest uppercase font-mono text-[var(--mds-color-text-secondary)]">
         <span className="font-semibold tabular-nums">
           {vol} • {issue}
         </span>
