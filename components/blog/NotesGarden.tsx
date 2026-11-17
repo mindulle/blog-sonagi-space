@@ -486,7 +486,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
           className="border rounded-none overflow-hidden"
           style={{
             borderColor: 'var(--mds-color-border-default)',
-            backgroundColor: 'var(--mds-color-bg-primary)',
+            backgroundColor: 'var(--mds-color-bg-base)',
           }}
           aria-label="Knowledge Graph Plate"
         >

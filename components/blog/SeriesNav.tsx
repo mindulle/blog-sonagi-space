@@ -112,7 +112,7 @@ export function SeriesNav({
         className="grid grid-cols-1 sm:grid-cols-2 px-5 py-4 border-t gap-3"
         style={{
           borderColor: 'var(--mds-color-border-subtle)',
-          backgroundColor: 'var(--mds-color-bg-primary)',
+          backgroundColor: 'var(--mds-color-bg-base)',
         }}
       >
         <Link
@@ -131,7 +131,7 @@ export function SeriesNav({
           className="flex items-center justify-center px-4 py-2.5 rounded-none font-mono text-xs font-bold uppercase tracking-wider transition-opacity hover:opacity-90"
           style={{
             backgroundColor: 'var(--mds-color-text-primary)',
-            color: 'var(--mds-color-bg-primary)',
+            color: 'var(--mds-color-text-inverse)',
           }}
         >
           {next ? '다음 글 →' : '전체 시리즈 목록 →'}
