@@ -1,8 +1,9 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { Search } from 'lucide-react';
 import { NoteCard } from './NoteCard';
+import { WikiGraph } from './WikiGraph';
 import { GrowthGlyph, GrowthStage, normalizeStage } from './GrowthGlyph';
 import type { Note } from '@/lib/notes';
 
@@ -92,11 +93,52 @@ const BOTANICAL_STAGES: Array<{
   { id: 'pappus', nameKo: '비상 홀씨', nameEn: 'Pappus' },
 ];
 
+interface GraphData {
+  nodes: Array<{ id: string; title: string; visibility: string; summary: string; val: number }>;
+  links: Array<{ source: any; target: any }>;
+}
+
+let cachedGardenGraphPromise: Promise<GraphData> | null = null;
+function fetchGardenGraph(): Promise<GraphData> {
+  if (!cachedGardenGraphPromise) {
+    cachedGardenGraphPromise = fetch('/wiki-graph.json')
+      .then((res) => {
+        if (!res.ok) throw new Error('Failed to fetch graph');
+        return res.json();
+      })
+      .catch((err) => {
+        cachedGardenGraphPromise = null;
+        throw err;
+      });
+  }
+  return cachedGardenGraphPromise;
+}
+
 export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProps) {
   const [selectedStage, setSelectedStage] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(initialTag);
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [showGraph, setShowGraph] = useState(false);
+  const [graphData, setGraphData] = useState<GraphData | null>(null);
+  const [graphLoading, setGraphLoading] = useState(false);
+
+  useEffect(() => {
+    if (!showGraph || graphData) return;
+    let active = true;
+    setGraphLoading(true);
+    fetchGardenGraph()
+      .then((d) => {
+        if (active) setGraphData(d);
+      })
+      .catch(() => {})
+      .finally(() => {
+        if (active) setGraphLoading(false);
+      });
+    return () => {
+      active = false;
+    };
+  }, [showGraph, graphData]);
 
   // 1. 생장 단계별 표본 수 집계
   const stageCounts = useMemo(() => {
@@ -182,6 +224,33 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
     });
   }, [initialNotes, selectedTag, selectedStage, selectedDomain, searchQuery]);
 
+  const filteredGraphData = useMemo(() => {
+    if (!graphData) return null;
+    const isFiltered = Boolean(selectedTag || selectedStage || selectedDomain || searchQuery.trim());
+    if (!isFiltered) return graphData;
+
+    const activeSlugs = new Set(filteredNotes.map((n) => n.slug));
+    const visibleIds = new Set<string>(activeSlugs);
+    const links = graphData.links
+      .map((l) => ({
+        source: typeof l.source === 'object' ? l.source.id : l.source,
+        target: typeof l.target === 'object' ? l.target.id : l.target,
+      }))
+      .filter((l) => {
+        const hit = activeSlugs.has(l.source) || activeSlugs.has(l.target);
+        if (hit) {
+          visibleIds.add(l.source);
+          visibleIds.add(l.target);
+        }
+        return hit;
+      });
+
+    return {
+      nodes: graphData.nodes.filter((n) => visibleIds.has(n.id)),
+      links,
+    };
+  }, [graphData, filteredNotes, selectedTag, selectedStage, selectedDomain, searchQuery]);
+
   return (
     <div className="space-y-8 font-mono">
       {selectedTag && (
@@ -222,12 +291,27 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
           >
             STAGE FILTER • 생장 단계별 표본 서랍
           </span>
-          <span
-            className="text-[11px] tabular-nums"
-            style={{ color: 'var(--mds-color-text-muted)' }}
-          >
-            {filteredNotes.length} / {initialNotes.length} 표본
-          </span>
+          <div className="flex items-center gap-3">
+            <span
+              className="text-[11px] tabular-nums"
+              style={{ color: 'var(--mds-color-text-muted)' }}
+            >
+              {filteredNotes.length} / {initialNotes.length} 표본
+            </span>
+            <button
+              type="button"
+              onClick={() => setShowGraph((v) => !v)}
+              aria-expanded={showGraph}
+              className="px-2.5 py-1 border text-[11px] font-medium transition-colors hover:bg-[var(--mds-color-bg-overlay)]"
+              style={{
+                borderColor: 'var(--mds-color-text-primary)',
+                color: 'var(--mds-color-text-primary)',
+                backgroundColor: showGraph ? 'var(--mds-color-bg-overlay)' : 'transparent',
+              }}
+            >
+              {showGraph ? '◉ 지식 지도 접기' : '◉ 지식 지도 보기'}
+            </button>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-3">
@@ -392,6 +476,44 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
         </div>
       </section>
 
+      {/* ─── 지식 지도 도판 (Knowledge Graph Plate) ─── */}
+      {showGraph && (
+        <section
+          className="border rounded-none overflow-hidden"
+          style={{
+            borderColor: 'var(--mds-color-border-default)',
+            backgroundColor: 'var(--mds-color-bg-primary)',
+          }}
+          aria-label="Knowledge Graph Plate"
+        >
+          <div
+            className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 border-b text-[11px]"
+            style={{
+              borderColor: 'var(--mds-color-border-subtle)',
+              color: 'var(--mds-color-text-muted)',
+            }}
+          >
+            <span className="font-semibold" style={{ color: 'var(--mds-color-text-secondary)' }}>
+              GRAPH PLATE 01 • RHIZOME MESH
+            </span>
+            <span className="tabular-nums">
+              {filteredGraphData
+                ? `${filteredGraphData.nodes.length} NODES · ${filteredGraphData.links.length} LINKS`
+                : 'LOADING...'}
+            </span>
+          </div>
+          {graphLoading || !filteredGraphData ? (
+            <div className="h-[240px] flex items-center justify-center text-xs" style={{ color: 'var(--mds-color-text-muted)' }}>
+              지식 지도를 불러오는 중입니다...
+            </div>
+          ) : (
+            <div className="h-[220px] sm:h-[280px] w-full">
+              <WikiGraph data={filteredGraphData} height={280} />
+            </div>
+          )}
+        </section>
+      )}
+
       {/* ─── TIER 3: 채집된 표본 목록 (Specimen Dockets) ─── */}
       {filteredNotes.length === 0 ? (
         <div
@@ -410,7 +532,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
           <p>선택된 생장 단계나 도메인 필터를 해제해 보세요.</p>
         </div>
       ) : (
-        <ul className="border-t list-none p-0 m-0" style={{ borderColor: "var(--mds-color-border-subtle)" }}>
+        <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 list-none p-0 m-0">
           {filteredNotes.map((note) => (
             <li key={note.slug}>
               <NoteCard note={note} />

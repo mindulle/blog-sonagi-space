@@ -29,84 +29,90 @@ export function NoteCard({ note }: { note: Note }) {
   return (
     <Link
       href={`/notes/${note.slug}`}
-      className="group block border-b py-6 transition-colors hover:bg-[var(--mds-color-bg-surface)] px-2 -mx-2 select-text"
+      className="group flex flex-col justify-between h-full p-5 border rounded-none transition-colors hover:bg-[var(--mds-color-bg-surface)] select-text"
       style={{
-        borderColor: 'var(--mds-color-border-subtle)',
+        borderColor: 'var(--mds-color-border-default)',
+        backgroundColor: 'var(--mds-color-bg-primary)',
         textDecoration: 'none',
       }}
     >
-      <article className="grid md:grid-cols-12 gap-3 md:gap-6 items-baseline">
-        {/* 좌측 메타: 날짜 · 생장 단계(박스 없는 루브릭) · 슬러그 */}
-        <div className="md:col-span-3 flex flex-col gap-1 font-mono text-xs">
-          <div className="flex items-center gap-2.5">
-            {dateStr && (
-              <span
-                className="tabular-nums"
-                style={{ color: 'var(--mds-color-text-secondary)' }}
-              >
-                {dateStr}
-              </span>
-            )}
-            {stage && (
-              <span
-                className="inline-flex items-center gap-1 text-xs font-bold tracking-[0.16em] uppercase"
-                style={{ color: 'var(--mds-color-brand-primary)' }}
-              >
-                <GrowthGlyph
-                  stage={stage}
-                  size={12}
-                  strokeColor="var(--mds-color-brand-primary)"
-                />
-                <span>{STAGE_LABEL[stage]}</span>
-              </span>
-            )}
-          </div>
-          <span
-            className="text-xs truncate"
+      <div>
+        {/* 상단 메타: 생장 단계 · 날짜 */}
+        <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--mds-color-border-subtle)] font-mono text-[11px]">
+          {stage ? (
+            <span
+              className="inline-flex items-center gap-1.5 font-bold tracking-[0.14em] uppercase"
+              style={{ color: 'var(--mds-color-brand-primary)' }}
+            >
+              <GrowthGlyph
+                stage={stage}
+                size={12}
+                strokeColor="var(--mds-color-brand-primary)"
+              />
+              <span>{STAGE_LABEL[stage]}</span>
+            </span>
+          ) : (
+            <span />
+          )}
+          {dateStr && (
+            <span
+              className="tabular-nums"
+              style={{ color: 'var(--mds-color-text-muted)' }}
+            >
+              {dateStr}
+            </span>
+          )}
+        </div>
+
+        {/* 슬러그 + 제목 + 요약 */}
+        <div className="space-y-1.5">
+          <div
+            className="font-mono text-[11px] truncate"
             style={{ color: 'var(--mds-color-text-muted)' }}
           >
             [[{note.slug}]]
-          </span>
-        </div>
-
-        {/* 중앙: 제목 + 요약 */}
-        <div className="md:col-span-7">
+          </div>
           <h2
-            className="text-lg sm:text-xl font-bold font-sans tracking-tight keep-all group-hover:underline"
+            className="text-base sm:text-lg font-bold font-sans tracking-tight keep-all group-hover:underline"
             style={{ color: 'var(--mds-color-text-primary)' }}
           >
             {note.title}
           </h2>
           {note.excerpt && (
             <p
-              className="mt-1.5 text-sm font-sans leading-relaxed line-clamp-2 keep-all"
+              className="text-sm font-sans leading-relaxed line-clamp-2 keep-all"
               style={{ color: 'var(--mds-color-text-secondary)' }}
             >
               {note.excerpt}
             </p>
           )}
         </div>
+      </div>
 
-        {/* 우측: 태그 + 이동 화살표 */}
-        <div className="md:col-span-2 flex items-center justify-between md:justify-end gap-3 font-mono text-xs">
-          {note.tags && note.tags.length > 0 && (
-            <span
-              className="truncate"
-              style={{ color: 'var(--mds-color-text-muted)' }}
-            >
-              {note.tags
+      {/* 하단: 태그 + 이동 화살표 */}
+      <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--mds-color-border-subtle)] font-mono text-[11px]">
+        <span
+          className="truncate"
+          style={{ color: 'var(--mds-color-text-muted)' }}
+        >
+          {note.tags && note.tags.length > 0
+            ? note.tags
                 .slice(0, 2)
                 .map((t) => `#${t}`)
-                .join(' ')}
-            </span>
-          )}
+                .join(' ')
+            : 'NOTE'}
+        </span>
+        <span
+          className="inline-flex items-center gap-1 shrink-0 font-medium"
+          style={{ color: 'var(--mds-color-text-primary)' }}
+        >
+          <span>EXPLORE</span>
           <ArrowUpRight
-            size={16}
-            className="shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            style={{ color: 'var(--mds-color-text-secondary)' }}
+            size={14}
+            className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
           />
-        </div>
-      </article>
+        </span>
+      </div>
     </Link>
   );
 }
