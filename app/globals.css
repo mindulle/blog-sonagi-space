@@ -444,8 +444,8 @@ a:hover {
   background-color: var(--mds-color-bg-elevated, #ffffff);
   color: var(--mds-color-text-primary, #1e1311);
   border: 1px solid var(--mds-color-border-default, #9d8986);
-  border-radius: var(--mds-radius-md, 8px);
-  box-shadow: var(--mds-shadow-floating, 0 4px 16px rgba(0, 0, 0, 0.15));
+  border-radius: 0;
+  box-shadow: none;
   font-size: 0.875rem;
   line-height: 1.5;
   pointer-events: none;
