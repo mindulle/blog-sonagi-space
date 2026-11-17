@@ -857,3 +857,23 @@ pre,
 code {
   word-break: normal;
 }
+
+/* BLOG #32: Broadsheet Article Typography & First-Paragraph DropCap */
+.editorial-article {
+  word-break: keep-all;
+}
+
+.editorial-article > p:first-child::first-letter {
+  float: left;
+  font-family: var(--font-cinematic, serif);
+  font-size: 3rem;
+  line-height: 0.85;
+  font-weight: 700;
+  color: var(--mds-color-brand-primary);
+  margin: 0.15rem 0.55rem 0 0;
+}
+
+.editorial-article blockquote p::before,
+.editorial-article blockquote p::after {
+  content: none;
+}

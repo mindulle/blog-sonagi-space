@@ -70,6 +70,15 @@ const components = {
       {children}
     </h2>
   ),
+  blockquote: ({ children, className = '', style, ...rest }: React.HTMLAttributes<HTMLQuoteElement>) => (
+    <blockquote
+      {...rest}
+      className={`my-7 border-l-2 border-[var(--mds-color-brand-primary)] pl-5 py-1 not-italic text-[var(--mds-color-text-secondary)] ${className}`}
+      style={{ fontFamily: 'var(--font-cinematic, serif)', ...style }}
+    >
+      {children}
+    </blockquote>
+  ),
   a: (props: CustomAnchorProps) => {
     const { href, className, 'data-slug': dataSlug, children, ...rest } = props;
 
@@ -138,7 +147,7 @@ function normalizeMarkdownForMdx(raw: string): string {
 export function MDXContent({ content }: MDXContentProps) {
   const normalizedContent = normalizeMarkdownForMdx(content);
   return (
-    <article className="prose prose-neutral dark:prose-invert max-w-none">
+    <article className="editorial-article prose prose-neutral dark:prose-invert max-w-none break-keep leading-[1.8]">
       <MDXRemote
         source={normalizedContent}
         components={components}

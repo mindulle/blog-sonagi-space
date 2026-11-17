@@ -33,20 +33,49 @@ export function UnifiedDetail({
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const currentUrl = `${siteUrl}/${isBlogView ? 'blog' : 'notes'}/${note.slug}`;
 
+  const wordCount = note.rawContent.trim().split(/\s+/).filter(Boolean).length;
+  const readingMinutes = Math.max(1, Math.ceil(wordCount / 220));
+  const displayDate = note.publishedDate || note.created;
+  const showDeck = Boolean(note.excerpt && note.excerpt.trim() !== note.title.trim());
+
   return (
     <>
       {isBlogView && <ReadingProgress />}
-      <main className="max-w-[680px] mx-auto px-4 sm:px-6 py-12">
+      <main className="max-w-[680px] mx-auto px-4 sm:px-6 py-8 sm:py-12">
         <header className="mb-10">
-          <Link
-            href={isBlogView ? '/blog' : '/notes'}
-            className="inline-flex items-center gap-1 mb-4 text-sm"
-            style={{ color: 'var(--mds-color-text-secondary)' }}
-          >
-            ← {isBlogView ? 'Blog' : 'Notes'}
-          </Link>
+          {/* 상단 신문 이중선 */}
+          <div className="flex flex-col gap-[3px] mb-5" aria-hidden="true">
+            <div
+              className="w-full h-[2px]"
+              style={{ backgroundColor: 'var(--mds-color-text-primary)' }}
+            />
+            <div
+              className="w-full h-[1px]"
+              style={{ backgroundColor: 'var(--mds-color-border-default)' }}
+            />
+          </div>
 
-          <div className="flex flex-wrap items-center gap-3 mb-4 font-mono text-xs">
+          {/* 상단 바이라인: 섹션 복귀 + 발행일/읽기시간 */}
+          <div className="flex flex-wrap items-center justify-between gap-2 mb-5 font-mono text-xs uppercase tracking-wider">
+            <Link
+              href={isBlogView ? '/blog' : '/notes'}
+              className="inline-flex items-center gap-1 transition-colors hover:text-[var(--mds-color-brand-primary)]"
+              style={{ color: 'var(--mds-color-text-secondary)' }}
+            >
+              ← {isBlogView ? 'Blog' : 'Garden'}
+            </Link>
+            <div
+              className="flex items-center gap-2 tabular-nums"
+              style={{ color: 'var(--mds-color-text-muted)' }}
+            >
+              {displayDate && <span>{displayDate}</span>}
+              {displayDate && <span aria-hidden="true">·</span>}
+              <span>{readingMinutes} MIN READ</span>
+            </div>
+          </div>
+
+          {/* 생장 단계 / 카테고리 / 태그 */}
+          <div className="flex flex-wrap items-center gap-3 mb-3 font-mono text-xs">
             {note.status && (
               <span
                 className="inline-flex items-center gap-1.5 font-bold tracking-[0.16em] uppercase"
@@ -79,8 +108,9 @@ export function UnifiedDetail({
             ))}
           </div>
 
+          {/* 기사 헤드라인 */}
           <h1
-            className="mb-4 text-3xl sm:text-4xl lg:text-5xl font-bold"
+            className="mb-3 text-3xl sm:text-4xl lg:text-[42px] font-bold leading-[1.18] tracking-tight break-keep"
             style={{
               color: 'var(--mds-color-text-primary)',
               fontFamily: 'var(--font-cinematic, serif)',
@@ -89,17 +119,20 @@ export function UnifiedDetail({
             {note.title}
           </h1>
 
-          {(note.publishedDate || note.created) && (
-            <div
-              className="flex items-center gap-4 text-sm"
-              style={{ color: 'var(--mds-color-text-secondary)' }}
+          {/* 리드문(Deck) */}
+          {showDeck && (
+            <p
+              className="text-base sm:text-lg italic leading-relaxed break-keep"
+              style={{
+                color: 'var(--mds-color-text-secondary)',
+                fontFamily: 'var(--font-cinematic, serif)',
+              }}
             >
-              <span>{note.publishedDate || note.created}</span>
-            </div>
+              {note.excerpt}
+            </p>
           )}
 
           <HairlineRule thick className="mt-6" />
-          {/* Future slot: TL;DR & Audio Player (BLOG-24) */}
         </header>
 
         {showCollapsibleToc && (
@@ -122,7 +155,7 @@ export function UnifiedDetail({
         </div>
 
         {seriesContext && (
-          <div className="mt-16 mb-8">
+          <div className="mt-14 mb-8">
             <SeriesNav
               series={seriesContext.series}
               seriesOrder={seriesContext.seriesOrder}
@@ -148,14 +181,14 @@ export function UnifiedDetail({
 
         {isBlogView && (
           <div
-            className="mt-12 pt-8 border-t"
+            className="mt-12 pt-6 border-t"
             style={{ borderColor: 'var(--mds-color-border-default)' }}
           >
             <h3
-              className="text-lg font-semibold mb-4"
-              style={{ color: 'var(--mds-color-text-primary)' }}
+              className="font-mono text-xs uppercase tracking-widest mb-4"
+              style={{ color: 'var(--mds-color-text-muted)' }}
             >
-              Share this post
+              SHARE THIS DISPATCH
             </h3>
             <ShareButtons title={note.title} url={currentUrl} />
           </div>
