@@ -290,14 +290,14 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
       >
         <div className="flex items-center justify-between pb-3 mb-3 border-b border-[var(--mds-color-border-subtle)]">
           <span
-            className="text-[11px] font-bold tracking-wider uppercase"
+            className="text-xs font-bold tracking-wider uppercase"
             style={{ color: 'var(--mds-color-brand-primary)' }}
           >
             STAGE FILTER • 생장 단계별 표본 서랍
           </span>
           <div className="flex items-center gap-3">
             <span
-              className="text-[11px] tabular-nums"
+              className="text-xs tabular-nums"
               style={{ color: 'var(--mds-color-text-muted)' }}
             >
               {filteredNotes.length} / {initialNotes.length} 표본
@@ -306,7 +306,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
               type="button"
               onClick={() => setShowGraph((v) => !v)}
               aria-expanded={showGraph}
-              className="px-2.5 py-1 border text-[11px] font-medium transition-colors hover:bg-[var(--mds-color-bg-overlay)]"
+              className="px-2.5 py-1 border text-xs font-medium transition-colors hover:bg-[var(--mds-color-bg-overlay)]"
               style={{
                 borderColor: 'var(--mds-color-text-primary)',
                 color: 'var(--mds-color-text-primary)',
@@ -340,7 +340,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
           >
             <span className="font-semibold">전체 표본</span>
             <span
-              className="text-[10px] px-1.5 py-0.5 "
+              className="text-xs px-1.5 py-0.5 "
               style={{
                 backgroundColor: 'var(--mds-color-bg-overlay)',
                 color: 'var(--mds-color-text-muted)',
@@ -383,7 +383,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
                   <span className="font-semibold">{st.nameEn}</span>
                 </div>
                 <span
-                  className="text-[10px] px-1.5 py-0.5 "
+                  className="text-xs px-1.5 py-0.5 "
                   style={{
                     backgroundColor: 'var(--mds-color-bg-overlay)',
                     color: 'var(--mds-color-text-muted)',
@@ -444,7 +444,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
                 }}
               >
                 <span>{dom.nameEn}</span>
-                <span className="text-[10px] opacity-60">({count})</span>
+                <span className="text-xs opacity-60">({count})</span>
               </button>
             );
           })}
@@ -491,7 +491,7 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
           aria-label="Knowledge Graph Plate"
         >
           <div
-            className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 border-b text-[11px]"
+            className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 border-b text-xs"
             style={{
               borderColor: 'var(--mds-color-border-subtle)',
               color: 'var(--mds-color-text-muted)',

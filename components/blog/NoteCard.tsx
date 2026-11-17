@@ -38,7 +38,7 @@ export function NoteCard({ note }: { note: Note }) {
     >
       <div>
         {/* 상단 메타: 생장 단계 · 날짜 */}
-        <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--mds-color-border-subtle)] font-mono text-[11px]">
+        <div className="flex items-center justify-between gap-2 pb-3 mb-3 border-b border-[var(--mds-color-border-subtle)] font-mono text-xs">
           {stage ? (
             <span
               className="inline-flex items-center gap-1.5 font-bold tracking-[0.14em] uppercase"
@@ -67,7 +67,7 @@ export function NoteCard({ note }: { note: Note }) {
         {/* 슬러그 + 제목 + 요약 */}
         <div className="space-y-1.5">
           <div
-            className="font-mono text-[11px] truncate"
+            className="font-mono text-xs truncate"
             style={{ color: 'var(--mds-color-text-muted)' }}
           >
             [[{note.slug}]]
@@ -90,7 +90,7 @@ export function NoteCard({ note }: { note: Note }) {
       </div>
 
       {/* 하단: 태그 + 이동 화살표 */}
-      <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--mds-color-border-subtle)] font-mono text-[11px]">
+      <div className="flex items-center justify-between gap-2 pt-4 mt-4 border-t border-[var(--mds-color-border-subtle)] font-mono text-xs">
         <span
           className="truncate"
           style={{ color: 'var(--mds-color-text-muted)' }}

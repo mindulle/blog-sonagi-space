@@ -151,7 +151,7 @@ export function SpecimenLabel({
               </div>
             )}
             <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs tabular-nums mb-1">
+              <div className="flex flex-wrap items-center gap-2 text-xs tabular-nums mb-1">
                 <span
                   className="font-bold tracking-wider uppercase px-1.5 py-0.5 rounded-[2px] shrink-0"
                   style={{
@@ -171,14 +171,14 @@ export function SpecimenLabel({
               <div className="text-sm sm:text-base font-bold tracking-tight text-[var(--mds-color-text-primary)] leading-snug">
                 {title}
               </div>
-              <div className="text-[11px] sm:text-xs italic tracking-normal mt-0.5 text-[var(--mds-color-text-secondary)]">
+              <div className="text-xs italic tracking-normal mt-0.5 text-[var(--mds-color-text-secondary)]">
                 {scientificName}
               </div>
             </div>
           </div>
 
           <div
-            className="flex flex-row sm:flex-col justify-between sm:justify-start text-[11px] sm:text-xs sm:text-right tabular-nums pt-3 sm:pt-0 border-t sm:border-t-0 sm:border-l sm:pl-4 shrink-0 gap-1.5"
+            className="flex flex-row sm:flex-col justify-between sm:justify-start text-xs sm:text-right tabular-nums pt-3 sm:pt-0 border-t sm:border-t-0 sm:border-l sm:pl-4 shrink-0 gap-1.5"
             style={{ borderColor: 'var(--mds-color-border-subtle)' }}
           >
             <div>
@@ -256,7 +256,7 @@ export function SpecimenLabel({
       >
         <div className="flex flex-col gap-1 min-w-0 flex-1">
           <span
-            className="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase"
+            className="text-xs font-bold tracking-widest uppercase"
             style={{ color: 'var(--color-brand-primary)' }}
           >
             HERBARIUM SPECIMEN SHEET
@@ -268,7 +268,7 @@ export function SpecimenLabel({
             {title}
           </h3>
           <p
-            className="text-[11px] sm:text-xs italic tracking-normal truncate"
+            className="text-xs italic tracking-normal truncate"
             style={{ color: 'var(--color-text-muted)' }}
           >
             {scientificName}
@@ -296,7 +296,7 @@ export function SpecimenLabel({
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 sm:gap-y-3.5 gap-x-4 pt-3 sm:pt-4 text-xs tabular-nums">
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
+            className="text-xs uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             SPECIMEN NO.
@@ -311,7 +311,7 @@ export function SpecimenLabel({
 
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
+            className="text-xs uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             HARVEST DATE
@@ -326,7 +326,7 @@ export function SpecimenLabel({
 
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
+            className="text-xs uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             GROWTH STAGE
@@ -341,7 +341,7 @@ export function SpecimenLabel({
 
         <div className="flex flex-col gap-0.5">
           <span
-            className="text-[9px] sm:text-[10px] uppercase tracking-wider font-semibold"
+            className="text-xs uppercase tracking-wider font-semibold"
             style={{ color: 'var(--color-text-muted)' }}
           >
             HABITAT / MEDIUM
@@ -357,7 +357,7 @@ export function SpecimenLabel({
 
       {/* Footer: Curatorial Verification Bar with Embossed Seal */}
       <footer
-        className="mt-4 sm:mt-5 pt-3 flex items-center justify-between text-[10px] sm:text-[11px] border-t"
+        className="mt-4 sm:mt-5 pt-3 flex items-center justify-between text-xs border-t"
         style={{ borderColor: 'var(--color-border-subtle)' }}
       >
         <div className="flex items-center gap-1.5">
@@ -371,7 +371,7 @@ export function SpecimenLabel({
         </div>
         <div className="flex items-center gap-2.5">
           <span
-            className="text-[9px] sm:text-[10px] uppercase tracking-wider hidden sm:inline"
+            className="text-xs uppercase tracking-wider hidden sm:inline"
             style={{ color: 'var(--color-text-muted)' }}
           >
             MDS v0.1.0 • BOTANICAL SSOT
