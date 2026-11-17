@@ -115,12 +115,10 @@ export function WikiLinkPreview({ children, slug, href, fetchNote }: Props) {
       {visible && (
         <span
           role="tooltip"
-          className="absolute z-[500] bottom-full mb-2 left-1/2 -translate-x-1/2 w-80 p-4 flex flex-col gap-2 rounded-xl pointer-events-none transition-all duration-200"
+          className="absolute z-[500] bottom-full mb-2 left-1/2 -translate-x-1/2 w-80 p-4 flex flex-col gap-2 rounded-none pointer-events-none transition-all duration-200"
           style={{
-            backgroundColor: 'var(--mds-color-bg-elevated)',
-            border: '1px solid var(--mds-color-border-subtle)',
-            boxShadow:
-              'var(--mds-shadow-raised, 0 8px 24px -4px rgba(0, 0, 0, 0.12))',
+            backgroundColor: 'var(--mds-color-bg-surface)',
+            border: '1px solid var(--mds-color-border-default)',
           }}
         >
           {loading ? (

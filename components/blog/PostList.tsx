@@ -50,7 +50,7 @@ export function PostList({ posts }: PostListProps) {
                 )}
                 {stage && (
                   <span
-                    className="inline-flex items-center gap-1 text-[10px] font-bold tracking-[0.16em] uppercase"
+                    className="inline-flex items-center gap-1 text-xs font-bold tracking-[0.16em] uppercase"
                     style={{ color: 'var(--mds-color-brand-primary)' }}
                   >
                     <GrowthGlyph

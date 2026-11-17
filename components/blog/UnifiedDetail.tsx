@@ -12,7 +12,7 @@ import { HairlineRule, EndMark } from '@/components/editorial';
 
 import { extractHeadings } from '@/lib/headings';
 import { getSeriesContext } from '@/lib/series';
-import type { NoteWithContent } from '@/lib/notes';
+import { getAllNotes, type NoteWithContent } from '@/lib/notes';
 
 interface UnifiedDetailProps {
   note: NoteWithContent;
@@ -30,6 +30,21 @@ export function UnifiedDetail({
   const h2Count = headings.filter((h) => h.level === 2).length;
   const showCollapsibleToc = h2Count >= 4;
   const seriesContext = getSeriesContext(note.series, note.slug);
+  const relatedNotes = !seriesContext
+    ? getAllNotes()
+        .filter((n) => n.slug !== note.slug)
+        .map((n) => {
+          let score = 0;
+          if (note.category && n.category === note.category) score += 3;
+          const shared = n.tags.filter((t) => note.tags.includes(t)).length;
+          score += shared;
+          return { n, score };
+        })
+        .filter((x) => x.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+        .map((x) => x.n)
+    : [];
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000';
   const currentUrl = `${siteUrl}/${isBlogView ? 'blog' : 'notes'}/${note.slug}`;
 
@@ -99,12 +114,14 @@ export function UnifiedDetail({
               </Link>
             )}
             {note.tags.slice(0, 3).map((tag) => (
-              <span
+              <Link
                 key={tag}
+                href={`/notes?tag=${encodeURIComponent(tag)}`}
+                className="hover:underline transition-colors"
                 style={{ color: 'var(--mds-color-text-muted)' }}
               >
                 #{tag}
-              </span>
+              </Link>
             ))}
           </div>
 
@@ -166,6 +183,49 @@ export function UnifiedDetail({
               currentSlug={note.slug}
             />
           </div>
+        )}
+
+        {relatedNotes.length > 0 && (
+          <section
+            className="mt-12 pt-6 border-t"
+            style={{ borderColor: 'var(--mds-color-border-default)' }}
+          >
+            <h3
+              className="font-mono text-xs uppercase tracking-widest mb-4"
+              style={{ color: 'var(--mds-color-brand-primary)' }}
+            >
+              FURTHER READING • 관련 기록
+            </h3>
+            <div
+              className="divide-y border-b"
+              style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+            >
+              {relatedNotes.map((rel) => (
+                <Link
+                  key={rel.slug}
+                  href={isBlogView && rel.published ? `/blog/${rel.slug}` : `/notes/${rel.slug}`}
+                  className="group flex items-baseline justify-between gap-4 py-3 transition-colors hover:bg-[var(--mds-color-bg-surface)] px-2 -mx-2"
+                  style={{ borderColor: 'var(--mds-color-border-subtle)' }}
+                >
+                  <span
+                    className="font-medium text-sm sm:text-base group-hover:text-[var(--mds-color-brand-primary)] transition-colors"
+                    style={{
+                      color: 'var(--mds-color-text-primary)',
+                      fontFamily: 'var(--font-cinematic, serif)',
+                    }}
+                  >
+                    {rel.title}
+                  </span>
+                  <span
+                    className="font-mono text-xs shrink-0 uppercase"
+                    style={{ color: 'var(--mds-color-text-muted)' }}
+                  >
+                    {rel.category || 'note'}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </section>
         )}
 
         {backlinks.length > 0 && (

@@ -10,7 +10,13 @@ export const metadata = {
     '민들레 정원(Mindulle Garden). 척박한 바위 틈에서도 단단히 뿌리내리고 자라나는 생각의 기록과 유기적 지식 네트워크입니다.',
 };
 
-export default async function NotesPage() {
+export default async function NotesPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ tag?: string; category?: string }>;
+}) {
+  const resolved = searchParams ? await searchParams : {};
+  const initialTag = resolved.tag ?? null;
   const allNotes = getAllNotes();
 
   return (
@@ -24,7 +30,7 @@ export default async function NotesPage() {
       {/* 헤더: 에디토리얼 판권 바 + 타이틀 */}
       <header className="mb-10 sm:mb-12">
         <div
-          className="flex flex-wrap items-center justify-between gap-2 py-2.5 mb-8 border-y font-mono text-[10px] tracking-[0.22em] uppercase"
+          className="flex flex-wrap items-center justify-between gap-2 py-2.5 mb-8 border-y font-mono text-xs tracking-[0.22em] uppercase"
           style={{
             borderColor: 'var(--mds-color-border-subtle)',
             color: 'var(--mds-color-text-secondary)',
@@ -65,7 +71,7 @@ export default async function NotesPage() {
       </header>
 
       {/* 필터 및 1px 헤어라인 목록 */}
-      <NotesGarden initialNotes={allNotes} />
+      <NotesGarden initialNotes={allNotes} initialTag={initialTag} />
 
       <div className="mt-14">
         <EndMark />
