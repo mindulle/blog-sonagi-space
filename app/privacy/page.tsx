@@ -124,11 +124,11 @@ export default function PrivacyPage() {
             <p className="mt-2">
               이메일:{' '}
               <a
-                href="mailto:hello@sonagi.space"
+                href="mailto:mindulle@sonagi.space"
                 className="hover:underline"
                 style={{ color: 'var(--mds-color-brand-primary)' }}
               >
-                hello@sonagi.space
+                mindulle@sonagi.space
               </a>
             </p>
           </section>

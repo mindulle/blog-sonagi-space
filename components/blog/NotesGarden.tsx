@@ -10,6 +10,7 @@ import type { Note } from '@/lib/notes';
 interface NotesGardenProps {
   initialNotes: Note[];
   initialTag?: string | null;
+  initialCategory?: string | null;
 }
 
 interface DomainCategory {
@@ -122,9 +123,10 @@ function fetchGardenGraph(): Promise<GraphData> {
   return cachedGardenGraphPromise;
 }
 
-export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProps) {
+export function NotesGarden({ initialNotes, initialTag = null, initialCategory = null }: NotesGardenProps) {
   const [selectedStage, setSelectedStage] = useState<string | null>(null);
   const [selectedTag, setSelectedTag] = useState<string | null>(initialTag);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(initialCategory);
   const [selectedDomain, setSelectedDomain] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [showGraph, setShowGraph] = useState(false);
@@ -187,6 +189,10 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
     if (!initialNotes) return [];
     return initialNotes.filter((note) => {
       // 생장 단계 필터
+      if (selectedCategory) {
+        const noteCat = (note as { category?: string }).category;
+        if (!noteCat || noteCat.toLowerCase() !== selectedCategory.toLowerCase()) return false;
+      }
       if (selectedTag) {
         const hasTag = note.tags?.some((t) => t.toLowerCase() === selectedTag.toLowerCase());
         if (!hasTag) return false;
@@ -226,11 +232,11 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
 
       return true;
     });
-  }, [initialNotes, selectedTag, selectedStage, selectedDomain, searchQuery]);
+  }, [initialNotes, selectedTag, selectedCategory, selectedStage, selectedDomain, searchQuery]);
 
   const filteredGraphData = useMemo(() => {
     if (!graphData) return null;
-    const isFiltered = Boolean(selectedTag || selectedStage || selectedDomain || searchQuery.trim());
+    const isFiltered = Boolean(selectedTag || selectedCategory || selectedStage || selectedDomain || searchQuery.trim());
     if (!isFiltered) return graphData;
 
     const activeSlugs = new Set(filteredNotes.map((n) => n.slug));
@@ -253,10 +259,31 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
       nodes: graphData.nodes.filter((n) => visibleIds.has(n.id)),
       links,
     };
-  }, [graphData, filteredNotes, selectedTag, selectedStage, selectedDomain, searchQuery]);
+  }, [graphData, filteredNotes, selectedTag, selectedCategory, selectedStage, selectedDomain, searchQuery]);
 
   return (
     <div className="space-y-8 font-mono">
+      {selectedCategory && (
+        <div
+          className="mb-4 flex items-center justify-between px-3 py-2 border font-mono text-xs"
+          style={{
+            backgroundColor: 'var(--mds-color-bg-surface)',
+            borderColor: 'var(--mds-color-border-default)',
+            color: 'var(--mds-color-text-secondary)',
+          }}
+        >
+          <span>
+            CATEGORY FILTER: <strong style={{ color: 'var(--mds-color-brand-primary)' }}>{selectedCategory.toUpperCase()}</strong>
+          </span>
+          <button
+            type="button"
+            onClick={() => setSelectedCategory(null)}
+            className="underline hover:opacity-80"
+          >
+            필터 해제 ×
+          </button>
+        </div>
+      )}
       {selectedTag && (
         <div
           className="mb-4 flex items-center justify-between px-3 py-2 border font-mono text-xs"
