@@ -1,31 +1,5 @@
 import type { Metadata } from 'next';
-import {
-  Cormorant_Garamond,
-  JetBrains_Mono,
-  Noto_Serif_KR,
-} from 'next/font/google';
 import './globals.css';
-
-const cormorantGaramond = Cormorant_Garamond({
-  variable: '--mds-font-cinematic',
-  subsets: ['latin'],
-  weight: ['400', '600', '700'],
-  display: 'swap',
-});
-
-const jetbrainsMono = JetBrains_Mono({
-  variable: '--mds-font-mono',
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
-});
-
-const notoSerifKR = Noto_Serif_KR({
-  variable: '--mds-font-serif-kr',
-  subsets: ['latin'],
-  weight: ['500', '600', '700'],
-  display: 'swap',
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(
@@ -90,7 +64,7 @@ export default function RootLayout({
   return (
     <html lang="ko" suppressHydrationWarning>
       <body
-        className={`${cormorantGaramond.variable} ${jetbrainsMono.variable} ${notoSerifKR.variable} antialiased`}
+        className="antialiased"
       >
         <ThemeProvider
           attribute="data-theme"
