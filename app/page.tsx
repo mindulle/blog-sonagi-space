@@ -102,6 +102,9 @@ export default function Home() {
     0,
     10
   );
+  const leadExcerptChars = Array.from((leadNote?.excerpt || '').trim());
+  const leadDropCap = leadExcerptChars[0] || '';
+  const leadExcerptRest = leadExcerptChars.slice(1).join('');
 
   return (
     <>
@@ -144,13 +147,13 @@ export default function Home() {
                       </h2>
                     </Link>
 
-                    {leadNote.excerpt && (
+                    {leadDropCap && (
                       <div className="mt-5 text-base sm:text-[17px] leading-[1.75] font-serif keep-all">
-                        <DropCap letter={leadNote.excerpt.charAt(0)} className="mr-3" />
+                        <DropCap letter={leadDropCap} className="mr-3" />
                         <p
                           style={{ color: 'var(--mds-color-text-secondary)' }}
                         >
-                          {leadNote.excerpt.slice(1)}
+                          {leadExcerptRest}
                         </p>
                       </div>
                     )}
