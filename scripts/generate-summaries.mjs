@@ -19,7 +19,7 @@ function extractExcerpt(content, maxLength = 150) {
   const firstParagraph = content
     .replace(/^---[\s\S]*?---\n/, '') 
     .replace(/#+\s.*\n/g, '')          
-    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, alias) => alias || target)
+    .replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (_, target, alias) => (alias || target).replace(/_/g, ' '))
     .replace(/^>\s?/gm, '')
     .replace(/\*\*([^*]+)\*\*/g, '$1')
     .replace(/\*([^*]+)\*/g, '$1')

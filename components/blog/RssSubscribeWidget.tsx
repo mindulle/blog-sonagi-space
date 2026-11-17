@@ -131,8 +131,8 @@ export function RssSubscribeWidget({
 
   return (
     <Card
-      elevation="raised"
-      className={`p-6 sm:p-8 flex flex-col gap-6 ${className}`}
+      elevation="flat"
+      className={`p-6 sm:p-8 flex flex-col gap-6 shadow-none ${className}`}
       style={{
         backgroundColor: 'var(--mds-color-bg-surface)',
         borderColor: 'var(--mds-color-border-default)',
@@ -247,11 +247,11 @@ export function RssSubscribeWidget({
       >
         <span>지원 리더기:</span>
         <div className="flex flex-wrap items-center gap-1.5">
-          <Badge variant="label">Feedly</Badge>
-          <Badge variant="label">Inoreader</Badge>
-          <Badge variant="label">NetNewsWire</Badge>
-          <Badge variant="label">Apple News</Badge>
-          <Badge variant="label">Follow</Badge>
+          <Badge variant="label" color="warning" className="border border-[var(--mds-color-border-subtle)] !bg-transparent !text-[var(--mds-color-text-secondary)]">Feedly</Badge>
+          <Badge variant="label" color="warning" className="border border-[var(--mds-color-border-subtle)] !bg-transparent !text-[var(--mds-color-text-secondary)]">Inoreader</Badge>
+          <Badge variant="label" color="warning" className="border border-[var(--mds-color-border-subtle)] !bg-transparent !text-[var(--mds-color-text-secondary)]">NetNewsWire</Badge>
+          <Badge variant="label" color="warning" className="border border-[var(--mds-color-border-subtle)] !bg-transparent !text-[var(--mds-color-text-secondary)]">Apple News</Badge>
+          <Badge variant="label" color="warning" className="border border-[var(--mds-color-border-subtle)] !bg-transparent !text-[var(--mds-color-text-secondary)]">Follow</Badge>
         </div>
       </div>
     </Card>
