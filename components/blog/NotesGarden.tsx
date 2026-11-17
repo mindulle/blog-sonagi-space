@@ -93,9 +93,17 @@ const BOTANICAL_STAGES: Array<{
   { id: 'pappus', nameKo: '비상 홀씨', nameEn: 'Pappus' },
 ];
 
+interface GraphNode {
+  id: string;
+  title: string;
+  visibility: string;
+  summary: string;
+  val: number;
+}
+
 interface GraphData {
-  nodes: Array<{ id: string; title: string; visibility: string; summary: string; val: number }>;
-  links: Array<{ source: any; target: any }>;
+  nodes: GraphNode[];
+  links: Array<{ source: string | GraphNode; target: string | GraphNode }>;
 }
 
 let cachedGardenGraphPromise: Promise<GraphData> | null = null;
@@ -121,20 +129,16 @@ export function NotesGarden({ initialNotes, initialTag = null }: NotesGardenProp
   const [searchQuery, setSearchQuery] = useState('');
   const [showGraph, setShowGraph] = useState(false);
   const [graphData, setGraphData] = useState<GraphData | null>(null);
-  const [graphLoading, setGraphLoading] = useState(false);
+  const graphLoading = showGraph && !graphData;
 
   useEffect(() => {
     if (!showGraph || graphData) return;
     let active = true;
-    setGraphLoading(true);
     fetchGardenGraph()
       .then((d) => {
         if (active) setGraphData(d);
       })
-      .catch(() => {})
-      .finally(() => {
-        if (active) setGraphLoading(false);
-      });
+      .catch(() => {});
     return () => {
       active = false;
     };
