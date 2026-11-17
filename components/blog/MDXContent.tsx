@@ -70,6 +70,24 @@ const components = {
       {children}
     </h2>
   ),
+  pre: ({ children, className = "", ...rest }: React.HTMLAttributes<HTMLPreElement>) => (
+    <pre
+      {...rest}
+      className={`overflow-x-auto max-w-full border border-[var(--mds-color-border-default)] rounded-none ${className}`}
+    >
+      {children}
+    </pre>
+  ),
+  img: ({ src, alt = "", className = "", ...rest }: React.ImgHTMLAttributes<HTMLImageElement>) => (
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      decoding="async"
+      className={`max-w-full h-auto my-6 border border-[var(--mds-color-border-default)] ${className}`}
+      {...rest}
+    />
+  ),
   blockquote: ({ children, className = '', style, ...rest }: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
       {...rest}
