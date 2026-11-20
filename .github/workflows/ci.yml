@@ -40,6 +40,9 @@ jobs:
       - name: Run Linter
         run: pnpm run lint
 
+      - name: Lint design tokens (no arbitrary values)
+        run: pnpm run lint:tokens
+
       - name: Run Tests
         run: pnpm run test -- --run || echo "No tests configured or tests failed" # Vitest 1회 실행
 

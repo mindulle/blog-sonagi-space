@@ -1,0 +1,157 @@
+{
+  "app/about/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 44
+    }
+  },
+  "app/blog/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 1
+    }
+  },
+  "app/notes/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 1
+    }
+  },
+  "app/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 10
+    }
+  },
+  "app/projects/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 9
+    }
+  },
+  "app/series/[id]/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 15
+    }
+  },
+  "app/series/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 16
+    }
+  },
+  "components/blog/HerbariumTexture.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 1
+    }
+  },
+  "components/blog/LocalGraph.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 6
+    }
+  },
+  "components/blog/MDXContent.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 7
+    }
+  },
+  "components/blog/NoteCard.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 4
+    }
+  },
+  "components/blog/NotesGarden.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 6
+    }
+  },
+  "components/blog/PostHeader.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 2
+    }
+  },
+  "components/blog/PostList.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 3
+    }
+  },
+  "components/blog/PostPreviewCard.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 3
+    }
+  },
+  "components/blog/RssSubscribeWidget.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 10
+    }
+  },
+  "components/blog/SearchResults/SearchResults.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 11
+    }
+  },
+  "components/blog/SeriesNav.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 4
+    }
+  },
+  "components/blog/SeriesTableOfContents.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 4
+    }
+  },
+  "components/blog/SpecimenLabel.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 8
+    }
+  },
+  "components/blog/UnifiedDetail.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 14
+    }
+  },
+  "components/blog/WikiGraph.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 1
+    }
+  },
+  "components/blog/WikiLinkPreview.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 3
+    }
+  },
+  "components/editorial/DropCap.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 1
+    }
+  },
+  "components/editorial/EditorialColumn.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 3
+    }
+  },
+  "components/editorial/EndMark.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 1
+    }
+  },
+  "components/editorial/GazetteMasthead.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 19
+    }
+  },
+  "components/editorial/HairlineRule.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 6
+    }
+  },
+  "components/layout/Footer.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 12
+    }
+  },
+  "components/layout/Header.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 4
+    }
+  },
+  "components/ui/Logo.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 2
+    }
+  }
+}
