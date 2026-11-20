@@ -22,6 +22,8 @@ jobs:
         with:
           # 블로그 글(notes)과 기획 문서들의 깨진 링크를 검사합니다.
           # GitHub 속도 제한 방지를 위해 github.com 링크 등은 캐시를 사용합니다.
-          args: '--cache --max-cache-age 1d "content/notes/**/*.md" "docs/**/*.md" "README.md"'
+          # Next.js 는 public/ 을 사이트 루트로 서빙하므로, 글에서 쓰는 /경로 링크는
+          # public/ 기준으로 해석해야 깨진 링크로 오탐되지 않습니다.
+          args: '--cache --max-cache-age 1d --root-dir public "content/notes/**/*.md" "docs/**/*.md" "README.md"'
           # 깨진 링크 발견 시 파이프라인을 실패시킵니다.
           fail: true
