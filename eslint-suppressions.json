@@ -19,6 +19,11 @@
       "count": 10
     }
   },
+  "app/projects/page.tsx": {
+    "tailwindcss/no-arbitrary-value": {
+      "count": 9
+    }
+  },
   "app/series/[id]/page.tsx": {
     "tailwindcss/no-arbitrary-value": {
       "count": 15
@@ -41,7 +46,7 @@
   },
   "components/blog/MDXContent.tsx": {
     "tailwindcss/no-arbitrary-value": {
-      "count": 10
+      "count": 7
     }
   },
   "components/blog/NoteCard.tsx": {
