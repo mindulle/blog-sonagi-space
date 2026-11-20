@@ -170979,6 +170979,13 @@
       "visibility": "private",
       "val": 1,
       "group": "orphan"
+    },
+    {
+      "id": "case-study-editorial-system",
+      "title": "조판 규칙을 코드로 강제한 지면 — 민들레 정원 케이스 스터디",
+      "visibility": "public",
+      "val": 1,
+      "group": "design"
     }
   ],
   "links": [
