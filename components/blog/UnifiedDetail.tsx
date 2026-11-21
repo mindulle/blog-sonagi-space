@@ -8,6 +8,7 @@ import { ShareButtons } from './ShareButtons';
 import { ReadingProgress } from './ReadingProgress';
 import { GrowthGlyph, normalizeStage } from './GrowthGlyph';
 import { SeriesNav } from './SeriesNav';
+import { LocalGraph } from './LocalGraph';
 import { HairlineRule, EndMark } from '@/components/editorial';
 
 import { extractHeadings } from '@/lib/headings';
@@ -235,6 +236,17 @@ export function UnifiedDetail({
               defaultExpanded={false}
             >
               <BacklinksSection backlinks={backlinks} embedded />
+            </CollapsibleSection>
+          </div>
+        )}
+
+        {!isBlogView && (
+          <div className="mt-8">
+            <CollapsibleSection
+              title="로컬 지식 지도 보기"
+              defaultExpanded={false}
+            >
+              <LocalGraph slug={note.slug} />
             </CollapsibleSection>
           </div>
         )}

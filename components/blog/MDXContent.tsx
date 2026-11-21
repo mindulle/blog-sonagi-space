@@ -46,6 +46,64 @@ function rehypeCustomSlug() {
   };
 }
 
+
+const CALLOUT_RE = /^\[!(note|tip|warning|info|important)\]\s*/i;
+
+function rehypeObsidianFeatures() {
+  return (tree: Root) => {
+    // 1. Transform > [!note] / [!tip] / [!warning] / [!info] blockquotes
+    visit(tree, 'element', (node: Element) => {
+      if (node.tagName !== 'blockquote') return;
+      const firstP = node.children.find(
+        (c): c is Element => c.type === 'element' && c.tagName === 'p'
+      );
+      if (!firstP || firstP.children.length === 0) return;
+      const firstText = firstP.children[0];
+      if (firstText.type !== 'text') return;
+      const match = firstText.value.match(CALLOUT_RE);
+      if (!match) return;
+
+      node.properties = node.properties ?? {};
+      node.properties['data-callout'] = match[1].toLowerCase();
+      firstText.value = firstText.value.slice(match[0].length);
+    });
+
+    // 2. Transform ==highlight== in text nodes (excluding code/pre)
+    visit(tree, 'text', (node: Text, index, parent) => {
+      if (index === undefined || !parent || !('children' in parent)) return;
+      if (parent.type === 'element' && (parent.tagName === 'code' || parent.tagName === 'pre')) {
+        return;
+      }
+      if (!node.value.includes('==')) return;
+
+      const parts = node.value.split(/(==[^=]+==)/g);
+      if (parts.length <= 1) return;
+
+      const replacement = parts
+        .filter((part) => part.length > 0)
+        .map((part) => {
+          if (part.startsWith('==') && part.endsWith('==') && part.length > 4) {
+            return {
+              type: 'element',
+              tagName: 'mark',
+              properties: {
+                className: [
+                  'px-1',
+                  'bg-[color-mix(in_srgb,var(--mds-color-brand-primary)_20%,transparent)]',
+                  'text-[var(--mds-color-text-primary)]',
+                ],
+              },
+              children: [{ type: 'text', value: part.slice(2, -2) }],
+            } as Element;
+          }
+          return { type: 'text', value: part } as Text;
+        });
+
+      parent.children.splice(index, 1, ...replacement);
+    });
+  };
+}
+
 // HoverPreview에서 노트를 가져오기 위한 Server Action (또는 헬퍼)
 async function fetchNoteSummary(slug: string) {
   'use server';
@@ -88,15 +146,39 @@ const components = {
       {...rest}
     />
   ),
-  blockquote: ({ children, className = '', style, ...rest }: React.HTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote
-      {...rest}
-      className={`my-7 border-l-2 border-[var(--mds-color-brand-primary)] pl-5 py-1 not-italic text-[var(--mds-color-text-secondary)] ${className}`}
-      style={{ fontFamily: 'var(--font-cinematic, serif)', ...style }}
-    >
-      {children}
-    </blockquote>
-  ),
+  blockquote: ({
+    children,
+    className = '',
+    style,
+    ...rest
+  }: React.BlockquoteHTMLAttributes<HTMLQuoteElement> & { 'data-callout'?: string }) => {
+    const calloutType = rest['data-callout'];
+    if (calloutType) {
+      return (
+        <aside
+          data-callout={calloutType}
+          className={`my-6 p-4 border border-[var(--mds-color-border-default)] border-l-2 border-l-[var(--mds-color-brand-primary)] rounded-none bg-[var(--mds-color-bg-surface)] ${className}`}
+        >
+          <div
+            className="font-mono text-xs font-bold uppercase tracking-wider mb-1.5"
+            style={{ color: 'var(--mds-color-brand-primary)' }}
+          >
+            {calloutType}
+          </div>
+          <div className="[&>p]:my-0 text-sm leading-relaxed">{children}</div>
+        </aside>
+      );
+    }
+    return (
+      <blockquote
+        {...rest}
+        className={`my-7 border-l-2 border-[var(--mds-color-brand-primary)] pl-5 py-1 not-italic text-[var(--mds-color-text-secondary)] ${className}`}
+        style={{ fontFamily: 'var(--font-cinematic, serif)', ...style }}
+      >
+        {children}
+      </blockquote>
+    );
+  },
   a: (props: CustomAnchorProps) => {
     const { href, className, 'data-slug': dataSlug, children, ...rest } = props;
 
